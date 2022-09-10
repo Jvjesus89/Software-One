@@ -1,0 +1,16 @@
+program CadastroProduto;
+
+uses
+  Vcl.Forms,
+  Vcl.Themes,
+  Vcl.Styles,
+  CadProd in '..\CadProd.pas' {CadProduto},
+  Dbcadastroproduto in '..\Dbcadastroproduto.pas' {DB};
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TCadProduto, CadProduto);
+  Application.CreateForm(TDB, DB);
+  Application.Run;
+end.

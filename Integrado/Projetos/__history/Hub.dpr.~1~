@@ -1,0 +1,14 @@
+program Hub;
+
+uses
+  Vcl.Forms,
+  TelaPrincipal in '..\TelaPrincipal.pas' {HubPrin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(THubPrin, HubPrin);
+  Application.Run;
+end.

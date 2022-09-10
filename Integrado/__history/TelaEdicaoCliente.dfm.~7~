@@ -1,0 +1,287 @@
+object TelaEdicaoCliente1: TTelaEdicaoCliente1
+  Left = 0
+  Top = 0
+  Caption = 'Edi'#231#227'o Cliente'
+  ClientHeight = 375
+  ClientWidth = 859
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 16
+    Width = 92
+    Height = 19
+    Caption = 'Nome Cliente'
+    FocusControl = NomeClienteCampo
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 648
+    Top = 25
+    Width = 68
+    Height = 19
+    Caption = 'Cpf/CNPJ'
+    FocusControl = DBEdit2
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 74
+    Width = 63
+    Height = 19
+    Caption = 'Endere'#231'o'
+    FocusControl = DBEdit3
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 688
+    Top = 80
+    Width = 54
+    Height = 19
+    Caption = 'Numero'
+    FocusControl = DBEdit4
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 8
+    Top = 142
+    Width = 88
+    Height = 19
+    Caption = 'complemento'
+    FocusControl = DBEdit5
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 688
+    Top = 133
+    Width = 70
+    Height = 19
+    Caption = 'dtcadastro'
+    FocusControl = DBEdit6
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 8
+    Top = 201
+    Width = 43
+    Height = 19
+    Caption = 'Bairro'
+    FocusControl = DBEdit1
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 399
+    Top = 199
+    Width = 47
+    Height = 19
+    Caption = 'Cidade'
+    FocusControl = DBEdit7
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 790
+    Top = 201
+    Width = 20
+    Height = 19
+    Caption = 'UF'
+    FocusControl = DBEdit8
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object NomeClienteCampo: TDBEdit
+    Left = 8
+    Top = 41
+    Width = 616
+    Height = 27
+    DataField = 'nmcliente'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 648
+    Top = 41
+    Width = 199
+    Height = 27
+    DataField = 'cpf_cnpj'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+  end
+  object DBEdit3: TDBEdit
+    Left = 8
+    Top = 96
+    Width = 654
+    Height = 27
+    DataField = 'nmendereco'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBEdit4: TDBEdit
+    Left = 688
+    Top = 96
+    Width = 108
+    Height = 27
+    DataField = 'nrendere'#231'o'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+  end
+  object DBEdit5: TDBEdit
+    Left = 8
+    Top = 158
+    Width = 654
+    Height = 27
+    DataField = 'complemento'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+  end
+  object DBEdit6: TDBEdit
+    Left = 688
+    Top = 158
+    Width = 134
+    Height = 27
+    DataField = 'dtcadastro'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+  end
+  object DBEdit1: TDBEdit
+    Left = 8
+    Top = 224
+    Width = 385
+    Height = 27
+    DataField = 'nmbairro'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+  end
+  object DBEdit7: TDBEdit
+    Left = 399
+    Top = 224
+    Width = 385
+    Height = 27
+    DataField = 'nmcidade'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+  end
+  object DBEdit8: TDBEdit
+    Left = 790
+    Top = 224
+    Width = 30
+    Height = 27
+    DataField = 'nmestado'
+    DataSource = DbClient.Dscliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+  end
+  object Button1: TButton
+    Left = 360
+    Top = 328
+    Width = 75
+    Height = 25
+    Caption = 'Cadastrar'
+    TabOrder = 9
+    OnClick = Button1Click
+  end
+end

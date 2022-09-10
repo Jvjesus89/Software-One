@@ -1,0 +1,24 @@
+program CadastroCliente;
+
+uses
+  Vcl.Forms,
+  CadastroCliente in '..\CadastroCliente.pas' {Form3},
+  DbCliente in '..\DbCliente.pas' {DbClient},
+  TelaCadastoCliente in '..\TelaCadastoCliente.pas' {TelaCadastroCliente},
+  Vcl.Themes,
+  Vcl.Styles,
+  TelaEdicaoCliente in '..\TelaEdicaoCliente.pas' {TelaEdicaoCliente2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TDbClient, DbClient);
+  Application.CreateForm(TTelaCadastroCliente, TelaCadastroCliente);
+  Application.CreateForm(TTelaEdicaoCliente2, TelaEdicaoCliente2);
+  Application.CreateForm(TTelaEdicaoCliente1, TelaEdicaoCliente1);
+  Application.Run;
+end.

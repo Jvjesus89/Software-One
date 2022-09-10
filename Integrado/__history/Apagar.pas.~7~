@@ -1,0 +1,83 @@
+unit Apagar;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TApagar1 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    BotaoNovo: TButton;
+    BotaoExcluir: TButton;
+    DBGrid1: TDBGrid;
+    BotaoEditar: TButton;
+    Button1: TButton;
+    Busca: TEdit;
+    ExportarDados: TButton;
+    procedure BotaoNovoClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure ExportarDadosClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Apagar1: TApagar1;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinapagar, TelaCadastroApagar;
+
+
+
+procedure TApagar1.BotaoNovoClick(Sender: TObject);
+begin
+     TelaCadasrroApagar1.showmodal;
+     DbFinApagar1.Mapagar.close;
+     DbFinApagar1.Mapagar.open;
+end;
+
+procedure TApagar1.Button1Click(Sender: TObject);
+begin
+      DbFinApagar1.Qapagar.close;
+     DbFinApagar1.Qapagar.open;
+    with DbFinApagar1.QApagar do
+    begin
+      close;
+      sql.Clear;
+      sql.Add('Select * From apagar Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
+      open;
+    end;
+end;
+
+procedure TApagar1.ExportarDadosClick(Sender: TObject);
+var
+  sLista: TStringList;
+ nCampo: integer;
+ cLinha : string;
+begin
+  sLista := TstringList.Create;
+  DbFinApagar1.Qapagar1.First;
+  while not DbFinApagar1.Qapagar1.EOF do
+  begin
+    cLinha := '';
+    for nCampo :=0 to DbFinApagar1.Qapagar1.fields.Count-1 do
+    cLinha := cLinha + DbFinApagar1.Qapagar1.Fields[nCampo].DisplayText+';';
+    sLista.Add(cLinha);
+    DbFinApagar1.Qapagar1.Next;
+  end;
+  if FileExists('C:\Sistema\DadosExportados\apagar.csv') then DeleteFile('C:\Sistema\DadosExportados\apagar.csv');
+  sLista.SaveToFile('C:\Sistema\DadosExportados\apagar.csv');
+
+end;
+
+end.

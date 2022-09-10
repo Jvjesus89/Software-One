@@ -1,0 +1,16 @@
+program Sistema;
+
+uses
+  Vcl.Forms,
+  DB in '..\DB.pas' {Banco},
+  TelaLogin in '..\TelaLogin.pas' {TelaLoginU};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TTelaLoginU, TelaLoginU);
+  Application.CreateForm(TBanco, Banco);
+  Application.Run;
+end.

@@ -1,0 +1,23 @@
+program FinAreceber;
+
+uses
+  Vcl.Forms,
+  Areceber in '..\Areceber.pas' {Form1},
+  Dbfinreceber in '..\Dbfinreceber.pas' {Form2},
+  Vcl.Themes,
+  Vcl.Styles,
+  TelaCadastroAreceber in '..\TelaCadastroAreceber.pas' {TelaCadasrroAreceber1},
+  TelaConsultaCliente in '..\TelaConsultaCliente.pas' {TelaConsultaCliente1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TTelaCadasrroAreceber1, TelaCadasrroAreceber1);
+  Application.CreateForm(TTelaConsultaCliente1, TelaConsultaCliente1);
+  Application.Run;
+end.

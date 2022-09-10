@@ -1,0 +1,193 @@
+object CadProduto: TCadProduto
+  Left = 494
+  Top = 0
+  Caption = 
+    '                                                                ' +
+    '                                                 Cadastro Produt' +
+    'o'
+  ClientHeight = 568
+  ClientWidth = 1540
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  Visible = True
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1540
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+    object BtExcluir: TBitBtn
+      Left = 182
+      Top = 1
+      Width = 93
+      Height = 79
+      Align = alLeft
+      Caption = 'Excluir'
+      TabOrder = 0
+      OnClick = BtExcluirClick
+      ExplicitLeft = 188
+      ExplicitTop = -3
+    end
+    object BtNovo: TBitBtn
+      Left = 1
+      Top = 1
+      Width = 88
+      Height = 79
+      Align = alLeft
+      Caption = 'Novo'
+      TabOrder = 1
+      OnClick = BtNovoClick
+    end
+    object BtEditar: TBitBtn
+      Left = 89
+      Top = 1
+      Width = 93
+      Height = 79
+      Align = alLeft
+      Caption = 'Editar'
+      TabOrder = 2
+      OnClick = BtEditarClick
+      ExplicitLeft = 83
+      ExplicitTop = -3
+    end
+  end
+  object Panel2: TPanel
+    Left = 1261
+    Top = 81
+    Width = 279
+    Height = 487
+    Align = alRight
+    TabOrder = 1
+    object BuscaProduto: TLabel
+      Left = 24
+      Top = 6
+      Width = 97
+      Height = 19
+      Caption = 'Busca Produto'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Busca: TEdit
+      Left = 24
+      Top = 31
+      Width = 225
+      Height = 21
+      TabOrder = 0
+      OnChange = BuscaChange
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 81
+    Width = 1264
+    Height = 487
+    Align = alLeft
+    TabOrder = 2
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 1263
+      Height = 485
+      Margins.Left = 10
+      Margins.Top = 10
+      Margins.Right = 10
+      Align = alLeft
+      DataSource = Dbprod.DsProduto
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'cdproduto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Width = 70
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmproduto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Width = 505
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmfamiliaproduto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Width = 442
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'vlproduto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Title.Caption = 'valor unitario'
+          Width = 72
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'stproduto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Width = 53
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'dtcadastro'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Width = 100
+          Visible = True
+        end>
+    end
+  end
+end

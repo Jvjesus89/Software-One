@@ -1,0 +1,51 @@
+unit Dbfinreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG,
+  FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
+  FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, Datasnap.Provider,
+  Datasnap.DBClient, FireDAC.Comp.Client, FireDAC.Comp.DataSet;
+
+type
+  TForm2 = class(TForm)
+    DbFin: TFDConnection;
+    QAreceber: TFDQuery;
+    TabelaAreceber: TFDTable;
+    DsAreceber: TDataSource;
+    MAreceber: TClientDataSet;
+    Pareceber: TDataSetProvider;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    TabelaAreceberidareceber: TIntegerField;
+    TabelaAreceberidcliente: TIntegerField;
+    TabelaArecebernmcliente: TWideStringField;
+    TabelaAreceberidformapagamento: TIntegerField;
+    TabelaArecebernmformapagamento: TWideStringField;
+    TabelaArecebervltitulo: TIntegerField;
+    TabelaArecebernrtitulo: TIntegerField;
+    MAreceberidareceber: TIntegerField;
+    MAreceberidcliente: TIntegerField;
+    MArecebernmcliente: TWideStringField;
+    MAreceberidformapagamento: TIntegerField;
+    MArecebernmformapagamento: TWideStringField;
+    MArecebervltitulo: TIntegerField;
+    MArecebernrtitulo: TIntegerField;
+    DsQAreceber: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,161 @@
+object Dbprod: TDbprod
+  Left = 0
+  Top = 0
+  Caption = 'dbprod'
+  ClientHeight = 231
+  ClientWidth = 505
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DsProduto: TDataSource
+    DataSet = Mproduto
+    Left = 32
+    Top = 176
+  end
+  object Db: TFDConnection
+    Params.Strings = (
+      'Database=Software One'
+      'User_Name=postgres'
+      'Password=123456'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 32
+    Top = 72
+  end
+  object TabelaProd: TFDTable
+    Active = True
+    IndexFieldNames = 'idproduto'
+    Connection = Db
+    CatalogName = 'Software One'
+    SchemaName = 'public'
+    TableName = 'produto'
+    Left = 32
+    Top = 120
+    object TabelaProdcdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object TabelaProdnmproduto: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object TabelaProdnmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Familia produto'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object TabelaProdvlproduto: TSingleField
+      DisplayLabel = 'Valor Unitario'
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+      currency = True
+    end
+    object TabelaProdstproduto: TBooleanField
+      DisplayLabel = 'Ativo'
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object TabelaProddtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TabelaProdidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Visible = False
+    end
+    object TabelaProdidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+      Visible = False
+    end
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 32
+    Top = 16
+  end
+  object Pproduto: TDataSetProvider
+    DataSet = TabelaProd
+    Left = 120
+    Top = 120
+  end
+  object Mproduto: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Pproduto'
+    AfterPost = MprodutoAfterPost
+    AfterCancel = MprodutoAfterCancel
+    AfterDelete = MprodutoAfterDelete
+    Left = 120
+    Top = 176
+    object Mprodutocdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      DisplayWidth = 10
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object Mprodutonmproduto: TWideStringField
+      DisplayLabel = 'Produto'
+      DisplayWidth = 85
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object Mprodutonmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Familia Produto'
+      DisplayWidth = 54
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object Mprodutovlproduto: TSingleField
+      DisplayLabel = 'Valor Unitario'
+      DisplayWidth = 10
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+      currency = True
+    end
+    object Mprodutostproduto: TBooleanField
+      DisplayLabel = 'Ativo'
+      DisplayWidth = 7
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object Mprodutodtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      DisplayWidth = 10
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object Mprodutoidproduto: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Mprodutoidfamiliaproduto: TIntegerField
+      DisplayWidth = 12
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+  end
+end

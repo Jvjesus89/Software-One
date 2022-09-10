@@ -1,0 +1,16 @@
+program CadastroCliente;
+
+uses
+  Vcl.Forms,
+  CadastroDeCliente in 'CadastroDeCliente.pas' {Form3},
+  DbCliente in 'DbCliente.pas' {Form4};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm4, Form4);
+  Application.Run;
+end.

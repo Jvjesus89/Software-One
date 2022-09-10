@@ -1,0 +1,17 @@
+program CadastroProduto;
+
+uses
+  Vcl.Forms,
+  Vcl.Themes,
+  Vcl.Styles,
+  CadProd in '..\CadProd.pas' {Form1},
+  Dbcadastroproduto in '..\Dbcadastroproduto.pas' {DB};
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Sky');
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDB, DB);
+  Application.Run;
+end.

@@ -1,0 +1,22 @@
+program Sistema;
+
+uses
+  Vcl.Forms,
+  DB in '..\DB.pas' {Banco},
+  TelaCadastro in '..\TelaCadastro.pas' {Cadastro},
+  TelaCadastroDeProdutos in '..\TelaCadastroDeProdutos.pas' {Tela_Produto},
+  TelaLogin in '..\TelaLogin.pas' {TelaLoginU},
+  TelaPrincipal in '..\TelaPrincipal.pas' {Hub};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TTelaLoginU, TelaLoginU);
+  Application.CreateForm(TBanco, Banco);
+  Application.CreateForm(TCadastro, Cadastro);
+  Application.CreateForm(TTela_Produto, Tela_Produto);
+  Application.CreateForm(THub, Hub);
+  Application.Run;
+end.

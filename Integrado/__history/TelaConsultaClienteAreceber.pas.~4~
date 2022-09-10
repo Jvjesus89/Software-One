@@ -1,0 +1,41 @@
+unit TelaConsultaClienteAreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ExtCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TTelaConsultaCliente12 = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Busca: TDBEdit;
+    BotaoBusca: TButton;
+    procedure DBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaCliente12: TTelaConsultaCliente12;
+
+implementation
+
+{$R *.dfm}
+
+
+
+
+procedure TTelaConsultaCliente12.DBGrid1DblClick(Sender: TObject);
+begin
+     TelaConsultaCliente1.close;
+      TelaCadasrroApagar1.DBEdit3.Text := DBGrid1.Fields[1].value;
+      TelaCadasrroApagar1.DBEdit2.Text := DBGrid1.Fields[3].value;
+end;
+
+end.

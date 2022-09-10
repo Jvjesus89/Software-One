@@ -1,0 +1,24 @@
+unit TelaEdicaoAreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TTelaEdicaoAreceber1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaEdicaoAreceber1: TTelaEdicaoAreceber1;
+
+implementation
+
+{$R *.dfm}
+
+end.

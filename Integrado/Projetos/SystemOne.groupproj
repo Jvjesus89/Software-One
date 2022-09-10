@@ -1,0 +1,132 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{746FD25B-DDB6-4474-B2CD-6316E5B7F544}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Sistema.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CadastroUsuario.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Hub.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CadastroProduto.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ConsultaEstoque.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FinAreceber.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CadastroCliente.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FinApagar.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Vendas.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Sistema">
+        <MSBuild Projects="Sistema.dproj"/>
+    </Target>
+    <Target Name="Sistema:Clean">
+        <MSBuild Projects="Sistema.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Sistema:Make">
+        <MSBuild Projects="Sistema.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadastroUsuario">
+        <MSBuild Projects="CadastroUsuario.dproj"/>
+    </Target>
+    <Target Name="CadastroUsuario:Clean">
+        <MSBuild Projects="CadastroUsuario.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadastroUsuario:Make">
+        <MSBuild Projects="CadastroUsuario.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Hub">
+        <MSBuild Projects="Hub.dproj"/>
+    </Target>
+    <Target Name="Hub:Clean">
+        <MSBuild Projects="Hub.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Hub:Make">
+        <MSBuild Projects="Hub.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadastroProduto">
+        <MSBuild Projects="CadastroProduto.dproj"/>
+    </Target>
+    <Target Name="CadastroProduto:Clean">
+        <MSBuild Projects="CadastroProduto.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadastroProduto:Make">
+        <MSBuild Projects="CadastroProduto.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ConsultaEstoque">
+        <MSBuild Projects="ConsultaEstoque.dproj"/>
+    </Target>
+    <Target Name="ConsultaEstoque:Clean">
+        <MSBuild Projects="ConsultaEstoque.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConsultaEstoque:Make">
+        <MSBuild Projects="ConsultaEstoque.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FinAreceber">
+        <MSBuild Projects="FinAreceber.dproj"/>
+    </Target>
+    <Target Name="FinAreceber:Clean">
+        <MSBuild Projects="FinAreceber.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FinAreceber:Make">
+        <MSBuild Projects="FinAreceber.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CadastroCliente">
+        <MSBuild Projects="CadastroCliente.dproj"/>
+    </Target>
+    <Target Name="CadastroCliente:Clean">
+        <MSBuild Projects="CadastroCliente.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CadastroCliente:Make">
+        <MSBuild Projects="CadastroCliente.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FinApagar">
+        <MSBuild Projects="FinApagar.dproj"/>
+    </Target>
+    <Target Name="FinApagar:Clean">
+        <MSBuild Projects="FinApagar.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FinApagar:Make">
+        <MSBuild Projects="FinApagar.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Vendas">
+        <MSBuild Projects="Vendas.dproj"/>
+    </Target>
+    <Target Name="Vendas:Clean">
+        <MSBuild Projects="Vendas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Vendas:Make">
+        <MSBuild Projects="Vendas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Sistema;CadastroUsuario;Hub;CadastroProduto;ConsultaEstoque;FinAreceber;CadastroCliente;FinApagar;Vendas"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;Hub:Clean;CadastroProduto:Clean;ConsultaEstoque:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;Hub:Make;CadastroProduto:Make;ConsultaEstoque:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

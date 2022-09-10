@@ -1,0 +1,78 @@
+object TelaLoginU: TTelaLoginU
+  Left = 0
+  Top = 0
+  Caption = 'Tela de Login'
+  ClientHeight = 306
+  ClientWidth = 440
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Usuario: TLabel
+    Left = 120
+    Top = 88
+    Width = 36
+    Height = 13
+    Align = alCustom
+    Caption = 'Usuario'
+  end
+  object Senha: TLabel
+    Left = 120
+    Top = 147
+    Width = 30
+    Height = 13
+    Align = alCustom
+    Caption = 'Senha'
+  end
+  object Texto1: TLabel
+    Left = 131
+    Top = 32
+    Width = 163
+    Height = 25
+    Caption = 'Seja Bem Vindo'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object NomeUsuario: TDBEdit
+    AlignWithMargins = True
+    Left = 120
+    Top = 107
+    Width = 185
+    Height = 21
+    TabOrder = 0
+  end
+  object SenhaUsuario: TDBEdit
+    Left = 120
+    Top = 166
+    Width = 185
+    Height = 21
+    Align = alCustom
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 120
+    Top = 206
+    Width = 93
+    Height = 25
+    Caption = 'Esqueci a senha'
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 219
+    Top = 206
+    Width = 75
+    Height = 25
+    Caption = 'Login'
+    TabOrder = 3
+    OnClick = Button2Click
+  end
+end

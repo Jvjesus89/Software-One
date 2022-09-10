@@ -1,0 +1,38 @@
+unit TelaLogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TTelaLoginU = class(TForm)
+    Usuario: TLabel;
+    Senha: TLabel;
+    Texto1: TLabel;
+    NomeUsuario: TDBEdit;
+    SenhaUsuario: TDBEdit;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaLoginU: TTelaLoginU;
+
+implementation
+
+{$R *.dfm}
+
+procedure TTelaLoginU.Button2Click(Sender: TObject);
+begin
+   WinExec('C:\Users\jvjes\OneDrive\Documents\Software\TelaPrincipal\DPROJ\Win32\Debug\Principal.exe',SW_SHOW)
+
+end;
+
+end.

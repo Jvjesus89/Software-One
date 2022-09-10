@@ -1,0 +1,60 @@
+unit CadastroProdutoVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TTelaCadastroProdutoVenda = class(TForm)
+    Label3: TLabel;
+    idproduto: TDBEdit;
+    Label4: TLabel;
+    nmproduto: TDBEdit;
+    Label5: TLabel;
+    vlunitario: TDBEdit;
+    Label6: TLabel;
+    quantidade: TDBEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    vlitem: TDBEdit;
+    Button2: TButton;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda;
+
+implementation
+
+{$R *.dfm}
+
+uses DBvendas, TelaConsultaProdutoVenda;
+
+procedure TTelaCadastroProdutoVenda.Button1Click(Sender: TObject);
+begin
+    TelaConsultaProduto.showmodal;
+end;
+
+procedure TTelaCadastroProdutoVenda.Button2Click(Sender: TObject);
+begin
+     with DbVendas1.Qitemvenda do
+    begin
+      close;
+      sql.Clear;
+      sql.Add('INSERT INTO temp.itemvenda(iditemvenda, nmitemvenda,  vlunitario, vlitem, quantidade)');
+      sql.Add('values('+'idproduto.text' + 'nmproduto.text' + 'vlunitario.text' + 'vlitem.text' + 'quantidade.text');
+      ExecSQL;
+      open;
+    end;
+
+end;
+
+end.

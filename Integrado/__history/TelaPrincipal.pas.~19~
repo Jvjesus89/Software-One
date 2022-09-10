@@ -1,0 +1,45 @@
+unit TelaPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  System.ImageList, Vcl.ImgList, Vcl.Buttons;
+
+type
+  THubPrin = class(TForm)
+    Superior: TPanel;
+    ImageList1: TImageList;
+    CadastroProduto: TBitBtn;
+    CadastroUsuario: TBitBtn;
+    ConsultaEstoque: TBitBtn;
+    procedure CadastroUsuarioClick(Sender: TObject);
+    procedure CadastroProdutoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  HubPrin: THubPrin;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure THubPrin.CadastroProdutoClick(Sender: TObject);
+begin
+    WinExec('C:\Sistema\Integrado\Projetos\Win64\Debug\CadastroProduto.exe',SW_SHOW)
+end;
+
+procedure THubPrin.CadastroUsuarioClick(Sender: TObject);
+begin
+    WinExec('C:\Sistema\Integrado\Projetos\Win32\Debug\CadastroUsuario.exe',SW_SHOW)
+
+end;
+
+end.

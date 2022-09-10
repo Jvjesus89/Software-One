@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/08/04 23:10:02.000.386,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/04 23:10:11.000.461,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\FinApagar.dproj</Transaction>
+    <Transaction>2022/08/04 23:10:58.000.448,=C:\Sistema\Integrado\Apagar.pas</Transaction>
+    <Transaction>2022/08/04 23:10:59.000.922,=C:\Sistema\Integrado\Dbfinapagar.pas</Transaction>
+    <Transaction>2022/08/04 23:11:00.000.014,=C:\Sistema\Integrado\TelaCadastroApagar.pas</Transaction>
+    <Transaction>2022/08/04 23:27:42.000.020,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\FinApagar.dproj=C:\Sistema\Integrado\Projetos\FinApagar.dproj</Transaction>
+    <Transaction>2022/08/04 23:31:28.000.964,=C:\Sistema\Integrado\TelaConsultaCliente.pas</Transaction>
+    <Transaction>2022/08/04 23:37:56.000.671,C:\Sistema\Integrado\TelaConsultaCliente.dfm=C:\Sistema\Integrado\TelaConsultaClienteApgar.dfm</Transaction>
+    <Transaction>2022/08/04 23:37:56.000.671,C:\Sistema\Integrado\TelaConsultaCliente.pas=C:\Sistema\Integrado\TelaConsultaClienteApgar.pas</Transaction>
+    <Transaction>2022/08/04 23:41:16.000.455,=C:\Sistema\Integrado\TelaConsultaClienteAreceber.pas</Transaction>
+    <Transaction>2022/08/04 23:42:36.000.148,C:\Sistema\Integrado\TelaConsultaClienteAreceber.pas=</Transaction>
+    <Transaction>2022/08/30 20:41:56.000.956,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/30 20:42:14.000.499,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaEdicaoApagar.pas</Transaction>
+    <Transaction>2022/08/30 20:42:14.000.499,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaEdicaoApagar.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Integrado"/>
+    <File Path="..\Apagar.pas"/>
+    <File Path="..\Apagar.dfm"/>
+    <File Path="..\Dbfinapagar.pas"/>
+    <File Path="..\Dbfinapagar.dfm"/>
+    <File Path="..\TelaCadastroApagar.pas"/>
+    <File Path="..\TelaCadastroApagar.dfm"/>
+    <File Path="..\TelaConsultaClienteApagar.pas"/>
+    <File Path="..\TelaConsultaClienteApagar.dfm"/>
+    <File Path="..\TelaEdicaoApagar.pas"/>
+    <File Path="..\TelaEdicaoApagar.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

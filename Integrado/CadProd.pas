@@ -1,0 +1,127 @@
+unit CadProd;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.Buttons, Vcl.ExtCtrls, Data.DB, Vcl.DBCGrids;
+
+type
+  TCadProduto = class(TForm)
+    Panel1: TPanel;
+    BtExcluir: TBitBtn;
+    BtNovo: TBitBtn;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    Busca: TEdit;
+    Panel3: TPanel;
+    BtEditar: TBitBtn;
+    BuscaProduto: TLabel;
+    ExportarDados: TButton;
+    BuscaBotao: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure BtExcluirClick(Sender: TObject);
+    procedure BtEditarClick(Sender: TObject);
+    procedure BtNovoClick(Sender: TObject);
+    procedure ExportarDadosClick(Sender: TObject);
+    procedure BuscaBotaoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CadProduto: TCadProduto;
+
+implementation
+
+{$R *.dfm}
+
+uses  TelaCadastroDeProdutos, Dbcadastroproduto, TelaEdicaoProduto;
+
+procedure TCadProduto.BtEditarClick(Sender: TObject);
+begin
+      Dbprod.Mproduto.Open;
+      Dbprod.Mproduto.Append;
+      TelaEdicaoProduto1.Cdproduto.Text := DBGrid1.Fields[0].value;
+      TelaEdicaoProduto1.NmProduto.Text := DBGrid1.Fields[1].value;
+      TelaEdicaoProduto1.FamiliaProduto.Text := DBGrid1.Fields[2].value;
+      TelaEdicaoProduto1.VlUnitario.Text := DBGrid1.Fields[3].value;
+      TelaEdicaoProduto1.Bativo.Enabled := DBGrid1.Fields[4].value;
+      TelaEdicaoProduto1.DbEdit1.Text := DBGrid1.Fields[5].value;
+      TelaEdicaoProduto1.IdProduto.Text := DBGrid1.Fields[6].value;
+     TelaEdicaoProduto1.ShowModal;
+end;
+
+procedure TCadProduto.BtExcluirClick(Sender: TObject);
+begin
+      Dbprod.Mproduto.Open;
+      Dbprod.Mproduto.Append;
+   if Application.MessageBox(Pchar('Deseja excluir o Produto?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
+      begin;
+      Dbprod.Mproduto.Delete;
+      end;
+
+end;
+
+procedure TCadProduto.BtNovoClick(Sender: TObject);
+begin
+      Dbprod.Mproduto.Open;
+      TelaCadastroProduto.ShowModal;
+end;
+
+procedure TCadProduto.BuscaBotaoClick(Sender: TObject);
+begin
+      with Dbprod.Qproduto do
+    begin
+      close;
+      sql.Clear;
+      sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
+      open;
+    end;
+end;
+
+procedure TCadProduto.DBGrid1DblClick(Sender: TObject);
+begin
+   //Dbprod.Mproduto.Close;
+   Dbprod.Mproduto.Open;
+   TelaEdicaoProduto1.ShowModal;
+
+end;
+
+procedure TCadProduto.ExportarDadosClick(Sender: TObject);
+var
+  sLista: TStringList;
+ nCampo: integer;
+ cLinha : string;
+begin
+  sLista := TstringList.Create;
+  Dbprod.Qproduto.First;
+  while not Dbprod.Qproduto.EOF do
+  begin
+    cLinha := '';
+    for nCampo :=0 to Dbprod.Qproduto.fields.Count-1 do
+    cLinha := cLinha + Dbprod.Qproduto.Fields[nCampo].DisplayText+';';
+    sLista.Add(cLinha);
+    Dbprod.Qproduto.Next;
+  end;
+  if FileExists('C:\Sistema\DadosExportados\produto.csv') then DeleteFile('C:\Sistema\DadosExportados\produto.csv');
+  sLista.SaveToFile('C:\Sistema\DadosExportados\produto.csv');
+
+end;
+
+procedure TCadProduto.FormCreate(Sender: TObject);
+begin
+     CadProduto.WindowState := TWindowState.wsMaximized ;
+end;
+
+procedure TCadProduto.FormShow(Sender: TObject);
+begin
+      //Dbprod.Qproduto.Open;
+end;
+
+end.

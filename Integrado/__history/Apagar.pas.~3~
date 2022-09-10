@@ -1,0 +1,56 @@
+unit Apagar;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TApagar1 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    BotaoNovo: TButton;
+    BotaoExcluir: TButton;
+    DBGrid1: TDBGrid;
+    BotaoEditar: TButton;
+    Button1: TButton;
+    Busca: TEdit;
+    procedure BotaoNovoClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Apagar1: TApagar1;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinapagar, TelaCadastroApagar;
+
+
+
+procedure TApagar1.BotaoNovoClick(Sender: TObject);
+begin
+     TelaCadasrroApagar1.showmodal;
+end;
+
+procedure TApagar1.Button1Click(Sender: TObject);
+begin
+    with DbFinApagar1.QApagar do
+    begin
+      close;
+      sql.Clear;
+      sql.Add('Select * From areceber Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
+      open;
+    end;
+end;
+
+end.

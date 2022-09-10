@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/07/19 22:54:11.000.875,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/19 23:15:36.000.308,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/19 23:16:17.000.297,C:\Users\jvjes\OneDrive\Documents\Software\TelaLogin\TelaLogin.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/07/19 23:16:17.000.297,C:\Users\jvjes\OneDrive\Documents\Software\TelaLogin\TelaLogin.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/19 23:16:22.000.933,C:\Users\jvjes\OneDrive\Documents\Software\TelaLogin\DPROJ\TelaLogin1.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2022/07/22 14:13:36.000.041,=C:\Users\jvjes\OneDrive\Documents\Software\Integrado\DB.pas</Transaction>
+    <Transaction>2022/07/22 14:15:02.000.927,C:\Users\jvjes\OneDrive\Documents\Software\Integrado\DPROJ\TelaLogin1.dproj=C:\Users\jvjes\OneDrive\Documents\Software\Integrado\DPROJ\Sistema.dproj</Transaction>
+    <Transaction>2022/07/22 14:17:36.000.548,=C:\Users\jvjes\OneDrive\Documents\Software\Integrado\TelaCadastro.pas</Transaction>
+    <Transaction>2022/07/22 14:18:36.000.145,=C:\Users\jvjes\OneDrive\Documents\Software\Integrado\TelaPrincipal.pas</Transaction>
+    <Transaction>2022/07/22 14:18:48.000.283,=C:\Users\jvjes\OneDrive\Documents\Software\Integrado\TelaCadastroDeProdutos.pas</Transaction>
+    <Transaction>2022/07/23 08:50:45.000.580,C:\Sistema\Integrado\DB.pas=</Transaction>
+    <Transaction>2022/07/25 21:06:49.000.223,=C:\Sistema\Integrado\DB.pas</Transaction>
+    <Transaction>2022/07/25 21:07:03.000.363,C:\Sistema\Integrado\DB.pas=</Transaction>
+    <Transaction>2022/07/25 21:07:12.000.504,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/25 21:17:50.000.172,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\DbLogin.pas</Transaction>
+    <Transaction>2022/07/25 21:17:50.000.172,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\DbLogin.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

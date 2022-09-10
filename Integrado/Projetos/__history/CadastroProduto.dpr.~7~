@@ -1,0 +1,19 @@
+program CadastroProduto;
+
+uses
+  Vcl.Forms,
+  CadProd in '..\CadProd.pas' {CadProduto},
+  Vcl.Themes,
+  Vcl.Styles,
+  Dbcadastroproduto in '..\Dbcadastroproduto.pas' {DBproduto};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TCadProduto, CadProduto);
+  Application.CreateForm(TDBproduto, DBproduto);
+  Application.Run;
+end.

@@ -1,0 +1,48 @@
+unit TelaEdicaoProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask,
+  Vcl.ExtCtrls;
+
+type
+  TTelaEdiçãoProduto = class(TForm)
+    Cod: TLabel;
+    Valor: TLabel;
+    Nome: TLabel;
+    Familia: TLabel;
+    Image1: TImage;
+    Label1: TLabel;
+    CdProduto: TDBEdit;
+    NmProduto: TDBEdit;
+    FamiliaProduto: TDBEdit;
+    VlUnitario: TDBEdit;
+    Button1: TButton;
+    Bativo: TDBCheckBox;
+    Button2: TButton;
+    DBEdit1: TDBEdit;
+    IdProduto: TDBEdit;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaEdiçãoProduto: TTelaEdiçãoProduto;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbcadastroproduto;
+
+procedure TTelaEdiçãoProduto.Button1Click(Sender: TObject);
+begin
+   Dbprod.Mproduto.Edit;
+end;
+
+end.

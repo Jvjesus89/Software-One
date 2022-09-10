@@ -1,0 +1,340 @@
+object DbMov: TDbMov
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 246
+  ClientWidth = 531
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 184
+    Top = 8
+  end
+  object ConsultaEstoque: TFDTable
+    Active = True
+    IndexFieldNames = 'idmovimento'
+    Connection = Db
+    CatalogName = 'Software One'
+    SchemaName = 'public'
+    TableName = 'movimentoestoque'
+    Left = 32
+    Top = 112
+    object ConsultaEstoqueidmovimento: TIntegerField
+      FieldName = 'idmovimento'
+      Origin = 'idmovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object ConsultaEstoqueidproduto: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object ConsultaEstoqueqtmovimentada: TIntegerField
+      FieldName = 'qtmovimentada'
+      Origin = 'qtmovimentada'
+    end
+    object ConsultaEstoqueqtdisponivel: TIntegerField
+      FieldName = 'qtdisponivel'
+      Origin = 'qtdisponivel'
+    end
+    object ConsultaEstoquedtmovimento: TDateField
+      FieldName = 'dtmovimento'
+      Origin = 'dtmovimento'
+    end
+    object ConsultaEstoquetpmovimento: TWideStringField
+      DisplayLabel = 'Tipo Movimento'
+      FieldName = 'tpmovimento'
+      Origin = 'tpmovimento'
+      Size = 8
+    end
+    object ConsultaEstoquedtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+  object Db: TFDConnection
+    Params.Strings = (
+      'Database=Software One'
+      'User_Name=postgres'
+      'Password=123456'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 184
+    Top = 64
+  end
+  object DsConsulta: TDataSource
+    DataSet = QConsulta
+    Left = 32
+    Top = 184
+  end
+  object MConsulta: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'PConsulta'
+    AfterPost = MConsultaAfterPost
+    AfterCancel = MConsultaAfterCancel
+    AfterDelete = MConsultaAfterDelete
+    Left = 104
+    Top = 184
+    object MConsultaidmovimento: TIntegerField
+      FieldName = 'idmovimento'
+      Origin = 'idmovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object MConsultaidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object MConsultaqtmovimentada: TIntegerField
+      DisplayLabel = 'Quantidade Movimentada'
+      FieldName = 'qtmovimentada'
+      Origin = 'qtmovimentada'
+    end
+    object MConsultaqtdisponivel: TIntegerField
+      DisplayLabel = 'Quantidade Disponivel'
+      FieldName = 'qtdisponivel'
+      Origin = 'qtdisponivel'
+    end
+    object MConsultadtmovimento: TDateField
+      DisplayLabel = 'Data Movimento'
+      FieldName = 'dtmovimento'
+      Origin = 'dtmovimento'
+    end
+    object MConsultatpmovimento: TWideStringField
+      DisplayLabel = 'Tipo de movimento'
+      FieldName = 'tpmovimento'
+      Origin = 'tpmovimento'
+      Size = 8
+    end
+    object MConsultadtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+  object PConsulta: TDataSetProvider
+    DataSet = ConsultaEstoque
+    Left = 104
+    Top = 112
+  end
+  object Produto: TFDTable
+    Active = True
+    IndexFieldNames = 'idproduto'
+    Connection = Db
+    SchemaName = 'public'
+    TableName = 'produto'
+    Left = 272
+    Top = 112
+    object nmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object cdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object nmfamiliaproduto: TWideStringField
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object idproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+  end
+  object Pproduto: TDataSetProvider
+    DataSet = Produto
+    Left = 328
+    Top = 112
+  end
+  object Mproduto: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Pproduto'
+    AfterPost = MprodutoAfterPost
+    AfterCancel = MprodutoAfterCancel
+    AfterDelete = MprodutoAfterDelete
+    Left = 328
+    Top = 184
+    object Mprodutonmproduto: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object Mprodutocdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object Mprodutonmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Familia Produto'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object Mprodutoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+  end
+  object DsProduto: TDataSource
+    DataSet = QProduto
+    Left = 264
+    Top = 184
+  end
+  object QConsulta: TFDQuery
+    Active = True
+    AfterPost = QConsultaAfterPost
+    AfterCancel = QConsultaAfterCancel
+    AfterDelete = QConsultaAfterDelete
+    Connection = Db
+    SQL.Strings = (
+      'Select * From movimentoestoque')
+    Left = 168
+    Top = 112
+    object QConsultaqtmovimentada: TIntegerField
+      DisplayLabel = 'Quantidade Movimento'
+      FieldName = 'qtmovimentada'
+      Origin = 'qtmovimentada'
+    end
+    object QConsultaqtdisponivel: TIntegerField
+      DisplayLabel = 'Quantidade Disponivel'
+      FieldName = 'qtdisponivel'
+      Origin = 'qtdisponivel'
+    end
+    object QConsultadtmovimento: TDateField
+      DisplayLabel = 'Data Movimento'
+      FieldName = 'dtmovimento'
+      Origin = 'dtmovimento'
+    end
+    object QConsultatpmovimento: TWideStringField
+      DisplayLabel = 'Tipo Movimento'
+      FieldName = 'tpmovimento'
+      Origin = 'tpmovimento'
+      Size = 8
+    end
+    object QConsultadtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object QConsultaidmovimento: TIntegerField
+      FieldName = 'idmovimento'
+      Origin = 'idmovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object QConsultaidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+  end
+  object QProduto: TFDQuery
+    Active = True
+    AfterCancel = QProdutoAfterCancel
+    Connection = Db
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 168
+    Top = 184
+    object QProdutoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object QProdutonmproduto: TWideStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object QProdutocdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object QProdutoidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object QProdutovlproduto: TSingleField
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+    end
+    object QProdutonmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Nome Familia'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object QProdutostproduto: TBooleanField
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object QProdutodtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+  object ProdutoTable: TFDQuery
+    Connection = Db
+    SQL.Strings = (
+      'SELECT * FROM produto')
+    Left = 391
+    Top = 91
+    object ProdutoTableidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object ProdutoTablenmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object ProdutoTablecdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object ProdutoTableidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object ProdutoTablevlproduto: TSingleField
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+    end
+    object ProdutoTablenmfamiliaproduto: TWideStringField
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object ProdutoTablestproduto: TBooleanField
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object ProdutoTabledtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+end

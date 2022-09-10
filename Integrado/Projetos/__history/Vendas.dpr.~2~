@@ -1,0 +1,16 @@
+program Vendas;
+
+uses
+  Vcl.Forms,
+  CadastroVendas in '..\CadastroVendas.pas' {CadastroDeVendas},
+  DBvendas in '..\DBvendas.pas' {DbVendas1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
+  Application.CreateForm(TDbVendas1, DbVendas1);
+  Application.Run;
+end.

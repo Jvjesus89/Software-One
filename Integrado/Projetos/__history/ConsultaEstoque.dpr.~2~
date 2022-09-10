@@ -1,0 +1,19 @@
+program ConsultaEstoque;
+
+uses
+  Vcl.Forms,
+  TelaConsultaEstoque in '..\TelaConsultaEstoque.pas' {Form1},
+  DbMovimento in '..\DbMovimento.pas' {DbMov},
+  Vcl.Themes,
+  Vcl.Styles;
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDbMov, DbMov);
+  Application.Run;
+end.

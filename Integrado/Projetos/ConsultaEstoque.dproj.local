@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/07/27 21:06:04.000.049,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/27 21:44:31.000.970,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaEstoque.dfm</Transaction>
+    <Transaction>2022/07/27 21:44:31.000.970,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Sistema\Integrado\TelaConsultaEstoque.pas</Transaction>
+    <Transaction>2022/07/27 21:44:47.000.045,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\ConsultaEstoque.dproj</Transaction>
+    <Transaction>2022/07/27 22:46:40.000.852,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\ConsultaEstoque.dproj=C:\Sistema\Integrado\Projetos\ConsultaEstoque.dproj</Transaction>
+    <Transaction>2022/07/28 20:55:47.000.953,=C:\Sistema\Integrado\Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/07/28 21:13:24.000.278,C:\Sistema\Integrado\DbMovimento.dfm=C:\Sistema\Integrado\Projetos\Unit2.dfm</Transaction>
+    <Transaction>2022/07/28 21:13:24.000.278,C:\Sistema\Integrado\DbMovimento.pas=C:\Sistema\Integrado\Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/07/28 22:12:55.000.505,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/28 22:18:25.000.456,C:\Sistema\Integrado\Produtos.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/07/28 22:18:25.000.456,C:\Sistema\Integrado\Produtos.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/29 01:07:44.000.274,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/30 23:16:13.000.477,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/30 23:36:58.000.798,C:\Sistema\Integrado\CadastroMovimentacoes.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/30 23:36:58.000.798,C:\Sistema\Integrado\CadastroMovimentacoes.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/07/30 23:42:27.000.502,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/30 23:43:00.000.445,C:\Sistema\Integrado\CadastroMovimentacoes.pas=</Transaction>
+    <Transaction>2022/07/30 23:43:49.000.955,C:\Sistema\Integrado\CadastroMovimentacoes.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/07/30 23:43:49.000.955,C:\Sistema\Integrado\CadastroMovimentacoes.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/06 10:19:04.000.856,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/06 10:19:19.000.978,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\ProdutoMov.pas</Transaction>
+    <Transaction>2022/08/06 10:19:19.000.978,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\ProdutoMov.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Integrado"/>
+    <File Path="..\CadastroMovimentacoes.pas"/>
+    <File Path="..\CadastroMovimentacoes.dfm"/>
+    <File Path="..\DbMovimento.pas"/>
+    <File Path="..\DbMovimento.dfm"/>
+    <File Path="..\ProdutoMov.pas"/>
+    <File Path="..\ProdutoMov.dfm"/>
+    <File Path="..\Produtos.pas"/>
+    <File Path="..\Produtos.dfm"/>
+    <File Path="..\TelaConsultaEstoque.pas"/>
+    <File Path="..\TelaConsultaEstoque.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

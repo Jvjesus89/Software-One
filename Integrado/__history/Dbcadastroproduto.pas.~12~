@@ -1,0 +1,69 @@
+unit Dbcadastroproduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.VCLUI.Wait, FireDAC.Comp.Client, FireDAC.Phys.PG, FireDAC.Phys.PGDef,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, Datasnap.Provider, Datasnap.DBClient;
+
+type
+  TDB = class(TForm)
+    DsProduto: TDataSource;
+    Db: TFDConnection;
+    TabelaProd: TFDTable;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    TabelaProdidproduto: TIntegerField;
+    TabelaProdnmproduto: TWideStringField;
+    TabelaProdcdproduto: TWideStringField;
+    TabelaProdidfamiliaproduto: TIntegerField;
+    TabelaProdnmfamiliaproduto: TWideStringField;
+    TabelaProdstproduto: TBooleanField;
+    Pproduto: TDataSetProvider;
+    Mproduto: TClientDataSet;
+    Mprodutocdproduto: TWideStringField;
+    Mprodutonmproduto: TWideStringField;
+    Mprodutonmfamiliaproduto: TWideStringField;
+    Mprodutostproduto: TBooleanField;
+    Mprodutoidproduto: TIntegerField;
+    Mprodutoidfamiliaproduto: TIntegerField;
+    TabelaProddtcadastro: TDateField;
+    Mprodutodtcadastro: TDateField;
+    TabelaProdvlproduto: TCurrencyField;
+    Mprodutovlproduto: TCurrencyField;
+    procedure MprodutoAfterPost(DataSet: TDataSet);
+    procedure MprodutoAfterDelete(DataSet: TDataSet);
+    procedure MprodutoAfterCancel(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DB: TDB;
+
+implementation
+
+{$R *.dfm}
+
+procedure TDB.MprodutoAfterCancel(DataSet: TDataSet);
+begin
+     Mproduto.CancelUpdates;
+end;
+
+procedure TDB.MprodutoAfterDelete(DataSet: TDataSet);
+begin
+     Mproduto.ApplyUpdates(-1);
+end;
+
+procedure TDB.MprodutoAfterPost(DataSet: TDataSet);
+begin
+     Mproduto.ApplyUpdates(-1);
+end;
+
+end.

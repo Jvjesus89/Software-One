@@ -1,0 +1,16 @@
+program CadastroUsuario;
+
+uses
+  Vcl.Forms,
+  TelaCadastroUsuario in '..\TelaCadastroUsuario.pas' {Cadastro},
+  DB in '..\DB.pas' {Banco};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TCadastro, Cadastro);
+  Application.CreateForm(TBanco, Banco);
+  Application.Run;
+end.

@@ -1,0 +1,21 @@
+program Vendas;
+
+uses
+  Vcl.Forms,
+  CadastroVendas in '..\CadastroVendas.pas' {CadastroDeVendas},
+  DBvendas in '..\DBvendas.pas' {DbVendas1},
+  Vcl.Themes,
+  Vcl.Styles,
+  TelaCadastroVenda in '..\TelaCadastroVenda.pas' {TelaCadastroVendas};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
+  Application.CreateForm(TDbVendas1, DbVendas1);
+  Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
+  Application.Run;
+end.

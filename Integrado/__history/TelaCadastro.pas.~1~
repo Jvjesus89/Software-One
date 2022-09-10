@@ -1,0 +1,46 @@
+unit TelaCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Usuario: TLabel;
+    Senha: TLabel;
+    UsuarioCadastro: TDBEdit;
+    SenhaUsuario: TDBEdit;
+    CadastrarUsuario: TButton;
+    Controle: TDBNavigator;
+    Botaocancelar: TButton;
+    procedure CadastrarUsuarioClick(Sender: TObject);
+    procedure BotaocancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.BotaocancelarClick(Sender: TObject);
+begin
+        showmessage('Cadastro excluido com sucesso');
+end;
+
+procedure TForm1.CadastrarUsuarioClick(Sender: TObject);
+begin
+
+        showmessage('Cadastro cadastrado com sucesso');
+end;
+
+end.

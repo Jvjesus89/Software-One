@@ -1,0 +1,173 @@
+﻿object DbClient: TDbClient
+  Left = 0
+  Top = 0
+  Caption = 'DbCliente1'
+  ClientHeight = 231
+  ClientWidth = 505
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DbFin: TFDConnection
+    Params.Strings = (
+      'Database=Software One'
+      'User_Name=postgres'
+      'Password=123456'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 24
+    Top = 64
+  end
+  object Qcliente: TFDQuery
+    Active = True
+    Connection = DbFin
+    SQL.Strings = (
+      'Select * From clientes')
+    Left = 128
+    Top = 64
+  end
+  object TabelaCliente: TFDTable
+    Active = True
+    IndexFieldNames = 'idcliente'
+    Connection = DbFin
+    SchemaName = 'public'
+    TableName = 'clientes'
+    Left = 24
+    Top = 112
+    object TabelaClienteidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object TabelaClientenmcliente: TWideStringField
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object TabelaClientecpf_cnpj: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      Size = 15
+    end
+    object TabelaClientenmendereco: TWideStringField
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      Size = 50
+    end
+    object TabelaClientenrendereço: TWideStringField
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      Size = 8
+    end
+    object TabelaClientecomplemento: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 50
+    end
+    object TabelaClientedtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object TabelaClientenmbairro: TWideStringField
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      Size = 50
+    end
+    object TabelaClientenmcidade: TWideStringField
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      Size = 50
+    end
+    object TabelaClientenmestado: TWideStringField
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      Size = 2
+    end
+  end
+  object Dscliente: TDataSource
+    DataSet = TabelaCliente
+    Left = 24
+    Top = 168
+  end
+  object Mcliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'Pcliente'
+    AfterPost = MclienteAfterPost
+    AfterCancel = MclienteAfterCancel
+    AfterDelete = MclienteAfterDelete
+    Left = 120
+    Top = 168
+    object Mclienteidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Mclientenmcliente: TWideStringField
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object Mclientecpf_cnpj: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      Size = 15
+    end
+    object Mclientenmendereco: TWideStringField
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      Size = 50
+    end
+    object Mclientenrendereço: TWideStringField
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      Size = 8
+    end
+    object Mclientecomplemento: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 50
+    end
+    object Mclientedtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object Mclientenmbairro: TWideStringField
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      Size = 50
+    end
+    object Mclientenmcidade: TWideStringField
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      Size = 50
+    end
+    object Mclientenmestado: TWideStringField
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      Size = 2
+    end
+  end
+  object Pcliente: TDataSetProvider
+    DataSet = TabelaCliente
+    Left = 128
+    Top = 112
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 24
+    Top = 8
+  end
+  object DsQcliente: TDataSource
+    DataSet = Qcliente
+    Left = 184
+    Top = 64
+  end
+end

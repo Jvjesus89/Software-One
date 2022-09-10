@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro'
+  ClientHeight = 256
+  ClientWidth = 360
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 120
+    Top = 24
+    Width = 98
+    Height = 13
+    Caption = 'Cadastro de Usuario'
+  end
+  object Usuario: TLabel
+    Left = 128
+    Top = 77
+    Width = 36
+    Height = 13
+    Caption = 'Usuario'
+  end
+  object Senha: TLabel
+    Left = 128
+    Top = 131
+    Width = 30
+    Height = 13
+    Caption = 'Senha'
+  end
+  object UsuarioCadastro: TDBEdit
+    Left = 128
+    Top = 96
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object SenhaUsuario: TDBEdit
+    Left = 128
+    Top = 150
+    Width = 121
+    Height = 21
+    ParentShowHint = False
+    ShowHint = False
+    TabOrder = 1
+  end
+  object CadastrarUsuario: TButton
+    Left = 190
+    Top = 192
+    Width = 75
+    Height = 25
+    Caption = 'Cadastrar'
+    TabOrder = 2
+    OnClick = CadastrarUsuarioClick
+  end
+  object Controle: TDBNavigator
+    Left = 64
+    Top = 43
+    Width = 240
+    Height = 25
+    TabOrder = 3
+  end
+  object Botaocancelar: TButton
+    Left = 109
+    Top = 192
+    Width = 75
+    Height = 25
+    Caption = 'Excluir'
+    TabOrder = 4
+    OnClick = BotaocancelarClick
+  end
+end

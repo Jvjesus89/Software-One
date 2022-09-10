@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/08/08 21:18:37.000.008,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/08 21:18:46.000.774,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Vendas.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2022/08/08 21:22:21.000.413,C:\Sistema\Integrado\Vendas.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/08 21:22:21.000.413,C:\Sistema\Integrado\Vendas.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/08/08 21:22:39.000.779,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2022/08/08 21:24:21.000.023,C:\Sistema\Integrado\DBvendas.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2022/08/08 21:24:21.000.023,C:\Sistema\Integrado\DBvendas.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2022/08/09 20:42:51.000.755,C:\Sistema\Integrado\CadastroVendas.dfm=C:\Sistema\Integrado\Vendas.dfm</Transaction>
+    <Transaction>2022/08/09 20:42:51.000.755,C:\Sistema\Integrado\CadastroVendas.pas=C:\Sistema\Integrado\Vendas.pas</Transaction>
+    <Transaction>2022/08/09 20:43:03.000.592,C:\Sistema\Integrado\Projetos\Vendas.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Vendas.dproj</Transaction>
+    <Transaction>2022/08/09 21:03:24.000.926,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 21:09:00.000.139,C:\Sistema\Integrado\CadastroVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 21:09:00.000.139,C:\Sistema\Integrado\CadastroVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/08/09 21:37:45.000.732,C:\Sistema\Integrado\TelaCadastroVenda.pas=C:\Sistema\Integrado\CadastroVenda.pas</Transaction>
+    <Transaction>2022/08/09 21:37:45.000.732,C:\Sistema\Integrado\TelaCadastroVenda.dfm=C:\Sistema\Integrado\CadastroVenda.dfm</Transaction>
+    <Transaction>2022/08/09 21:45:59.000.541,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 21:46:18.000.397,C:\Sistema\Integrado\TelaConsultaClienteVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 21:46:18.000.397,C:\Sistema\Integrado\TelaConsultaClienteVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/08/09 21:55:31.000.515,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 21:59:06.000.866,C:\Sistema\Integrado\TelaConsultaProdutoVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/08/09 21:59:06.000.866,C:\Sistema\Integrado\TelaConsultaProdutoVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 22:00:35.000.185,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 22:01:12.000.505,C:\Sistema\Integrado\CadastroProdutoVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/09 22:01:12.000.505,C:\Sistema\Integrado\CadastroProdutoVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/09/02 08:20:15.386,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/02 08:25:00.257,C:\Sistema\Integrado\Projetos\ImportaXmlVendas.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/02 08:25:00.257,C:\Sistema\Integrado\Projetos\ImportaXmlVendas.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

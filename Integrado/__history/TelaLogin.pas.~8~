@@ -1,0 +1,52 @@
+unit TelaLogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
+
+type
+  TTelaLoginU = class(TForm)
+    Usuario: TLabel;
+    Senha: TLabel;
+    Texto1: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    NomeUsuario: TEdit;
+    SenhaCampo: TEdit;
+    Panel1: TPanel;
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaLoginU: TTelaLoginU;
+
+implementation
+
+{$R *.dfm}
+
+uses DbLogin;
+
+procedure TTelaLoginU.Button2Click(Sender: TObject);
+begin
+       if (NomeUsuario.text = 'admin') and (SenhaCampo.text = '123456') then
+       begin
+             TelaLoginU.hide;
+             WinExec('C:\Sistema\Integrado\Projetos\Win64\Debug\Hub.exe',SW_SHOW)     ;
+             TelaLoginU.Close;
+       end;
+
+
+
+
+
+
+end;
+
+end.
