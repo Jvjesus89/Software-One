@@ -54,6 +54,15 @@ type
     Mprodutovlproduto: TSingleField;
     Qprodutovlproduto: TSingleField;
     QProdutoEdicaovlproduto: TSingleField;
+    Qexclusão: TFDQuery;
+    IntegerField7: TIntegerField;
+    WideStringField10: TWideStringField;
+    WideStringField11: TWideStringField;
+    IntegerField8: TIntegerField;
+    WideStringField12: TWideStringField;
+    BooleanField4: TBooleanField;
+    DateField4: TDateField;
+    SingleField1: TSingleField;
     procedure Mproduto2AfterPost(DataSet: TDataSet);
     procedure Mproduto2AfterDelete(DataSet: TDataSet);
     procedure Mproduto2AfterCancel(DataSet: TDataSet);

@@ -46,7 +46,7 @@ uses  TelaCadastroDeProdutos, Dbcadastroproduto, TelaEdicaoProduto;
 procedure TCadProduto.BtEditarClick(Sender: TObject);
 begin
       Dbprod.Mproduto.Open;
-      Dbprod.Mproduto.Append;
+      //Dbprod.Mproduto.Edit;
       TelaEdicaoProduto1.Cdproduto.Text := DBGrid1.Fields[0].value;
       TelaEdicaoProduto1.NmProduto.Text := DBGrid1.Fields[1].value;
       TelaEdicaoProduto1.FamiliaProduto.Text := DBGrid1.Fields[2].value;
@@ -54,17 +54,25 @@ begin
       TelaEdicaoProduto1.Bativo.Enabled := DBGrid1.Fields[4].value;
       TelaEdicaoProduto1.DbEdit1.Text := DBGrid1.Fields[5].value;
       TelaEdicaoProduto1.IdProduto.Text := DBGrid1.Fields[6].value;
-     TelaEdicaoProduto1.ShowModal;
+      TelaEdicaoProduto1.ShowModal;
 end;
 
 procedure TCadProduto.BtExcluirClick(Sender: TObject);
+var Vidproduto : integer;
 begin
+
       Dbprod.Mproduto.Open;
-      Dbprod.Mproduto.Append;
    if Application.MessageBox(Pchar('Deseja excluir o Produto?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
       begin;
-      Dbprod.Mproduto.Delete;
+      with  Dbprod.Qexclusão  do
+      begin
+      close;
+      sql.Clear;
+      sql.Add('Delete from produto Where idproduto ='+ (DBGrid1.Fields[6].value));
+      ExecSQL;
       end;
+      end;
+
 
 end;
 

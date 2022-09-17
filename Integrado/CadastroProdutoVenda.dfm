@@ -2,8 +2,8 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
   Left = 0
   Top = 0
   Caption = 'Cadastro Produto'
-  ClientHeight = 170
-  ClientWidth = 486
+  ClientHeight = 148
+  ClientWidth = 588
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,7 +13,6 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
   OldCreateOrder = False
   Position = poOwnerFormCenter
   OnClose = FormClose
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label3: TLabel
@@ -104,6 +103,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Caption = '...'
     TabOrder = 4
     OnClick = Button1Click
+    OnExit = Button1Exit
   end
   object vlitem: TDBEdit
     Left = 296
@@ -149,5 +149,35 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     TabOrder = 9
     Text = 'Edit1'
+    Visible = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 497
+    Top = 7
+    Width = 88
+    Height = 138
+    DataSource = DbVendas1.DsQestoque
+    TabOrder = 10
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'qtdisponivel'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'dtmovimento'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'idproduto'
+        Visible = False
+      end>
   end
 end

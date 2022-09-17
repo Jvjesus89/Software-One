@@ -49,20 +49,19 @@ uses DbFinApagar, TelaConsultaClienteApagar;
 
 procedure TTelaEdicaoApagar1.BotaoCadastrarClick(Sender: TObject);
 begin
-    with DbFinApagar1.Qapagar1 do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber ='+ DBEdit9.Text);
-      ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
-      ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
-      ParamByName('Pidforma').AsInteger :=  1;
-      ParamByName('Pnmforma').AsString := (DBEdit5.Text) ;
-      ParamByName('Pvltitulo').AsInteger :=  StrToInt (DBEdit6.Text);
-      ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
-      ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
-      ExecSql;
-    end;
+
+      DbFinApagar1.Qapagar1.close;
+      DbFinApagar1.Qapagar1.sql.Clear;
+      DbFinApagar1.Qapagar1.sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber ='+ DBEdit9.Text);
+      DbFinApagar1.Qapagar1.ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
+      DbFinApagar1.Qapagar1.ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
+      DbFinApagar1.Qapagar1.ParamByName('Pidforma').AsInteger :=  1;
+      DbFinApagar1.Qapagar1.ParamByName('Pnmforma').AsString := (DBEdit5.Text) ;
+      DbFinApagar1.Qapagar1.ParamByName('Pvltitulo').AsInteger :=  StrToInt (DBEdit6.Text);
+      DbFinApagar1.Qapagar1.ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
+      DbFinApagar1.Qapagar1.ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
+      DbFinApagar1.Qapagar1.ExecSql;
+
     TelaEdicaoApagar1.close;
 end;
 

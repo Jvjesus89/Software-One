@@ -2,7 +2,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
   Left = 0
   Top = 0
   Caption = 'Editar produto'
-  ClientHeight = 240
+  ClientHeight = 225
   ClientWidth = 508
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +12,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Cod: TLabel
@@ -172,6 +173,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     Height = 21
     DataField = 'dtcadastro'
     DataSource = Dbprod.DsProduto
+    MaxLength = 10
     TabOrder = 7
     Visible = False
   end

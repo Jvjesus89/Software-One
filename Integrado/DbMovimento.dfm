@@ -362,7 +362,7 @@ object DbMov: TDbMov
     SQL.Strings = (
       'Select qtdisponivel From movimentoestoque ')
     Left = 224
-    Top = 120
+    Top = 112
     object QDisponivelqtdisponivel: TIntegerField
       FieldName = 'qtdisponivel'
       Origin = 'qtdisponivel'
@@ -372,5 +372,13 @@ object DbMov: TDbMov
     DataSet = QDisponivel
     Left = 216
     Top = 184
+  end
+  object QdisponivelTemp: TFDQuery
+    Active = True
+    Connection = Db
+    SQL.Strings = (
+      'Select * From temp.movimentoestoque')
+    Left = 488
+    Top = 16
   end
 end

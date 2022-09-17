@@ -42,7 +42,10 @@ type
     procedure DBGrid1Exit(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure AdicionarExit(Sender: TObject);
   private
+    procedure ValorSomatorioItem;
+    procedure AtivarQvendas;
     { Private declarations }
   public
     { Public declarations }
@@ -64,15 +67,13 @@ begin
     DbVendas1.MTempItem.append;
     TelaCadastroProdutoVenda.showmodal;
 
-with DbVendas1.Qitemvenda do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('CREATE TABLE IF NOT EXISTS temp.itemvenda');
-      sql.Add('iditemvenda integer NOT NULL DEFAULT nextval(''temp."#itemvenda_iditemvenda_seq"''::regclass),nmitemvenda character varying(50) NOT NULL, vlunitario real NOT NULL, vlitem real NOT NULL, idproduto integer NOT NULL, qtitem integer)');
-      Open;
-    end;
-end;
+     {DbVendas1.Qitemvenda.close;
+     DbVendas1.Qitemvenda.sql.Clear;
+     DbVendas1.Qitemvenda.sql.Add('CREATE TABLE IF NOT EXISTS temp.itemvenda');
+     DbVendas1.Qitemvenda.sql.Add('iditemvenda integer NOT NULL DEFAULT nextval(''temp."#itemvenda_iditemvenda_seq"''::regclass),nmitemvenda character varying(50) NOT NULL, vlunitario real NOT NULL, vlitem real NOT NULL, idproduto integer NOT NULL, qtitem integer)');
+     DbVendas1.Qitemvenda.ExecSQl;
+     }
+     end;
 
 procedure TTelaCadastroVendas.BuscaClienteClick(Sender: TObject);
 begin
@@ -85,24 +86,24 @@ Vidvenda : Integer;
 
 begin
    DbVendas1.QEntradaVenda.Open;
+   // Excluir quando tiver idforma pagamento
+   DBEdit3.Text := '1';
+
    //Inserir Dados a tabela Vendas
-   DbVendas1.QEntradaVenda.Append;
-    with DbVendas1.QEntradaVenda do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('insert into vendas(idcliente, vlvenda, dtcadastro, dtvenda,nmformapagamento, nmcliente, nrdocumento)');
-      sql.add('VALUES (:Pidcliente , :Pvlvenda, :Pdtcadastro ,:Pdtvenda ,:Pnmformapagamento, :Pnmcliente, :Pnrdocumento)');
-      ParamByName('Pidcliente').AsInteger :=  StrToInt(DBEdit2.Text);
-      //ParamByName('Pidformapagamento').AsInteger :=  StrToInt(DBEdit3.Text);
-      ParamByName('Pvlvenda').AsFloat :=  StrToFloat(Valor.Text);
-      ParamByName('Pdtcadastro').AsDate :=  StrToDate (DBEdit5.Text);
-      ParamByName('Pdtvenda').AsDate :=  DateTimePicker1.Date;
-      ParamByName('Pnmformapagamento').AsString :=  DBEdit7.Text;
-      ParamByName('Pnmcliente').AsString :=  DBEdit8.Text;
-      ParamByName('Pnrdocumento').AsInteger :=  StrToInt(DBEdit10.Text);
-      ExecSQL;
-    end;
+
+      DbVendas1.QEntradaVenda.close;
+      DbVendas1.QEntradaVenda.sql.Clear;
+      DbVendas1.QEntradaVenda.sql.Add('insert into vendas(idcliente,idformapagamento, vlvenda, dtcadastro, dtvenda,nmformapagamento, nmcliente, nrdocumento)');
+      DbVendas1.QEntradaVenda.sql.add('VALUES (:Pidcliente , :Pidformapagamento, :Pvlvenda, :Pdtcadastro ,:Pdtvenda ,:Pnmformapagamento, :Pnmcliente, :Pnrdocumento)');
+      DbVendas1.QEntradaVenda.ParamByName('Pidcliente').AsInteger :=  StrToInt(DBEdit2.Text);
+      DbVendas1.QEntradaVenda.ParamByName('Pidformapagamento').AsInteger := StrToInt(DBEdit3.Text);
+      DbVendas1.QEntradaVenda.ParamByName('Pvlvenda').AsFloat :=  StrToFloat(Valor.Text);
+      DbVendas1.QEntradaVenda.ParamByName('Pdtcadastro').AsDate :=  StrToDate (DBEdit5.Text);
+      DbVendas1.QEntradaVenda.ParamByName('Pdtvenda').AsDate :=  DateTimePicker1.Date;
+      DbVendas1.QEntradaVenda.ParamByName('Pnmformapagamento').AsString :=  DBEdit7.Text;
+      DbVendas1.QEntradaVenda.ParamByName('Pnmcliente').AsString :=  DBEdit8.Text;
+      DbVendas1.QEntradaVenda.ParamByName('Pnrdocumento').AsInteger :=  StrToInt(DBEdit10.Text);
+      DbVendas1.QEntradaVenda.ExecSQL;
 
 
     //Consultar ultimo Idvenda
@@ -113,53 +114,65 @@ begin
 
 
     //Inserir Dados tabela Areceber
-    with DbVendas1.QEntradaTitulo do
-    begin
-      close;
-      sql.Clear;
-      sql.add('INSERT INTO areceber(idcliente, nmcliente, idformapagamento, nmformapagamento, vltitulo, nrtitulo, dtcadastro, dtvencimento, idorigem)');
-      sql.add('VALUES (:Pidcliente, :Pnmcliente, :Pidformapagamento, :Pnmformapagemento, :Pvltitulo, :Pnrtitulo, :Pdtcadastro, :Pdtvencimento, :Pidorigem)');
-      ParamByName('Pidcliente').AsInteger :=  StrToInt(DBEdit2.Text);
-      ParamByName('Pnmcliente').AsString :=  DBEdit8.Text;
-      ParamByName('Pidformapagamento').AsInteger :=  StrToInt(DBEdit3.Text);
-      ParamByName('Pnmformapagemento').AsString :=  DBEdit7.Text;
-      ParamByName('Pvltitulo').AsFloat :=  StrToFloat(Valor.Text);
-      ParamByName('Pnrtitulo').AsInteger :=  StrToInt(DBEdit10.Text);
-      ParamByName('Pdtcadastro').AsDate :=  StrToDate (DBEdit5.Text);
-      ParamByName('Pdtvencimento').AsDate :=  DateTimePicker1.Date;
-      ParamByName('Pidorigem').Asinteger :=  Vidvenda;
-      ExecSQL;
-    end;
+
+      DbVendas1.QEntradaTitulo.close;
+      DbVendas1.QEntradaTitulo.sql.Clear;
+      DbVendas1.QEntradaTitulo.sql.add('INSERT INTO areceber(idcliente, nmcliente, idformapagamento, nmformapagamento, vltitulo, nrtitulo, dtcadastro, dtvencimento, idorigem)');
+      DbVendas1.QEntradaTitulo.sql.add('VALUES (:Pidcliente, :Pnmcliente, :Pidformapagamento, :Pnmformapagemento, :Pvltitulo, :Pnrtitulo, :Pdtcadastro, :Pdtvencimento, :Pidorigem)');
+      DbVendas1.QEntradaTitulo.ParamByName('Pidcliente').AsInteger :=  StrToInt(DBEdit2.Text);
+      DbVendas1.QEntradaTitulo.ParamByName('Pnmcliente').AsString :=  DBEdit8.Text;
+      DbVendas1.QEntradaTitulo.ParamByName('Pidformapagamento').AsInteger :=  StrToInt(DBEdit3.Text);
+      DbVendas1.QEntradaTitulo.ParamByName('Pnmformapagemento').AsString :=  DBEdit7.Text;
+      DbVendas1.QEntradaTitulo.ParamByName('Pvltitulo').AsFloat :=  StrToFloat(Valor.Text);
+      DbVendas1.QEntradaTitulo.ParamByName('Pnrtitulo').AsInteger :=  StrToInt(DBEdit10.Text);
+      DbVendas1.QEntradaTitulo.ParamByName('Pdtcadastro').AsDate :=  StrToDate (DBEdit5.Text);
+      DbVendas1.QEntradaTitulo.ParamByName('Pdtvencimento').AsDate :=  DateTimePicker1.Date;
+      DbVendas1.QEntradaTitulo.ParamByName('Pidorigem').Asinteger :=  Vidvenda;
+     DbVendas1.QEntradaTitulo.ExecSQL;
 
     //Inserir o idvenda na tabela temporaria
 
    DbVendas1.QEntradaVendaItem.Open;
    DbVendas1.Qitemvenda.open;
-     with DbVendas1.QEntradaVendaItem do
     begin
-      close;
-      sql.Clear;
-      sql.Add('update temp.itemvenda Set idvenda=' + DBEdit1.text);
-      ExecSQL;
+      DbVendas1.QEntradaVendaItem.close;
+      DbVendas1.QEntradaVendaItem.sql.Clear;
+      DbVendas1.QEntradaVendaItem.sql.Add('update temp.itemvenda Set idvenda=' + DBEdit1.text);
+      DbVendas1.QEntradaVendaItem.ExecSQL;
     end;
 
     // replicando da tabela temporaria para a vendasitem
-   with DbVendas1.QEntradaVendaItem do
     begin
-      close;
-      sql.Clear;
-      sql.Add('INSERT INTO vendasitem (idvenda,idproduto, nmproduto, vlunitario, qtvendido, vlitem)SELECT idvenda,idproduto, nmitemvenda, vlunitario, qtitem, vlitem FROM    temp.itemvenda');
-      ExecSQL;
+      DbVendas1.QEntradaVendaItem.close;
+      DbVendas1.QEntradaVendaItem.sql.Clear;
+      DbVendas1.QEntradaVendaItem.sql.Add('INSERT INTO vendasitem (idvenda,idproduto, nmproduto, vlunitario, qtvendido, vlitem)SELECT idvenda,idproduto, nmitemvenda, vlunitario, qtitem, vlitem FROM    temp.itemvenda');
+      DbVendas1.QEntradaVendaItem.ExecSQL;
     end;
 
     //  Exclusão das vendas da tabela temporaria
-     with DbVendas1.TempItemExclusao do
      begin
-      close;
-      sql.Clear;
-      sql.Add('delete from temp.itemvenda');
-      ExecSQL;
+      DbVendas1.TempItemExclusao.close;
+      DbVendas1.TempItemExclusao.sql.Clear;
+      DbVendas1.TempItemExclusao.sql.Add('delete from temp.itemvenda');
+      DbVendas1.TempItemExclusao.ExecSQL;
      end;
+
+     //Copias da tabela temp.movimentoestoque e excluir registro antigo
+    begin
+      DbVendas1.QestoqueTemp.close;
+      DbVendas1.QestoqueTemp.sql.Clear;
+      DbVendas1.QestoqueTemp.sql.Add('Update temp.movimentoestoque Set idorigem = :Idvenda' );
+      DbVendas1.QestoqueTemp.ParamByName('Idvenda').AsInteger := StrToInt (DBEdit1.text) ;
+      DbVendas1.QestoqueTemp.ExecSQL;
+    end;
+
+    begin
+      DbVendas1.QestoqueTemp.close;
+      DbVendas1.QestoqueTemp.sql.Clear;
+      DbVendas1.QestoqueTemp.sql.Add('INSERT INTO movimentoestoque (idproduto, qtmovimentada, qtdisponivel, dtmovimento, tpmovimento, dtcadastro, idorigem)');
+      DbVendas1.QestoqueTemp.sql.Add('SELECT  idproduto, qtmovimentada, qtdisponivel, dtmovimento, tpmovimento, dtcadastro, idorigem FROM  temp.movimentoestoque Where idproduto=(SELECT max(idproduto) FROM temp.movimentoestoque) ');
+      DbVendas1.QestoqueTemp.ExecSQL;
+    end;
 
     ShowMessage('Venda realizada com sucesso');
     TelaCadastroVendas.Close;
@@ -173,27 +186,21 @@ end;
 
 procedure TTelaCadastroVendas.DBGrid1ColEnter(Sender: TObject);
 begin
-       begin
-    DbVendas1.Qitemvenda.close;
-    DbVendas1.Qitemvenda.sql.Clear;
-    DbVendas1.Qitemvenda.sql.Add('Select SUM(vlitem) from temp.itemvenda');
-    DbVendas1.Qitemvenda.open;
+    //Somatorio valor da venda
+    ValorSomatorioItem;
     Valor.text := inttostr (DbVendas1.Qitemvenda.RecordCount);
-    end;
+
 end;
 
 
 procedure TTelaCadastroVendas.DBGrid1Exit(Sender: TObject);
 begin
 
-//Somatorio valor da venda
-     begin
-    DbVendas1.Qitemvenda.close;
-    DbVendas1.Qitemvenda.sql.Clear;
-    DbVendas1.Qitemvenda.sql.Add('Select SUM(vlitem) from temp.itemvenda');
-    DbVendas1.Qitemvenda.open;
+   //Somatorio valor da venda
+
+    ValorSomatorioItem;
     Valor.text := inttostr (DbVendas1.Qitemvenda.RecordCount);
-    end;
+
 end;
 
 procedure TTelaCadastroVendas.ExcluirprodutoClick(Sender: TObject);
@@ -205,16 +212,49 @@ end;
 procedure TTelaCadastroVendas.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
+
+      //  Exclusão dos itens da tabela temporaria
+   DbVendas1.TempItemExclusao.close;
+   DbVendas1.TempItemExclusao.sql.Clear;
+   DbVendas1.TempItemExclusao.sql.add('Delete from temp.itemvenda');
+   DbVendas1.TempItemExclusao.execsql ;
+   DbVendas1.MTempItem.close ;
+
+     //  Exclusão das movimentações da tabela temporaria
+  DbVendas1.QestoqueTemp.close;
+  DbVendas1.QestoqueTemp.sql.Clear;
+  DbVendas1.QestoqueTemp.sql.Add('delete from temp.movimentoestoque');
+  DbVendas1.QestoqueTemp.ExecSQL;
+
   DbVendas1.Mvendas.Cancel;
   DbVendas1.Mvendasitem.Cancel;;
   DbVendas1.MTempItem.Cancel;
 
-    //Ativar Query QVendas
+  AtivarQvendas;
+
+end;
+
+procedure TTelaCadastroVendas.ValorSomatorioItem;
+begin
+// Valor total dos itens na grid
+  DbVendas1.Qitemvenda.close;
+  DbVendas1.Qitemvenda.sql.Clear;
+  DbVendas1.Qitemvenda.sql.Add('Select SUM(vlitem) from temp.itemvenda');
+  DbVendas1.Qitemvenda.open;
+end;
+
+procedure TTelaCadastroVendas.AdicionarExit(Sender: TObject);
+begin
+   ValorSomatorioItem;
+   Valor.text := inttostr (DbVendas1.Qitemvenda.RecordCount);
+end;
+
+procedure TTelaCadastroVendas.AtivarQvendas;
+begin
+  //Ativar Query QVendas
   DbVendas1.QEntradaVenda.sql.clear;
   DbVendas1.QEntradaVenda.sql.add('Select * From Vendas');
-  DbVendas1.QEntradaVenda.Open;;
-
-
+  DbVendas1.QEntradaVenda.Open;
 end;
 
 procedure TTelaCadastroVendas.FormShow(Sender: TObject);

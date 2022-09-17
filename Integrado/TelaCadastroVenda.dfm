@@ -2,7 +2,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
   Left = 0
   Top = 0
   Caption = 'Cadastro Vendas'
-  ClientHeight = 353
+  ClientHeight = 344
   ClientWidth = 899
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -144,6 +144,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    Visible = False
   end
   object DBEdit3: TDBEdit
     Left = 104
@@ -159,6 +160,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    Visible = False
   end
   object DBEdit5: TDBEdit
     Left = 244
@@ -174,6 +176,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    Visible = False
   end
   object DBEdit7: TDBEdit
     Left = 8
@@ -320,6 +323,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
         5C5E5C5C5EA1A1A2FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       TabOrder = 1
       OnClick = AdicionarClick
+      OnExit = AdicionarExit
     end
     object Excluirproduto: TBitBtn
       Left = 25
@@ -359,8 +363,8 @@ object TelaCadastroVendas: TTelaCadastroVendas
     end
   end
   object Button1: TButton
-    Left = 426
-    Top = 322
+    Left = 434
+    Top = 297
     Width = 75
     Height = 25
     Caption = 'Cadastrar'
@@ -415,6 +419,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Font.Style = []
     ParentFont = False
     TabOrder = 12
+    Visible = False
   end
   object Edit1: TEdit
     Left = 663
@@ -423,5 +428,6 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Height = 21
     TabOrder = 13
     Text = 'Edit1'
+    Visible = False
   end
 end

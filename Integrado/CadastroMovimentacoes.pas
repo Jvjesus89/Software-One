@@ -52,6 +52,7 @@ uses DbMovimento, Produtos, TelaConsultaEstoque, ProdutoMov;
 
 procedure TTelaCadastroMovimentacoes.Button1Click(Sender: TObject);
 begin
+       DbMov.QdisponivelTemp.Open;
        DbMov.MConsulta.Insert;
        ShowMessage('Movimento Cadastro');
        TelaCadastroMovimentacoes.Close;

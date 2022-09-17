@@ -27,6 +27,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -77,6 +78,12 @@ procedure TTelaEdicaoProduto1.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
    Dbprod.Mproduto.Cancel;
+end;
+
+procedure TTelaEdicaoProduto1.FormShow(Sender: TObject);
+begin
+     Dbprod.Mproduto.Open;
+     Dbprod.Mproduto.Edit;
 end;
 
 end.

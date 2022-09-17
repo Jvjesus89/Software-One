@@ -70,7 +70,7 @@ end;
 procedure TCadastroDeVendas.Button2Click(Sender: TObject);
 begin
 
-    if Busca.Text = '' then
+    if (Trim(Busca.text).IsEmpty) then
     with DbVendas1.Qvendas do
     begin
       close ;

@@ -78,7 +78,7 @@ procedure TApagar1.Button1Click(Sender: TObject);
 begin
       DbFinApagar1.Qapagar.close;
      DbFinApagar1.Qapagar.open;
-   if Busca.Text = '' then
+   if (Trim(Busca.text).IsEmpty) then
     with DbFinApagar1.QApagar do
     begin
       close ;
@@ -99,7 +99,6 @@ end;
 procedure TApagar1.DBGrid1DblClick(Sender: TObject);
 begin
        DbFinApagar1.MApagar.Open;
-    DbFinApagar1.MApagar.Append;
     TelaEdicaoApagar1.DBEdit7.Text := DBGrid1.Fields[0].value;
     TelaEdicaoApagar1.DBEdit3.Text := DBGrid1.Fields[1].value;
     TelaEdicaoApagar1.DBEdit6.Text := DBGrid1.Fields[2].value;

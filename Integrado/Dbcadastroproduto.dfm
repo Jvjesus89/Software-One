@@ -1,4 +1,4 @@
-object Dbprod: TDbprod
+﻿object Dbprod: TDbprod
   Left = 0
   Top = 0
   Caption = 'dbprod'
@@ -204,6 +204,7 @@ object Dbprod: TDbprod
     end
   end
   object Mproduto: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pproduto'
@@ -259,6 +260,59 @@ object Dbprod: TDbprod
     object Mprodutovlproduto: TSingleField
       DisplayLabel = 'Valor Unitario'
       FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+    end
+  end
+  object Qexclusão: TFDQuery
+    Active = True
+    AfterPost = QProdutoEdicaoAfterPost
+    AfterCancel = QProdutoEdicaoAfterCancel
+    AfterDelete = QProdutoEdicaoAfterDelete
+    ConnectionName = 'Db'
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 304
+    Top = 120
+    object IntegerField7: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object WideStringField10: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object WideStringField11: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object IntegerField8: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object WideStringField12: TWideStringField
+      DisplayLabel = 'Familia Produto'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object BooleanField4: TBooleanField
+      DisplayLabel = 'Ativo'
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object DateField4: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object SingleField1: TSingleField
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
     end
   end
 end

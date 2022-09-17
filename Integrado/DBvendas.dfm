@@ -859,7 +859,10 @@
     Active = True
     Connection = DbVendas
     SQL.Strings = (
-      'Select * From movimentoestoque')
+      
+        'Select * From temp.movimentoestoque where  idmovimento=(SELECT m' +
+        'ax(idmovimento ) FROM temp.movimentoestoque Where idproduto = 25' +
+        ')')
     Left = 608
     Top = 152
     object Qestoqueqtdisponivel: TIntegerField
@@ -870,10 +873,78 @@
       FieldName = 'idproduto'
       Origin = 'idproduto'
     end
+    object Qestoqueidmovimento: TIntegerField
+      FieldName = 'idmovimento'
+      Origin = 'idmovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Qestoqueqtmovimentada: TIntegerField
+      FieldName = 'qtmovimentada'
+      Origin = 'qtmovimentada'
+    end
+    object Qestoquedtmovimento: TDateField
+      FieldName = 'dtmovimento'
+      Origin = 'dtmovimento'
+    end
+    object Qestoquetpmovimento: TWideStringField
+      FieldName = 'tpmovimento'
+      Origin = 'tpmovimento'
+      Size = 8
+    end
+    object Qestoquedtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object QestoqueIdorigem: TIntegerField
+      FieldName = 'Idorigem'
+      Origin = '"Idorigem"'
+    end
   end
   object DsQestoque: TDataSource
     DataSet = Qestoque
     Left = 601
     Top = 200
+  end
+  object QestoqueTemp: TFDQuery
+    Active = True
+    Connection = DbVendas
+    SQL.Strings = (
+      'Select * From temp.movimentoestoque')
+    Left = 656
+    Top = 152
+    object IntegerField6: TIntegerField
+      FieldName = 'qtdisponivel'
+      Origin = 'qtdisponivel'
+    end
+    object IntegerField7: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object IntegerField8: TIntegerField
+      FieldName = 'idmovimento'
+      Origin = 'idmovimento'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField9: TIntegerField
+      FieldName = 'qtmovimentada'
+      Origin = 'qtmovimentada'
+    end
+    object DateField4: TDateField
+      FieldName = 'dtmovimento'
+      Origin = 'dtmovimento'
+    end
+    object WideStringField12: TWideStringField
+      FieldName = 'tpmovimento'
+      Origin = 'tpmovimento'
+      Size = 8
+    end
+    object DateField5: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'Idorigem'
+      Origin = '"Idorigem"'
+    end
   end
 end

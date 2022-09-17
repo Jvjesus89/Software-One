@@ -76,6 +76,7 @@ type
     QDisponivel: TFDQuery;
     DsQdisponivel: TDataSource;
     QDisponivelqtdisponivel: TIntegerField;
+    QdisponivelTemp: TFDQuery;
     procedure MprodutoAfterCancel(DataSet: TDataSet);
     procedure MprodutoAfterDelete(DataSet: TDataSet);
     procedure MprodutoAfterPost(DataSet: TDataSet);
