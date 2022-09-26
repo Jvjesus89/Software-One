@@ -1,0 +1,14 @@
+program Configuracoes;
+
+uses
+  Vcl.Forms,
+  TelaConfiguracoes in '..\TelaConfiguracoes.pas' {Configuracoes};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm (TConfiguracoes, Configuracoes);
+  Application.Run;
+end.

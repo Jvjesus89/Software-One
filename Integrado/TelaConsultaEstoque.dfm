@@ -34,8 +34,6 @@ object ConsultaEstoque1: TConsultaEstoque1
       Caption = 'Novo'
       TabOrder = 0
       OnClick = EntradaClick
-      ExplicitLeft = 0
-      ExplicitTop = -3
     end
   end
   object Panel2: TPanel

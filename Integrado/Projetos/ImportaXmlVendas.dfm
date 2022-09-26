@@ -17,7 +17,7 @@ object XML: TXML
     Left = 8
     Top = 27
     Width = 159
-    Height = 23
+    Height = 19
     Caption = 'Informe o diretorio do xml'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -30,7 +30,7 @@ object XML: TXML
     Left = 180
     Top = 27
     Width = 417
-    Height = 23
+    Height = 21
     TabOrder = 0
   end
   object Button1: TButton
@@ -44,11 +44,11 @@ object XML: TXML
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 71
+    Top = 55
     Width = 665
     Height = 126
     Align = alBottom
-    DataSource = DbVendas1.DsQxml
+    DataSource = DbVendas1.Dsxml
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -71,17 +71,67 @@ object XML: TXML
     TitleFont.Style = []
   end
   object DBNavigator1: TDBNavigator
-    Left = 0
-    Top = 197
-    Width = 665
+    Left = 88
+    Top = -4
+    Width = 660
     Height = 25
-    DataSource = DbVendas1.DsVendas
-    Align = alBottom
+    DataSource = DbVendas1.Dsxml
     TabOrder = 4
-    ExplicitTop = 191
+    OnClick = DBNavigator1Click
+  end
+  object Panel: TPanel
+    Left = 0
+    Top = 181
+    Width = 665
+    Height = 41
+    Align = alBottom
+    TabOrder = 5
+    ExplicitLeft = 8
+    ExplicitTop = 188
+    object Vazio: TBitBtn
+      Left = 1
+      Top = 1
+      Width = 240
+      Height = 39
+      Align = alLeft
+      TabOrder = 0
+      Visible = False
+    end
+    object Excluir: TBitBtn
+      Left = 316
+      Top = 1
+      Width = 75
+      Height = 39
+      Align = alLeft
+      Caption = 'Excluir'
+      TabOrder = 1
+      ExplicitLeft = 70
+      ExplicitTop = 6
+    end
+    object Gravar: TBitBtn
+      Left = 241
+      Top = 1
+      Width = 75
+      Height = 39
+      Align = alLeft
+      Caption = 'Gravar'
+      TabOrder = 2
+      ExplicitLeft = 0
+      ExplicitTop = -4
+    end
+    object BitBtn1: TBitBtn
+      Left = 391
+      Top = 1
+      Width = 75
+      Height = 39
+      Align = alLeft
+      Caption = 'Cancelar'
+      TabOrder = 3
+      ExplicitLeft = 311
+      ExplicitTop = 6
+    end
   end
   object OpenDialog1: TOpenDialog
     Left = 8
-    Top = 48
   end
 end

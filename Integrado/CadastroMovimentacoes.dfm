@@ -2,7 +2,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 212
+  ClientHeight = 208
   ClientWidth = 459
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -141,7 +141,8 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 0
+    ReadOnly = True
+    TabOrder = 10
     Visible = False
   end
   object DBEdit2: TDBEdit
@@ -157,7 +158,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 3
     OnExit = DBEdit2Exit
   end
   object DBEdit3: TDBEdit
@@ -173,7 +174,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 8
     Visible = False
   end
   object DBEdit4: TDBEdit
@@ -190,7 +191,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Style = [fsBold]
     MaxLength = 10
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 4
   end
   object DBEdit5: TDBEdit
     Left = 280
@@ -206,7 +207,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 4
+    TabOrder = 9
     Visible = False
   end
   object TipoMovimento: TDBComboBox
@@ -225,7 +226,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
       'Entrada'
       'Saida')
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 2
     OnClick = TipoMovimentoClick
   end
   object Button1: TButton
@@ -250,7 +251,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 7
+    TabOrder = 11
   end
   object CodigoProdutoMov: TDBEdit
     Left = 30
@@ -265,7 +266,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
-    TabOrder = 8
+    TabOrder = 0
   end
   object BuscaProduto: TButton
     Left = 112
@@ -279,7 +280,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 1
     OnClick = BuscaProdutoClick
   end
   object DBEdit1: TDBEdit
@@ -295,7 +296,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 5
   end
   object Button2: TButton
     Left = 158
@@ -303,7 +304,7 @@ object TelaCadastroMovimentacoes: TTelaCadastroMovimentacoes
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 11
+    TabOrder = 7
     OnClick = Button2Click
   end
 end

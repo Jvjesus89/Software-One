@@ -70,6 +70,17 @@ object CadastroDeVendas: TCadastroDeVendas
       TabOrder = 4
       OnClick = Button1Click
     end
+    object Button3: TButton
+      Left = 1294
+      Top = 1
+      Width = 81
+      Height = 71
+      Align = alRight
+      Caption = 'Exportar xml'
+      TabOrder = 5
+      OnClick = Button3Click
+      ExplicitLeft = 1375
+    end
   end
   object Panel2: TPanel
     Left = 0
@@ -157,6 +168,11 @@ object CadastroDeVendas: TCadastroDeVendas
           Expanded = False
           FieldName = 'dtvenda'
           Width = 73
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'idvenda'
           Visible = True
         end>
     end

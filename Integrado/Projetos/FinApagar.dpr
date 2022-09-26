@@ -8,7 +8,8 @@ uses
   TelaConsultaClienteApagar in '..\TelaConsultaClienteApagar.pas' {TelaConsultaCliente1},
   Vcl.Themes,
   Vcl.Styles,
-  TelaEdicaoApagar in '..\TelaEdicaoApagar.pas' {TelaEdicaoApagar1};
+  TelaEdicaoApagar in '..\TelaEdicaoApagar.pas' {TelaEdicaoApagar1},
+  TelaExportaçãoDadosApagar in '..\TelaExportaçãoDadosApagar.pas' {Exportar};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.CreateForm(TTelaCadasrroApagar1, TelaCadasrroApagar1);
   Application.CreateForm(TTelaConsultaCliente1, TelaConsultaCliente1);
   Application.CreateForm(TTelaEdicaoApagar1, TelaEdicaoApagar1);
+  Application.CreateForm(TExportar, Exportar);
   Application.Run;
 end.

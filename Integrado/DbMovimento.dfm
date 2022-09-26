@@ -2,7 +2,7 @@ object DbMov: TDbMov
   Left = 0
   Top = 0
   Caption = 'Form2'
-  ClientHeight = 246
+  ClientHeight = 370
   ClientWidth = 531
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -202,15 +202,14 @@ object DbMov: TDbMov
     Top = 184
   end
   object QConsulta: TFDQuery
-    Active = True
     AfterPost = QConsultaAfterPost
     AfterCancel = QConsultaAfterCancel
     AfterDelete = QConsultaAfterDelete
     Connection = Db
     SQL.Strings = (
       'Select * From movimentoestoque')
-    Left = 168
-    Top = 112
+    Left = 32
+    Top = 232
     object QConsultaqtmovimentada: TIntegerField
       DisplayLabel = 'Quantidade Movimento'
       FieldName = 'qtmovimentada'
@@ -299,8 +298,8 @@ object DbMov: TDbMov
   end
   object DsConsultaQ: TDataSource
     DataSet = QConsulta
-    Left = 168
-    Top = 184
+    Left = 32
+    Top = 304
   end
   object DsProdutoQ: TDataSource
     DataSet = QProduto1

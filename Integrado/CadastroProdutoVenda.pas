@@ -55,7 +55,8 @@ end;
 
 procedure TTelaCadastroProdutoVenda.Button1Exit(Sender: TObject);
 begin
-    if QtDisponivel.text = '' then
+    DbVendas1.Qestoque.Open;
+    //if QtDisponivel.text = '' then
     begin
         // realizar a inclusão da tabela movimentoestoque para a temp
     DbVendas1.QestoqueTemp.close;
@@ -64,6 +65,7 @@ begin
     DbVendas1.QestoqueTemp.ParamByName('Pidproduto').AsInteger := StrToInt (idproduto.text) ;
     DbVendas1.QestoqueTemp.execsql;
     end;
+
         //Trazer quantidade disponivel
    begin
       DbVendas1.Qestoque.close;
@@ -98,8 +100,10 @@ begin
       DbVendas1.QestoqueTemp.ExecSql ;
 
     DbVendas1.MTempItem.Insert;
+    DbVendas1.Qestoque.close;
     DbVendas1.MTempItem.Close;
     DbVendas1.MTempItem.Open;
+    DbVendas1.MTempItem.Append;
 end;
 
 

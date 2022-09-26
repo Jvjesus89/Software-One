@@ -1,0 +1,17 @@
+program Configuracoes;
+
+uses
+  Vcl.Forms,
+  TelaConfiguracoes in '..\TelaConfiguracoes.pas' {TelaConfig},
+  Vcl.Themes,
+  Vcl.Styles;
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TTelaConfig, TelaConfig);
+  Application.Run;
+end.

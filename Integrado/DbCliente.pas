@@ -54,6 +54,18 @@ type
     TabelaClientecdcliente: TWideStringField;
     Mclientecdcliente: TWideStringField;
     Qclientecdcliente: TWideStringField;
+    QClienteExclusao: TFDQuery;
+    IntegerField1: TIntegerField;
+    WideStringField1: TWideStringField;
+    WideStringField2: TWideStringField;
+    WideStringField3: TWideStringField;
+    WideStringField4: TWideStringField;
+    WideStringField5: TWideStringField;
+    DateField1: TDateField;
+    WideStringField6: TWideStringField;
+    WideStringField7: TWideStringField;
+    WideStringField8: TWideStringField;
+    WideStringField9: TWideStringField;
     procedure MclienteAfterCancel(DataSet: TDataSet);
     procedure MclienteAfterPost(DataSet: TDataSet);
     procedure MclienteAfterDelete(DataSet: TDataSet);

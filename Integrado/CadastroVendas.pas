@@ -21,11 +21,13 @@ type
     Button2: TButton;
     Busca: TEdit;
     Button1: TButton;
+    Button3: TButton;
     procedure Button2Click(Sender: TObject);
     procedure BotaoNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,16 +41,50 @@ implementation
 
 {$R *.dfm}
 
-uses DBvendas, TelaCadastroVenda, ImportaXmlVendas;
+uses DBvendas, TelaCadastroVenda, ImportaXmlVendas, TelaExportaçãoXML;
 
 
 
 
 
 procedure TCadastroDeVendas.BotaoExcluirClick(Sender: TObject);
+var IdVenda : integer;
 begin
-   DbVendas1.Mvendas.open;
-   DbVendas1.Qvendas.delete;
+   IdVenda := dbgrid1.Fields[5].Value;
+   if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
+
+
+      begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From movimentoestoque Where idorigem = :Pidorigem');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+      begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From areceber Where idorigem = :Pidorigem');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+       begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From vendasitem Where idvenda = :Pidvenda');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidvenda').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+      begin;
+      DbVendas1.QExclusãoVenda.close;
+      DbVendas1.QExclusãoVenda.sql.Clear;
+      DbVendas1.QExclusãoVenda.sql.Add('Delete From vendas Where idvenda = :Pidvenda');
+      DbVendas1.QExclusãoVenda.ParamByName('Pidvenda').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVenda.ExecSql;
+      end;
+
+      DbVendas1.Qvendas.Close;
+      DbVendas1.Qvendas.Open;
 end;
 
 procedure TCadastroDeVendas.BotaoNovoClick(Sender: TObject);
@@ -71,23 +107,27 @@ procedure TCadastroDeVendas.Button2Click(Sender: TObject);
 begin
 
     if (Trim(Busca.text).IsEmpty) then
-    with DbVendas1.Qvendas do
+
     begin
-      close ;
-      sql.Clear;
-      sql.Add('Select * From vendas');
-      open;
+      DbVendas1.Qvendas.close ;
+      DbVendas1.Qvendas.sql.Clear;
+      DbVendas1.Qvendas.sql.Add('Select * From vendas');
+      DbVendas1.Qvendas.open;
     end
     else
-     with DbVendas1.Qvendas do
     begin
-      close ;
-      sql.Clear;
-      sql.Add('Select * From vendas Where nrdocumento = '+(Busca.Text));
-      open;
+      DbVendas1.Qvendas.close ;
+      DbVendas1.Qvendas.sql.Clear;
+      DbVendas1.Qvendas.sql.Add('Select * From vendas Where nrdocumento = '+(Busca.Text));
+      DbVendas1.Qvendas.open;
     end;;
 
 
+end;
+
+procedure TCadastroDeVendas.Button3Click(Sender: TObject);
+begin
+   ExportarXML.showmodal;
 end;
 
 procedure TCadastroDeVendas.FormShow(Sender: TObject);

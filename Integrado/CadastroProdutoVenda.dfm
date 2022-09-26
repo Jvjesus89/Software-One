@@ -2,7 +2,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
   Left = 0
   Top = 0
   Caption = 'Cadastro Produto'
-  ClientHeight = 148
+  ClientHeight = 139
   ClientWidth = 588
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -63,7 +63,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'idproduto'
     DataSource = DbVendas1.DsTempItem
-    TabOrder = 0
+    TabOrder = 9
     Visible = False
   end
   object nmproduto: TDBEdit
@@ -73,7 +73,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'nmitemvenda'
     DataSource = DbVendas1.DsTempItem
-    TabOrder = 1
+    TabOrder = 10
   end
   object vlunitario: TDBEdit
     Left = 8
@@ -82,7 +82,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'vlunitario'
     DataSource = DbVendas1.DsTempItem
-    TabOrder = 2
+    TabOrder = 4
     OnExit = vlunitarioExit
   end
   object quantidade: TDBEdit
@@ -92,7 +92,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'qtitem'
     DataSource = DbVendas1.DsTempItem
-    TabOrder = 3
+    TabOrder = 1
     OnExit = quantidadeExit
   end
   object Button1: TButton
@@ -101,7 +101,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Width = 29
     Height = 21
     Caption = '...'
-    TabOrder = 4
+    TabOrder = 0
     OnClick = Button1Click
     OnExit = Button1Exit
   end
@@ -112,7 +112,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'vlitem'
     DataSource = DbVendas1.DsTempItem
-    TabOrder = 5
+    TabOrder = 3
   end
   object Button2: TButton
     Left = 232
@@ -120,7 +120,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Width = 75
     Height = 25
     Caption = 'Cadastrar'
-    TabOrder = 6
+    TabOrder = 2
     OnClick = Button2Click
   end
   object Button3: TButton
@@ -129,7 +129,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 7
+    TabOrder = 5
     OnClick = Button3Click
   end
   object QtDisponivel: TDBEdit
@@ -139,7 +139,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Height = 21
     DataField = 'qtdisponivel'
     DataSource = DbVendas1.DsQestoque
-    TabOrder = 8
+    TabOrder = 6
     Visible = False
   end
   object Edit1: TEdit
@@ -147,7 +147,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Top = 141
     Width = 121
     Height = 21
-    TabOrder = 9
+    TabOrder = 7
     Text = 'Edit1'
     Visible = False
   end
@@ -157,7 +157,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
     Width = 88
     Height = 138
     DataSource = DbVendas1.DsQestoque
-    TabOrder = 10
+    TabOrder = 8
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11

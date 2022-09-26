@@ -51,7 +51,7 @@ object Apagar1: TApagar1
       TabOrder = 2
       OnClick = BotaoEditarClick
     end
-    object ExportarDados: TButton
+    object ExportarDadosApagar: TButton
       Left = 1456
       Top = 1
       Width = 83
@@ -59,7 +59,7 @@ object Apagar1: TApagar1
       Align = alRight
       Caption = 'Exportar'
       TabOrder = 3
-      OnClick = ExportarDadosClick
+      OnClick = ExportarDadosApagarClick
     end
   end
   object Panel2: TPanel
@@ -158,6 +158,11 @@ object Apagar1: TApagar1
         item
           Expanded = False
           FieldName = 'idcliente'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'idapagar'
           Visible = False
         end>
     end

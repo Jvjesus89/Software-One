@@ -41,8 +41,6 @@ object Apagar1: TApagar1
       Caption = 'Excluir'
       TabOrder = 1
       OnClick = BotaoExcluirClick
-      ExplicitLeft = 159
-      ExplicitTop = -3
     end
     object BotaoEditar: TButton
       Left = 76
@@ -53,8 +51,6 @@ object Apagar1: TApagar1
       Caption = 'Editar'
       TabOrder = 2
       OnClick = BotaoEditarClick
-      ExplicitLeft = 82
-      ExplicitTop = -3
     end
     object ExportarDados: TButton
       Left = 1456

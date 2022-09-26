@@ -1,0 +1,23 @@
+program Configuracoes;
+
+uses
+  Vcl.Forms,
+  TelaConfiguracoes in '..\TelaConfiguracoes.pas' {TelaConfig},
+  Vcl.Themes,
+  Vcl.Styles,
+  TelaCadastroFormaPagamento in '..\TelaCadastroFormaPagamento.pas' {CadastroFormaPagamento},
+  DbConfiguracao in '..\DbConfiguracao.pas' {DbConfig},
+  TelaConsultaFormaPagamento in '..\TelaConsultaFormaPagamento.pas' {Formapagamento};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Glow');
+  Application.CreateForm(TTelaConfig, TelaConfig);
+  Application.CreateForm(TCadastroFormaPagamento, CadastroFormaPagamento);
+  Application.CreateForm(TDbConfig, DbConfig);
+  Application.CreateForm(TFormapagamento, Formapagamento);
+  Application.Run;
+end.

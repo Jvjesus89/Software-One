@@ -2,7 +2,7 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
   Left = 0
   Top = 0
   Caption = 'Editar Apagar'
-  ClientHeight = 212
+  ClientHeight = 177
   ClientWidth = 526
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -136,7 +136,7 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 10
     Visible = False
   end
   object DBEdit3: TDBEdit
@@ -213,7 +213,8 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 5
+    ReadOnly = True
+    TabOrder = 11
   end
   object Busca: TButton
     Left = 479
@@ -227,16 +228,16 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     OnClick = BuscaClick
   end
   object BotaoCadastrar: TButton
     Left = 259
-    Top = 175
+    Top = 150
     Width = 73
     Height = 25
     Caption = 'Cadastrar'
-    TabOrder = 7
+    TabOrder = 0
     OnClick = BotaoCadastrarClick
   end
   object DBEdit1: TDBEdit
@@ -253,7 +254,7 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Font.Style = [fsBold]
     MaxLength = 10
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 6
   end
   object DBEdit8: TDBEdit
     Left = 8
@@ -262,7 +263,7 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Height = 21
     DataField = 'dtcadastro'
     DataSource = DbFinApagar1.DsApagar
-    TabOrder = 9
+    TabOrder = 7
     Visible = False
   end
   object DBEdit9: TDBEdit
@@ -278,16 +279,16 @@ object TelaEdicaoApagar1: TTelaEdicaoApagar1
     Font.Name = 'Times New Roman'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 8
     Visible = False
   end
   object Button1: TButton
     Left = 178
-    Top = 175
+    Top = 150
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 11
+    TabOrder = 9
     OnClick = Button1Click
   end
 end

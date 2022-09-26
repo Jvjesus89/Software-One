@@ -48,14 +48,19 @@ uses Dbfinreceber, TelaConsultaClienteAreceber;
 
 procedure TTelaCadasrroAreceber1.BotaoCadastrarClick(Sender: TObject);
 begin
-    DbFinAreceber1.MAreceber.Insert;
+     DBEdit4.text := '1';
+     DbFinAreceber1.MAreceber.Insert;
      ShowMessage('Titulo Cadastrado');
      TelaCadasrroAreceber1.Close;
+
+     DbFinAreceber1.QAreceber.Close;
+     DbFinAreceber1.QAreceber.Open;
 end;
 
 procedure TTelaCadasrroAreceber1.BuscaClick(Sender: TObject);
 begin
       TelaConsultaClienteAreceber1.showmodal;
+      DbFinAreceber1.Qcliente.Open;
 end;
 
 procedure TTelaCadasrroAreceber1.Button1Click(Sender: TObject);

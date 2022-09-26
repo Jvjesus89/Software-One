@@ -24,6 +24,7 @@ type
     procedure BotaoNovoClick(Sender: TObject);
     procedure BotaoBuscaClick(Sender: TObject);
     procedure ExportarDadosClick(Sender: TObject);
+    procedure BotaoExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,8 +45,26 @@ begin
     TelaEdicaoCliente1.showmodal;
 end;
 
+procedure TConsultaCliente.BotaoExcluirClick(Sender: TObject);
+var VIdcliente : integer;
+begin
+    VIdcliente := dbgrid1.Fields[7].value;
+
+  if Application.MessageBox(Pchar('Deseja excluir o Produto?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
+      begin;
+      DbClient.QClienteExclusao.close;
+      DbClient.QClienteExclusao.sql.Clear;
+      DbClient.QClienteExclusao.sql.Add('Delete From clientes Where idcliente = :PIcliente');
+      DbClient.QClienteExclusao.Parambyname('PIcliente').AsInteger := VIdcliente;
+      DbClient.QClienteExclusao.ExecSql;
+      DbClient.Qcliente.close;
+      DbClient.Qcliente.Open;
+      end;
+end;
+
 procedure TConsultaCliente.BotaoNovoClick(Sender: TObject);
 begin
+    DbClient.Mcliente.Append;
     TelaCadastroCliente1.showmodal;
 end;
 

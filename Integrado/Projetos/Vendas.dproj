@@ -129,6 +129,22 @@
             <Form>XML</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\TelaExportaçãoXML.pas">
+            <Form>ExportarXML</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\TelaConsultaPrazoVendas.pas">
+            <Form>ConsultaPrazo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\TelaConsultaFormaPagamentoVendas.pas">
+            <Form>ConsultaFormaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\TelaCadastroFinanceiro.pas">
+            <Form>CadastroAreceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -936,6 +952,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

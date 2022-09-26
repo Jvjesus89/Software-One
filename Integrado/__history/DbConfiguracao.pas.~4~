@@ -1,0 +1,91 @@
+unit DbConfiguracao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG,
+  FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  Vcl.StdCtrls, Datasnap.Provider, Datasnap.DBClient, FireDAC.Comp.DataSet;
+
+type
+  TDbConfig = class(TForm)
+    DB: TFDConnection;
+    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    FormaPagamento: TFDTable;
+    DsForma: TDataSource;
+    Mforma: TClientDataSet;
+    Pforma: TDataSetProvider;
+    Label1: TLabel;
+    FormaPagamentoidformapagamento: TIntegerField;
+    FormaPagamentonmformapagamento: TWideStringField;
+    Label2: TLabel;
+    Prazos: TFDTable;
+    DsPrazo: TDataSource;
+    Mprazo: TClientDataSet;
+    Pprazo: TDataSetProvider;
+    Prazosidprazo: TIntegerField;
+    Prazosnmprazo: TWideStringField;
+    Prazosnrparcelas: TIntegerField;
+    Prazosidformapagamento: TIntegerField;
+    Mprazoidprazo: TIntegerField;
+    Mprazonmprazo: TWideStringField;
+    Mprazonrparcelas: TIntegerField;
+    Mprazoidformapagamento: TIntegerField;
+    FormaPagamentodtcadastro: TDateField;
+    Mformaidformapagamento: TIntegerField;
+    Mformadtcadastro: TDateField;
+    Mformanmformapagamento: TWideStringField;
+    procedure MformaAfterDelete(DataSet: TDataSet);
+    procedure MformaAfterCancel(DataSet: TDataSet);
+    procedure MformaAfterPost(DataSet: TDataSet);
+    procedure MprazoAfterCancel(DataSet: TDataSet);
+    procedure MprazoAfterDelete(DataSet: TDataSet);
+    procedure MprazoAfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DbConfig: TDbConfig;
+
+implementation
+
+{$R *.dfm}
+
+procedure TDbConfig.MformaAfterCancel(DataSet: TDataSet);
+begin
+   Mforma.CancelUpdates;
+end;
+
+procedure TDbConfig.MformaAfterDelete(DataSet: TDataSet);
+begin
+    Mforma.ApplyUpdates(-1);
+end;
+
+procedure TDbConfig.MformaAfterPost(DataSet: TDataSet);
+begin
+    Mforma.ApplyUpdates(-1);
+end;
+
+procedure TDbConfig.MprazoAfterCancel(DataSet: TDataSet);
+begin
+    Mprazo.CancelUpdates;
+end;
+
+procedure TDbConfig.MprazoAfterDelete(DataSet: TDataSet);
+begin
+   Mprazo.ApplyUpdates(-1);
+end;
+
+procedure TDbConfig.MprazoAfterPost(DataSet: TDataSet);
+begin
+    Mprazo.ApplyUpdates(-1);
+end;
+
+end.

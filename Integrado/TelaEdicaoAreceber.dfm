@@ -2,7 +2,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
   Left = 0
   Top = 0
   Caption = 'Editar Titulo'
-  ClientHeight = 215
+  ClientHeight = 178
   ClientWidth = 506
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -233,7 +233,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
   end
   object BotaoCadastrar: TButton
     Left = 261
-    Top = 182
+    Top = 150
     Width = 73
     Height = 25
     Caption = 'Cadastrar'
@@ -268,7 +268,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
   end
   object Button1: TButton
     Left = 180
-    Top = 182
+    Top = 150
     Width = 75
     Height = 25
     Caption = 'Cancelar'

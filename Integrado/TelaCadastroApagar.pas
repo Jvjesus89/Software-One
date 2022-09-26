@@ -26,6 +26,7 @@ type
     DBEdit1: TDBEdit;
     Label8: TLabel;
     DBEdit8: TDBEdit;
+    Button1: TButton;
     procedure BuscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BotaoCadastrarClick(Sender: TObject);
@@ -49,6 +50,8 @@ begin
     DbFinApagar1.Mapagar.Insert;
      ShowMessage('Titulo Cadastrado');
      TelaCadasrroApagar1.Close;
+     DbFinApagar1.Qapagar.close;
+     DbFinApagar1.Qapagar.open;
 end;
 
 procedure TTelaCadasrroApagar1.BuscaClick(Sender: TObject);

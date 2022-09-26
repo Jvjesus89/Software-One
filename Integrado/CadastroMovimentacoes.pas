@@ -52,10 +52,17 @@ uses DbMovimento, Produtos, TelaConsultaEstoque, ProdutoMov;
 
 procedure TTelaCadastroMovimentacoes.Button1Click(Sender: TObject);
 begin
-       DbMov.QdisponivelTemp.Open;
        DbMov.MConsulta.Insert;
        ShowMessage('Movimento Cadastro');
        TelaCadastroMovimentacoes.Close;
+       if (Trim(ConsultaEstoque1.IdProduto.text).IsEmpty) then
+       begin
+           DbMov.QConsulta.close;
+       end else
+       begin
+       DbMov.QConsulta.close;
+       DbMov.QConsulta.open;
+       end;
 end;
 
 procedure TTelaCadastroMovimentacoes.Button2Click(Sender: TObject);
@@ -70,7 +77,7 @@ var qtdisponivel : integer;
 TpMovimento : String;
 begin
 TpMovimento := TipoMovimento.Text;
-   if DBEdit3.Text = '' then
+   if (Trim(DBEdit3.Text).IsEmpty) then
    begin
    DBEdit3.Text := '0';
     if TpMovimento = 'Entrada' then
@@ -79,9 +86,8 @@ TpMovimento := TipoMovimento.Text;
     if TpMovimento = 'Saida' then
     qtdisponivel :=  StrToInt (DBEdit3.Text) -  StrToInt (DBEdit2.Text);
     DBEdit1.Text :=  IntToStr (qtdisponivel);
-   end;
-
-   if DBEdit3.Text <> '' then
+   end
+   else
    begin
     if TpMovimento = 'Entrada' then
     qtdisponivel :=  StrToInt (DBEdit3.Text) +  StrToInt (DBEdit2.Text);
@@ -107,12 +113,13 @@ end;
 
 procedure TTelaCadastroMovimentacoes.TipoMovimentoClick(Sender: TObject);
 begin
-    with DbMov.QDisponivel do
+
     begin
-    close;
-    sql.Clear;
-    sql.Add('Select qtdisponivel From movimentoestoque Where idproduto =' + (IdProdutoMov.text));
-    open;
+    DbMov.QDisponivel.close;
+    DbMov.QDisponivel.sql.Clear;
+    DbMov.QDisponivel.sql.Add('Select qtdisponivel From movimentoestoque where  idmovimento=(SELECT max(idmovimento ) FROM movimentoestoque Where idproduto =  :Pidproduto)');
+    DbMov.QDisponivel.ParamByName('Pidproduto').AsInteger := StrToInt (IdProdutoMov.text);
+    DbMov.QDisponivel.open;
     DBEdit1.Text := DBEdit3.Text;
     end;
 end;

@@ -383,7 +383,7 @@
       Size = 50
     end
     object QApagarvltitulo: TSingleField
-      DisplayLabel = 'Valor Titulo'
+      DisplayLabel = 'Vl. Titulo'
       FieldName = 'vltitulo'
       Origin = 'vltitulo'
       currency = True

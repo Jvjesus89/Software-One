@@ -30,6 +30,9 @@
         <Projects Include="Vendas.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Configuracoes.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -119,14 +122,23 @@
     <Target Name="Vendas:Make">
         <MSBuild Projects="Vendas.dproj" Targets="Make"/>
     </Target>
+    <Target Name="Configuracoes">
+        <MSBuild Projects="Configuracoes.dproj"/>
+    </Target>
+    <Target Name="Configuracoes:Clean">
+        <MSBuild Projects="Configuracoes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Configuracoes:Make">
+        <MSBuild Projects="Configuracoes.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Sistema;CadastroUsuario;Hub;CadastroProduto;ConsultaEstoque;FinAreceber;CadastroCliente;FinApagar;Vendas"/>
+        <CallTarget Targets="Sistema;CadastroUsuario;Hub;CadastroProduto;ConsultaEstoque;FinAreceber;CadastroCliente;FinApagar;Vendas;Configuracoes"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;Hub:Clean;CadastroProduto:Clean;ConsultaEstoque:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean"/>
+        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;Hub:Clean;CadastroProduto:Clean;ConsultaEstoque:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean;Configuracoes:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;Hub:Make;CadastroProduto:Make;ConsultaEstoque:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make"/>
+        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;Hub:Make;CadastroProduto:Make;ConsultaEstoque:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make;Configuracoes:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

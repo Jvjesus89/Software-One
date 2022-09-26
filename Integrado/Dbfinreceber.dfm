@@ -78,8 +78,10 @@
       Origin = 'idorigem'
     end
     object QArecebervltitulo: TSingleField
+      DisplayLabel = 'Vl. Titulo'
       FieldName = 'vltitulo'
       Origin = 'vltitulo'
+      currency = True
     end
   end
   object TabelaAreceber: TFDTable
@@ -340,6 +342,7 @@
     Top = 120
   end
   object Qcliente: TFDQuery
+    Active = True
     Connection = DbFin
     SQL.Strings = (
       'Select * From clientes')

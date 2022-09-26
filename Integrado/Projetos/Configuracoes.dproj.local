@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/04 11:18:53.000.108,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 12:17:49.000.904,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 12:35:28.000.759,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 12:39:04.000.226,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 13:09:52.000.487,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 13:10:32.000.352,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/04 13:21:54.000.658,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/18 21:35:21.000.811,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/18 21:39:21.000.984,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 00:53:55.000.970,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 00:54:11.000.543,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 00:55:15.000.979,C:\Sistema\Integrado\Projetos\Configuracoes.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj</Transaction>
+    <Transaction>2022/09/25 11:48:11.000.439,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 11:49:24.000.295,C:\Sistema\Integrado\TelaCadastroFormaPagamento.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/09/25 11:49:24.000.295,C:\Sistema\Integrado\TelaCadastroFormaPagamento.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 11:57:49.000.540,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 12:14:01.000.487,C:\Sistema\Integrado\DbConfiguracoes.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 12:14:01.000.487,C:\Sistema\Integrado\DbConfiguracoes.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/09/25 12:21:25.000.833,C:\Sistema\Integrado\DbConfiguracao.pas=C:\Sistema\Integrado\DbConfiguracoes.pas</Transaction>
+    <Transaction>2022/09/25 12:21:25.000.833,C:\Sistema\Integrado\DbConfiguracao.dfm=C:\Sistema\Integrado\DbConfiguracoes.dfm</Transaction>
+    <Transaction>2022/09/25 13:08:02.000.595,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamento.dfm</Transaction>
+    <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamento.pas</Transaction>
+    <Transaction>2022/09/25 13:34:12.000.973,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazo.pas</Transaction>
+    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazo.dfm</Transaction>
+    <Transaction>2022/09/25 13:44:06.000.729,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazos.dfm</Transaction>
+    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazos.pas</Transaction>
+    <Transaction>2022/09/25 20:03:24.000.304,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.pas</Transaction>
+    <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

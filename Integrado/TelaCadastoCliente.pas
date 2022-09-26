@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
 
 type
   TTelaCadastroCliente1 = class(TForm)
@@ -29,6 +30,9 @@ type
     Button1: TButton;
     Label10: TLabel;
     DBEdit9: TDBEdit;
+    RadioGroup1: TRadioGroup;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
@@ -48,14 +52,22 @@ uses DbCliente;
 
 procedure TTelaCadastroCliente1.Button1Click(Sender: TObject);
 begin
-     DbClient.Mcliente.Insert;
+     if not ((Trim(DBEdit2.Text).IsEmpty) or (Trim(NomeClienteCampo.Text).IsEmpty)or (Trim(DBEdit9.Text).IsEmpty)) then
+     begin
+     DbClient.Mcliente.Post;
      ShowMessage('Cliente Cadastrado');
      TelaCadastroCliente1.Close;
+     DbClient.Qcliente.close;
+     DbClient.Qcliente.Open;
+     end
+     else
+     begin
+     ShowMessage('Campos obrigatorios para cadastro de cliente CPF/CNPJ, Nome , Código') ;
+     end;
 end;
 
 procedure TTelaCadastroCliente1.FormShow(Sender: TObject);
 begin
-     DbClient.Mcliente.Append;
      DbClient.Mcliente.FieldByName('dtcadastro').Value := now;
 end;
 

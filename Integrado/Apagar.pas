@@ -18,15 +18,16 @@ type
     BotaoEditar: TButton;
     Button1: TButton;
     Busca: TEdit;
-    ExportarDados: TButton;
+    ExportarDadosApagar: TButton;
     Label1: TLabel;
     procedure BotaoNovoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure ExportarDadosClick(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);
     procedure BotaoEditarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure ExportarDadosApagarClick(Sender: TObject);
   private
+    procedure AtualizarGrid;
     { Private declarations }
   public
     { Public declarations }
@@ -39,13 +40,14 @@ implementation
 
 {$R *.dfm}
 
-uses Dbfinapagar, TelaCadastroApagar, TelaEdicaoApagar;
+uses Dbfinapagar, TelaCadastroApagar, TelaEdicaoApagar,
+  TelaExportaçãoDadosApagar;
 
 
 
 procedure TApagar1.BotaoEditarClick(Sender: TObject);
 begin
-       DbFinApagar1.MApagar.Open;
+    DbFinApagar1.MApagar.Open;
     DbFinApagar1.MApagar.Append;
     TelaEdicaoApagar1.DBEdit7.Text := DBGrid1.Fields[0].value;
     TelaEdicaoApagar1.DBEdit3.Text := DBGrid1.Fields[1].value;
@@ -54,30 +56,33 @@ begin
     TelaEdicaoApagar1.DBEdit1.Text := DBGrid1.Fields[4].value;
     TelaEdicaoApagar1.DBEdit9.Text := DBGrid1.Fields[5].value;
     TelaEdicaoApagar1.DBEdit2.Text := DBGrid1.Fields[6].value;
+    TelaEdicaoApagar1.DBEdit9.Text := DBGrid1.Fields[7].value;
     TelaEdicaoApagar1.showmodal;
 end;
 
 procedure TApagar1.BotaoExcluirClick(Sender: TObject);
 begin
+
    if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
       begin;
-      DbFinApagar1.Mapagar.Delete;
+      DbFinApagar1.Qapagar1.close;
+      DbFinApagar1.Qapagar1.sql.Clear;
+      DbFinApagar1.Qapagar1.sql.Add('Delete From apagar Where idapagar = :Pidapagar');
+      DbFinApagar1.Qapagar1.ParamByName('Pidapagar').AsInteger := DbGrid1.Fields[7].Value;
+      DbFinApagar1.Qapagar1.ExecSql;
       end;
-   DbFinApagar1.QApagar.close;
-   DbFinApagar1.QApagar.open;
+  AtualizarGrid;
 end;
 
 procedure TApagar1.BotaoNovoClick(Sender: TObject);
 begin
      TelaCadasrroApagar1.showmodal;
-     DbFinApagar1.Mapagar.close;
-     DbFinApagar1.Mapagar.open;
+     AtualizarGrid;
 end;
 
 procedure TApagar1.Button1Click(Sender: TObject);
 begin
-      DbFinApagar1.Qapagar.close;
-     DbFinApagar1.Qapagar.open;
+     AtualizarGrid;
    if (Trim(Busca.text).IsEmpty) then
     with DbFinApagar1.QApagar do
     begin
@@ -106,28 +111,20 @@ begin
     TelaEdicaoApagar1.DBEdit1.Text := DBGrid1.Fields[4].value;
     TelaEdicaoApagar1.DBEdit9.Text := DBGrid1.Fields[5].value;
     TelaEdicaoApagar1.DBEdit2.Text := DBGrid1.Fields[6].value;
+    TelaEdicaoApagar1.DBEdit9.Text := DBGrid1.Fields[7].value;
     TelaEdicaoApagar1.showmodal;
 end;
 
-procedure TApagar1.ExportarDadosClick(Sender: TObject);
-var
-  sLista: TStringList;
- nCampo: integer;
- cLinha : string;
+procedure TApagar1.ExportarDadosApagarClick(Sender: TObject);
 begin
-  sLista := TstringList.Create;
-  DbFinApagar1.Qapagar1.First;
-  while not DbFinApagar1.Qapagar1.EOF do
-  begin
-    cLinha := '';
-    for nCampo :=0 to DbFinApagar1.Qapagar1.fields.Count-1 do
-    cLinha := cLinha + DbFinApagar1.Qapagar1.Fields[nCampo].DisplayText+';';
-    sLista.Add(cLinha);
-    DbFinApagar1.Qapagar1.Next;
-  end;
-  if FileExists('C:\Sistema\DadosExportados\apagar.csv') then DeleteFile('C:\Sistema\DadosExportados\apagar.csv');
-  sLista.SaveToFile('C:\Sistema\DadosExportados\apagar.csv');
-
+  Exportar.showmodal;
 end;
+
+procedure TApagar1.AtualizarGrid;
+begin
+  DbFinApagar1.QApagar.close;
+  DbFinApagar1.QApagar.open;
+end;
+
 
 end.

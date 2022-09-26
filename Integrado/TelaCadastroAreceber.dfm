@@ -2,7 +2,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
   Left = 0
   Top = 0
   Caption = 'Cadastro a receber'
-  ClientHeight = 210
+  ClientHeight = 322
   ClientWidth = 509
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -232,8 +232,8 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     OnClick = BuscaClick
   end
   object BotaoCadastrar: TButton
-    Left = 256
-    Top = 178
+    Left = 248
+    Top = 150
     Width = 75
     Height = 25
     Caption = 'Cadastrar'
@@ -267,8 +267,8 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Visible = False
   end
   object Button1: TButton
-    Left = 175
-    Top = 178
+    Left = 167
+    Top = 150
     Width = 75
     Height = 25
     Caption = 'Cancelar'

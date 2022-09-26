@@ -49,21 +49,16 @@ procedure TConsultaEstoque1.EntradaClick(Sender: TObject);
 
 begin
      DbMov.MConsulta.Open;
-         DbMov.MConsulta.Append;
+     DbMov.MConsulta.Append;
      TelaCadastroMovimentacoes.ShowModal;
 end;
 
 procedure TConsultaEstoque1.IdProdutoChange(Sender: TObject);
 begin
-
-    with DbMov.QConsulta do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Select * From movimentoestoque Where idproduto = '+(IdProduto.Text));
-      open;
-    end;
-
+      DbMov.QConsulta.close;
+      DbMov.QConsulta.sql.Clear;
+      DbMov.QConsulta.sql.Add('Select * From movimentoestoque Where idproduto = '+(IdProduto.Text));
+      DbMov.QConsulta.open;
 end;
 
 procedure TConsultaEstoque1.LocalizaprodutoClick(Sender: TObject);

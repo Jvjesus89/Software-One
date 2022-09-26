@@ -49,21 +49,21 @@ uses Dbfinreceber, TelaConsultaClienteAreceber;
 
 procedure TTelaEdicaoAreceber1.BotaoCadastrarClick(Sender: TObject);
 begin
-    with DbFinAreceber1.QEdiçãoAreceber do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber ='+ DBEdit9.Text);
-      ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
-      ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
-      ParamByName('Pidforma').AsInteger :=  1;
-      ParamByName('Pnmforma').AsString := (DBEdit5.Text) ;
-      ParamByName('Pvltitulo').AsInteger :=  StrToInt (DBEdit6.Text);
-      ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
-      ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
-      ExecSql;
-    end;
+      DbFinAreceber1.QEdiçãoAreceber.close;
+      DbFinAreceber1.QEdiçãoAreceber.sql.Clear;
+      DbFinAreceber1.QEdiçãoAreceber.sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber =:Pidtitulo');
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidtitulo').AsInteger :=  StrToInt (DBEdit9.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidforma').AsInteger :=  1;
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnmforma').AsString := (DBEdit5.Text) ;
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pvltitulo').AsInteger :=  StrToInt (DBEdit6.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ExecSql;
     TelaEdicaoAreceber1.close;
+    DbFinAreceber1.QAreceber.Close;
+    DbFinAreceber1.QAreceber.Open;
 end;
 
 procedure TTelaEdicaoAreceber1.BuscaClick(Sender: TObject);

@@ -40,7 +40,8 @@ implementation
 
 {$R *.dfm}
 
-uses Dbfinreceber, TelaCadastroAreceber, TelaEdicaoAreceber;
+uses Dbfinreceber, TelaCadastroAreceber, TelaEdicaoAreceber,
+  TelaExportaçãoDadosAreceber;
 
 procedure TApagar1.BotaoEditarClick(Sender: TObject);
 begin
@@ -52,16 +53,23 @@ begin
     TelaEdicaoAreceber1.DBEdit5.Text := DBGrid1.Fields[3].value;
     TelaEdicaoAreceber1.DBEdit1.Text := DBGrid1.Fields[4].value;
     TelaEdicaoAreceber1.DBEdit2.Text := DBGrid1.Fields[6].value;
+    TelaEdicaoAreceber1.DBEdit9.Text := DBGrid1.Fields[7].value;
     TelaEdicaoAreceber1.showmodal;
 end;
 
 procedure TApagar1.BotaoExcluirClick(Sender: TObject);
 begin
+    DbFinAreceber1.Mareceber.Open;
     if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
       begin;
-      DbFinAreceber1.Mareceber.Delete;
+      DbFinAreceber1.QEdiçãoAreceber.close;
+      DbFinAreceber1.QEdiçãoAreceber.sql.Clear;
+      DbFinAreceber1.QEdiçãoAreceber.Sql.Add('Delete From areceber where idareceber = :Pidareceber');
+      DbFinAreceber1.QEdiçãoAreceber.ParamByname('Pidareceber').AsInteger := dbgrid1.Fields[7].Value;
+      DbFinAreceber1.QEdiçãoAreceber.ExecSql;
       end;
-       DbFinAreceber1.Qareceber.close;
+
+     DbFinAreceber1.Qareceber.close;
      DbFinAreceber1.Qareceber.open;
 
 end;
@@ -107,24 +115,8 @@ begin
 end;
 
 procedure TApagar1.ExportarDadosClick(Sender: TObject);
-var
-  sLista: TStringList;
- nCampo: integer;
- cLinha : string;
 begin
-  sLista := TstringList.Create;
-  DbFinAreceber1.QAreceber.First;
-  while not DbFinAreceber1.QAreceber.EOF do
-  begin
-    cLinha := '';
-    for nCampo :=0 to DbFinAreceber1.QAreceber.fields.Count-1 do
-    cLinha := cLinha + DbFinAreceber1.QAreceber.Fields[nCampo].DisplayText+';';
-    sLista.Add(cLinha);
-    DbFinAreceber1.QAreceber.Next;
-  end;
-  if FileExists('C:\Sistema\DadosExportados\areceber.csv') then DeleteFile('C:\Sistema\DadosExportados\areceber.csv');
-  sLista.SaveToFile('C:\Sistema\DadosExportados\areceber.csv');
-
+     Exportar.showmodal;
 end;
 
 procedure TApagar1.FormShow(Sender: TObject);

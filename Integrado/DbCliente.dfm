@@ -32,8 +32,8 @@
     Connection = DbFin
     SQL.Strings = (
       'Select * From clientes')
-    Left = 120
-    Top = 64
+    Left = 168
+    Top = 112
     object Qclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -175,7 +175,7 @@
     AfterPost = MclienteAfterPost
     AfterCancel = MclienteAfterCancel
     AfterDelete = MclienteAfterDelete
-    Left = 120
+    Left = 96
     Top = 168
     object Mclienteidcliente: TIntegerField
       FieldName = 'idcliente'
@@ -234,7 +234,7 @@
   end
   object Pcliente: TDataSetProvider
     DataSet = TabelaCliente
-    Left = 120
+    Left = 96
     Top = 112
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
@@ -244,7 +244,79 @@
   end
   object DsQcliente: TDataSource
     DataSet = Qcliente
-    Left = 184
-    Top = 64
+    Left = 168
+    Top = 176
+  end
+  object QClienteExclusao: TFDQuery
+    Active = True
+    AfterPost = QclienteAfterPost
+    AfterCancel = QclienteAfterCancel
+    AfterDelete = QclienteAfterDelete
+    Connection = DbFin
+    SQL.Strings = (
+      'Select * From clientes')
+    Left = 216
+    Top = 112
+    object IntegerField1: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object WideStringField1: TWideStringField
+      DisplayLabel = 'Cliente'
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object WideStringField2: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      Size = 15
+    end
+    object WideStringField3: TWideStringField
+      DisplayLabel = 'Endereco'
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      Size = 50
+    end
+    object WideStringField4: TWideStringField
+      DisplayLabel = 'Numero'
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      Size = 8
+    end
+    object WideStringField5: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 50
+    end
+    object DateField1: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object WideStringField6: TWideStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      Size = 50
+    end
+    object WideStringField7: TWideStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      Size = 50
+    end
+    object WideStringField8: TWideStringField
+      DisplayLabel = 'UF'
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      Size = 2
+    end
+    object WideStringField9: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdcliente'
+      Origin = 'cdcliente'
+      Size = 6
+    end
   end
 end

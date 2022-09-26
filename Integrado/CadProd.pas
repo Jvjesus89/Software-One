@@ -60,18 +60,19 @@ end;
 procedure TCadProduto.BtExcluirClick(Sender: TObject);
 var Vidproduto : integer;
 begin
+   Vidproduto := dbgrid1.Fields[6].value;
 
-      Dbprod.Mproduto.Open;
    if Application.MessageBox(Pchar('Deseja excluir o Produto?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
       begin;
-      with  Dbprod.Qexclusão  do
-      begin
-      close;
-      sql.Clear;
-      sql.Add('Delete from produto Where idproduto ='+ (DBGrid1.Fields[6].value));
-      ExecSQL;
+      Dbprod.Qexclusão.close;
+      Dbprod.Qexclusão.sql.Clear;
+      Dbprod.Qexclusão.sql.Add('Delete From produto Where idproduto = :PIdproduto');
+      Dbprod.Qexclusão.Parambyname('PIdproduto').AsInteger := Vidproduto;
+      Dbprod.Qexclusão.ExecSql;
+      Dbprod.Qproduto.close;
+      Dbprod.Qproduto.Open;
       end;
-      end;
+
 
 
 end;

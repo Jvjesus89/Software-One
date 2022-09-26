@@ -8,7 +8,8 @@ uses
   Vcl.Styles,
   TelaCadastroAreceber in '..\TelaCadastroAreceber.pas' {TelaCadasrroAreceber1},
   TelaConsultaClienteAreceber in '..\TelaConsultaClienteAreceber.pas' {TelaConsultaClienteAreceber1},
-  TelaEdicaoAreceber in '..\TelaEdicaoAreceber.pas' {TelaEdicaoAreceber1};
+  TelaEdicaoAreceber in '..\TelaEdicaoAreceber.pas' {TelaEdicaoAreceber1},
+  TelaExportaçãoDadosAreceber in '..\TelaExportaçãoDadosAreceber.pas' {Exportar};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.CreateForm(TTelaCadasrroAreceber1, TelaCadasrroAreceber1);
   Application.CreateForm(TTelaConsultaClienteAreceber1, TelaConsultaClienteAreceber1);
   Application.CreateForm(TTelaEdicaoAreceber1, TelaEdicaoAreceber1);
+  Application.CreateForm(TExportar, Exportar);
   Application.Run;
 end.

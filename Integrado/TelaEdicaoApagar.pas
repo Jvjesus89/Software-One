@@ -52,7 +52,8 @@ begin
 
       DbFinApagar1.Qapagar1.close;
       DbFinApagar1.Qapagar1.sql.Clear;
-      DbFinApagar1.Qapagar1.sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber ='+ DBEdit9.Text);
+      DbFinApagar1.Qapagar1.sql.Add('Update apagar SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idapagar = :Pidapagar');
+      DbFinApagar1.Qapagar1.ParamByName('Pidapagar').AsInteger :=  StrToInt (DBEdit9.Text);
       DbFinApagar1.Qapagar1.ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
       DbFinApagar1.Qapagar1.ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
       DbFinApagar1.Qapagar1.ParamByName('Pidforma').AsInteger :=  1;
@@ -61,6 +62,8 @@ begin
       DbFinApagar1.Qapagar1.ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
       DbFinApagar1.Qapagar1.ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
       DbFinApagar1.Qapagar1.ExecSql;
+      DbFinApagar1.QApagar.Close;
+      DbFinApagar1.QApagar.Open;
 
     TelaEdicaoApagar1.close;
 end;
