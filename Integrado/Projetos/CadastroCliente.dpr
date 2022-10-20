@@ -14,10 +14,17 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TConsultaCliente, ConsultaCliente);
   Application.CreateForm(TDbClient, DbClient);
   Application.CreateForm(TTelaCadastroCliente1, TelaCadastroCliente1);
   Application.CreateForm(TTelaEdicaoCliente1, TelaEdicaoCliente1);
   Application.Run;
 end.
+
+
+
+
+
+
+

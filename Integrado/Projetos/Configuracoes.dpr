@@ -6,7 +6,7 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   TelaCadastroFormaPagamento in '..\TelaCadastroFormaPagamento.pas' {CadastroFormaPagamento},
-  DbConfiguracao in '..\DbConfiguracao.pas' {DbConfig},
+  DbConfiguracaoFinanceiro in '..\DbConfiguracaoFinanceiro.pas' {DbConfigFin},
   TelaConsultaFormaPagamento in '..\TelaConsultaFormaPagamento.pas' {Formapagamento},
   TelaCadastroPrazo in '..\TelaCadastroPrazo.pas' {Prazos},
   TelaCadastroPrazos in '..\TelaCadastroPrazos.pas' {TelaPrazos},
@@ -20,7 +20,7 @@ begin
   TStyleManager.TrySetStyle('Glow');
   Application.CreateForm(TTelaConfig, TelaConfig);
   Application.CreateForm(TCadastroFormaPagamento, CadastroFormaPagamento);
-  Application.CreateForm(TDbConfig, DbConfig);
+  Application.CreateForm(TDbConfigFin, DbConfigFin);
   Application.CreateForm(TFormapagamento, Formapagamento);
   Application.CreateForm(TPrazos, Prazos);
   Application.CreateForm(TTelaPrazos, TelaPrazos);

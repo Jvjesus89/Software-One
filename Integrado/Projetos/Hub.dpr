@@ -11,7 +11,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(THubPrin, HubPrin);
   Application.Run;
 end.

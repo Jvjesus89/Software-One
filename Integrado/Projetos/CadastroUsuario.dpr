@@ -12,7 +12,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TCadastro, Cadastro);
   Application.CreateForm(TBanco, Banco);
   Application.Run;

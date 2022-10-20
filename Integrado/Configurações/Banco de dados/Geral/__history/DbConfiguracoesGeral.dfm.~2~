@@ -1,0 +1,119 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 253
+  ClientWidth = 505
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 16
+    Top = 112
+    Width = 81
+    Height = 19
+    Caption = 'Diretorios'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object DB: TFDConnection
+    Params.Strings = (
+      'Database=Software One'
+      'User_Name=postgres'
+      'Password=123456'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 16
+    Top = 56
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 16
+  end
+  object Diretorios: TFDTable
+    Active = True
+    IndexFieldNames = 'idconfiguracao'
+    Connection = DB
+    SchemaName = 'public'
+    TableName = 'configuracoes'
+    Left = 16
+    Top = 144
+    object Diretoriosidconfiguracao: TIntegerField
+      FieldName = 'idconfiguracao'
+      Origin = 'idconfiguracao'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Diretoriosnmconfiguracao: TWideStringField
+      FieldName = 'nmconfiguracao'
+      Origin = 'nmconfiguracao'
+      Size = 30
+    end
+    object Diretoriosdsvalorantigo: TWideStringField
+      FieldName = 'dsvalorantigo'
+      Origin = 'dsvalorantigo'
+      Size = 30
+    end
+    object Diretoriosdsvalornovo: TWideStringField
+      FieldName = 'dsvalornovo'
+      Origin = 'dsvalornovo'
+      Size = 30
+    end
+    object Diretoriosdtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+  object DsDiretorios: TDataSource
+    DataSet = Mdiretorios
+    Left = 16
+    Top = 192
+  end
+  object PDiretorios: TDataSetProvider
+    DataSet = Diretorios
+    Left = 80
+    Top = 144
+  end
+  object Mdiretorios: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'PDiretorios'
+    Left = 80
+    Top = 192
+    object Mdiretoriosidconfiguracao: TIntegerField
+      FieldName = 'idconfiguracao'
+      Origin = 'idconfiguracao'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Mdiretoriosnmconfiguracao: TWideStringField
+      FieldName = 'nmconfiguracao'
+      Origin = 'nmconfiguracao'
+      Size = 30
+    end
+    object Mdiretoriosdsvalorantigo: TWideStringField
+      FieldName = 'dsvalorantigo'
+      Origin = 'dsvalorantigo'
+      Size = 30
+    end
+    object Mdiretoriosdsvalornovo: TWideStringField
+      FieldName = 'dsvalornovo'
+      Origin = 'dsvalornovo'
+      Size = 30
+    end
+    object Mdiretoriosdtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+  end
+end

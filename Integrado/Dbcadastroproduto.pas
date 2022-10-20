@@ -63,6 +63,7 @@ type
     BooleanField4: TBooleanField;
     DateField4: TDateField;
     SingleField1: TSingleField;
+    DsQprodutoEditar: TDataSource;
     procedure Mproduto2AfterPost(DataSet: TDataSet);
     procedure Mproduto2AfterDelete(DataSet: TDataSet);
     procedure Mproduto2AfterCancel(DataSet: TDataSet);

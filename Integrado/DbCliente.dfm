@@ -255,7 +255,7 @@
     Connection = DbFin
     SQL.Strings = (
       'Select * From clientes')
-    Left = 216
+    Left = 232
     Top = 112
     object IntegerField1: TIntegerField
       FieldName = 'idcliente'
@@ -318,5 +318,159 @@
       Origin = 'cdcliente'
       Size = 6
     end
+  end
+  object QedicaoCamposClientes: TFDQuery
+    Active = True
+    AfterPost = QclienteAfterPost
+    AfterCancel = QclienteAfterCancel
+    AfterDelete = QclienteAfterDelete
+    Connection = DbFin
+    SQL.Strings = (
+      'Select * From clientes')
+    Left = 360
+    Top = 112
+    object IntegerField2: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object WideStringField10: TWideStringField
+      DisplayLabel = 'Cliente'
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object WideStringField11: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      Size = 15
+    end
+    object WideStringField12: TWideStringField
+      DisplayLabel = 'Endereco'
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      Size = 50
+    end
+    object WideStringField13: TWideStringField
+      DisplayLabel = 'Numero'
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      Size = 8
+    end
+    object WideStringField14: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 50
+    end
+    object DateField2: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object WideStringField15: TWideStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      Size = 50
+    end
+    object WideStringField16: TWideStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      Size = 50
+    end
+    object WideStringField17: TWideStringField
+      DisplayLabel = 'UF'
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      Size = 2
+    end
+    object WideStringField18: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdcliente'
+      Origin = 'cdcliente'
+      Size = 6
+    end
+  end
+  object DsQedicaoCamposClientes: TDataSource
+    DataSet = QedicaoCamposClientes
+    Left = 360
+    Top = 176
+  end
+  object QedicaoCliente: TFDQuery
+    Active = True
+    AfterPost = QclienteAfterPost
+    AfterCancel = QclienteAfterCancel
+    AfterDelete = QclienteAfterDelete
+    Connection = DbFin
+    SQL.Strings = (
+      'Select * From clientes')
+    Left = 432
+    Top = 112
+    object IntegerField3: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object WideStringField19: TWideStringField
+      DisplayLabel = 'Cliente'
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object WideStringField20: TWideStringField
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      Size = 15
+    end
+    object WideStringField21: TWideStringField
+      DisplayLabel = 'Endereco'
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      Size = 50
+    end
+    object WideStringField22: TWideStringField
+      DisplayLabel = 'Numero'
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      Size = 8
+    end
+    object WideStringField23: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 50
+    end
+    object DateField3: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object WideStringField24: TWideStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      Size = 50
+    end
+    object WideStringField25: TWideStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      Size = 50
+    end
+    object WideStringField26: TWideStringField
+      DisplayLabel = 'UF'
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      Size = 2
+    end
+    object WideStringField27: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdcliente'
+      Origin = 'cdcliente'
+      Size = 6
+    end
+  end
+  object DsQedicaoCliente: TDataSource
+    DataSet = QedicaoCliente
+    Left = 432
+    Top = 176
   end
 end

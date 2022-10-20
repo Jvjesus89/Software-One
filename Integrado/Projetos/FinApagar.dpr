@@ -16,7 +16,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TApagar1, Apagar1);
   Application.CreateForm(TDbFinApagar1, DbFinApagar1);
   Application.CreateForm(TTelaCadasrroApagar1, TelaCadasrroApagar1);

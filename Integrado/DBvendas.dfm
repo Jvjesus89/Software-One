@@ -52,6 +52,32 @@
     Font.Style = []
     ParentFont = False
   end
+  object Label4: TLabel
+    Left = 104
+    Top = 304
+    Width = 35
+    Height = 19
+    Caption = 'Itens'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Vendas: TLabel
+    Left = 104
+    Top = 168
+    Width = 51
+    Height = 19
+    Caption = 'Vendas'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object DbVendas: TFDConnection
     Params.Strings = (
       'Database=Software One'
@@ -69,6 +95,7 @@
     Top = 8
   end
   object TabelaVenda: TFDTable
+    Active = True
     IndexFieldNames = 'idvenda'
     Connection = DbVendas
     SchemaName = 'public'
@@ -179,6 +206,7 @@
     Top = 192
   end
   object TabelaVendaItem: TFDTable
+    Active = True
     IndexFieldNames = 'idvenda'
     Connection = DbVendas
     SchemaName = 'public'
@@ -265,6 +293,7 @@
     Top = 328
   end
   object Qvendas: TFDQuery
+    Active = True
     AfterPost = QvendasAfterPost
     AfterCancel = QvendasAfterCancel
     AfterDelete = QvendasAfterDelete
@@ -318,6 +347,7 @@
     end
   end
   object QvendasItem: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       'Select * From vendasitem')
@@ -601,6 +631,7 @@
     Top = 320
   end
   object QEntradaVenda: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       'Select * From vendas')
@@ -649,6 +680,7 @@
     end
   end
   object QEntradaVendaItem: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       'Select * From vendasitem')
@@ -686,6 +718,7 @@
     end
   end
   object QIdVenda: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       
@@ -701,8 +734,8 @@
   end
   object QEntradaTitulo: TFDQuery
     Connection = DbVendas
-    Left = 16
-    Top = 456
+    Left = 488
+    Top = 480
   end
   object DsIdVenda: TDataSource
     DataSet = QIdVenda
@@ -894,6 +927,7 @@
     end
   end
   object Qestoque: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       
@@ -943,6 +977,7 @@
     Top = 200
   end
   object QestoqueTemp: TFDQuery
+    Active = True
     Connection = DbVendas
     SQL.Strings = (
       'Select * From temp.movimentoestoque')
@@ -1461,5 +1496,48 @@
       FieldName = 'idorigem'
       Origin = 'idorigem'
     end
+  end
+  object QItensGeradoXML: TFDQuery
+    Active = True
+    Connection = DbVendas
+    SQL.Strings = (
+      'Select * From vendasitem')
+    Left = 312
+    Top = 328
+    object IntegerField29: TIntegerField
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField30: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object IntegerField31: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object WideStringField19: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 50
+    end
+    object IntegerField32: TIntegerField
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+    end
+    object SingleField5: TSingleField
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+    end
+    object SingleField6: TSingleField
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+    end
+  end
+  object DsItensGeradoXML: TDataSource
+    DataSet = QItensGeradoXML
+    Left = 320
+    Top = 392
   end
 end

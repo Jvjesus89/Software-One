@@ -2,7 +2,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
   Left = 0
   Top = 0
   Caption = 'Editar produto'
-  ClientHeight = 225
+  ClientHeight = 202
   ClientWidth = 508
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -96,7 +96,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     AutoSelect = False
     AutoSize = False
     DataField = 'cdproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     TabOrder = 0
   end
   object NmProduto: TDBEdit
@@ -107,7 +107,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     AutoSelect = False
     AutoSize = False
     DataField = 'nmproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     TabOrder = 1
   end
   object FamiliaProduto: TDBEdit
@@ -118,7 +118,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     AutoSelect = False
     AutoSize = False
     DataField = 'nmfamiliaproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     TabOrder = 2
   end
   object VlUnitario: TDBEdit
@@ -129,12 +129,12 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     AutoSelect = False
     AutoSize = False
     DataField = 'vlproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     TabOrder = 3
   end
   object Button1: TButton
     Left = 255
-    Top = 192
+    Top = 174
     Width = 69
     Height = 25
     Caption = 'Salvar'
@@ -148,7 +148,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     Height = 21
     Caption = 'Ativo'
     DataField = 'stproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -159,7 +159,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
   end
   object Button2: TButton
     Left = 176
-    Top = 192
+    Top = 174
     Width = 71
     Height = 25
     Caption = 'Cancelar'
@@ -172,8 +172,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     Width = 130
     Height = 21
     DataField = 'dtcadastro'
-    DataSource = Dbprod.DsProduto
-    MaxLength = 10
+    DataSource = Dbprod.DsQproduto
     TabOrder = 7
     Visible = False
   end
@@ -183,7 +182,7 @@ object TelaEdicaoProduto1: TTelaEdicaoProduto1
     Width = 117
     Height = 21
     DataField = 'idproduto'
-    DataSource = Dbprod.DsProduto
+    DataSource = Dbprod.DsQproduto
     TabOrder = 8
     Visible = False
   end

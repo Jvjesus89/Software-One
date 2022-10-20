@@ -1,4 +1,4 @@
-object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
+﻿object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
   Left = 0
   Top = 0
   Caption = 'Editar Titulo'
@@ -33,7 +33,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
   object Label3: TLabel
     Left = 87
     Top = 21
-    Width = 48
+    Width = 42
     Height = 19
     Caption = 'Cliente'
     FocusControl = DBEdit3
@@ -41,13 +41,13 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label4: TLabel
     Left = 362
     Top = 132
-    Width = 124
+    Width = 112
     Height = 19
     Caption = 'idformapagamento'
     FocusControl = DBEdit4
@@ -55,14 +55,14 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Visible = False
   end
   object Label5: TLabel
     Left = 8
     Top = 73
-    Width = 121
+    Width = 111
     Height = 19
     Caption = 'Forma Pagamento'
     FocusControl = DBEdit5
@@ -70,13 +70,13 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label6: TLabel
     Left = 352
     Top = 73
-    Width = 79
+    Width = 69
     Height = 19
     Caption = 'Valor Titulo'
     FocusControl = DBEdit6
@@ -84,13 +84,13 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label7: TLabel
     Left = 8
     Top = 21
-    Width = 39
+    Width = 33
     Height = 19
     Caption = 'Titulo'
     FocusControl = DBEdit7
@@ -98,13 +98,13 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label1: TLabel
     Left = 8
     Top = 129
-    Width = 115
+    Width = 103
     Height = 19
     Caption = 'Data Vencimento'
     FocusControl = DBEdit1
@@ -112,7 +112,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label8: TLabel
@@ -130,7 +130,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 130
     Height = 27
     DataField = 'idcliente'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -146,12 +146,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 384
     Height = 27
     DataField = 'nmcliente'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
   end
@@ -161,12 +161,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 132
     Height = 27
     DataField = 'idformapagamento'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     Visible = False
@@ -177,12 +177,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 313
     Height = 27
     DataField = 'nmformapagamento'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 3
   end
@@ -192,12 +192,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 119
     Height = 27
     DataField = 'vltitulo'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 4
   end
@@ -207,12 +207,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 71
     Height = 27
     DataField = 'nrtitulo'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 5
   end
@@ -226,7 +226,7 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 6
     OnClick = BuscaClick
@@ -237,6 +237,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 73
     Height = 25
     Caption = 'Cadastrar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 7
     OnClick = BotaoCadastrarClick
   end
@@ -246,13 +252,12 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 132
     Height = 27
     DataField = 'dtvencimento'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
-    MaxLength = 10
+    Font.Style = []
     ParentFont = False
     TabOrder = 8
   end
@@ -272,16 +277,22 @@ object TelaEdicaoAreceber1: TTelaEdicaoAreceber1
     Width = 75
     Height = 25
     Caption = 'Cancelar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 10
     OnClick = Button1Click
   end
   object DBEdit9: TDBEdit
     Left = 354
-    Top = 181
+    Top = 197
     Width = 132
     Height = 27
     DataField = 'idareceber'
-    DataSource = DbFinAreceber1.DsAreceber
+    DataSource = DbFinAreceber1.DsQAreceberEdição
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

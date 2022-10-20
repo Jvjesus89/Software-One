@@ -1,0 +1,49 @@
+unit TelaConsultaBanco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TConsultaBanco = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaBanco: TConsultaBanco;
+
+implementation
+
+{$R *.dfm}
+
+uses DbConfiguracaoFinanceiro,TelaCadastroBanco;
+
+procedure TConsultaBanco.BitBtn1Click(Sender: TObject);
+begin
+    DbConfigFin.Mbanco.open;
+    DbConfigFin.Mbanco.append;
+    CadastroBanco.showmodal;
+end;
+
+
+procedure TConsultaBanco.BitBtn2Click(Sender: TObject);
+begin
+    DbConfigFin.Mbanco.open;
+    DbConfigFin.Mbanco.Delete;
+    DbConfigFin.Mbanco.Close;
+    DbConfigFin.Mbanco.Open;
+end;
+
+end.

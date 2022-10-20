@@ -3,7 +3,7 @@
   Top = 0
   Caption = 'dbprod'
   ClientHeight = 231
-  ClientWidth = 505
+  ClientWidth = 511
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -104,7 +104,7 @@
     AfterPost = QprodutoAfterPost
     AfterCancel = QprodutoAfterCancel
     AfterDelete = QprodutoAfterDelete
-    ConnectionName = 'Db'
+    Connection = Db
     SQL.Strings = (
       'Select * From produto')
     Left = 192
@@ -156,11 +156,11 @@
     AfterPost = QProdutoEdicaoAfterPost
     AfterCancel = QProdutoEdicaoAfterCancel
     AfterDelete = QProdutoEdicaoAfterDelete
-    ConnectionName = 'Db'
+    Connection = Db
     SQL.Strings = (
       'Select * From produto')
-    Left = 248
-    Top = 120
+    Left = 432
+    Top = 128
     object IntegerField3: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
@@ -268,10 +268,10 @@
     AfterPost = QProdutoEdicaoAfterPost
     AfterCancel = QProdutoEdicaoAfterCancel
     AfterDelete = QProdutoEdicaoAfterDelete
-    ConnectionName = 'Db'
+    Connection = Db
     SQL.Strings = (
       'Select * From produto')
-    Left = 304
+    Left = 248
     Top = 120
     object IntegerField7: TIntegerField
       FieldName = 'idproduto'
@@ -314,5 +314,10 @@
       FieldName = 'vlproduto'
       Origin = 'vlproduto'
     end
+  end
+  object DsQprodutoEditar: TDataSource
+    DataSet = QProdutoEdicao
+    Left = 432
+    Top = 176
   end
 end

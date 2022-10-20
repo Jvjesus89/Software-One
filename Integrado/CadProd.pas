@@ -26,7 +26,6 @@ type
     procedure BtNovoClick(Sender: TObject);
     procedure ExportarDadosClick(Sender: TObject);
     procedure BuscaBotaoClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
@@ -46,14 +45,11 @@ uses  TelaCadastroDeProdutos, Dbcadastroproduto, TelaEdicaoProduto;
 procedure TCadProduto.BtEditarClick(Sender: TObject);
 begin
       Dbprod.Mproduto.Open;
-      //Dbprod.Mproduto.Edit;
-      TelaEdicaoProduto1.Cdproduto.Text := DBGrid1.Fields[0].value;
-      TelaEdicaoProduto1.NmProduto.Text := DBGrid1.Fields[1].value;
-      TelaEdicaoProduto1.FamiliaProduto.Text := DBGrid1.Fields[2].value;
-      TelaEdicaoProduto1.VlUnitario.Text := DBGrid1.Fields[3].value;
-      TelaEdicaoProduto1.Bativo.Enabled := DBGrid1.Fields[4].value;
-      TelaEdicaoProduto1.DbEdit1.Text := DBGrid1.Fields[5].value;
-      TelaEdicaoProduto1.IdProduto.Text := DBGrid1.Fields[6].value;
+      Dbprod.QProdutoEdicao.close;
+      Dbprod.QProdutoEdicao.sql.Clear ;
+      Dbprod.QProdutoEdicao.sql.Add('Select * From produto Where idproduto = :Pidproduto');
+      Dbprod.QProdutoEdicao.ParamByName('Pidproduto').AsInteger := DBGrid1.Fields[6].value;
+      Dbprod.QProdutoEdicao.Open;
       TelaEdicaoProduto1.ShowModal;
 end;
 
@@ -85,13 +81,12 @@ end;
 
 procedure TCadProduto.BuscaBotaoClick(Sender: TObject);
 begin
-      with Dbprod.Qproduto do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
-      open;
-    end;
+
+      Dbprod.Qproduto.close;
+      Dbprod.Qproduto.sql.Clear;
+      Dbprod.Qproduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
+      Dbprod.Qproduto.open;
+
 end;
 
 procedure TCadProduto.DBGrid1DblClick(Sender: TObject);
@@ -126,11 +121,6 @@ end;
 procedure TCadProduto.FormCreate(Sender: TObject);
 begin
      CadProduto.WindowState := TWindowState.wsMaximized ;
-end;
-
-procedure TCadProduto.FormShow(Sender: TObject);
-begin
-      //Dbprod.Qproduto.Open;
 end;
 
 end.

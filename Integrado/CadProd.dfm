@@ -17,7 +17,6 @@ object CadProduto: TCadProduto
   Position = poDesigned
   Visible = True
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -56,6 +55,8 @@ object CadProduto: TCadProduto
       Caption = 'Editar'
       TabOrder = 2
       OnClick = BtEditarClick
+      ExplicitLeft = 83
+      ExplicitTop = -4
     end
     object ExportarDados: TButton
       Left = 1456

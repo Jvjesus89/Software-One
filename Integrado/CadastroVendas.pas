@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON;
 
 type
   TCadastroDeVendas = class(TForm)
@@ -126,8 +126,68 @@ begin
 end;
 
 procedure TCadastroDeVendas.Button3Click(Sender: TObject);
+var
+    jsonObjPed, jsonObjItem: TJSONObject;
+    jsonArrayItem, jsonArrayPed: TJSONArray;
+    x, y : integer;
+    IdVenda : integer;
+    QtdItensGrid: integer;
 begin
-   ExportarXML.showmodal;
+   IdVenda := dbgrid1.Fields[5].Value;
+   ExportarXML.MemoResultado.lines.clear;
+   ExportarXML.MemoOriginal.lines.clear;
+
+
+   DbVendas1.QItensGeradoXML.close;
+   DbVendas1.QItensGeradoXML.sql.clear;
+   DbVendas1.QItensGeradoXML.sql.add('Select * From vendasitem Where idvenda = :Pidvenda');
+   DbVendas1.QItensGeradoXML.ParamByName('Pidvenda').AsInteger := IdVenda ;
+   DbVendas1.QItensGeradoXML.open;
+
+   QtdItensGrid := dbvendas1.QItensGeradoXML.RecordCount;
+
+
+       try
+        jsonObjPed := TJSONObject.Create;
+        // Pedidos...
+        for x := 1 to 1 do
+        begin
+            jsonObjPed.AddPair('SoftwareName','SoftwareOne');
+            jsonObjPed.AddPair('NrNF-e', DBGrid1.fields[0].Value);
+            jsonObjPed.AddPair('NmCliente', DBGrid1.fields[1].Value);
+            jsonObjPed.AddPair('VlVenda', DBGrid1.fields[2].Value);
+            jsonObjPed.AddPair('NmFormaPagamento', DBGrid1.fields[3].Value);
+            jsonObjPed.AddPair('DtVenda', (DBGrid1.fields[4].Value));
+
+            // Itens...
+            jsonArrayItem := TJSONArray.Create;
+
+            for y := 1 to QtdItensGrid do
+            begin
+              while not DbVendas1.QItensGeradoXML.EOF do
+              begin
+                jsonObjItem := TJSONObject.Create;
+                jsonObjItem.AddPair('Nitem', TJSONNumber.Create(y));
+                jsonObjItem.AddPair('produto', ExportarXML.DBGrid1.fields[0].Value);
+                jsonObjItem.AddPair('Qtd', ExportarXML.DBGrid1.fields[1].Value);
+                jsonObjItem.AddPair('VlUnitario', ExportarXML.DBGrid1.fields[2].Value);
+                jsonObjItem.AddPair('VlItem', ExportarXML.DBGrid1.fields[3].Value);
+                jsonArrayItem.AddElement(jsonObjItem);
+                DbVendas1.QItensGeradoXML.Next;
+              end;
+            end;
+
+            jsonObjPed.AddPair('itens', jsonArrayItem);
+
+        end;
+
+        ExportarXML.MemoOriginal.Lines.Add(jsonObjPed.ToString);
+
+    finally
+        jsonObjPed.DisposeOf;
+    end;
+
+    ExportarXML.showmodal;
 end;
 
 procedure TCadastroDeVendas.FormShow(Sender: TObject);

@@ -12,8 +12,8 @@
     <Transaction>2022/09/18 21:39:21.000.984,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/09/25 00:53:55.000.970,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/09/25 00:54:11.000.543,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
-    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2022/09/25 00:55:15.000.979,C:\Sistema\Integrado\Projetos\Configuracoes.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj</Transaction>
     <Transaction>2022/09/25 11:48:11.000.439,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/09/25 11:49:24.000.295,C:\Sistema\Integrado\TelaCadastroFormaPagamento.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
@@ -27,13 +27,26 @@
     <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamento.dfm</Transaction>
     <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamento.pas</Transaction>
     <Transaction>2022/09/25 13:34:12.000.973,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazo.pas</Transaction>
     <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazo.dfm</Transaction>
+    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazo.pas</Transaction>
     <Transaction>2022/09/25 13:44:06.000.729,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazos.dfm</Transaction>
     <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazos.pas</Transaction>
+    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazos.dfm</Transaction>
     <Transaction>2022/09/25 20:03:24.000.304,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.pas</Transaction>
     <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.dfm</Transaction>
+    <Transaction>2022/09/29 22:39:34.000.047,C:\Sistema\Integrado\DbConfiguracao.pas=C:\Sistema\Integrado\DbConfiguracaoFinanceiro.pas</Transaction>
+    <Transaction>2022/09/29 22:39:34.000.047,C:\Sistema\Integrado\DbConfiguracao.dfm=C:\Sistema\Integrado\DbConfiguracaoFinanceiro.dfm</Transaction>
   </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Integrado"/>
+    <File Path="..\DbConfiguracaoFinanceiro.pas"/>
+    <File Path="..\TelaCadastroFormaPagamento.pas"/>
+    <File Path="..\TelaCadastroPrazo.pas"/>
+    <File Path="..\TelaCadastroPrazos.pas"/>
+    <File Path="..\TelaConfiguracoes.pas"/>
+    <File Path="..\TelaConfiguracoes.dfm"/>
+    <File Path="..\TelaConsultaFormaPagamantoPPrazo.pas"/>
+    <File Path="..\TelaConsultaFormaPagamento.pas"/>
+  </ProjectSortOrder>
 </BorlandProject>

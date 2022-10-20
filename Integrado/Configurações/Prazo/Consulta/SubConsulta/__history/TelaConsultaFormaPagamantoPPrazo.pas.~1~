@@ -1,0 +1,59 @@
+unit TelaConsultaFormaPagamantoPPrazo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TConsultaFormaPagamento = class(TForm)
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    Busca: TEdit;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaFormaPagamento: TConsultaFormaPagamento;
+
+implementation
+
+{$R *.dfm}
+
+uses DbConfiguracao, TelaCadastroPrazos;
+
+procedure TConsultaFormaPagamento.Button1Click(Sender: TObject);
+begin
+       if (Trim(Busca.text).IsEmpty) then
+
+    begin
+      DbConfig.QFormaPagamento.close ;
+      DbConfig.QFormaPagamento.sql.Clear;
+      DbConfig.QFormaPagamento.sql.Add('Select * From formapagamento');
+      DbConfig.QFormaPagamento.open;
+    end
+    else
+    begin
+      DbConfig.QFormaPagamento.close ;
+      DbConfig.QFormaPagamento.sql.Clear;
+      DbConfig.QFormaPagamento.sql.Add('Select * From formapagamento Where nmformapagamento = '+(Busca.Text));
+      DbConfig.QFormaPagamento.open;
+    end;
+end;
+
+procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
+begin
+        ConsultaFormaPagamento.close;
+      TelaPrazos.Edit1.Text := DBGrid1.Fields[1].value;
+      TelaPrazos.DBEdit3.Text := DBGrid1.Fields[2].value;
+end;
+
+end.

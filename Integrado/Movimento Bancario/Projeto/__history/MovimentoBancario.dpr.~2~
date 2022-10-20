@@ -1,0 +1,14 @@
+program MovimentoBancario;
+
+uses
+  Vcl.Forms,
+  TelaMovimentoBancario in '..\TelaMovimentoBancario.pas' {ConsultaMovimentoBancario};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TConsultaMovimentoBancario, ConsultaMovimentoBancario);
+  Application.Run;
+end.

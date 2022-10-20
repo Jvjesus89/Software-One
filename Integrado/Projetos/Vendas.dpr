@@ -14,14 +14,17 @@ uses
   TelaExportaçãoXML in '..\TelaExportaçãoXML.pas' {ExportarXML},
   TelaConsultaPrazoVendas in '..\TelaConsultaPrazoVendas.pas' {ConsultaPrazo},
   TelaConsultaFormaPagamentoVendas in '..\TelaConsultaFormaPagamentoVendas.pas' {ConsultaFormaPagamento},
-  TelaCadastroFinanceiro in '..\TelaCadastroFinanceiro.pas' {CadastroAreceber};
+  TelaCadastroFinanceiro in '..\TelaCadastroFinanceiro.pas' {CadastroAreceber},
+  U_JSON.XML in '..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas',
+  U_Origin.Return in '..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas',
+  U_Normalize in '..\CoversorJsonXML\Padronizacao\U_Normalize.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Glow');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
   Application.CreateForm(TDbVendas1, DbVendas1);
   Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
@@ -35,3 +38,4 @@ begin
   Application.CreateForm(TCadastroAreceber, CadastroAreceber);
   Application.Run;
 end.
+

@@ -1,0 +1,107 @@
+object TelaPrazos: TTelaPrazos
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro Prazo'
+  ClientHeight = 120
+  ClientWidth = 502
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 8
+    Width = 27
+    Height = 13
+    Caption = 'Prazo'
+    FocusControl = DBEdit1
+  end
+  object Label2: TLabel
+    Left = 363
+    Top = 8
+    Width = 58
+    Height = 13
+    Caption = 'Nr. Parcelas'
+    FocusControl = DBEdit2
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 88
+    Width = 90
+    Height = 13
+    Caption = 'idformapagamento'
+    FocusControl = DBEdit3
+    Visible = False
+  end
+  object Label4: TLabel
+    Left = 8
+    Top = 51
+    Width = 87
+    Height = 13
+    Caption = 'Forma Pagamento'
+  end
+  object DBEdit1: TDBEdit
+    Left = 8
+    Top = 24
+    Width = 332
+    Height = 21
+    DataField = 'nmprazo'
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 363
+    Top = 24
+    Width = 134
+    Height = 21
+    DataField = 'nrparcelas'
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 248
+    Top = 89
+    Width = 75
+    Height = 25
+    Caption = 'Cadastrar'
+    TabOrder = 2
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 160
+    Top = 89
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 3
+    OnClick = Button2Click
+  end
+  object DBEdit3: TDBEdit
+    Left = 8
+    Top = 107
+    Width = 134
+    Height = 21
+    DataField = 'idformapagamento'
+    TabOrder = 4
+    Visible = False
+  end
+  object Button3: TButton
+    Left = 429
+    Top = 62
+    Width = 21
+    Height = 21
+    Caption = '...'
+    TabOrder = 5
+    OnClick = Button3Click
+  end
+  object Edit1: TEdit
+    Left = 8
+    Top = 62
+    Width = 420
+    Height = 21
+    TabOrder = 6
+  end
+end

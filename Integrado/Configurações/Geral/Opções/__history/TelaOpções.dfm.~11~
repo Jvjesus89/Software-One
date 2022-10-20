@@ -1,0 +1,364 @@
+﻿object Opções: TOpções
+  Left = 0
+  Top = 0
+  Caption = 'Op'#231#245'es'
+  ClientHeight = 332
+  ClientWidth = 341
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 298
+    Width = 341
+    Height = 34
+    Align = alBottom
+    TabOrder = 0
+    ExplicitTop = 197
+    ExplicitWidth = 349
+    object Button1: TButton
+      Left = 285
+      Top = 1
+      Width = 55
+      Height = 32
+      Align = alRight
+      Caption = 'Salvar'
+      TabOrder = 0
+      ExplicitLeft = 293
+    end
+    object Button2: TButton
+      Left = 221
+      Top = 1
+      Width = 64
+      Height = 32
+      Align = alRight
+      Caption = 'Cancelar'
+      TabOrder = 1
+      ExplicitLeft = 229
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 341
+    Height = 297
+    ActivePage = Diretorio
+    Align = alTop
+    TabOrder = 1
+    ExplicitTop = -66
+    ExplicitWidth = 349
+    object Diretorio: TTabSheet
+      Caption = 'Diretorio'
+      object ConsultaEstoque: TLabel
+        Left = 181
+        Top = 3
+        Width = 106
+        Height = 19
+        Caption = 'Consulta Estoque'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 3
+        Top = 3
+        Width = 26
+        Height = 19
+        Caption = 'Hub'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 181
+        Top = 201
+        Width = 44
+        Height = 19
+        Caption = 'Vendas'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 3
+        Top = 51
+        Width = 102
+        Height = 19
+        Caption = 'Cadastro Cliente'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 3
+        Top = 103
+        Width = 109
+        Height = 19
+        Caption = 'Cadastro Produto'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 3
+        Top = 151
+        Width = 107
+        Height = 19
+        Caption = 'Cadastro Usuario'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label5: TLabel
+        Left = 3
+        Top = 199
+        Width = 87
+        Height = 19
+        Caption = 'Configura'#231#245'es'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 181
+        Top = 51
+        Width = 48
+        Height = 19
+        Caption = 'A pagar'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 181
+        Top = 103
+        Width = 60
+        Height = 19
+        Caption = 'A receber'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 181
+        Top = 151
+        Width = 63
+        Height = 19
+        Caption = 'Tela Login'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Button3: TButton
+        Left = 118
+        Top = 24
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 0
+      end
+      object Button4: TButton
+        Left = 118
+        Top = 75
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 1
+      end
+      object Button5: TButton
+        Left = 118
+        Top = 123
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 2
+      end
+      object Button6: TButton
+        Left = 118
+        Top = 171
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 3
+      end
+      object Button7: TButton
+        Left = 118
+        Top = 223
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 4
+      end
+      object DBEdit1: TDBEdit
+        Left = 3
+        Top = 24
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 5
+      end
+      object DBEdit2: TDBEdit
+        Left = 3
+        Top = 75
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 6
+      end
+      object DBEdit3: TDBEdit
+        Left = 3
+        Top = 123
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 7
+      end
+      object DBEdit4: TDBEdit
+        Left = 3
+        Top = 171
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 8
+      end
+      object DBEdit5: TDBEdit
+        Left = 181
+        Top = 24
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 9
+      end
+      object DBEdit6: TDBEdit
+        Left = 3
+        Top = 223
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 10
+      end
+      object Button11: TButton
+        Left = 301
+        Top = 75
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 11
+      end
+      object Button12: TButton
+        Left = 301
+        Top = 24
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 12
+      end
+      object Button10: TButton
+        Left = 301
+        Top = 123
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 13
+      end
+      object Button8: TButton
+        Left = 301
+        Top = 223
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 14
+      end
+      object Button9: TButton
+        Left = 301
+        Top = 171
+        Width = 31
+        Height = 18
+        Caption = '...'
+        TabOrder = 15
+      end
+      object DBEdit10: TDBEdit
+        Left = 181
+        Top = 223
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 16
+      end
+      object DBEdit7: TDBEdit
+        Left = 181
+        Top = 75
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 17
+      end
+      object DBEdit8: TDBEdit
+        Left = 181
+        Top = 123
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 18
+      end
+      object DBEdit9: TDBEdit
+        Left = 181
+        Top = 171
+        Width = 121
+        Height = 21
+        DataField = 'dsvalornovo'
+        DataSource = DbConfiguraçãoGeral.DsDiretorios
+        TabOrder = 19
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+      ImageIndex = 1
+    end
+  end
+end

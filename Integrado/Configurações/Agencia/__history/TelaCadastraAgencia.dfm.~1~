@@ -1,0 +1,33 @@
+object CadastrarAgencia: TCadastrarAgencia
+  Left = 0
+  Top = 0
+  Caption = 'Cadastrar Agencia'
+  ClientHeight = 80
+  ClientWidth = 389
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Button1: TButton
+    Left = 117
+    Top = 51
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 193
+    Top = 51
+    Width = 75
+    Height = 25
+    Caption = 'Cadastrar'
+    TabOrder = 1
+  end
+end

@@ -45,10 +45,12 @@ implementation
 
 {$R *.dfm}
 
-uses Dbfinreceber, TelaConsultaClienteAreceber;
+uses Dbfinreceber, TelaConsultaClienteAreceber, Areceber;
 
 procedure TTelaEdicaoAreceber1.BotaoCadastrarClick(Sender: TObject);
 begin
+      if Areceber1.DBGrid1.fields[5].value <> NULL then
+      begin
       DbFinAreceber1.QEdiçãoAreceber.close;
       DbFinAreceber1.QEdiçãoAreceber.sql.Clear;
       DbFinAreceber1.QEdiçãoAreceber.sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber =:Pidtitulo');
@@ -61,9 +63,13 @@ begin
       DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
       DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
       DbFinAreceber1.QEdiçãoAreceber.ExecSql;
+      end else
+      begin
+      ShowMessage('Não será possivel editar o valor e o cliente do titulo');
+      end;
     TelaEdicaoAreceber1.close;
-    DbFinAreceber1.QAreceber.Close;
-    DbFinAreceber1.QAreceber.Open;
+    DbFinAreceber1.Qareceber.close;
+    DbFinAreceber1.Qareceber.open;
 end;
 
 procedure TTelaEdicaoAreceber1.BuscaClick(Sender: TObject);

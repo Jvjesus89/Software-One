@@ -83,8 +83,8 @@ begin
 end;
 
 procedure TTelaCadastroProdutoVenda.Button2Click(Sender: TObject);
-var
-Qdisponivel : Integer;
+//var
+//Qdisponivel : Integer;
 
 begin
       // movimentação na tabela temp

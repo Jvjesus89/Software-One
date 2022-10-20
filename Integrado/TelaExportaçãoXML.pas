@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Xml.XMLDoc, System.JSON, U_JSON.XML, Xml.xmldom,
+  Xml.XmlTransform, Xml.XMLIntf, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TExportarXML = class(TForm)
@@ -13,10 +14,16 @@ type
     Button1: TButton;
     OpenDialog1: TOpenDialog;
     Button2: TButton;
+    MemoOriginal: TMemo;
+    MemoResultado: TMemo;
+    DBGrid1: TDBGrid;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button1Exit(Sender: TObject);
+
   private
-    { Private declarations }
+       var
+      JSONtoXML : TJSONtoXML;
   public
     { Public declarations }
   end;
@@ -50,9 +57,25 @@ begin
 
 end;
 
+procedure TExportarXML.Button1Exit(Sender: TObject);
+ var
+  xml : TXMLDocument;
+  list : TStringList;
+  json : TJSONObject;
+begin
+  json := JSONtoXML.normalizeOrigin(memoOriginal.Text);
+  list := JSONtoXML.normalizeOrigin(json);
+  memoOriginal.Lines := list;
+  xml := JSONtoXML.originTypeToReturnType(json);
+  list := JSONtoXML.normalizeReturn(xml);
+  memoResultado.Lines.Clear;
+  memoResultado.lines := list;
+end;
+
 procedure TExportarXML.Button2Click(Sender: TObject);
 begin
-   DbVendas1.Mxml.SaveToFile(EditXml.text + '.xml');
+   MemoResultado.lines.SaveToFile(EditXml.text + '.xml');
 end;
+
 
 end.

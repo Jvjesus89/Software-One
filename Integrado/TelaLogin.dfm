@@ -2,7 +2,7 @@ object TelaLoginU: TTelaLoginU
   Left = 0
   Top = 0
   Caption = 'Tela de Login'
-  ClientHeight = 306
+  ClientHeight = 271
   ClientWidth = 440
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,11 +18,12 @@ object TelaLoginU: TTelaLoginU
     Left = 0
     Top = 0
     Width = 440
-    Height = 306
+    Height = 271
     Align = alClient
     Color = clSilver
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 306
     object Senha: TLabel
       Left = 120
       Top = 147

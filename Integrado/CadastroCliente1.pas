@@ -41,8 +41,20 @@ implementation
 uses DbCliente, TelaCadastoCliente, TelaEdicaoCliente;
 
 procedure TConsultaCliente.BotaoEditarClick(Sender: TObject);
+var
+   VIdcliente : String;
 begin
+     VIdcliente := dbgrid1.Fields[7].Value ;
+     TelaEdicaoCliente1.IdCliente.Text := VIdcliente   ;
+    begin;
+      DbClient.QedicaoCamposClientes.close;
+      DbClient.QedicaoCamposClientes.sql.Clear;
+      DbClient.QedicaoCamposClientes.sql.Add('Select * From clientes Where idcliente = :PIcliente');
+      DbClient.QedicaoCamposClientes.Parambyname('PIcliente').AsInteger := StrToInt (VIdcliente);
+      DbClient.QedicaoCamposClientes.Open;
+      end;
     TelaEdicaoCliente1.showmodal;
+
 end;
 
 procedure TConsultaCliente.BotaoExcluirClick(Sender: TObject);

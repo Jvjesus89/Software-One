@@ -46,27 +46,24 @@ uses Dbcadastroproduto;
 procedure TTelaEdicaoProduto1.Button1Click(Sender: TObject);
 begin
 
-    with Dbprod.QProdutoEdicao do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Update produto Set idproduto=:Pidproduto, nmproduto=:Pnmproduto, cdproduto=:Pcdproduto, idfamiliaproduto=:Pidfamiliaproduto, vlproduto=:Pvlproduto, nmfamiliaproduto=:Pnmfamiliaproduto Where idproduto ='+ IdProduto.Text);
-      ParamByName('Pidproduto').AsInteger :=  StrToInt (IdProduto.Text);
-      ParamByName('Pnmproduto').AsString :=  (NmProduto.Text);
-      ParamByName('Pcdproduto').AsInteger :=  StrToInt (CdProduto.Text);
-      ParamByName('Pidfamiliaproduto').AsInteger :=  1 ;
-      ParamByName('Pvlproduto').AsInteger :=  StrToInt (VlUnitario.Text);
-      ParamByName('Pnmfamiliaproduto').AsString := (FamiliaProduto.Text);
-      ExecSql;
-    end;
+      Dbprod.QProdutoEdicao.close;
+      Dbprod.QProdutoEdicao.sql.Clear;
+      Dbprod.QProdutoEdicao.sql.Add('Update produto Set idproduto=:Pidproduto, nmproduto=:Pnmproduto, cdproduto=:Pcdproduto, idfamiliaproduto=:Pidfamiliaproduto, vlproduto=:Pvlproduto, nmfamiliaproduto=:Pnmfamiliaproduto Where idproduto ='+ IdProduto.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pidproduto').AsInteger :=  StrToInt (IdProduto.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pnmproduto').AsString :=  (NmProduto.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pcdproduto').AsInteger :=  StrToInt (CdProduto.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pidfamiliaproduto').AsInteger :=  1 ;
+      Dbprod.QProdutoEdicao.ParamByName('Pvlproduto').AsInteger :=  StrToInt (VlUnitario.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pnmfamiliaproduto').AsString := (FamiliaProduto.Text);
+      Dbprod.QProdutoEdicao.ExecSql;
+
 
    ShowMessage('Edição realizado');
    TelaEdicaoProduto1.Close;
    Dbprod.Mproduto.Close;
    Dbprod.QProdutoEdicao.Close;
-   Dbprod.Qproduto.Close;
    Dbprod.Qproduto.Open;
-end;
+   end;
 
 procedure TTelaEdicaoProduto1.Button2Click(Sender: TObject);
 begin

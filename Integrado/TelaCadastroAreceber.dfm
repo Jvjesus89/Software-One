@@ -2,7 +2,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
   Left = 0
   Top = 0
   Caption = 'Cadastro a receber'
-  ClientHeight = 322
+  ClientHeight = 182
   ClientWidth = 509
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
   object Label3: TLabel
     Left = 87
     Top = 21
-    Width = 48
+    Width = 42
     Height = 19
     Caption = 'Cliente'
     FocusControl = DBEdit3
@@ -41,13 +41,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 352
-    Top = 132
-    Width = 124
+    Left = 371
+    Top = 131
+    Width = 112
     Height = 19
     Caption = 'idformapagamento'
     FocusControl = DBEdit4
@@ -55,14 +55,14 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Visible = False
   end
   object Label5: TLabel
     Left = 8
     Top = 73
-    Width = 121
+    Width = 111
     Height = 19
     Caption = 'Forma Pagamento'
     FocusControl = DBEdit5
@@ -70,13 +70,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label6: TLabel
-    Left = 352
-    Top = 73
-    Width = 79
+    Left = 371
+    Top = 72
+    Width = 69
     Height = 19
     Caption = 'Valor Titulo'
     FocusControl = DBEdit6
@@ -84,13 +84,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label7: TLabel
     Left = 8
     Top = 21
-    Width = 39
+    Width = 33
     Height = 19
     Caption = 'Titulo'
     FocusControl = DBEdit7
@@ -98,13 +98,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label1: TLabel
     Left = 8
     Top = 129
-    Width = 115
+    Width = 103
     Height = 19
     Caption = 'Data Vencimento'
     FocusControl = DBEdit1
@@ -112,7 +112,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object Label8: TLabel
@@ -151,13 +151,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
   end
   object DBEdit4: TDBEdit
-    Left = 352
-    Top = 148
+    Left = 371
+    Top = 147
     Width = 134
     Height = 27
     DataField = 'idformapagamento'
@@ -166,7 +166,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 3
     Visible = False
@@ -182,13 +182,13 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 4
   end
   object DBEdit6: TDBEdit
-    Left = 352
-    Top = 96
+    Left = 371
+    Top = 95
     Width = 121
     Height = 27
     DataField = 'vltitulo'
@@ -197,7 +197,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 5
   end
@@ -212,7 +212,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
   end
@@ -237,6 +237,12 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Width = 75
     Height = 25
     Caption = 'Cadastrar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 8
     OnClick = BotaoCadastrarClick
   end
@@ -251,7 +257,7 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = [fsBold]
+    Font.Style = []
     MaxLength = 10
     ParentFont = False
     TabOrder = 6
@@ -272,7 +278,28 @@ object TelaCadasrroAreceber1: TTelaCadasrroAreceber1
     Width = 75
     Height = 25
     Caption = 'Cancelar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 10
     OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 321
+    Top = 96
+    Width = 26
+    Height = 27
+    Caption = '...'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    OnClick = Button2Click
   end
 end

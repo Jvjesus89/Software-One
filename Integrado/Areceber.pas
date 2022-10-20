@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
-  TApagar1 = class(TForm)
+  TAreceber1 = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -20,6 +20,7 @@ type
     Busca: TEdit;
     ExportarDados: TButton;
     Label1: TLabel;
+    InserirData: TButton;
     procedure BotaoNovoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -27,37 +28,30 @@ type
     procedure ExportarDadosClick(Sender: TObject);
     procedure BotaoEditarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure InserirDataClick(Sender: TObject);
   private
+    procedure EditarTitulo;
     { Private declarations }
   public
     { Public declarations }
   end;
 
 var
-  Apagar1: TApagar1;
+  Areceber1: TAreceber1;
 
 implementation
 
 {$R *.dfm}
 
 uses Dbfinreceber, TelaCadastroAreceber, TelaEdicaoAreceber,
-  TelaExportaçãoDadosAreceber;
+  TelaExportaçãoDadosAreceber, TelaCadastroBaixaAreceber;
 
-procedure TApagar1.BotaoEditarClick(Sender: TObject);
+procedure TAreceber1.BotaoEditarClick(Sender: TObject);
 begin
-    DbFinAreceber1.MAreceber.Open;
-    DbFinAreceber1.MAreceber.Append;
-    TelaEdicaoAreceber1.DBEdit7.Text := DBGrid1.Fields[0].value;
-    TelaEdicaoAreceber1.DBEdit3.Text := DBGrid1.Fields[1].value;
-    TelaEdicaoAreceber1.DBEdit6.Text := DBGrid1.Fields[2].value;
-    TelaEdicaoAreceber1.DBEdit5.Text := DBGrid1.Fields[3].value;
-    TelaEdicaoAreceber1.DBEdit1.Text := DBGrid1.Fields[4].value;
-    TelaEdicaoAreceber1.DBEdit2.Text := DBGrid1.Fields[6].value;
-    TelaEdicaoAreceber1.DBEdit9.Text := DBGrid1.Fields[7].value;
-    TelaEdicaoAreceber1.showmodal;
+  EditarTitulo;
 end;
 
-procedure TApagar1.BotaoExcluirClick(Sender: TObject);
+procedure TAreceber1.BotaoExcluirClick(Sender: TObject);
 begin
     DbFinAreceber1.Mareceber.Open;
     if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
@@ -74,13 +68,14 @@ begin
 
 end;
 
-procedure TApagar1.BotaoNovoClick(Sender: TObject);
+procedure TAreceber1.BotaoNovoClick(Sender: TObject);
 begin
-     TelaCadasrroAreceber1.showmodal;
-     DbFinAreceber1.Mareceber.open;
+    DbFinAreceber1.Mareceber.open;
+    TelaCadasrroAreceber1.showmodal;
+
 end;
 
-procedure TApagar1.Button1Click(Sender: TObject);
+procedure TAreceber1.Button1Click(Sender: TObject);
 begin
     if Busca.Text = '' then
     with DbFinAreceber1.QAreceber do
@@ -100,28 +95,38 @@ begin
     end;
 end;
 
-procedure TApagar1.DBGrid1DblClick(Sender: TObject);
+procedure TAreceber1.DBGrid1DblClick(Sender: TObject);
 begin
-    DbFinAreceber1.MAreceber.Open;
-    DbFinAreceber1.MAreceber.Append;
-    TelaEdicaoAreceber1.DBEdit7.Text := DBGrid1.Fields[0].value;
-    TelaEdicaoAreceber1.DBEdit3.Text := DBGrid1.Fields[1].value;
-    TelaEdicaoAreceber1.DBEdit6.Text := DBGrid1.Fields[2].value;
-    TelaEdicaoAreceber1.DBEdit5.Text := DBGrid1.Fields[3].value;
-    TelaEdicaoAreceber1.DBEdit1.Text := DBGrid1.Fields[4].value;
-    TelaEdicaoAreceber1.DBEdit2.Text := DBGrid1.Fields[6].value;
-    TelaEdicaoAreceber1.DBEdit9.Text := DBGrid1.Fields[7].value;
-    TelaEdicaoAreceber1.showmodal;
+     EditarTitulo;
 end;
 
-procedure TApagar1.ExportarDadosClick(Sender: TObject);
+procedure TAreceber1.ExportarDadosClick(Sender: TObject);
 begin
      Exportar.showmodal;
 end;
 
-procedure TApagar1.FormShow(Sender: TObject);
+procedure TAreceber1.FormShow(Sender: TObject);
 begin
      DbFinAreceber1.QAreceber.open;
+end;
+
+procedure TAreceber1.InserirDataClick(Sender: TObject);
+begin
+    DbFinAreceber1.MAreceber.open;
+    CadastroBaixaAreceber.ShowModal;
+    DbFinAreceber1.Qareceber.edit;
+    DBGrid1.Fields[7].Value := CadastroBaixaAreceber.DBEdit1.Text;
+    CadastroBaixaAreceber.Edit1.text := '';
+end;
+
+procedure TAreceber1.EditarTitulo;
+begin
+  DbFinAreceber1.QediçãoTituloAreceber.close;
+  DbFinAreceber1.QediçãoTituloAreceber.sql.Clear;
+  DbFinAreceber1.QediçãoTituloAreceber.sql.Add('Select * From areceber Where idareceber = :Pidareceber');
+  DbFinAreceber1.QediçãoTituloAreceber.ParamByName('Pidareceber').AsInteger := dbgrid1.fields[7].value;
+  DbFinAreceber1.QediçãoTituloAreceber.Open;
+  TelaEdicaoAreceber1.showmodal;
 end;
 
 end.

@@ -27,10 +27,12 @@ type
     Label8: TLabel;
     DBEdit8: TDBEdit;
     Button1: TButton;
+    Button2: TButton;
     procedure BuscaClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BotaoCadastrarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,7 +46,8 @@ implementation
 
 {$R *.dfm}
 
-uses Dbfinreceber, TelaConsultaClienteAreceber;
+uses Dbfinreceber, TelaConsultaClienteAreceber,
+  ConsultaFormaPagamentoCadastro;
 
 procedure TTelaCadasrroAreceber1.BotaoCadastrarClick(Sender: TObject);
 begin
@@ -68,6 +71,11 @@ begin
     DbFinAreceber1.MAreceber.Close;
     DbFinAreceber1.MAreceber.Cancel;
     TelaCadasrroAreceber1.close;
+end;
+
+procedure TTelaCadasrroAreceber1.Button2Click(Sender: TObject);
+begin
+    ConsultaFormaPagamento.ShowModal;
 end;
 
 procedure TTelaCadasrroAreceber1.FormShow(Sender: TObject);

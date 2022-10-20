@@ -475,7 +475,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
           item
             Expanded = False
             FieldName = 'idareceber'
-            Visible = True
+            Visible = False
           end>
       end
       object DBEdit7: TDBEdit
