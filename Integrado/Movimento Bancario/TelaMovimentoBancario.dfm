@@ -22,6 +22,8 @@ object ConsultaMovimentoBancario: TConsultaMovimentoBancario
     Height = 780
     Align = alLeft
     TabOrder = 0
+    ExplicitLeft = -6
+    ExplicitTop = 71
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True

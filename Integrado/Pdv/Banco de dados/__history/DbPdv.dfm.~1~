@@ -1,0 +1,65 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 308
+  Width = 391
+  object DataSource1: TDataSource
+    DataSet = FDTable1
+    Left = 96
+    Top = 168
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Password=123456'
+      'User_Name=postgres'
+      'Database=Software One'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 104
+    Top = 40
+  end
+  object FDTable1: TFDTable
+    Active = True
+    IndexFieldNames = 'idvendasitem'
+    Connection = FDConnection1
+    SchemaName = 'public'
+    TableName = 'vendasitem'
+    Left = 104
+    Top = 96
+    object FDTable1idvendasitem: TIntegerField
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object FDTable1idvenda: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object FDTable1idproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object FDTable1nmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 50
+    end
+    object FDTable1vlunitario: TSingleField
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+    end
+    object FDTable1qtvendido: TIntegerField
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+    end
+    object FDTable1vlitem: TSingleField
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+    end
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 184
+    Top = 40
+  end
+end

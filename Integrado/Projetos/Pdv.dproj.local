@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/10/13 13:52:56.000.977,=C:\Sistema\Integrado\Unit1.pas</Transaction>
+    <Transaction>2022/11/02 20:45:13.000.570,=C:\Sistema\Integrado\Unit1.pas</Transaction>
+    <Transaction>2022/11/08 12:33:18.000.875,=C:\Sistema\Integrado\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 22:09:37.000.276,=C:\Sistema\Integrado\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 22:22:30.000.963,=C:\Sistema\Integrado\Unit2.pas</Transaction>
+    <Transaction>2022/11/09 23:42:39.000.545,C:\Sistema\Integrado\Unit1.pas=C:\Sistema\Integrado\Pdv\Pdv.pas</Transaction>
+    <Transaction>2022/11/09 23:42:39.000.629,C:\Sistema\Integrado\Unit1.dfm=C:\Sistema\Integrado\Pdv\Pdv.dfm</Transaction>
+    <Transaction>2022/11/09 23:43:21.000.922,C:\Sistema\Integrado\Unit2.pas=C:\Sistema\Integrado\Pdv\Banco de dados\DbPdv.pas</Transaction>
+    <Transaction>2022/11/09 23:43:21.000.922,C:\Sistema\Integrado\Unit2.dfm=C:\Sistema\Integrado\Pdv\Banco de dados\DbPdv.dfm</Transaction>
+    <Transaction>2022/11/09 23:44:22.000.379,C:\Sistema\Integrado\Pdv\Pdv.pas=C:\Sistema\Integrado\Pdv\Pdv_Principal.pas</Transaction>
+    <Transaction>2022/11/09 23:44:22.000.379,C:\Sistema\Integrado\Pdv\Pdv.dfm=C:\Sistema\Integrado\Pdv\Pdv_Principal.dfm</Transaction>
+    <Transaction>2022/11/09 23:44:26.000.999,C:\Sistema\Integrado\Project1.dproj=C:\Sistema\Integrado\Pdv.dproj</Transaction>
+    <Transaction>2022/11/09 23:44:40.000.369,C:\Sistema\Integrado\Pdv.dproj=C:\Sistema\Integrado\Projetos\Pdv.dproj</Transaction>
+    <Transaction>2022/11/19 11:03:48.480,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/11/19 11:04:59.849,C:\Sistema\Integrado\Pdv\Sub Consulta\Produtos.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/11/19 11:04:59.849,C:\Sistema\Integrado\Pdv\Sub Consulta\Produtos.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

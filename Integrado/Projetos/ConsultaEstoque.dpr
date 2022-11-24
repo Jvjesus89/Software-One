@@ -24,3 +24,5 @@ begin
   //Application.CreateForm(TDbMov, DbMov);
   Application.Run;
 end.
+
+

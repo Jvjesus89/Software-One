@@ -1,0 +1,133 @@
+unit ImportaXmlVendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.ExtCtrls,Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.Buttons,
+   // Para XML TO Json
+  U_XML.JSON, Xml.XMLDoc,System.JSON, U_JSON.XML, Xml.xmldom,Xml.XmlTransform, Xml.XMLIntf;
+
+type
+  TXML = class(TForm)
+    EditXml: TEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    OpenDialog1: TOpenDialog;
+    DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
+    Panel: TPanel;
+    Vazio: TBitBtn;
+    Excluir: TBitBtn;
+    Gravar: TBitBtn;
+    BitBtn1: TBitBtn;
+    Panel1: TPanel;
+    MemoXml: TMemo;
+    MemoJson: TMemo;
+    Edit1: TEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+    procedure Button1Exit(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure GravarClick(Sender: TObject);
+  private
+     XMLtoJSON : TXMLtoJSON;
+  public
+    { Public declarations }
+  end;
+
+var
+  XML: TXML;
+
+
+implementation
+
+{$R *.dfm}
+
+uses DBvendas, DBXml;
+
+procedure TXML.Button1Click(Sender: TObject);
+Var Arquivo : TStringList;
+begin
+
+  if (Trim(EditXml.Text).IsEmpty) then
+  begin
+     OpenDialog1.Execute;
+     EditXml.Text := OpenDialog1.FileName;
+     Arquivo := TStringList.Create();
+     Arquivo.LoadFromFile(OpenDialog1.FileName);
+     MemoXml.Clear;
+     MemoXml.Text := Arquivo.Text
+ end
+    else
+ Begin
+   if not fileexists (EditXml.Text) then
+   begin
+      OpenDialog1.Execute;
+      EditXml.Text := OpenDialog1.FileName;
+   end;
+
+ End;
+
+end;
+
+procedure TXML.Button1Exit(Sender: TObject);
+var
+  xml : TXMLDocument;
+  list : TStringList;
+  json : TJSONObject;
+begin
+  xml := XMLtoJSON.normalizeOrigin(MemoXml.Text);
+  list := XMLtoJSON.normalizeOrigin(xml);
+  MemoXml.Lines.Clear;
+  MemoXml.Lines := list;
+  json := XMLtoJSON.originTypeToReturnType(xml);
+  list := XMLtoJSON.normalizeReturn(json);
+  MemoJson.Lines.Clear;
+  MemoJson.lines := list;
+end;
+
+procedure TXML.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
+begin
+    DbVendas1.Mxml.LoadFromFIle (EditXml.text + '.xml');
+end;
+
+procedure TXML.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   MemoXml.lines.Clear;
+   MemoJson.lines.Clear;
+   EditXml.Clear;
+end;
+
+procedure TXML.GravarClick(Sender: TObject);
+var
+nNF : String;
+ObjPed, ObjXml,ObjIde: TJSONObject;
+json : string  ;
+a,b,c : integer;
+
+begin
+     json := MemoJson.Lines.Text;
+     ObjPed := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(json), 0) as TJSONObject;
+
+   //inicio da leitura do xml
+   begin
+   ObjPed := ObjPed.GetValue<TJSONObject>('xml');
+
+     for b := 0 to ObjPed.Size - 1 do
+     begin
+     ObjIde := ObjPed.GetValue<TJSONObject>('ide');
+
+        for c := 0 to ObjIde.Size - 1 do
+        begin
+        nNF :=  ObjIde.GetValue<String>('natOp','');
+         edit1.Text   :=  nNF;
+        end;
+
+     end;
+   end;
+    ObjPed.DisposeOf;
+end;
+
+end.

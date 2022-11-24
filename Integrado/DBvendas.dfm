@@ -1497,47 +1497,19 @@
       Origin = 'idorigem'
     end
   end
-  object QItensGeradoXML: TFDQuery
+  object Qrtm: TFDQuery
     Active = True
     Connection = DbVendas
     SQL.Strings = (
-      'Select * From vendasitem')
-    Left = 312
-    Top = 328
-    object IntegerField29: TIntegerField
-      FieldName = 'idvendasitem'
-      Origin = 'idvendasitem'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object IntegerField30: TIntegerField
-      FieldName = 'idvenda'
-      Origin = 'idvenda'
-    end
-    object IntegerField31: TIntegerField
-      FieldName = 'idproduto'
-      Origin = 'idproduto'
-    end
-    object WideStringField19: TWideStringField
-      FieldName = 'nmproduto'
-      Origin = 'nmproduto'
-      Size = 50
-    end
-    object IntegerField32: TIntegerField
-      FieldName = 'qtvendido'
-      Origin = 'qtvendido'
-    end
-    object SingleField5: TSingleField
-      FieldName = 'vlunitario'
-      Origin = 'vlunitario'
-    end
-    object SingleField6: TSingleField
-      FieldName = 'vlitem'
-      Origin = 'vlitem'
-    end
+      
+        'select * From vendas V join vendasitem VI on (V.idvenda = VI.idv' +
+        'enda)')
+    Left = 352
+    Top = 192
   end
-  object DsItensGeradoXML: TDataSource
-    DataSet = QItensGeradoXML
-    Left = 320
-    Top = 392
+  object DsQrtm: TDataSource
+    DataSet = Qrtm
+    Left = 352
+    Top = 248
   end
 end

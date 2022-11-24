@@ -1,0 +1,106 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 374
+  Width = 535
+  object DbVendas: TFDConnection
+    Params.Strings = (
+      'Database=Software One'
+      'User_Name=postgres'
+      'Password=123456'
+      'Server=localhost'
+      'DriverID=PG')
+    Connected = True
+    Left = 96
+    Top = 8
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    Left = 16
+    Top = 8
+  end
+  object QItensGeradoXML: TFDQuery
+    Active = True
+    Connection = DbVendas
+    SQL.Strings = (
+      'Select * From vendasitem')
+    Left = 32
+    Top = 80
+    object IntegerField29: TIntegerField
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField30: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object IntegerField31: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object WideStringField19: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 50
+    end
+    object IntegerField32: TIntegerField
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+    end
+    object SingleField5: TSingleField
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+    end
+    object SingleField6: TSingleField
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+    end
+  end
+  object DsItensGeradoXML: TDataSource
+    DataSet = QItensGeradoXML
+    Left = 32
+    Top = 134
+  end
+  object QClienteXml: TFDQuery
+    Connection = DbVendas
+    SQL.Strings = (
+      'Select * From clientes')
+    Left = 120
+    Top = 80
+    object IntegerField1: TIntegerField
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object WideStringField1: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 50
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+    end
+    object SingleField1: TSingleField
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+    end
+    object SingleField2: TSingleField
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+    end
+  end
+  object DsQClienteXml: TDataSource
+    DataSet = QClienteXml
+    Left = 120
+    Top = 134
+  end
+end

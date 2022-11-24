@@ -171,7 +171,6 @@ object ConsultaEstoque1: TConsultaEstoque1
       Width = 76
       Height = 21
       DataField = 'cdproduto'
-      ReadOnly = True
       TabOrder = 0
     end
     object FamiliaProduto: TDBEdit

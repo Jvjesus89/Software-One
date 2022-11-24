@@ -1,0 +1,140 @@
+unit Pdv_Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
+  dxDateRanges, dxScrollbarAnnotations, Data.DB, cxDBData, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, DateUtils;
+
+type
+  TTelaPdv = class(TForm)
+    Panel1: TPanel;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    DBEdit4: TDBEdit;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Button3: TButton;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    Label9: TLabel;
+    DBEdit7: TDBEdit;
+    Panel2: TPanel;
+    Label10: TLabel;
+    DBEdit8: TDBEdit;
+    Button2: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Panel3: TPanel;
+    Hora: TLabel;
+    Timer1: TTimer;
+    Data: TLabel;
+    procedure DBEdit6Exit(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure DBEdit7Exit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaPdv: TTelaPdv;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPdv, Produtos;
+
+
+
+procedure TTelaPdv.Button1Click(Sender: TObject);
+var
+CdItem, NomeItem, VlItem, VlTotal, QtdItem : string;
+begin
+   CdItem  :=  DBEdit5.Text;
+   NomeItem:=  DBEdit1.Text;
+   VlItem  :=  DBEdit3.Text;
+   VlTotal :=  DBEdit4.Text;
+   QtdItem :=  DBEdit2.Text;
+
+end;
+
+procedure TTelaPdv.Button3Click(Sender: TObject);
+begin
+  ConsultaProdutos.ShowModal;
+end;
+
+procedure TTelaPdv.DBEdit6Exit(Sender: TObject);
+var
+DescProd : string;
+begin
+ // DescProd := DBEdit6.text;
+  label1.Caption :=  DescProd ;
+  label1.Visible := true;
+end;
+
+procedure TTelaPdv.DBEdit7Exit(Sender: TObject);
+begin
+  DBEDIT7.TEXT:= FORMATFLOAT('R$ ###,##0.00', STRTOFLOAT(DBEDIT7.TEXT));
+end;
+
+procedure TTelaPdv.FormCreate(Sender: TObject);
+begin
+  //Criar tabela Temp.#VendasPdv
+  {BancoPdv.QvendasPdv.close;
+  BancoPdv.QvendasPdv.sql.clear;
+  BancoPdv.QvendasPdv.sql.add('CREATE TABLE IF NOT EXISTS temp."#VendasPdv"');
+  BancoPdv.QvendasPdv.sql.add('(idvenda integer NOT NULL DEFAULT nextval($$vendas_idvenda_seq$$::regclass),');
+  BancoPdv.QvendasPdv.sql.add('idcliente integer,idformapagamento integer,vlvenda real,dtcadastro date,dtvenda date,nmformapagamento character varying(20) COLLATE pg_catalog."default",nmcliente character varying(50) COLLATE pg_catalog."default",nrdocumento integer)');
+  BancoPdv.QvendasPdv.ExecSql;
+
+  BancoPdv.QvendasPdv.ExecSql;
+
+  //Criar tabela Temp.#VendasPdvItem
+  BancoPdv.QvendasPdvItem.close;
+  BancoPdv.QvendasPdvItem.sql.clear;
+  BancoPdv.QvendasPdvItem.sql.add('CREATE TABLE IF NOT EXISTS temp.#VendasPdvItem');
+  BancoPdv.QvendasPdvItem.sql.add('( iditemvenda integer NOT NULL DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass), nmitemvenda character varying(50) COLLATE pg_catalog."default" NOT NULL, vlunitario real NOT NULL, vlitem real NOT NULL,idproduto integer NOT NULL,');
+  BancoPdv.QvendasPdvItem.sql.add('qtitem integer,idvenda integer,vldesconto real,vlacrescimo real,nmsistema character varying(50),idusuario integer))');
+  BancoPdv.QvendasPdvItem.ExecSql;
+  }
+end;
+
+procedure TTelaPdv.FormShow(Sender: TObject);
+var
+dataAtual : TDateTime ;
+
+begin
+   DataAtual := Now;
+   Data.Caption := DateToStr (DataAtual);
+end;
+
+procedure TTelaPdv.Timer1Timer(Sender: TObject);
+begin
+   Hora.Caption := FormatDateTime ('ttt',Time)
+end;
+
+end.

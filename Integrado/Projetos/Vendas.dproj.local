@@ -8,14 +8,14 @@
     <Transaction>2022/08/08 21:22:39.000.779,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2022/08/08 21:24:21.000.023,C:\Sistema\Integrado\DBvendas.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2022/08/08 21:24:21.000.023,C:\Sistema\Integrado\DBvendas.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>2022/08/09 20:42:51.000.755,C:\Sistema\Integrado\CadastroVendas.dfm=C:\Sistema\Integrado\Vendas.dfm</Transaction>
     <Transaction>2022/08/09 20:42:51.000.755,C:\Sistema\Integrado\CadastroVendas.pas=C:\Sistema\Integrado\Vendas.pas</Transaction>
+    <Transaction>2022/08/09 20:42:51.000.755,C:\Sistema\Integrado\CadastroVendas.dfm=C:\Sistema\Integrado\Vendas.dfm</Transaction>
     <Transaction>2022/08/09 20:43:03.000.592,C:\Sistema\Integrado\Projetos\Vendas.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Vendas.dproj</Transaction>
     <Transaction>2022/08/09 21:03:24.000.926,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/08/09 21:09:00.000.139,C:\Sistema\Integrado\CadastroVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/08/09 21:09:00.000.139,C:\Sistema\Integrado\CadastroVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
-    <Transaction>2022/08/09 21:37:45.000.732,C:\Sistema\Integrado\TelaCadastroVenda.pas=C:\Sistema\Integrado\CadastroVenda.pas</Transaction>
     <Transaction>2022/08/09 21:37:45.000.732,C:\Sistema\Integrado\TelaCadastroVenda.dfm=C:\Sistema\Integrado\CadastroVenda.dfm</Transaction>
+    <Transaction>2022/08/09 21:37:45.000.732,C:\Sistema\Integrado\TelaCadastroVenda.pas=C:\Sistema\Integrado\CadastroVenda.pas</Transaction>
     <Transaction>2022/08/09 21:45:59.000.541,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/08/09 21:46:18.000.397,C:\Sistema\Integrado\TelaConsultaClienteVenda.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/08/09 21:46:18.000.397,C:\Sistema\Integrado\TelaConsultaClienteVenda.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
@@ -38,22 +38,48 @@
     <Transaction>2022/09/25 21:17:09.000.619,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamentoVendas.pas</Transaction>
     <Transaction>2022/09/25 21:17:09.000.619,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamentoVendas.dfm</Transaction>
     <Transaction>2022/09/26 09:48:32.000.644,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/26 09:48:51.000.164,C:\Sistema\Integrado\CadastrarFinanceiro.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/09/26 09:48:51.000.164,C:\Sistema\Integrado\CadastrarFinanceiro.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/09/26 09:48:51.000.164,C:\Sistema\Integrado\CadastrarFinanceiro.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/09/26 09:49:06.000.235,C:\Sistema\Integrado\TelaCadastroFinanceiro.pas=C:\Sistema\Integrado\CadastrarFinanceiro.pas</Transaction>
     <Transaction>2022/09/26 09:49:06.000.235,C:\Sistema\Integrado\TelaCadastroFinanceiro.dfm=C:\Sistema\Integrado\CadastrarFinanceiro.dfm</Transaction>
     <Transaction>2022/10/15 11:34:33.000.441,=C:\Sistema\Integrado\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas</Transaction>
     <Transaction>2022/10/15 11:35:28.000.269,=C:\Sistema\Integrado\CoversorJsonXML\Padronizacao\U_Origin.Return.pas</Transaction>
     <Transaction>2022/10/15 11:35:47.000.722,=C:\Sistema\Integrado\CoversorJsonXML\Padronizacao\U_Normalize.pas</Transaction>
+    <Transaction>2022/10/20 22:49:28.000.838,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/20 22:49:50.000.271,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/20 22:55:09.000.596,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DBXml.pas</Transaction>
+    <Transaction>2022/10/20 22:55:09.000.596,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DBXml.dfm</Transaction>
+    <Transaction>2022/10/28 13:32:26.000.601,=C:\Sistema\Integrado\Vendas\Xml\ImportaXmlVendas.pas</Transaction>
+    <Transaction>2022/10/28 13:34:18.000.932,=C:\Sistema\Integrado\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas</Transaction>
+    <Transaction>2022/10/28 13:34:41.000.901,=C:\Sistema\Integrado\ConversorXMlJson\FormatConverter\U_FormatConverter.pas</Transaction>
+    <Transaction>2022/10/31 14:33:03.000.538,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/31 14:33:15.000.712,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/31 14:33:46.000.129,C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/31 14:33:46.000.129,C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DbXmlImportacao.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Integrado"/>
+    <File Path="..\ConversorXMlJson"/>
+    <File Path="..\ConversorXMlJson\FormatConverter"/>
+    <File Path="..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas"/>
+    <File Path="..\ConversorXMlJson\XMLtoJSON"/>
+    <File Path="..\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas"/>
     <File Path="..\CoversorJsonXML"/>
     <File Path="..\CoversorJsonXML\JSONtoXML"/>
     <File Path="..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas"/>
     <File Path="..\CoversorJsonXML\Padronizacao"/>
-    <File Path="..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas"/>
     <File Path="..\CoversorJsonXML\Padronizacao\U_Normalize.pas"/>
+    <File Path="..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas"/>
+    <File Path="..\Vendas"/>
+    <File Path="..\Vendas\Banco de dados"/>
+    <File Path="..\Vendas\Banco de dados\DbXml"/>
+    <File Path="..\Vendas\Banco de dados\DbXml\DBXml.pas"/>
+    <File Path="..\Vendas\Banco de dados\DbXml\DBXml.dfm"/>
+    <File Path="..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas"/>
+    <File Path="..\Vendas\Banco de dados\DbXml\DbXmlImportacao.dfm"/>
+    <File Path="..\Vendas\Xml"/>
+    <File Path="..\Vendas\Xml\ImportaXmlVendas.pas"/>
+    <File Path="..\Vendas\Xml\ImportaXmlVendas.dfm"/>
     <File Path="..\CadastroProdutoVenda.pas"/>
     <File Path="..\CadastroProdutoVenda.dfm"/>
     <File Path="..\CadastroVendas.pas"/>
@@ -74,7 +100,5 @@
     <File Path="..\TelaConsultaProdutoVenda.dfm"/>
     <File Path="..\TelaExportaçãoXML.pas"/>
     <File Path="..\TelaExportaçãoXML.dfm"/>
-    <File Path="ImportaXmlVendas.pas"/>
-    <File Path="ImportaXmlVendas.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

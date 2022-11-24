@@ -126,10 +126,6 @@
             <Form>TelaCadastroProdutoVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ImportaXmlVendas.pas">
-            <Form>XML</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\TelaExportaçãoXML.pas">
             <Form>ExportarXML</Form>
             <FormType>dfm</FormType>
@@ -146,9 +142,25 @@
             <Form>CadastroAreceber</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas"/>
         <DCCReference Include="..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas"/>
         <DCCReference Include="..\CoversorJsonXML\Padronizacao\U_Normalize.pas"/>
+        <DCCReference Include="..\Vendas\Banco de dados\DbXml\DBXml.pas">
+            <Form>DbXmlVendas</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\Vendas\Xml\ImportaXmlVendas.pas">
+            <Form>XML</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas"/>
+        <DCCReference Include="..\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas"/>
+        <DCCReference Include="..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas"/>
+        <DCCReference Include="..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas">
+            <Form>DbImportacaoXml</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

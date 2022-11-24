@@ -2,7 +2,7 @@ object ExportarXML: TExportarXML
   Left = 0
   Top = 0
   Caption = 'Exportar XML'
-  ClientHeight = 68
+  ClientHeight = 271
   ClientWidth = 652
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object ExportarXML: TExportarXML
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -58,7 +59,6 @@ object ExportarXML: TExportarXML
     Width = 185
     Height = 89
     TabOrder = 3
-    Visible = False
   end
   object MemoResultado: TMemo
     Left = 184
@@ -66,22 +66,25 @@ object ExportarXML: TExportarXML
     Width = 185
     Height = 89
     TabOrder = 4
-    Visible = False
   end
   object DBGrid1: TDBGrid
     Left = 375
     Top = 80
     Width = 247
     Height = 89
-    DataSource = DbVendas1.DsItensGeradoXML
+    DataSource = DbXmlVendas.DsItensGeradoXML
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
-    Visible = False
     Columns = <
+      item
+        Expanded = False
+        FieldName = 'cdproduto'
+        Visible = True
+      end
       item
         Expanded = False
         FieldName = 'nmproduto'
@@ -99,7 +102,66 @@ object ExportarXML: TExportarXML
       end
       item
         Expanded = False
-        FieldName = 'vlitem'
+        FieldName = 'vlproduto'
+        Visible = True
+      end>
+  end
+  object DBGrid2: TDBGrid
+    Left = 375
+    Top = 174
+    Width = 247
+    Height = 89
+    DataSource = DbXmlVendas.DsQClienteXml
+    TabOrder = 6
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'idcliente'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nmcliente'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nmbairro'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nmcidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nmendereco'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nmestado'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cpf_cnpj'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cdcliente'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nrendere'#231'o'
         Visible = True
       end>
   end

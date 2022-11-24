@@ -4,8 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Xml.XMLDoc, System.JSON, U_JSON.XML, Xml.xmldom,
-  Xml.XmlTransform, Xml.XMLIntf, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids
+  //JSON TO XML
+  , Xml.XMLDoc, System.JSON, U_JSON.XML, Xml.xmldom,
+  Xml.XmlTransform, Xml.XMLIntf;
 
 type
   TExportarXML = class(TForm)
@@ -17,9 +19,11 @@ type
     MemoOriginal: TMemo;
     MemoResultado: TMemo;
     DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button1Exit(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
        var
@@ -35,7 +39,8 @@ implementation
 
 {$R *.dfm}
 
-uses DBvendas;
+uses DBXml;
+
 
 procedure TExportarXML.Button1Click(Sender: TObject);
 begin
@@ -77,5 +82,12 @@ begin
    MemoResultado.lines.SaveToFile(EditXml.text + '.xml');
 end;
 
+
+procedure TExportarXML.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+   MemoOriginal.lines.Clear;
+   MemoResultado.lines.Clear;
+   EditXml.Clear;
+end;
 
 end.

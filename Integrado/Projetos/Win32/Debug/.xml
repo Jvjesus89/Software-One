@@ -1,0 +1,63 @@
+<xml>
+  <SoftwareName>SoftwareOne</SoftwareName>
+  <ide>
+    <natOp>Venda</natOp>
+    <nNF>1</nNF>
+    <dhEmi>21\/08\/2022</dhEmi>
+  </ide>
+  <emit>
+    <CNPJ>11.111.111\/0001-14</CNPJ>
+    <xNome>Empresa 1</xNome>
+    <xFant>Emp</xFant>
+    <enderEmit>
+      <xLgr>Rua 1</xLgr>
+      <nro>10</nro>
+      <xBairro>Bairro 2</xBairro>
+      <cMun>Cidade 3</cMun>
+      <xMun>2712701</xMun>
+      <UF>RJ</UF>
+      <CEP>28654123</CEP>
+      <cPais>1058</cPais>
+      <xPais>Brasil</xPais>
+      <fone>2288130934</fone>
+    </enderEmit>
+    <IE>15454</IE>
+    <IM>11254</IM>
+    <CRT>3</CRT>
+  </emit>
+  <dest>
+    <CNPJ>16138148797</CNPJ>
+    <xNome>Cliente 1</xNome>
+    <enderDest>
+      <xLgr>Rua Harry</xLgr>
+      <nro>501</nro>
+      <xBairro>Feo</xBairro>
+      <cMun>NULL</cMun>
+      <xMun>Teresopolis</xMun>
+      <UF>Rj</UF>
+      <CEP>28654123</CEP>
+      <cPais>1058</cPais>
+      <xPais>Brasil</xPais>
+      <fone>2288130934</fone>
+    </enderDest>
+    <indIEDest>NULL</indIEDest>
+    <IE>NULL</IE>
+    <email>NULL</email>
+  </dest>
+  <detnItem>
+    <prod>
+      <cProd>4</cProd>
+      <cEAN>NULL</cEAN>
+      <xProd>Camera Traseira</xProd>
+      <NCM>NULL</NCM>
+      <CFOP>NULL</CFOP>
+      <uCom>UND</uCom>
+      <qCom>3</qCom>
+      <vUnCom>41</vUnCom>
+      <vProd>41</vProd>
+      <uTrib>UND</uTrib>
+      <qTrib>3</qTrib>
+      <vUnTrib>41</vUnTrib>
+    </prod>
+  </detnItem>
+</xml>

@@ -3,7 +3,7 @@
   Top = 0
   Caption = 'Cadastro Cliente'
   ClientHeight = 211
-  ClientWidth = 703
+  ClientWidth = 708
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

@@ -1,0 +1,63 @@
+unit Produtos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxNavigator, dxDateRanges, dxScrollbarAnnotations,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGrid;
+
+type
+  TConsultaProdutos = class(TForm)
+    Panel1: TPanel;
+    BotaoBusca: TButton;
+    Busca: TEdit;
+    Panel2: TPanel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1nmproduto: TcxGridDBColumn;
+    cxGrid1DBTableView1cdproduto: TcxGridDBColumn;
+    cxGrid1DBTableView1vlproduto: TcxGridDBColumn;
+    cxGrid1DBTableView1stproduto: TcxGridDBColumn;
+    procedure BotaoBuscaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaProdutos: TConsultaProdutos;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPdv;
+
+procedure TConsultaProdutos.BotaoBuscaClick(Sender: TObject);
+begin
+    begin
+    if (Trim(Busca.text).IsEmpty) then
+    begin
+      BancoPdv.QProdutos.close;
+      BancoPdv.QProdutos.sql.Clear;
+      BancoPdv.QProdutos.sql.Add('Select * From produto Where stproduto = $$True$$ ');
+      BancoPdv.QProdutos.open;
+    end else
+    begin
+      BancoPdv.QProdutos.close;
+      BancoPdv.QProdutos.sql.Clear;
+      BancoPdv.QProdutos.sql.Add('Select * From produto Where nmproduto like :PNmproduto and stproduto = $$True$$');
+      BancoPdv.QProdutos.ParamByName('PNmproduto').AsString := '%'+(Busca.Text)+'%';
+      BancoPdv.QProdutos.open;
+    end;
+    end;
+end;
+
+end.

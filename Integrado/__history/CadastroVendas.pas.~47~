@@ -1,0 +1,303 @@
+unit CadastroVendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON;
+
+type
+  TCadastroDeVendas = class(TForm)
+    Panel1: TPanel;
+    BotaoNovo: TButton;
+    BotaoExcluir: TButton;
+    BotaoEditar: TButton;
+    ExportarDados: TButton;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    Button2: TButton;
+    Busca: TEdit;
+    Button1: TButton;
+    Button3: TButton;
+    procedure Button2Click(Sender: TObject);
+    procedure BotaoNovoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BotaoExcluirClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CadastroDeVendas: TCadastroDeVendas;
+
+implementation
+
+{$R *.dfm}
+
+uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas;
+
+
+
+
+
+procedure TCadastroDeVendas.BotaoExcluirClick(Sender: TObject);
+var IdVenda : integer;
+begin
+   IdVenda := dbgrid1.Fields[5].Value;
+   if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
+
+
+      begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From movimentoestoque Where idorigem = :Pidorigem');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+      begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From areceber Where idorigem = :Pidorigem');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+       begin
+      DbVendas1.QExclusãoVendaItem.close;
+      DbVendas1.QExclusãoVendaItem.sql.Clear;
+      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From vendasitem Where idvenda = :Pidvenda');
+      DbVendas1.QExclusãoVendaItem.ParamByName('Pidvenda').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVendaItem.ExecSql;
+      end;
+      begin;
+      DbVendas1.QExclusãoVenda.close;
+      DbVendas1.QExclusãoVenda.sql.Clear;
+      DbVendas1.QExclusãoVenda.sql.Add('Delete From vendas Where idvenda = :Pidvenda');
+      DbVendas1.QExclusãoVenda.ParamByName('Pidvenda').AsInteger := IdVenda;
+      DbVendas1.QExclusãoVenda.ExecSql;
+      end;
+
+      DbVendas1.Qvendas.Close;
+      DbVendas1.Qvendas.Open;
+end;
+
+procedure TCadastroDeVendas.BotaoNovoClick(Sender: TObject);
+begin
+    TelaCadastroVendas.showmodal;
+     DbVendas1.Mvendas.open;
+     DbVendas1.Mvendasitem.open;;
+     DbVendas1.MTempItem.open;
+     DbVendas1.Mvendas.Append;
+     DbVendas1.Mvendasitem.Append;;
+     DbVendas1.MTempItem.Append;
+end;
+
+procedure TCadastroDeVendas.Button1Click(Sender: TObject);
+begin
+   XML.showmodal;
+end;
+
+procedure TCadastroDeVendas.Button2Click(Sender: TObject);
+begin
+
+    if (Trim(Busca.text).IsEmpty) then
+
+    begin
+      DbVendas1.Qvendas.close ;
+      DbVendas1.Qvendas.sql.Clear;
+      DbVendas1.Qvendas.sql.Add('Select * From vendas');
+      DbVendas1.Qvendas.open;
+    end
+    else
+    begin
+      DbVendas1.Qvendas.close ;
+      DbVendas1.Qvendas.sql.Clear;
+      DbVendas1.Qvendas.sql.Add('Select * From vendas Where nrdocumento = '+(Busca.Text));
+      DbVendas1.Qvendas.open;
+    end;;
+
+
+end;
+
+procedure TCadastroDeVendas.Button3Click(Sender: TObject);
+var
+    jsonObjInfNota, jsonObjEmitente,jsonObjEmitenteEnd, jsonObjInf,jsonObjXmlNota,
+    jsonObjDestino, jsonObjDestinoEnd, jsonObjItem, jsonObjInfItem , jsonObjNitem
+     : TJSONObject;
+
+    jsonArrayInf,jsonArrayInfNota,jsonArrayInfEmitente,jsonArrayEmitenteendereco,
+    jsonArrayDestinatarioendereco,jsonArrayDestinatario, jsonArrayItem
+     : TJSONArray;
+
+    x, y ,z, a : integer;
+    IdVenda : integer;
+    QtdItensGrid: integer;
+begin
+   IdVenda := dbgrid1.Fields[5].Value;
+   ExportarXML.MemoResultado.lines.clear;
+   ExportarXML.MemoOriginal.lines.clear;
+
+
+   DbXmlVendas.QItensGeradoXML.close;
+   DbXmlVendas.QItensGeradoXML.sql.clear;
+   DbXmlVendas.QItensGeradoXML.sql.add('Select * From vendasitem VI join produto P on (VI.idproduto = P.idproduto) Where idvenda = :Pidvenda');
+   DbXmlVendas.QItensGeradoXML.ParamByName('Pidvenda').AsInteger := IdVenda ;
+   DbXmlVendas.QItensGeradoXML.open;
+
+   DbXmlVendas.QClienteXml.close;
+   DbXmlVendas.QClienteXml.sql.clear;
+   DbXmlVendas.QClienteXml.sql.add('Select * From clientes Where idcliente = :Pidcliente');
+   DbXmlVendas.QClienteXml.ParamByName('Pidcliente').AsInteger := dbgrid1.Fields[6].Value; ;
+   DbXmlVendas.QClienteXml.open;
+
+   QtdItensGrid := DbXmlVendas.QItensGeradoXML.RecordCount;
+
+
+       try
+        jsonObjXmlNota := TJSONObject.Create;
+
+
+        // Xml...
+        for x := 1 to 1 do
+        begin
+        jsonObjInfNota:= TJSONObject.Create;
+        jsonObjInfNota.AddPair('SoftwareName','SoftwareOne');
+        jsonArrayInf := TJSONArray.Create;
+
+            // Criação tag Ide
+            for y := 1 to 1 do
+            begin
+            jsonObjInf := TJSONObject.Create;
+            jsonObjInf.AddPair('natOp', 'Venda');
+            jsonObjInf.AddPair('nNF', DBGrid1.fields[0].Value);
+            jsonObjInf.AddPair('dhEmi', (DBGrid1.fields[4].Value));
+            //jsonArrayInf.AddElement(jsonObjInf);
+            end;
+        jsonObjInfNota.AddPair('ide', jsonObjInf);
+
+            // Criação tag Emit
+            for y := 1 to 1 do
+            begin
+            jsonObjEmitente := TJSONObject.Create;
+            jsonObjEmitente.AddPair('CNPJ', '11.111.111/0001-14');
+            jsonObjEmitente.AddPair('xNome', 'Empresa 1');
+            jsonObjEmitente.AddPair('xFant', 'Emp');
+
+            jsonArrayEmitenteendereco := TJSONArray.Create;
+            jsonArrayInfEmitente := TJSONArray.Create;
+
+                for z := 1 to 1 do
+                begin
+                jsonObjEmitenteEnd := TJSONObject.Create;
+                jsonObjEmitenteEnd.AddPair('xLgr', 'Rua 1');
+                jsonObjEmitenteEnd.AddPair('nro', '10');
+                jsonObjEmitenteEnd.AddPair('xBairro', 'Bairro 2');
+                jsonObjEmitenteEnd.AddPair('cMun', 'Cidade 3');
+                jsonObjEmitenteEnd.AddPair('xMun', '2712701');
+                jsonObjEmitenteEnd.AddPair('UF', 'RJ');
+                jsonObjEmitenteEnd.AddPair('CEP', '28654123');
+                jsonObjEmitenteEnd.AddPair('cPais', '1058');
+                jsonObjEmitenteEnd.AddPair('xPais', 'Brasil');
+                jsonObjEmitenteEnd.AddPair('fone', '2288130934');
+                jsonArrayEmitenteendereco.AddElement(jsonObjEmitenteEnd);
+                end;
+
+            jsonObjEmitente.AddPair('enderEmit', jsonArrayEmitenteendereco);
+            jsonObjEmitente.AddPair('IE', '15454');
+            jsonObjEmitente.AddPair('IM', '11254');
+            jsonObjEmitente.AddPair('CRT', '3');
+            jsonArrayInfEmitente.AddElement(jsonObjEmitente);
+            end;
+        jsonObjInfNota.AddPair('emit', jsonArrayInfEmitente);
+
+            // Criação da tag Dest
+            for y := 1 to 1 do
+            begin
+             jsonObjDestino := TJSONObject.Create;
+            jsonObjDestino.AddPair('CNPJ', ExportarXML.DBGrid2.fields[6].Value);
+            jsonObjDestino.AddPair('xNome', ExportarXML.DBGrid2.fields[1].Value);
+
+            jsonArrayDestinatario := TJSONArray.Create;
+            jsonArrayDestinatarioendereco := TJSONArray.Create;
+
+                for z := 1 to 1 do
+                begin
+                jsonObjDestinoEnd := TJSONObject.Create;
+                jsonObjDestinoEnd.AddPair('xLgr',  ExportarXML.DBGrid2.fields[4].Value);
+                jsonObjDestinoEnd.AddPair('nro', ExportarXML.DBGrid2.fields[8].Value);
+                jsonObjDestinoEnd.AddPair('xBairro', ExportarXML.DBGrid2.fields[2].Value);
+                jsonObjDestinoEnd.AddPair('cMun', 'NULL');
+                jsonObjDestinoEnd.AddPair('xMun', ExportarXML.DBGrid2.fields[3].Value);
+                jsonObjDestinoEnd.AddPair('UF', ExportarXML.DBGrid2.fields[5].Value);
+                jsonObjDestinoEnd.AddPair('CEP', '28654123');
+                jsonObjDestinoEnd.AddPair('cPais', '1058');
+                jsonObjDestinoEnd.AddPair('xPais', 'Brasil');
+                jsonObjDestinoEnd.AddPair('fone', '2288130934');
+                jsonArrayDestinatarioendereco.AddElement(jsonObjDestinoEnd);
+                end;
+
+            jsonObjDestino.AddPair('enderDest',jsonArrayDestinatarioendereco);
+            jsonObjDestino.AddPair('indIEDest', 'NULL');
+            jsonObjDestino.AddPair('IE', 'NULL');
+            jsonObjDestino.AddPair('email', 'NULL');
+            jsonArrayDestinatario.AddElement(jsonObjDestino);
+            end;
+        jsonObjInfNota.AddPair('dest', jsonArrayDestinatario);
+
+
+
+        // Criação da tag Det Item
+           for y := 1 to QtdItensGrid do
+           begin
+           jsonArrayInfNota:= TJSONArray.Create;
+           jsonObjNitem  := TJSONObject.Create;
+               for z := 1 to 1 do
+               begin
+               jsonObjItem:= TJSONObject.Create;
+                 for a := 1 to 1 do
+                 begin
+                 jsonObjInfItem := TJSONObject.Create;
+                 jsonObjInfItem.AddPair('cProd',ExportarXML.DBGrid1.fields[0].Value );
+                 jsonObjInfItem.AddPair('cEAN', 'NULL');
+                 jsonObjInfItem.AddPair('xProd',ExportarXML.DBGrid1.fields[1].Value  );
+                 jsonObjInfItem.AddPair('NCM', 'NULL');
+                 jsonObjInfItem.AddPair('CFOP','NULL');
+                 jsonObjInfItem.AddPair('uCom', 'UND');
+                 jsonObjInfItem.AddPair('qCom',ExportarXML.DBGrid1.fields[2].Value);
+                 jsonObjInfItem.AddPair('vUnCom', ExportarXML.DBGrid1.fields[3].Value );
+                 jsonObjInfItem.AddPair('vProd',ExportarXML.DBGrid1.fields[4].Value );
+                 jsonObjInfItem.AddPair('uTrib', 'UND');
+                 jsonObjInfItem.AddPair('qTrib', ExportarXML.DBGrid1.fields[2].Value);
+                 jsonObjInfItem.AddPair('vUnTrib',ExportarXML.DBGrid1.fields[3].Value );
+                 end;
+               jsonObjItem.AddPair('prod',jsonObjInfItem );
+               end;
+           jsonObjNitem.AddPair('Nitem', y.ToString );
+           jsonObjNitem.AddPair('item',jsonObjItem);
+           DbXmlVendas.QItensGeradoXML.Next;
+           end;
+        jsonObjInfNota.AddPair('det', jsonObjNitem);
+        end;
+
+
+        ExportarXML.MemoOriginal.Lines.Add(jsonObjInfNota.ToString);
+
+    finally
+        jsonObjXmlNota.DisposeOf;
+    end;
+
+    ExportarXML.showmodal;
+end;
+
+procedure TCadastroDeVendas.FormShow(Sender: TObject);
+begin
+ DbVendas1.Qvendas.Open;
+end;
+
+end.
