@@ -1,0 +1,66 @@
+unit CalculoValorTotalItem;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
+
+type
+    CalculoValorTotal = interface
+    Function CalculoValorVenda : integer;
+
+end;
+
+implementation
+
+uses Pdv_Principal;
+
+   function CalculoValorVenda: integer;
+var
+    Qtd, VlUnit , VlTot, vldesc , vlacres : integer;
+begin
+   if (Trim(TelaPdv.CampoQuantidade.text).IsEmpty) then
+   begin
+        Qtd := 1 ;
+   end
+   else
+   begin
+        Qtd   :=  StrToInt (TelaPdv.CampoQuantidade.Text) ;
+   end;
+
+   if (Trim(TelaPdv.CampoValorUnitario.text).IsEmpty) then
+    begin
+       VlUnit := 0;
+   end
+   else
+   begin
+       VlUnit := StrToInt (TelaPdv.CampoValorUnitario.Text) ;
+   end;
+
+
+   if (Trim(TelaPdv.CampoDesconto.text).IsEmpty) then
+    begin
+      vldesc := 0;
+   end
+   else
+   begin
+      vldesc  :=  StrToInt (TelaPdv.CampoDesconto.Text);
+   end;
+
+
+   if (Trim(TelaPdv.CampoAcrescimo.text).IsEmpty) then
+    begin
+      vlacres := 0;
+   end
+   else
+   begin
+      vlacres :=  StrToInt (TelaPdv.CampoAcrescimo.Text);
+   end;
+
+  VlTot := (Qtd * VlUnit) - vldesc + vlacres;
+  Result:= VlTot ;
+  TelaPdv.CampoValorItem.text :=  IntToStr(VlTot)  ;
+end;
+end.

@@ -13,13 +13,11 @@ uses
 
 type
   TDbFinAreceber1 = class(TForm)
-    DbFin: TFDConnection;
     QAreceber: TFDQuery;
     TabelaAreceber: TFDTable;
     DsAreceber: TDataSource;
     MAreceber: TClientDataSet;
     Pareceber: TDataSetProvider;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     TabelaAreceberidareceber: TIntegerField;
     TabelaAreceberidcliente: TIntegerField;
     TabelaArecebernmcliente: TWideStringField;
@@ -169,6 +167,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 procedure TDbFinAreceber1.MAreceberAfterCancel(DataSet: TDataSet);
 begin

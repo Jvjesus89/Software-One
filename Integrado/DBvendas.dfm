@@ -41,7 +41,7 @@
   end
   object Label3: TLabel
     Left = 24
-    Top = 80
+    Top = 8
     Width = 124
     Height = 19
     Caption = 'Temp.FinArecebe'
@@ -66,8 +66,8 @@
     ParentFont = False
   end
   object Vendas: TLabel
-    Left = 104
-    Top = 168
+    Left = 96
+    Top = 120
     Width = 51
     Height = 19
     Caption = 'Vendas'
@@ -78,30 +78,14 @@
     Font.Style = []
     ParentFont = False
   end
-  object DbVendas: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 96
-    Top = 8
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 16
-    Top = 8
-  end
   object TabelaVenda: TFDTable
     Active = True
     IndexFieldNames = 'idvenda'
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'vendas'
-    Left = 24
-    Top = 192
+    Left = 16
+    Top = 144
     object TabelaVendaidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -143,19 +127,18 @@
   end
   object DsVendas: TDataSource
     DataSet = Mvendas
-    Left = 24
-    Top = 248
+    Left = 16
+    Top = 200
   end
   object Mvendas: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pvendas'
     AfterPost = MvendasAfterPost
     AfterCancel = MvendasAfterCancel
     AfterDelete = MvendasAfterDelete
-    Left = 88
-    Top = 248
+    Left = 80
+    Top = 200
     object Mvendasidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -202,13 +185,13 @@
   end
   object Pvendas: TDataSetProvider
     DataSet = TabelaVenda
-    Left = 88
-    Top = 192
+    Left = 80
+    Top = 144
   end
   object TabelaVendaItem: TFDTable
     Active = True
     IndexFieldNames = 'idvenda'
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'vendasitem'
     Left = 16
@@ -250,7 +233,6 @@
     Top = 384
   end
   object MvendasItem: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pvendasitem'
@@ -297,11 +279,11 @@
     AfterPost = QvendasAfterPost
     AfterCancel = QvendasAfterCancel
     AfterDelete = QvendasAfterDelete
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
-    Left = 136
-    Top = 192
+    Left = 128
+    Top = 144
     object Qvendasidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -348,7 +330,7 @@
   end
   object QvendasItem: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendasitem')
     Left = 176
@@ -391,12 +373,12 @@
   end
   object DsQVendas: TDataSource
     DataSet = Qvendas
-    Left = 136
-    Top = 248
+    Left = 128
+    Top = 200
   end
   object Qcliente: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
     Left = 552
@@ -470,7 +452,7 @@
   end
   object QProduto: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
     Left = 504
@@ -525,7 +507,7 @@
     AfterPost = QitemvendaAfterPost
     AfterCancel = QitemvendaAfterCancel
     AfterDelete = QitemvendaAfterDelete
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select SUM(vlitem) from temp.vendaitem')
     Left = 488
@@ -545,7 +527,7 @@
   object TempItem: TFDTable
     Active = True
     IndexFieldNames = 'iditemvenda'
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'temp'
     TableName = 'itemvenda'
     Left = 496
@@ -578,7 +560,6 @@
     end
   end
   object MTempItem: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PTempItem'
@@ -632,11 +613,11 @@
   end
   object QEntradaVenda: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
-    Left = 184
-    Top = 192
+    Left = 176
+    Top = 144
     object IntegerField1: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -681,7 +662,7 @@
   end
   object QEntradaVendaItem: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendasitem')
     Left = 232
@@ -719,13 +700,13 @@
   end
   object QIdVenda: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
         'SELECT idvenda FROM vendas WHERE idvenda =(SELECT max(idvenda) F' +
         'ROM vendas)')
-    Left = 232
-    Top = 192
+    Left = 224
+    Top = 144
     object QIdVendaidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -733,133 +714,27 @@
     end
   end
   object QEntradaTitulo: TFDQuery
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     Left = 488
     Top = 480
   end
   object DsIdVenda: TDataSource
     DataSet = QIdVenda
-    Left = 232
-    Top = 248
+    Left = 224
+    Top = 200
   end
   object DsEntradaItens: TDataSource
     DataSet = QEntradaVendaItem
     Left = 240
     Top = 392
   end
-  object FDUpdateSQL1: TFDUpdateSQL
-    Connection = DbVendas
-    InsertSQL.Strings = (
-      'INSERT INTO vendas'
-      '(idvenda, idcliente, idformapagamento, vlvenda, '
-      '  dtcadastro, dtvenda, nmformapagamento, nmcliente, '
-      '  nrdocumento)'
-      
-        'VALUES (:new_idvenda, :new_idcliente, :new_idformapagamento, :ne' +
-        'w_vlvenda, '
-      
-        '  :new_dtcadastro, :new_dtvenda, :new_nmformapagamento, :new_nmc' +
-        'liente, '
-      '  :new_nrdocumento)'
-      'RETURNING idvenda')
-    ModifySQL.Strings = (
-      'UPDATE vendas'
-      
-        'SET idvenda = :new_idvenda, idcliente = :new_idcliente, idformap' +
-        'agamento = :new_idformapagamento, '
-      
-        '  vlvenda = :new_vlvenda, dtcadastro = :new_dtcadastro, dtvenda ' +
-        '= :new_dtvenda, '
-      
-        '  nmformapagamento = :new_nmformapagamento, nmcliente = :new_nmc' +
-        'liente, '
-      '  nrdocumento = :new_nrdocumento'
-      'WHERE idvenda = :old_idvenda'
-      'RETURNING idvenda')
-    DeleteSQL.Strings = (
-      'DELETE FROM vendas'
-      'WHERE idvenda = :old_idvenda')
-    FetchRowSQL.Strings = (
-      
-        'SELECT idvenda, idcliente, idformapagamento, vlvenda, dtcadastro' +
-        ', dtvenda, '
-      '  nmformapagamento, nmcliente, nrdocumento'
-      'FROM ('
-      'select * from vendas'
-      ') '
-      'WHERE idvenda = :old_idvenda')
-    Left = 8
-    Top = 496
-  end
-  object DataSource1: TDataSource
-    Left = 8
-    Top = 552
-  end
-  object FDUpdateSQL2: TFDUpdateSQL
-    Connection = DbVendas
-    InsertSQL.Strings = (
-      'INSERT INTO vendasitem'
-      '(idvendasitem, idvenda, idproduto, nmproduto, '
-      '  vlunitario, qtvendido, vlitem)'
-      
-        'VALUES (:new_idvendasitem, :new_idvenda, :new_idproduto, :new_nm' +
-        'produto, '
-      '  :new_vlunitario, :new_qtvendido, :new_vlitem)'
-      'RETURNING idvendasitem')
-    ModifySQL.Strings = (
-      'UPDATE vendasitem'
-      
-        'SET idvendasitem = :new_idvendasitem, idvenda = :new_idvenda, id' +
-        'produto = :new_idproduto, '
-      '  nmproduto = :new_nmproduto, vlunitario = :new_vlunitario, '
-      '  qtvendido = :new_qtvendido, vlitem = :new_vlitem'
-      'WHERE idvendasitem = :old_idvendasitem'
-      'RETURNING idvendasitem')
-    DeleteSQL.Strings = (
-      'DELETE FROM vendasitem'
-      'WHERE idvendasitem = :old_idvendasitem')
-    FetchRowSQL.Strings = (
-      
-        'SELECT idvendasitem, idvenda, idproduto, nmproduto, vlunitario, ' +
-        'qtvendido, '
-      '  vlitem'
-      'FROM ('
-      'select * from vendasitem'
-      ') '
-      'WHERE idvendasitem = :old_idvendasitem')
-    Left = 72
-    Top = 496
-  end
-  object DataSource2: TDataSource
-    Left = 72
-    Top = 552
-  end
-  object Qxml: TFDQuery
-    Connection = DbVendas
-    SQL.Strings = (
-      'Select * From xml')
-    Left = 232
-    Top = 504
-  end
-  object Dsxml: TDataSource
-    DataSet = Mxml
-    Left = 136
-    Top = 544
-  end
-  object Qxmlitem: TFDQuery
-    Connection = DbVendas
-    SQL.Strings = (
-      'Select * From xmlitem')
-    Left = 280
-    Top = 504
-  end
   object DsQxmlitem: TDataSource
-    DataSet = Qxmlitem
     Left = 184
     Top = 640
   end
   object TempItemExclusao: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
     Left = 608
@@ -928,7 +803,7 @@
   end
   object Qestoque: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
         'Select * From temp.movimentoestoque where  idmovimento=(SELECT m' +
@@ -978,7 +853,7 @@
   end
   object QestoqueTemp: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From temp.movimentoestoque')
     Left = 656
@@ -1019,7 +894,8 @@
     end
   end
   object QExclusãoVenda: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
     Left = 504
@@ -1067,7 +943,8 @@
     end
   end
   object QExclusãoVendaItem: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendasitem')
     Left = 600
@@ -1104,7 +981,8 @@
     end
   end
   object QExclusãoEstoque: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From movimentoestoque ')
     Left = 504
@@ -1145,182 +1023,24 @@
     end
   end
   object QExclusãoAreceber: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From areceber')
     Left = 600
     Top = 72
   end
   object QExclusãoTempItemVenda: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From Temp.itemvenda')
     Left = 696
     Top = 24
   end
-  object Mxml: TClientDataSet
-    Active = True
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'Pxml'
-    Left = 184
-    Top = 544
-    object Mxmlnrnfe: TIntegerField
-      FieldName = 'nrnfe'
-      Origin = 'nrnfe'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object Mxmlnatoperacao: TWideStringField
-      FieldName = 'natoperacao'
-      Origin = 'natoperacao'
-      Size = 50
-    end
-    object Mxmlemissao: TDateField
-      FieldName = 'emissao'
-      Origin = 'emissao'
-    end
-    object Mxmlstatus: TWideStringField
-      FieldName = 'status'
-      Origin = 'status'
-      Size = 50
-    end
-    object Mxmlemi_nome: TWideStringField
-      FieldName = 'emi_nome'
-      Origin = 'emi_nome'
-      Size = 50
-    end
-    object Mxmlemi_cnpj: TWideStringField
-      FieldName = 'emi_cnpj'
-      Origin = 'emi_cnpj'
-      Size = 13
-    end
-    object Mxmlemi_end: TWideStringField
-      FieldName = 'emi_end'
-      Origin = 'emi_end'
-      Size = 50
-    end
-    object Mxmlemi_bai: TWideStringField
-      FieldName = 'emi_bai'
-      Origin = 'emi_bai'
-      Size = 50
-    end
-    object Mxmlemi_cid: TWideStringField
-      FieldName = 'emi_cid'
-      Origin = 'emi_cid'
-      Size = 50
-    end
-    object Mxmldes_nome: TWideStringField
-      FieldName = 'des_nome'
-      Origin = 'des_nome'
-      Size = 50
-    end
-    object Mxmldes_cnpj: TWideStringField
-      FieldName = 'des_cnpj'
-      Origin = 'des_cnpj'
-      Size = 13
-    end
-    object Mxmldes_end: TWideStringField
-      FieldName = 'des_end'
-      Origin = 'des_end'
-      Size = 50
-    end
-    object Mxmldes_bai: TWideStringField
-      FieldName = 'des_bai'
-      Origin = 'des_bai'
-      Size = 50
-    end
-    object Mxmldes_cid: TWideStringField
-      FieldName = 'des_cid'
-      Origin = 'des_cid'
-      Size = 50
-    end
-  end
-  object Pxml: TDataSetProvider
-    DataSet = Xml
-    Left = 184
-    Top = 496
-  end
-  object Xml: TFDTable
-    Active = True
-    IndexFieldNames = 'nrnfe'
-    Connection = DbVendas
-    SchemaName = 'public'
-    TableName = '"xml"'
-    Left = 136
-    Top = 496
-    object Xmlnrnfe: TIntegerField
-      FieldName = 'nrnfe'
-      Origin = 'nrnfe'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object Xmlnatoperacao: TWideStringField
-      FieldName = 'natoperacao'
-      Origin = 'natoperacao'
-      Size = 50
-    end
-    object Xmlemissao: TDateField
-      FieldName = 'emissao'
-      Origin = 'emissao'
-    end
-    object Xmlstatus: TWideStringField
-      FieldName = 'status'
-      Origin = 'status'
-      Size = 50
-    end
-    object Xmlemi_nome: TWideStringField
-      FieldName = 'emi_nome'
-      Origin = 'emi_nome'
-      Size = 50
-    end
-    object Xmlemi_cnpj: TWideStringField
-      FieldName = 'emi_cnpj'
-      Origin = 'emi_cnpj'
-      Size = 13
-    end
-    object Xmlemi_end: TWideStringField
-      FieldName = 'emi_end'
-      Origin = 'emi_end'
-      Size = 50
-    end
-    object Xmlemi_bai: TWideStringField
-      FieldName = 'emi_bai'
-      Origin = 'emi_bai'
-      Size = 50
-    end
-    object Xmlemi_cid: TWideStringField
-      FieldName = 'emi_cid'
-      Origin = 'emi_cid'
-      Size = 50
-    end
-    object Xmldes_nome: TWideStringField
-      FieldName = 'des_nome'
-      Origin = 'des_nome'
-      Size = 50
-    end
-    object Xmldes_cnpj: TWideStringField
-      FieldName = 'des_cnpj'
-      Origin = 'des_cnpj'
-      Size = 13
-    end
-    object Xmldes_end: TWideStringField
-      FieldName = 'des_end'
-      Origin = 'des_end'
-      Size = 50
-    end
-    object Xmldes_bai: TWideStringField
-      FieldName = 'des_bai'
-      Origin = 'des_bai'
-      Size = 50
-    end
-    object Xmldes_cid: TWideStringField
-      FieldName = 'des_cid'
-      Origin = 'des_cid'
-      Size = 50
-    end
-  end
   object QPrazo: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From prazopagamento')
     Left = 264
@@ -1358,7 +1078,7 @@
   end
   object QFormaPagamento: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From formapagamento')
     Left = 336
@@ -1386,11 +1106,11 @@
   end
   object QarecebrTemp: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From temp.areceber')
     Left = 24
-    Top = 103
+    Top = 31
     object QarecebrTempidareceber: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -1441,15 +1161,15 @@
   object DsQAreceberTemp: TDataSource
     DataSet = QarecebrTemp
     Left = 88
-    Top = 103
+    Top = 31
   end
   object QarecebrTempInserir: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From temp.areceber')
     Left = 152
-    Top = 103
+    Top = 31
     object IntegerField24: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -1499,7 +1219,7 @@
   end
   object Qrtm: TFDQuery
     Active = True
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
         'select * From vendas V join vendasitem VI on (V.idvenda = VI.idv' +

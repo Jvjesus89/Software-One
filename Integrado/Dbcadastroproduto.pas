@@ -14,9 +14,7 @@ uses
 type
   TDbprod = class(TForm)
     DsProduto: TDataSource;
-    Db: TFDConnection;
     TabelaProd: TFDTable;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     TabelaProdidproduto: TIntegerField;
     TabelaProdnmproduto: TWideStringField;
     TabelaProdcdproduto: TWideStringField;
@@ -85,6 +83,9 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
+
 
 procedure TDbprod.Mproduto2AfterCancel(DataSet: TDataSet);
 begin

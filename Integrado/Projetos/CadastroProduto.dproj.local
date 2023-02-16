@@ -5,21 +5,25 @@
     <Transaction>2022/07/26 00:26:13.000.505,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2022/07/26 00:29:56.000.443,C:\Sistema\Integrado\Dbcadastroproduto.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2022/07/26 00:29:56.000.443,C:\Sistema\Integrado\Dbcadastroproduto.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>2022/07/26 00:30:26.000.892,C:\Sistema\Integrado\CadProd.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/07/26 00:30:26.000.892,C:\Sistema\Integrado\CadProd.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/07/26 00:30:26.000.892,C:\Sistema\Integrado\CadProd.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/07/26 00:30:48.000.706,C:\Sistema\Integrado\Projetos\CadastroProduto.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
     <Transaction>2022/07/26 00:50:34.000.297,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\TelaCadastroDeProdutos.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\TelaCadastroDeProdutos.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/08/28 01:15:47.000.299,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.pas</Transaction>
     <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.dfm</Transaction>
+    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.pas</Transaction>
     <Transaction>2022/08/29 09:05:15.000.497,=C:\Sistema\Integrado\TelaEdicaoProduto.pas</Transaction>
     <Transaction>2022/08/29 09:05:55.000.437,C:\Sistema\Integrado\TelaEdicaoProduto.pas=</Transaction>
     <Transaction>2022/08/29 09:06:07.000.728,=C:\Sistema\Integrado\TelaEdicaoProduto.pas</Transaction>
+    <Transaction>2022/12/01 16:52:38.000.852,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Integrado"/>
+    <File Path="..\ConexãoDB"/>
+    <File Path="..\ConexãoDB\DbPrincipal.pas"/>
+    <File Path="..\ConexãoDB\DbPrincipal.dfm"/>
     <File Path="..\CadProd.pas"/>
     <File Path="..\CadProd.dfm"/>
     <File Path="..\Dbcadastroproduto.pas"/>

@@ -1,4 +1,4 @@
-object DbMov: TDbMov
+﻿object DbMov: TDbMov
   Left = 0
   Top = 0
   Caption = 'Form2'
@@ -13,15 +13,10 @@ object DbMov: TDbMov
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 240
-    Top = 8
-  end
   object ConsultaEstoque: TFDTable
     Active = True
     IndexFieldNames = 'idmovimento'
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     CatalogName = 'Software One'
     SchemaName = 'public'
     TableName = 'movimentoestoque'
@@ -59,17 +54,6 @@ object DbMov: TDbMov
       FieldName = 'dtcadastro'
       Origin = 'dtcadastro'
     end
-  end
-  object Db: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 240
-    Top = 64
   end
   object DsConsulta: TDataSource
     DataSet = MConsulta
@@ -131,7 +115,7 @@ object DbMov: TDbMov
   object Produto: TFDTable
     Active = True
     IndexFieldNames = 'idproduto'
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'produto'
     Left = 376
@@ -205,11 +189,11 @@ object DbMov: TDbMov
     AfterPost = QConsultaAfterPost
     AfterCancel = QConsultaAfterCancel
     AfterDelete = QConsultaAfterDelete
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From movimentoestoque')
     Left = 32
-    Top = 232
+    Top = 240
     object QConsultaqtmovimentada: TIntegerField
       DisplayLabel = 'Quantidade Movimento'
       FieldName = 'qtmovimentada'
@@ -251,11 +235,11 @@ object DbMov: TDbMov
     AfterPost = QProdutoAfterPost
     AfterCancel = QProdutoAfterCancel
     AfterDelete = QProdutoAfterDelete
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
-    Left = 312
-    Top = 184
+    Left = 320
+    Top = 120
     object QProdutoidproduto: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
@@ -299,20 +283,20 @@ object DbMov: TDbMov
   object DsConsultaQ: TDataSource
     DataSet = QConsulta
     Left = 32
-    Top = 304
+    Top = 296
   end
   object DsProdutoQ: TDataSource
     DataSet = QProduto1
-    Left = 320
-    Top = 120
+    Left = 312
+    Top = 184
   end
   object QProduto1: TFDQuery
     Active = True
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
-    Left = 264
-    Top = 184
+    Left = 256
+    Top = 120
     object QProduto1idproduto: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
@@ -357,10 +341,11 @@ object DbMov: TDbMov
     end
   end
   object QDisponivel: TFDQuery
-    Connection = Db
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select qtdisponivel From movimentoestoque ')
-    Left = 224
+    Left = 184
     Top = 112
     object QDisponivelqtdisponivel: TIntegerField
       FieldName = 'qtdisponivel'
@@ -369,15 +354,15 @@ object DbMov: TDbMov
   end
   object DsQdisponivel: TDataSource
     DataSet = QDisponivel
-    Left = 216
+    Left = 176
     Top = 184
   end
   object QdisponivelTemp: TFDQuery
     Active = True
-    Connection = Db
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From temp.movimentoestoque')
-    Left = 488
-    Top = 16
+    Left = 424
+    Top = 264
   end
 end

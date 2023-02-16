@@ -12,8 +12,6 @@ uses
 
 type
   TDbXmlVendas = class(TDataModule)
-    DbVendas: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     QItensGeradoXML: TFDQuery;
     IntegerField29: TIntegerField;
     IntegerField30: TIntegerField;
@@ -54,6 +52,8 @@ var
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses DbPrincipal;
 
 {$R *.dfm}
 

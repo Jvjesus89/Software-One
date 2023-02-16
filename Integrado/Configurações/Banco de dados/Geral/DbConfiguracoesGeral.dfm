@@ -1,4 +1,4 @@
-object DbGeral: TDbGeral
+﻿object DbGeral: TDbGeral
   Left = 0
   Top = 0
   Caption = 'DbGeral'
@@ -14,8 +14,8 @@ object DbGeral: TDbGeral
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
-    Left = 16
-    Top = 112
+    Left = 24
+    Top = 24
     Width = 81
     Height = 19
     Caption = 'Diretorios'
@@ -26,29 +26,14 @@ object DbGeral: TDbGeral
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object DB: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 16
-    Top = 56
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 16
-  end
   object Diretorios: TFDTable
     Active = True
     IndexFieldNames = 'idconfiguracao'
-    Connection = DB
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'configuracoes'
-    Left = 16
-    Top = 144
+    Left = 24
+    Top = 56
     object Diretoriosidconfiguracao: TIntegerField
       FieldName = 'idconfiguracao'
       Origin = 'idconfiguracao'
@@ -76,21 +61,21 @@ object DbGeral: TDbGeral
   end
   object DsDiretorios: TDataSource
     DataSet = Mdiretorios
-    Left = 16
-    Top = 192
+    Left = 24
+    Top = 104
   end
   object PDiretorios: TDataSetProvider
     DataSet = Diretorios
-    Left = 80
-    Top = 144
+    Left = 88
+    Top = 56
   end
   object Mdiretorios: TClientDataSet
     Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PDiretorios'
-    Left = 80
-    Top = 192
+    Left = 88
+    Top = 104
     object Mdiretoriosidconfiguracao: TIntegerField
       FieldName = 'idconfiguracao'
       Origin = 'idconfiguracao'
@@ -118,11 +103,11 @@ object DbGeral: TDbGeral
   end
   object InsrerirDireotiros: TFDQuery
     Active = True
-    Connection = DB
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From configuracoes')
-    Left = 144
-    Top = 144
+    Left = 152
+    Top = 56
     object InsrerirDireotirosidconfiguracao: TIntegerField
       FieldName = 'idconfiguracao'
       Origin = 'idconfiguracao'
@@ -149,7 +134,6 @@ object DbGeral: TDbGeral
     end
   end
   object FDUpdateSQL2: TFDUpdateSQL
-    Connection = DB
     InsertSQL.Strings = (
       'INSERT INTO configuracoes'
       '(idconfiguracao, nmconfiguracao, dsvalorantigo, '
@@ -182,7 +166,7 @@ object DbGeral: TDbGeral
       'select * from configuracoes'
       ') '
       'WHERE idconfiguracao = :old_idconfiguracao')
-    Left = 8
-    Top = 249
+    Left = 16
+    Top = 161
   end
 end

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ComCtrls;
+  System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ComCtrls, Vcl.Imaging.pngimage;
 
 type
   THubPrin = class(TForm)
@@ -20,6 +20,7 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     BitBtn1: TBitBtn;
+    Image1: TImage;
     procedure CadastroUsuarioClick(Sender: TObject);
     procedure CadastroProdutoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);

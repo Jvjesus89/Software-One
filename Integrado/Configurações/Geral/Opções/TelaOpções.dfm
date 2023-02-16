@@ -5,7 +5,6 @@
   ClientHeight = 332
   ClientWidth = 350
   Color = clBtnFace
-  Enabled = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,7 +20,6 @@
     Height = 34
     Align = alBottom
     TabOrder = 0
-    ExplicitWidth = 341
     object Button1: TButton
       Left = 294
       Top = 1
@@ -30,7 +28,6 @@
       Align = alRight
       Caption = 'Salvar'
       TabOrder = 0
-      ExplicitLeft = 285
     end
     object Button2: TButton
       Left = 230
@@ -40,7 +37,6 @@
       Align = alRight
       Caption = 'Cancelar'
       TabOrder = 1
-      ExplicitLeft = 221
     end
   end
   object PageControl1: TPageControl
@@ -51,8 +47,6 @@
     ActivePage = Diretorio
     Align = alTop
     TabOrder = 1
-    ExplicitTop = -4
-    ExplicitWidth = 341
     object Diretorio: TTabSheet
       Caption = 'Diretorio'
       object ConsultaEstoque: TLabel

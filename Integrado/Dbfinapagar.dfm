@@ -13,21 +13,10 @@
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object DbFin: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 232
-    Top = 72
-  end
   object DsApagar: TDataSource
     DataSet = Mapagar
     Left = 24
-    Top = 168
+    Top = 128
   end
   object Mapagar: TClientDataSet
     Active = True
@@ -38,7 +27,7 @@
     AfterCancel = MapagarAfterCancel
     AfterDelete = MapagarAfterDelete
     Left = 96
-    Top = 168
+    Top = 128
     object Mapagaridapagar: TIntegerField
       FieldName = 'idapagar'
       Origin = 'idapagar'
@@ -83,26 +72,21 @@
   object Papagar: TDataSetProvider
     DataSet = TabelaApagar
     Left = 104
-    Top = 112
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 232
-    Top = 16
+    Top = 72
   end
   object DsQApagar: TDataSource
     DataSet = QApagar
     Left = 168
-    Top = 168
+    Top = 128
   end
   object TabelaCliente: TFDTable
     Active = True
     IndexFieldNames = 'idcliente'
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'clientes'
     Left = 320
-    Top = 120
+    Top = 80
     object TabelaClienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -161,7 +145,7 @@
   object Dscliente: TDataSource
     DataSet = Mcliente
     Left = 320
-    Top = 176
+    Top = 136
   end
   object Mcliente: TClientDataSet
     Active = True
@@ -169,7 +153,7 @@
     Params = <>
     ProviderName = 'Pcliente'
     Left = 392
-    Top = 176
+    Top = 136
     object Mclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -228,15 +212,15 @@
   object Pcliente: TDataSetProvider
     DataSet = TabelaCliente
     Left = 392
-    Top = 120
+    Top = 80
   end
   object Qcliente: TFDQuery
     Active = True
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
     Left = 448
-    Top = 120
+    Top = 80
     object Qclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -302,16 +286,16 @@
   object DsQcliente: TDataSource
     DataSet = Qcliente
     Left = 448
-    Top = 168
+    Top = 128
   end
   object TabelaApagar: TFDTable
     Active = True
     IndexFieldNames = 'idapagar'
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'apagar'
     Left = 24
-    Top = 120
+    Top = 80
     object TabelaApagaridapagar: TIntegerField
       FieldName = 'idapagar'
       Origin = 'idapagar'
@@ -357,11 +341,11 @@
     AfterPost = QApagarAfterPost
     AfterCancel = QApagarAfterCancel
     AfterDelete = QApagarAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From apagar')
     Left = 168
-    Top = 120
+    Top = 80
     object QApagaridcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -410,11 +394,11 @@
   end
   object Qapagar1: TFDQuery
     Active = True
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From apagar')
     Left = 216
-    Top = 120
+    Top = 80
     object Qapagar1idapagar: TIntegerField
       FieldName = 'idapagar'
       Origin = 'idapagar'

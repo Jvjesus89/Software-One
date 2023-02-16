@@ -9,7 +9,8 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   TelaEdicaoApagar in '..\TelaEdicaoApagar.pas' {TelaEdicaoApagar1},
-  TelaExportaçãoDadosApagar in '..\TelaExportaçãoDadosApagar.pas' {Exportar};
+  TelaExportaçãoDadosApagar in '..\TelaExportaçãoDadosApagar.pas' {Exportar},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -17,6 +18,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TApagar1, Apagar1);
   Application.CreateForm(TDbFinApagar1, DbFinApagar1);
   Application.CreateForm(TTelaCadasrroApagar1, TelaCadasrroApagar1);

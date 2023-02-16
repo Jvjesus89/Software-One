@@ -12,8 +12,6 @@ uses
 
 type
   TDbImportacaoXml = class(TDataModule)
-    DbVendas: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     QInseriDadosXml: TFDQuery;
     QconsultaTempVendas: TFDQuery;
     DsQconsultaTempVendas: TDataSource;
@@ -38,6 +36,8 @@ var
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses DbPrincipal;
 
 {$R *.dfm}
 

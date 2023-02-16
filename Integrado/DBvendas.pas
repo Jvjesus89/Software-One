@@ -13,8 +13,6 @@ uses
 
 type
   TDbVendas1 = class(TForm)
-    DbVendas: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     TabelaVenda: TFDTable;
     DsVendas: TDataSource;
     Mvendas: TClientDataSet;
@@ -127,13 +125,6 @@ type
     QEntradaVendaItemnmproduto: TWideStringField;
     QEntradaVendaItemqtvendido: TIntegerField;
     QProdutovlproduto: TSingleField;
-    FDUpdateSQL1: TFDUpdateSQL;
-    DataSource1: TDataSource;
-    FDUpdateSQL2: TFDUpdateSQL;
-    DataSource2: TDataSource;
-    Qxml: TFDQuery;
-    Dsxml: TDataSource;
-    Qxmlitem: TFDQuery;
     DsQxmlitem: TDataSource;
     TabelaVendavlvenda: TSingleField;
     Mvendasvlvenda: TSingleField;
@@ -208,37 +199,6 @@ type
     IntegerField23: TIntegerField;
     QExclusãoAreceber: TFDQuery;
     QExclusãoTempItemVenda: TFDQuery;
-    Mxml: TClientDataSet;
-    Pxml: TDataSetProvider;
-    Xml: TFDTable;
-    Xmlnrnfe: TIntegerField;
-    Xmlnatoperacao: TWideStringField;
-    Xmlemissao: TDateField;
-    Xmlstatus: TWideStringField;
-    Xmlemi_nome: TWideStringField;
-    Xmlemi_cnpj: TWideStringField;
-    Xmlemi_end: TWideStringField;
-    Xmlemi_bai: TWideStringField;
-    Xmlemi_cid: TWideStringField;
-    Xmldes_nome: TWideStringField;
-    Xmldes_cnpj: TWideStringField;
-    Xmldes_end: TWideStringField;
-    Xmldes_bai: TWideStringField;
-    Xmldes_cid: TWideStringField;
-    Mxmlnrnfe: TIntegerField;
-    Mxmlnatoperacao: TWideStringField;
-    Mxmlemissao: TDateField;
-    Mxmlstatus: TWideStringField;
-    Mxmlemi_nome: TWideStringField;
-    Mxmlemi_cnpj: TWideStringField;
-    Mxmlemi_end: TWideStringField;
-    Mxmlemi_bai: TWideStringField;
-    Mxmlemi_cid: TWideStringField;
-    Mxmldes_nome: TWideStringField;
-    Mxmldes_cnpj: TWideStringField;
-    Mxmldes_end: TWideStringField;
-    Mxmldes_bai: TWideStringField;
-    Mxmldes_cid: TWideStringField;
     Label2: TLabel;
     QPrazo: TFDQuery;
     DsQprazo: TDataSource;
@@ -306,6 +266,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 procedure TDbVendas1.MTempItemAfterCancel(DataSet: TDataSet);
 begin

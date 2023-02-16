@@ -13,9 +13,7 @@ uses
 
 type
   TDbMov = class(TForm)
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     ConsultaEstoque: TFDTable;
-    Db: TFDConnection;
     DsConsulta: TDataSource;
     MConsulta: TClientDataSet;
     PConsulta: TDataSetProvider;
@@ -102,6 +100,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 
 

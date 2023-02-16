@@ -7,7 +7,8 @@ uses
   Vcl.Styles,
   Dbcadastroproduto in '..\Dbcadastroproduto.pas' {Dbprod},
   TelaCadastroDeProdutos in '..\TelaCadastroDeProdutos.pas' {TelaCadastroProduto},
-  TelaEdicaoProduto in '..\TelaEdicaoProduto.pas' {TelaEdicaoProduto1};
+  TelaEdicaoProduto in '..\TelaEdicaoProduto.pas' {TelaEdicaoProduto1},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -19,6 +20,7 @@ begin
   Application.CreateForm(TTelaCadastroProduto, TelaCadastroProduto);
   Application.CreateForm(TDBprod, DBprod);
   Application.CreateForm(TTelaEdicaoProduto1, TelaEdicaoProduto1);
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.Run;
 end.
 

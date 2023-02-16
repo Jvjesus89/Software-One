@@ -12,7 +12,8 @@ uses
   TelaExportaçãoDadosAreceber in '..\TelaExportaçãoDadosAreceber.pas' {Exportar},
   TelaCadastroBaixaAreceber in '..\Areceber\Cadastro\TelaCadastroBaixaAreceber.pas' {CadastroBaixaAreceber},
   ConsultaContaCorrenteAreceber in '..\Areceber\Consulta\SubConsulta\ConsultaContaCorrenteAreceber.pas' {ConsultaContaBancaria},
-  ConsultaFormaPagamentoCadastro in '..\Areceber\Consulta\SubConsulta\ConsultaFormaPagamentoCadastro.pas' {ConsultaFormaPagamento};
+  ConsultaFormaPagamentoCadastro in '..\Areceber\Consulta\SubConsulta\ConsultaFormaPagamentoCadastro.pas' {ConsultaFormaPagamento},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -20,6 +21,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TAreceber1, Areceber1);
   Application.CreateForm(TDbFinAreceber1, DbFinAreceber1);
   Application.CreateForm(TTelaCadasrroAreceber1, TelaCadasrroAreceber1);

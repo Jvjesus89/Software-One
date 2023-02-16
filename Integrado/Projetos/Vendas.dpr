@@ -21,7 +21,8 @@ uses
   U_JSON.XML in '..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas',
   U_XML.JSON in '..\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas',
   U_FormatConverter in '..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas',
-  DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule};
+  DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -42,6 +43,7 @@ begin
   Application.CreateForm(TDbXmlVendas, DbXmlVendas);
   Application.CreateForm(TXML, XML);
   Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.Run;
 end.
 

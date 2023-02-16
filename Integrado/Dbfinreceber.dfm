@@ -13,27 +13,16 @@
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object DbFin: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 16
-    Top = 56
-  end
   object QAreceber: TFDQuery
     Active = True
     AfterPost = QAreceberAfterPost
     AfterCancel = QAreceberAfterCancel
     AfterDelete = QAreceberAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'SELECT * FROM areceber')
     Left = 168
-    Top = 112
+    Top = 56
     object QAreceberidareceber: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -96,11 +85,11 @@
   object TabelaAreceber: TFDTable
     Active = True
     IndexFieldNames = 'idareceber'
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'areceber'
     Left = 24
-    Top = 112
+    Top = 56
     object TabelaAreceberidareceber: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -159,10 +148,9 @@
   object DsAreceber: TDataSource
     DataSet = MAreceber
     Left = 24
-    Top = 168
+    Top = 112
   end
   object MAreceber: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pareceber'
@@ -170,7 +158,7 @@
     AfterCancel = MAreceberAfterCancel
     AfterDelete = MAreceberAfterDelete
     Left = 96
-    Top = 168
+    Top = 112
     object MAreceberidareceber: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -227,25 +215,21 @@
   object Pareceber: TDataSetProvider
     DataSet = TabelaAreceber
     Left = 104
-    Top = 112
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 16
+    Top = 56
   end
   object DsQAreceber: TDataSource
     DataSet = QAreceber
     Left = 168
-    Top = 168
+    Top = 112
   end
   object TabelaCliente: TFDTable
     Active = True
     IndexFieldNames = 'idcliente'
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'clientes'
     Left = 16
-    Top = 256
+    Top = 200
     object TabelaClienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -304,15 +288,14 @@
   object Dscliente: TDataSource
     DataSet = Mcliente
     Left = 16
-    Top = 312
+    Top = 256
   end
   object Mcliente: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pcliente'
     Left = 88
-    Top = 312
+    Top = 256
     object Mclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -371,15 +354,15 @@
   object Pcliente: TDataSetProvider
     DataSet = TabelaCliente
     Left = 88
-    Top = 256
+    Top = 200
   end
   object Qcliente: TFDQuery
     Active = True
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
     Left = 144
-    Top = 256
+    Top = 200
     object Qclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -445,18 +428,18 @@
   object DsQcliente: TDataSource
     DataSet = Qcliente
     Left = 144
-    Top = 304
+    Top = 248
   end
   object QEdiçãoAreceber: TFDQuery
     Active = True
     AfterPost = QAreceberAfterPost
     AfterCancel = QAreceberAfterCancel
     AfterDelete = QAreceberAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'SELECT * FROM areceber')
     Left = 408
-    Top = 120
+    Top = 64
     object IntegerField1: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -515,11 +498,11 @@
   end
   object QConsultaConta: TFDQuery
     Active = True
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From contabancaria')
     Left = 288
-    Top = 256
+    Top = 200
     object QConsultaContaidcontabancaria: TIntegerField
       FieldName = 'idcontabancaria'
       Origin = 'idcontabancaria'
@@ -557,23 +540,23 @@
   object DsQConsultaConta: TDataSource
     DataSet = QConsultaConta
     Left = 288
-    Top = 304
+    Top = 248
   end
   object DsQAreceberEdição: TDataSource
     DataSet = QediçãoTituloAreceber
     Left = 336
-    Top = 168
+    Top = 112
   end
   object QediçãoTituloAreceber: TFDQuery
     Active = True
     AfterPost = QAreceberAfterPost
     AfterCancel = QAreceberAfterCancel
     AfterDelete = QAreceberAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'SELECT * FROM areceber')
     Left = 336
-    Top = 120
+    Top = 64
     object IntegerField6: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -637,11 +620,11 @@
     AfterPost = QAreceberAfterPost
     AfterCancel = QAreceberAfterCancel
     AfterDelete = QAreceberAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'SELECT * FROM areceber')
     Left = 376
-    Top = 256
+    Top = 200
     object IntegerField12: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -700,11 +683,11 @@
   end
   object QFormaPagamento: TFDQuery
     Active = True
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From formapagamento')
     Left = 536
-    Top = 120
+    Top = 64
     object QFormaPagamentoidformapagamento: TIntegerField
       FieldName = 'idformapagamento'
       Origin = 'idformapagamento'
@@ -730,6 +713,6 @@
   object DsQFormapagamento: TDataSource
     DataSet = QFormaPagamento
     Left = 536
-    Top = 168
+    Top = 112
   end
 end

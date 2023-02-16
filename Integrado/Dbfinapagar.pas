@@ -13,11 +13,9 @@ uses
 
 type
   TDbFinApagar1 = class(TForm)
-    DbFin: TFDConnection;
     DsApagar: TDataSource;
     Mapagar: TClientDataSet;
     Papagar: TDataSetProvider;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     DsQApagar: TDataSource;
     TabelaCliente: TFDTable;
     TabelaClienteidcliente: TIntegerField;
@@ -115,6 +113,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 procedure TDbFinApagar1.MapagarAfterCancel(DataSet: TDataSet);
 begin

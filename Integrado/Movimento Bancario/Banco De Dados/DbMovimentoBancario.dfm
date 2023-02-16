@@ -1,4 +1,4 @@
-object Form1: TForm1
+﻿object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
@@ -38,21 +38,6 @@ object Form1: TForm1
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-  end
-  object DbMovBanco: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 16
-    Top = 56
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 16
   end
   object DsMovBancario: TDataSource
     DataSet = MMovBancario
@@ -100,7 +85,7 @@ object Form1: TForm1
   end
   object QMovBancario: TFDQuery
     Active = True
-    Connection = DbMovBanco
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
         'Select * From movimentobancario MOV join areceber A on (MOV.idar' +
@@ -246,8 +231,8 @@ object Form1: TForm1
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDTable1
-    Left = 440
-    Top = 40
+    Left = 432
+    Top = 48
   end
   object DataSource2: TDataSource
     DataSet = FDQuery1
@@ -255,8 +240,9 @@ object Form1: TForm1
     Top = 96
   end
   object FDTable1: TFDTable
+    Active = True
     IndexFieldNames = 'idapagar'
-    Connection = DbMovBanco
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'apagar'
     Left = 360
@@ -302,7 +288,8 @@ object Form1: TForm1
     end
   end
   object FDQuery1: TFDQuery
-    Connection = DbMovBanco
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From apagar')
     Left = 504
@@ -356,7 +343,7 @@ object Form1: TForm1
   object MovBancario: TFDTable
     Active = True
     IndexFieldNames = 'idmovimentobancario'
-    Connection = DbMovBanco
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'movimentobancario'
     Left = 104
