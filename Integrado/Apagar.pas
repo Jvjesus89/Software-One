@@ -5,11 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
-  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, cxGraphics, cxControls,
-  cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter,
-  cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges,
-  dxScrollbarAnnotations, cxDBData, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView, cxGrid;
+  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
 
 type
   TApagar1 = class(TForm)
@@ -18,12 +14,12 @@ type
     Panel3: TPanel;
     BotaoNovo: TButton;
     BotaoExcluir: TButton;
+    DBGrid1: TDBGrid;
     BotaoEditar: TButton;
     Button1: TButton;
     Busca: TEdit;
     ExportarDadosApagar: TButton;
     Label1: TLabel;
-    DBGrid1: TDBGrid;
     procedure BotaoNovoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);

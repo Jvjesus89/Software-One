@@ -21,7 +21,8 @@ uses
   TelaConsultaContaCorrente in '..\Conta Corrente\Consulta\TelaConsultaContaCorrente.pas' {ConsultaContaCorrente},
   TelaConsultaBancoConta in '..\Conta Corrente\Consulta\SubConsulta\TelaConsultaBancoConta.pas' {ConsultaBancoContaCorrente},
   TelaOpções in '..\Geral\Opções\TelaOpções.pas' {Opções},
-  DbConfiguracoesGeral in '..\Banco de dados\Geral\DbConfiguracoesGeral.pas' {DbGeral};
+  DbConfiguracoesGeral in '..\Banco de dados\Geral\DbConfiguracoesGeral.pas' {DbGeral},
+  DbPrincipal in '..\..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -29,8 +30,10 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TTelaConfig, TelaConfig);
   Application.CreateForm(TDbConfigFin, DbConfigFin);
+  Application.CreateForm(TDbGeral, DbGeral);
   Application.CreateForm(TFormapagamento, Formapagamento);
   Application.CreateForm(TConsultaFormaPagamento, ConsultaFormaPagamento);
   Application.CreateForm(TCadastroFormaPagamento, CadastroFormaPagamento);
@@ -46,7 +49,6 @@ begin
   Application.CreateForm(TConsultaContaCorrente, ConsultaContaCorrente);
   Application.CreateForm(TConsultaBancoContaCorrente, ConsultaBancoContaCorrente);
   Application.CreateForm(TOpções, Opções);
-  Application.CreateForm(TDbGeral, DbGeral);
   Application.Run;
 
 end.

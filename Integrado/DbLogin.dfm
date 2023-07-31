@@ -20,7 +20,7 @@ object Login: TLogin
   end
   object bancodados: TFDConnection
     Params.Strings = (
-      'Database=Software One'
+      'Database=Software-One'
       'User_Name=postgres'
       'Password=123456'
       'Server=localhost'
@@ -49,7 +49,7 @@ object Login: TLogin
     end
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
+    VendorLib = 'D:\Sistema\DLL\32 bit\libpq.dll'
     Left = 112
     Top = 16
   end

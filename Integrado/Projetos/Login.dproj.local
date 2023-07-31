@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2023/07/03 18:19:07.576,=C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/07/03 18:19:43.588,=D:\Sistema\Integrado\TelaLogin\BancoLogin.pas</Transaction>
+    <Transaction>2023/07/03 18:19:43.645,=D:\Sistema\Integrado\TelaLogin\ConexãoComOBanco.pas</Transaction>
+    <Transaction>2023/07/03 18:20:07.413,=D:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
+    <Transaction>2023/07/03 18:21:06.488,=D:\Sistema\Integrado\TelaLogin.pas</Transaction>
+    <Transaction>2023/07/03 18:21:35.090,D:\Sistema\Integrado\Projetos\Login.dproj=C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

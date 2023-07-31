@@ -20,6 +20,8 @@ object ConsultaFormaPagamento: TConsultaFormaPagamento
     Height = 49
     Align = alTop
     TabOrder = 0
+    ExplicitLeft = 1
+    ExplicitTop = -5
     object Busca: TDBEdit
       Left = 112
       Top = 15
@@ -46,6 +48,8 @@ object ConsultaFormaPagamento: TConsultaFormaPagamento
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 1
+    ExplicitWidth = 395
+    ExplicitHeight = 174
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1

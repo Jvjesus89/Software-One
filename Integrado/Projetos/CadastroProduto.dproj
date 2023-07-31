@@ -130,21 +130,27 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\CadProd.pas">
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Modulo\CadProd.pas">
             <Form>CadProduto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Dbcadastroproduto.pas">
-            <Form>Dbprod</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\TelaCadastroDeProdutos.pas">
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas">
             <Form>TelaCadastroProduto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaEdicaoProduto.pas">
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.pas">
             <Form>TelaEdicaoProduto1</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas">
+            <Form>Dbprod</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

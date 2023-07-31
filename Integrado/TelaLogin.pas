@@ -20,7 +20,10 @@ type
     NomeUsuario: TEdit;
     SenhaCampo: TEdit;
     Panel1: TPanel;
+    PrimeiroAcesso: TButton;
     procedure Button2Click(Sender: TObject);
+    procedure PrimeiroAcessoClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,25 +37,58 @@ implementation
 
 {$R *.dfm}
 
-uses DbLogin;
+uses BancoLogin, EditarConexao, DbPrincipal;
 
 procedure TTelaLoginU.Button2Click(Sender: TObject);
+var caminhovalido,DiretorioPadrao : string;
+CoverterCaminho : array[0..255] of AnsiChar;
   begin
-
-      if Login.TabelaUsuario.Locate('nmusuario', NomeUsuario.Text) then
-
+      BancoUsuario.TabelaUsuario.open;
+      if BancoUsuario.TabelaUsuario.Locate('nmusuario', NomeUsuario.Text) then
        begin
-       if (Login.TabelaUsuario.FieldByName('nmusuario').AsString = NomeUsuario.Text) and
-          (Login.TabelaUsuario.FieldByName('senha').AsString = SenhaCampo.Text)
-       then
-             begin
-               TelaLoginU.hide;
-               WinExec('C:\Sistema\Integrado\Projetos\Win32\Debug\Hub.exe',SW_SHOW)     ;
-               TelaLoginU.Close;
-             end;
-       end;
-       ShowMessage('Usuario ou Senha invalidos')
+       // validar login e senha
+       if (BancoUsuario.TabelaUsuario.FieldByName('nmusuario').AsString = NomeUsuario.Text) and
+          (BancoUsuario.TabelaUsuario.FieldByName('senha').AsString = SenhaCampo.Text) then
+        begin
+        // encontrar o arquivo de hub na pasta
+        DiretorioPadrao := GetCurrentDir;
+        caminhovalido := FileSearch('Hub.exe' ,DiretorioPadrao);
+        if caminhovalido = 'Hub.exe' then
+         begin
+         DiretorioPadrao := GetCurrentDir +'\Hub.exe';
+         StrPCopy(CoverterCaminho, DiretorioPadrao);
+         WinExec(CoverterCaminho,SW_SHOW);
+         TelaLoginU.close;
+         end
+        else
+           begin
+           ShowMessage ('Arquivo não encontrado, coloque o arquivo Hub.exe no diretorio '+ GetCurrentDir) ;
+           end
+        end
+        else
+        begin
+        ShowMessage('Usuario ou Senha invalidos')
+        end;
+
+
+        end ;
+
+
   end;
 
+
+procedure TTelaLoginU.FormShow(Sender: TObject);
+var caminhovalido,DiretorioPadrao : string;
+  begin
+  DiretorioPadrao := GetCurrentDir+ '\libpq.dll';
+  // encontrar o arquivo dll na pasta
+  DbMaster.Dll32bit.Vendorlib := DiretorioPadrao;
+  DbMaster.ConexãoDb.Open;
+  end;
+
+procedure TTelaLoginU.PrimeiroAcessoClick(Sender: TObject);
+begin
+    AlterarDB.Showmodal;
+end;
 
 end.

@@ -1,0 +1,228 @@
+unit Pdv_Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
+  dxDateRanges, dxScrollbarAnnotations, Data.DB, cxDBData, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, DateUtils, Vcl.WinXCtrls;
+
+type
+  TTelaPdv = class(TForm)
+    Panel1: TPanel;
+    CampoQuantidade: TDBEdit;
+    CampoDesconto: TDBEdit;
+    Button1: TButton;
+    NmProduto: TLabel;
+    CampoAcrescimo: TDBEdit;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Button3: TButton;
+    CampoCodigo: TDBEdit;
+    Label7: TLabel;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    CampoValorUnitario: TDBEdit;
+    Label3: TLabel;
+    Label9: TLabel;
+    CampoValorVenda: TDBEdit;
+    Label10: TLabel;
+    DBEdit8: TDBEdit;
+    Button2: TButton;
+    Panel3: TPanel;
+    Hora: TLabel;
+    Timer1: TTimer;
+    Data: TLabel;
+    CampoIdProduto: TDBEdit;
+    Label1: TLabel;
+    CampoNomeProduto: TDBEdit;
+    Label8: TLabel;
+    Menu: TSplitView;
+    cxGrid1DBTableView1nmitemvenda: TcxGridDBColumn;
+    cxGrid1DBTableView1vlunitario: TcxGridDBColumn;
+    cxGrid1DBTableView1vlitem: TcxGridDBColumn;
+    cxGrid1DBTableView1qtitem: TcxGridDBColumn;
+    cxGrid1DBTableView1vldesconto: TcxGridDBColumn;
+    cxGrid1DBTableView1vlacrescimo: TcxGridDBColumn;
+    Button10: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure CampoValorVendaExit(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure CampoQuantidadeExit(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    Procedure SplitViewAction(Value : TSplitView);
+    procedure Button10Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaPdv: TTelaPdv;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPdv, Produtos;
+
+
+
+procedure TTelaPdv.Button10Click(Sender: TObject);
+begin
+  SplitViewAction(Menu);
+end;
+
+procedure TTelaPdv.Button1Click(Sender: TObject);
+var
+CdItem, NomeItem, VlItem, VlTotal, QtdItem, vlacrescimo, vldesconto : string;
+Idproduto : integer;
+begin
+   CdItem  :=  CampoCodigo.Text;
+   NomeItem:=  NmProduto.caption;
+   VlItem  :=  CampoValorUnitario.Text;
+   VlTotal :=  CampoValorVenda.Text;
+   QtdItem :=  CampoQuantidade.Text;
+   Idproduto := StrToInt(CampoIdProduto.text);
+   vlacrescimo := (CampoAcrescimo.text);
+   vldesconto := (CampoDesconto.text);
+
+   BancoPdv.QvendasPdvItem.close;
+   BancoPdv.QvendasPdvItem.sql.Clear;
+   BancoPdv.QvendasPdvItem.Sql.Add('INSERT INTO temp."#VendasPdvItem"(nmitemvenda, vlunitario, vlitem, idproduto, qtitem, vldesconto, vlacrescimo, nmsistema, idusuario)');
+   BancoPdv.QvendasPdvItem.Sql.Add('VALUES (:Pnmitemvenda, :Pvlunitario, :Pvlitem, :Pidproduto, :Pqtitem, :Pvldesconto, :Pvlacrescimo, :Pnmsistema, :Pidusuario)');
+   BancoPdv.QvendasPdvItem.ParamByName('Pnmitemvenda').AsString :=  NomeItem;
+   BancoPdv.QvendasPdvItem.ParamByName('Pvlunitario').AsInteger :=  StrToInt(VlItem);
+   BancoPdv.QvendasPdvItem.ParamByName('Pqtitem').AsInteger :=  StrToInt(QtdItem);
+   BancoPdv.QvendasPdvItem.ParamByName('Pvlitem').AsInteger :=  StrToInt(VlTotal);
+   BancoPdv.QvendasPdvItem.ParamByName('Pidproduto').AsInteger :=  Idproduto;
+   BancoPdv.QvendasPdvItem.ParamByName('Pvldesconto').AsInteger :=  StrToInt(vldesconto);
+   BancoPdv.QvendasPdvItem.ParamByName('Pvlacrescimo').AsInteger :=  StrToInt(vlacrescimo);
+   BancoPdv.QvendasPdvItem.ParamByName('Pnmsistema').AsString :=  'PDV';
+   BancoPdv.QvendasPdvItem.ParamByName('Pidusuario').AsInteger :=  000001;
+   BancoPdv.QvendasPdvItem.ExecSql;
+
+   BancoPdv.QvendasPdvItem.close;
+   BancoPdv.QvendasPdvItem.open;
+end;
+
+procedure TTelaPdv.Button3Click(Sender: TObject);
+begin
+  BancoPdv.QVendasPdvItensCampo.Open;
+  ConsultaProdutos.ShowModal;
+end;
+
+
+procedure TTelaPdv.Button9Click(Sender: TObject);
+begin
+ ShowMessage ('Venda realizada com sucesso');
+end;
+
+procedure TTelaPdv.CampoQuantidadeExit(Sender: TObject);
+var
+     Qtd, VlUnit , VlTot, vldesc , vlacres : integer;
+begin
+  Qtd   :=  StrToInt (CampoQuantidade.Text)  ;
+  VlUnit := StrToInt (CampoValorUnitario.Text) ;
+  vldesc  :=  StrToInt (CampoDesconto.Text);
+  vlacres :=  StrToInt (CampoAcrescimo.Text);
+
+
+  VlTot := (Qtd * VlUnit) - vldesc + vlacres;
+  CampoValorVenda.text :=  IntToStr(VlTot)  ;
+
+end;
+
+procedure TTelaPdv.CampoValorVendaExit(Sender: TObject);
+begin
+  CampoValorVenda.TEXT:= FORMATFLOAT('R$ ###,##0.00', STRTOFLOAT(CampoValorVenda.TEXT));
+end;
+
+procedure TTelaPdv.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  {BancoPdv.QVendasPdvItensCampo.close;
+  BancoPdv.QVendasPdvItensCampo.sql.clear;
+  BancoPdv.QVendasPdvItensCampo.sql.add('Drop table temp."#VendasPdvItemCampos"');
+  BancoPdv.QVendasPdvItensCampo.ExecSql;
+  BancoPdv.QVendasPdvItensCampo.sql.clear;
+  }
+end;
+
+procedure TTelaPdv.FormCreate(Sender: TObject);
+begin
+  //Criar tabela Temp.#VendasPdvItemCampos
+  BancoPdv.QVendasPdvItemCreateTable.close;
+  BancoPdv.QVendasPdvItemCreateTable.sql.clear;
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('CREATE TABLE IF NOT EXISTS temp."#VendasPdvItemCampos"');
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('(iditemvenda integer  DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass), nmitemvenda character varying(50) COLLATE pg_catalog."default" ,cdproduto character varying(20), vlunitario real , vlitem real ,idproduto integer ,');
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('qtitem integer,idvenda integer,vldesconto real,vlacrescimo real,nmsistema character varying(50),idusuario integer)');
+  BancoPdv.QVendasPdvItemCreateTable.ExecSql;
+
+  //Criar tabela Temp.#VendasPdv
+  BancoPdv.QVendasPdvCreateTable.close;
+  BancoPdv.QVendasPdvCreateTable.sql.clear;
+  BancoPdv.QVendasPdvCreateTable.sql.add('CREATE TABLE IF NOT EXISTS temp."#VendasPdv"');
+  BancoPdv.QVendasPdvCreateTable.sql.add('(idvenda integer NOT NULL DEFAULT nextval($$vendas_idvenda_seq$$::regclass),');
+  BancoPdv.QVendasPdvCreateTable.sql.add('idcliente integer,idformapagamento integer,cdproduto ineteger,vlvenda real,dtcadastro date,dtvenda date,nmformapagamento character varying(20) COLLATE pg_catalog."default",nmcliente character varying(50) COLLATE pg_catalog."default",nrdocumento integer)');
+  BancoPdv.QVendasPdvCreateTable.ExecSql;
+
+  //Criar tabela Temp.#VendasPdvItem
+  BancoPdv.QVendasPdvItemCreateTable.close;
+  BancoPdv.QVendasPdvItemCreateTable.sql.clear;
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('CREATE TABLE IF NOT EXISTS temp."#VendasPdvItem"');
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('(iditemvenda integer NOT NULL DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass), nmitemvenda character varying(50) COLLATE pg_catalog."default" NOT NULL, vlunitario real NOT NULL, vlitem real NOT NULL,idproduto integer NOT NULL,');
+  BancoPdv.QVendasPdvItemCreateTable.sql.add('qtitem integer,idvenda integer,vldesconto real,vlacrescimo real,nmsistema character varying(50),idusuario integer)');
+  BancoPdv.QVendasPdvItemCreateTable.ExecSql;
+
+end;
+
+procedure TTelaPdv.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+case key of
+   VK_ESCAPE : ShowMessage ('Cancelar operação');
+   VK_F12 :   Button10Click(Sender);
+   VK_F1 :   Button9Click(Sender);
+end;
+
+end;
+
+procedure TTelaPdv.FormShow(Sender: TObject);
+var
+dataAtual : TDateTime ;
+
+begin
+   DataAtual := Now;
+   Data.Caption := DateToStr (DataAtual);
+
+end;
+
+procedure TTelaPdv.SplitViewAction(Value: TSplitView);
+begin
+  Value.Opened := not value.Opened;
+end;
+
+procedure TTelaPdv.Timer1Timer(Sender: TObject);
+begin
+   Hora.Caption := FormatDateTime ('ttt',Time)
+end;
+
+end.

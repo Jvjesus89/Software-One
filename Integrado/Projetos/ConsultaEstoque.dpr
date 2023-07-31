@@ -8,7 +8,8 @@ uses
   Vcl.Styles,
   Produtos in '..\Produtos.pas' {ConsultaProduto},
   CadastroMovimentacoes in '..\CadastroMovimentacoes.pas' {TelaCadastroMovimentacoes},
-  ProdutoMov in '..\ProdutoMov.pas' {ProdutoMov1};
+  ProdutoMov in '..\ProdutoMov.pas' {ProdutoMov1},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -16,6 +17,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TConsultaEstoque1, ConsultaEstoque1);
   Application.CreateForm(TConsultaProduto, ConsultaProduto);
   Application.CreateForm(TDbMov, DbMov);

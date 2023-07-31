@@ -206,7 +206,7 @@ end;
 
 procedure TXML.DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
 begin
-    DbVendas1.Mxml.LoadFromFIle (EditXml.text + '.xml');
+    //DbVendas1.Mxml.LoadFromFIle (EditXml.text + '.xml');
 end;
 
 procedure TXML.FormClose(Sender: TObject; var Action: TCloseAction);

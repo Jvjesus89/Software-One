@@ -98,8 +98,6 @@
     Color = clInactiveBorder
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 40
-    ExplicitHeight = 245
     object Senha: TLabel
       Left = 4
       Top = 108

@@ -7,7 +7,8 @@ uses
   TelaCadastoCliente in '..\TelaCadastoCliente.pas' {TelaCadastroCliente1},
   Vcl.Themes,
   Vcl.Styles,
-  TelaEdicaoCliente in '..\TelaEdicaoCliente.pas' {TelaEdicaoCliente1};
+  TelaEdicaoCliente in '..\TelaEdicaoCliente.pas' {TelaEdicaoCliente1},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
 
 {$R *.res}
 
@@ -15,6 +16,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TConsultaCliente, ConsultaCliente);
   Application.CreateForm(TDbClient, DbClient);
   Application.CreateForm(TTelaCadastroCliente1, TelaCadastroCliente1);

@@ -105,40 +105,49 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Areceber.pas">
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\Areceber.pas">
             <Form>Areceber1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Dbfinreceber.pas">
-            <Form>DbFinAreceber1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\TelaCadastroAreceber.pas">
+        <DCCReference Include="..\CadastroAreceber\Telas\TelaCadastroAreceber.pas">
             <Form>TelaCadasrroAreceber1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaClienteAreceber.pas">
-            <Form>TelaConsultaClienteAreceber1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\TelaEdicaoAreceber.pas">
-            <Form>TelaEdicaoAreceber1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\TelaExportaçãoDadosAreceber.pas">
-            <Form>Exportar</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Areceber\Cadastro\TelaCadastroBaixaAreceber.pas">
+        <DCCReference Include="..\CadastroAreceber\Telas\TelaCadastroBaixaAreceber.pas">
             <Form>CadastroBaixaAreceber</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Areceber\Consulta\SubConsulta\ConsultaContaCorrenteAreceber.pas">
+        <DCCReference Include="..\CadastroAreceber\Telas\TelaConsultaClienteAreceber.pas">
+            <Form>TelaConsultaClienteAreceber1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\Telas\TelaEdicaoAreceber.pas">
+            <Form>TelaEdicaoAreceber1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\Telas\TelaExportaçãoDadosAreceber.pas">
+            <Form>Exportar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\Telas\Consulta\ConsultaContaCorrenteAreceber.pas">
             <Form>ConsultaContaBancaria</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Areceber\Consulta\SubConsulta\ConsultaFormaPagamentoCadastro.pas">
+        <DCCReference Include="..\CadastroAreceber\Telas\Consulta\ConsultaFormaPagamentoCadastro.pas">
             <Form>ConsultaFormaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\BancoAreceber\Dbfinreceber.pas">
+            <Form>DbFinAreceber1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroAreceber\Telas\Consulta\ConsultaFormaPagamentoAreceberEdit.pas">
+            <Form>FormaPagemento</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

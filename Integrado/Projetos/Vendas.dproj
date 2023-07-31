@@ -102,10 +102,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\CadastroVendas.pas">
-            <Form>CadastroDeVendas</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="..\DBvendas.pas">
             <Form>DbVendas1</Form>
             <FormType>dfm</FormType>
@@ -160,6 +156,15 @@
             <Form>DbImportacaoXml</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\CadastroVendas.pas">
+            <Form>CadastroDeVendas</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

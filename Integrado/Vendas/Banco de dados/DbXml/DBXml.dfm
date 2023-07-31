@@ -2,24 +2,9 @@
   OldCreateOrder = False
   Height = 374
   Width = 535
-  object DbVendas: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 112
-    Top = 8
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 32
-    Top = 8
-  end
   object QItensGeradoXML: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
         'Select * From vendasitem VI join produto P on (VI.idproduto = P.' +
@@ -95,7 +80,8 @@
     Top = 134
   end
   object QClienteXml: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
     Left = 120

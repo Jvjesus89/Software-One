@@ -2,8 +2,8 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
   Left = 0
   Top = 0
   Caption = 'Cadastro Baixa Areceber'
-  ClientHeight = 110
-  ClientWidth = 283
+  ClientHeight = 177
+  ClientWidth = 334
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -93,7 +93,6 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
     DataField = 'idareceber'
     DataSource = DbFinAreceber1.DsQAreceber
     TabOrder = 5
-    Visible = False
   end
   object DBEdit2: TDBEdit
     Left = 80
@@ -103,6 +102,5 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
     DataField = 'idcontabancaria'
     DataSource = DbFinAreceber1.DsQAreceber
     TabOrder = 6
-    Visible = False
   end
 end

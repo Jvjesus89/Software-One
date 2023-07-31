@@ -33,7 +33,7 @@
   object Label3: TLabel
     Left = 87
     Top = 21
-    Width = 42
+    Width = 48
     Height = 19
     Caption = 'Cliente'
     FocusControl = DBEdit3
@@ -41,13 +41,13 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Label4: TLabel
     Left = 362
     Top = 132
-    Width = 112
+    Width = 124
     Height = 19
     Caption = 'idformapagamento'
     FocusControl = DBEdit4
@@ -55,14 +55,14 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     Visible = False
   end
   object Label5: TLabel
     Left = 8
     Top = 73
-    Width = 111
+    Width = 121
     Height = 19
     Caption = 'Forma Pagamento'
     FocusControl = DBEdit5
@@ -70,13 +70,13 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Label6: TLabel
     Left = 352
     Top = 73
-    Width = 69
+    Width = 79
     Height = 19
     Caption = 'Valor Titulo'
     FocusControl = DBEdit6
@@ -84,13 +84,13 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Label7: TLabel
     Left = 8
     Top = 21
-    Width = 33
+    Width = 39
     Height = 19
     Caption = 'Titulo'
     FocusControl = DBEdit7
@@ -98,13 +98,13 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Label1: TLabel
     Left = 8
     Top = 129
-    Width = 103
+    Width = 115
     Height = 19
     Caption = 'Data Vencimento'
     FocusControl = DBEdit1
@@ -112,7 +112,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
   end
   object Label8: TLabel
@@ -151,7 +151,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
   end
@@ -166,7 +166,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
     Visible = False
@@ -182,7 +182,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 3
   end
@@ -197,7 +197,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
   end
@@ -212,7 +212,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
   end
@@ -226,7 +226,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 6
     OnClick = BuscaClick
@@ -237,12 +237,6 @@
     Width = 73
     Height = 25
     Caption = 'Cadastrar'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Times New Roman'
-    Font.Style = []
-    ParentFont = False
     TabOrder = 7
     OnClick = BotaoCadastrarClick
   end
@@ -257,7 +251,7 @@
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Times New Roman'
-    Font.Style = []
+    Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 8
   end
@@ -277,12 +271,6 @@
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Times New Roman'
-    Font.Style = []
-    ParentFont = False
     TabOrder = 10
     OnClick = Button1Click
   end

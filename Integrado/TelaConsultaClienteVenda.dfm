@@ -20,8 +20,6 @@ object TelaConsultaCliente: TTelaConsultaCliente
     Height = 49
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -41
-    ExplicitWidth = 681
     object Busca: TDBEdit
       Left = 216
       Top = 15
@@ -49,9 +47,6 @@ object TelaConsultaCliente: TTelaConsultaCliente
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 1
-    ExplicitLeft = -41
-    ExplicitWidth = 681
-    ExplicitHeight = 257
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1

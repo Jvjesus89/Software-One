@@ -24,53 +24,7 @@ type
     Busca: TEdit;
     Button1: TButton;
     Button3: TButton;
-    ppReport1: TppReport;
-    ppParameterList1: TppParameterList;
-    BDreport: TppBDEPipeline;
-    ppDesignLayers1: TppDesignLayers;
-    ppDesignLayer1: TppDesignLayer;
-    ppHeaderBand1: TppHeaderBand;
-    ppDetailBand1: TppDetailBand;
-    ppFooterBand1: TppFooterBand;
-    ppLabel1: TppLabel;
-    ppDBText1: TppDBText;
-    ppLabel2: TppLabel;
-    ppDBText2: TppDBText;
-    ppLabel3: TppLabel;
-    ppDBText3: TppDBText;
     Button4: TButton;
-    ppLabel4: TppLabel;
-    ppDBText4: TppDBText;
-    ppLabel5: TppLabel;
-    ppDBText5: TppDBText;
-    ppLabel6: TppLabel;
-    ppDBText6: TppDBText;
-    ppLabel7: TppLabel;
-    ppDBText7: TppDBText;
-    ppLabel8: TppLabel;
-    ppDBText8: TppDBText;
-    ppTableGrid1: TppTableGrid;
-    ppTableColumn1: TppTableColumn;
-    ppTableColumn2: TppTableColumn;
-    ppTableColumn3: TppTableColumn;
-    ppTableRow1: TppTableRow;
-    ppTableCell1: TppTableCell;
-    ppTableCell2: TppTableCell;
-    ppTableCell3: TppTableCell;
-    ppTableColumn4: TppTableColumn;
-    ppTableCell4: TppTableCell;
-    ppTableGrid2: TppTableGrid;
-    ppTableRow2: TppTableRow;
-    ppTableCell5: TppTableCell;
-    ppTableCell6: TppTableCell;
-    ppTableCell7: TppTableCell;
-    ppTableCell8: TppTableCell;
-    ppTableColumn5: TppTableColumn;
-    ppTableColumn6: TppTableColumn;
-    ppTableColumn7: TppTableColumn;
-    ppTableColumn8: TppTableColumn;
-    ppShape1: TppShape;
-    ppLine1: TppLine;
     procedure Button2Click(Sender: TObject);
     procedure BotaoNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -139,13 +93,37 @@ end;
 
 procedure TCadastroDeVendas.BotaoNovoClick(Sender: TObject);
 begin
-    TelaCadastroVendas.showmodal;
+        // criação tabela temporaria para vendas item
+     DbVendas1.Qitemvenda.close;
+     DbVendas1.Qitemvenda.sql.Clear;
+     DbVendas1.Qitemvenda.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
+     DbVendas1.Qitemvenda.sql.Add('(idvendaitem integer NOT NULL DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
+     DbVendas1.Qitemvenda.sql.Add('nmitemvenda character varying(50) COLLATE pg_catalog."default", vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
+     DbVendas1.Qitemvenda.ExecSQl;
+
+             // criação tabela temporaria para vendas item
+     DbVendas1.Qitemvenda.close;
+     DbVendas1.Qitemvenda.sql.Clear;
+     DbVendas1.Qitemvenda.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
+     DbVendas1.Qitemvenda.sql.Add('(idvendaitem integer NOT NULL DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
+     DbVendas1.Qitemvenda.sql.Add('nmitemvenda character varying(50) COLLATE pg_catalog."default", vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
+     DbVendas1.Qitemvenda.ExecSQl;
+
+             // criação tabela temporaria para vendas item
+     DbVendas1.Qitemvenda.close;
+     DbVendas1.Qitemvenda.sql.Clear;
+     DbVendas1.Qitemvenda.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
+     DbVendas1.Qitemvenda.sql.Add('(idvendaitem integer NOT NULL DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
+     DbVendas1.Qitemvenda.sql.Add('nmitemvenda character varying(50) COLLATE pg_catalog."default", vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
+     DbVendas1.Qitemvenda.ExecSQl;
+
      DbVendas1.Mvendas.open;
      DbVendas1.Mvendasitem.open;;
-     DbVendas1.MTempItem.open;
      DbVendas1.Mvendas.Append;
      DbVendas1.Mvendasitem.Append;;
-     DbVendas1.MTempItem.Append;
+
+    TelaCadastroVendas.showmodal;
+
 end;
 
 procedure TCadastroDeVendas.Button1Click(Sender: TObject);
@@ -378,7 +356,7 @@ dbvendas1.Qrtm.sql.add('select * From vendas V join vendasitem VI on (V.idvenda 
 dbvendas1.Qrtm.ParamByName('Pidvenda').AsInteger := dbgrid1.Fields[5].Value; ;
 dbvendas1.Qrtm.open;
 
-ppReport1.Print;
+//ppReport1.Print;
 
 end;
 

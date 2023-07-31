@@ -1,0 +1,51 @@
+unit EditarConexao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TEditarConexãoDB = class(TForm)
+    Ip: TLabel;
+    NomeBancoDeDados: TLabel;
+    Usuario: TLabel;
+    Senha: TLabel;
+    Porta: TLabel;
+    ConectarBanco: TButton;
+    IPPostgres: TEdit;
+    Login: TEdit;
+    NomeBanco: TEdit;
+    Senhas: TEdit;
+    PortaPostgres: TEdit;
+    procedure ConectarBancoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  EditarConexãoDB: TEditarConexãoDB;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPrincipal;
+
+procedure TEditarConexãoDB.ConectarBancoClick(Sender: TObject);
+begin
+  DbMaster.ConexãoDb.Close;
+  DbMaster.ConexãoDb.Params.Clear;
+  DbMaster.ConexãoDb.Params.Add('DriverID=PG');
+  DbMaster.ConexãoDb.Params.Add('Database='+NomeBanco.Text);
+  DbMaster.ConexãoDb.Params.Add('User_Name='+Login.Text);
+  DbMaster.ConexãoDb.Params.Add('Password='+Senhas.Text);
+  DbMaster.ConexãoDb.Params.Add('Server='+IPPostgres.Text);
+  DbMaster.ConexãoDb.Params.Add('Port='+PortaPostgres.Text);
+  DbMaster.ConexãoDb.Open;
+end;
+
+end.

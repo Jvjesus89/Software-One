@@ -76,20 +76,12 @@ uses DBvendas, TelaConsultaClienteVenda, TelaConsultaProdutoVenda,
 
 procedure TTelaCadastroVendas.AdicionarClick(Sender: TObject);
 begin
-    DbVendas1.MTempItem.Open;
-    DbVendas1.MTempItem.append;
     TelaCadastroProdutoVenda.showmodal;
-
-     {DbVendas1.Qitemvenda.close;
-     DbVendas1.Qitemvenda.sql.Clear;
-     DbVendas1.Qitemvenda.sql.Add('CREATE TABLE IF NOT EXISTS temp.itemvenda');
-     DbVendas1.Qitemvenda.sql.Add('iditemvenda integer NOT NULL DEFAULT nextval(''temp."#itemvenda_iditemvenda_seq"''::regclass),nmitemvenda character varying(50) NOT NULL, vlunitario real NOT NULL, vlitem real NOT NULL, idproduto integer NOT NULL, qtitem integer)');
-     DbVendas1.Qitemvenda.ExecSQl;
-     }
      end;
 
 procedure TTelaCadastroVendas.BuscaClienteClick(Sender: TObject);
 begin
+    DbVendas1.Qcliente.open;
     TelaConsultaCliente.showmodal;
 end;
 
@@ -206,7 +198,7 @@ begin
    DbVendas1.TempItemExclusao.sql.Clear;
    DbVendas1.TempItemExclusao.sql.add('Delete from temp.itemvenda');
    DbVendas1.TempItemExclusao.execsql ;
-   DbVendas1.MTempItem.close ;
+
 
      //  Exclusão das movimentações da tabela temporaria
   DbVendas1.QestoqueTemp.close;
@@ -216,7 +208,7 @@ begin
 
   DbVendas1.Mvendas.Cancel;
   DbVendas1.Mvendasitem.Cancel;;
-  DbVendas1.MTempItem.Cancel;
+
 
   AtivarQvendas;
 
@@ -244,7 +236,6 @@ end;
 
 procedure TTelaCadastroVendas.ExcluirprodutoClick(Sender: TObject);
 begin
-   DbVendas1.MTempItem.open;
    DbVendas1.QExclusãoTempItemVenda.close;
    DbVendas1.QExclusãoTempItemVenda.sql.clear;
    DbVendas1.QExclusãoTempItemVenda.sql.add('Delete From temp.ItemVenda Where IdItemVenda = :PIdItemVenda');
@@ -268,13 +259,13 @@ end;
 procedure TTelaCadastroVendas.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-
+   {
       //  Exclusão dos itens da tabela temporaria
    DbVendas1.TempItemExclusao.close;
    DbVendas1.TempItemExclusao.sql.Clear;
    DbVendas1.TempItemExclusao.sql.add('Delete from temp.itemvenda');
    DbVendas1.TempItemExclusao.execsql ;
-   DbVendas1.MTempItem.close ;
+
 
      //  Exclusão das movimentações da tabela temporaria
   DbVendas1.QestoqueTemp.close;
@@ -287,10 +278,10 @@ begin
    DbVendas1.QarecebrTempInserir.sql.clear;
    DbVendas1.QarecebrTempInserir.sql.add('Delete from temp.areceber');
    DbVendas1.QarecebrTempInserir.ExecSql;
-
+  }
   DbVendas1.Mvendas.Cancel;
   DbVendas1.Mvendasitem.Cancel;;
-  DbVendas1.MTempItem.Cancel;
+
 
   AtivarQvendas;
 

@@ -130,9 +130,7 @@ end;
 procedure TCadastro.SalvarClick(Sender: TObject);
 begin
    Banco.Musuario.Post;
-   Banco.DbSoft.Close;
    Banco.Musuario.Close;
-   Banco.DbSoft.open;
    Banco.Musuario.open;
    StatusBarra(Banco.Musuario);
 end;

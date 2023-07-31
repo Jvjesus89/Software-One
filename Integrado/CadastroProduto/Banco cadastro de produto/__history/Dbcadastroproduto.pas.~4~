@@ -1,0 +1,86 @@
+unit Dbcadastroproduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.VCLUI.Wait, FireDAC.Comp.Client, FireDAC.Phys.PG, FireDAC.Phys.PGDef,
+  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, Datasnap.Provider, Datasnap.DBClient;
+
+type
+  TDbprod = class(TForm)
+    procedure Mproduto2AfterPost(DataSet: TDataSet);
+    procedure Mproduto2AfterDelete(DataSet: TDataSet);
+    procedure Mproduto2AfterCancel(DataSet: TDataSet);
+    procedure QprodutoAfterCancel(DataSet: TDataSet);
+    procedure QprodutoAfterDelete(DataSet: TDataSet);
+    procedure QprodutoAfterPost(DataSet: TDataSet);
+    procedure QProdutoEdicaoAfterCancel(DataSet: TDataSet);
+    procedure QProdutoEdicaoAfterDelete(DataSet: TDataSet);
+    procedure QProdutoEdicaoAfterPost(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Dbprod: TDbprod;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPrincipal;
+
+
+procedure TDbprod.Mproduto2AfterCancel(DataSet: TDataSet);
+begin
+     Mproduto.CancelUpdates;
+end;
+
+procedure TDbprod.Mproduto2AfterDelete(DataSet: TDataSet);
+begin
+     Mproduto.ApplyUpdates(-1);
+end;
+
+procedure TDbprod.Mproduto2AfterPost(DataSet: TDataSet);
+begin
+     Mproduto.ApplyUpdates(-1);
+end;
+
+procedure TDbprod.QprodutoAfterCancel(DataSet: TDataSet);
+begin
+      Qproduto.CancelUpdates;
+end;
+
+procedure TDbprod.QprodutoAfterDelete(DataSet: TDataSet);
+begin
+     Qproduto.ApplyUpdates(-1);
+end;
+
+procedure TDbprod.QprodutoAfterPost(DataSet: TDataSet);
+begin
+     Qproduto.ApplyUpdates(-1);
+end;
+
+procedure TDbprod.QProdutoEdicaoAfterCancel(DataSet: TDataSet);
+begin
+     QprodutoEdicao.CancelUpdates;
+end;
+
+procedure TDbprod.QProdutoEdicaoAfterDelete(DataSet: TDataSet);
+begin
+    QprodutoEdicao.ApplyUpdates(-1);
+end;
+
+procedure TDbprod.QProdutoEdicaoAfterPost(DataSet: TDataSet);
+begin
+    QprodutoEdicao.ApplyUpdates(-1);
+end;
+
+end.

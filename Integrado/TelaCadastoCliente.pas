@@ -39,9 +39,14 @@ type
     RESTRequest1: TRESTRequest;
     RESTResponse1: TRESTResponse;
     Memo1: TMemo;
+    Button2: TButton;
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -123,9 +128,30 @@ begin
      end;
 end;
 
+procedure TTelaCadastroCliente1.Button2Click(Sender: TObject);
+begin
+   TelaCadastroCliente1.close;
+end;
+
+procedure TTelaCadastroCliente1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    DbClient.Mcliente.Cancel;
+end;
+
 procedure TTelaCadastroCliente1.FormShow(Sender: TObject);
 begin
      DbClient.Mcliente.FieldByName('dtcadastro').Value := now;
+end;
+
+procedure TTelaCadastroCliente1.RadioButton1Click(Sender: TObject);
+begin
+Label2.caption :=  'CPF';
+end;
+
+procedure TTelaCadastroCliente1.RadioButton2Click(Sender: TObject);
+begin
+Label2.caption :=  'CNPJ';
 end;
 
 end.

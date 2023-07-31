@@ -1,0 +1,60 @@
+unit ConsultaFormaPagamentoAreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TFormaPagemento = class(TForm)
+    Panel1: TPanel;
+    Busca: TDBEdit;
+    BotaoBusca: TButton;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure BotaoBuscaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormaPagemento: TFormaPagemento;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinreceber;
+
+procedure TFormaPagemento.BotaoBuscaClick(Sender: TObject);
+begin
+        begin
+    if Busca.Text = '' then
+    begin
+      DbFinAreceber1.QFormaPagamento.close ;
+      DbFinAreceber1.QFormaPagamento.sql.Clear;
+      DbFinAreceber1.QFormaPagamento.sql.Add('Select * From formapagamento');
+      DbFinAreceber1.QFormaPagamento.open;
+    end
+    else
+    begin
+      DbFinAreceber1.QFormaPagamento.close;
+      DbFinAreceber1.QFormaPagamento.sql.Clear;
+      DbFinAreceber1.QFormaPagamento.sql.Add('Select * From formapagamento Where cdformapagamento = '+(Busca.Text));
+      DbFinAreceber1.QFormaPagamento.open;
+    end;
+end;
+
+procedure TFormaPagemento.DBGrid1DblClick(Sender: TObject);
+begin
+    TelaEdicaoAreceber1.DBEdit5.text := dbgrid1.fields[2].value;
+    TelaEdicaoAreceber1.DBEdit4.text := dbgrid1.fields[1].value;
+    FormaPagemento.close;
+end;
+
+end.

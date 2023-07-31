@@ -1,0 +1,30 @@
+unit TelaConsultaClienteApagarEdit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TConsultaClienteEdit = class(TForm)
+    Panel1: TPanel;
+    BotaoBusca: TButton;
+    Busca: TEdit;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaClienteEdit: TConsultaClienteEdit;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -2,12 +2,13 @@ program CadastroProduto;
 
 uses
   Vcl.Forms,
-  CadProd in '..\CadProd.pas' {CadProduto},
   Vcl.Themes,
   Vcl.Styles,
-  Dbcadastroproduto in '..\Dbcadastroproduto.pas' {Dbprod},
-  TelaCadastroDeProdutos in '..\TelaCadastroDeProdutos.pas' {TelaCadastroProduto},
-  TelaEdicaoProduto in '..\TelaEdicaoProduto.pas' {TelaEdicaoProduto1};
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  CadProd in '..\CadastroProduto\Modulo\CadProd.pas' {CadProduto},
+  TelaCadastroDeProdutos in '..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas' {TelaCadastroProduto},
+  TelaEdicaoProduto in '..\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.pas' {TelaEdicaoProduto1},
+  Dbcadastroproduto in '..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas' {Dbprod: TDataModule};
 
 {$R *.res}
 
@@ -15,12 +16,17 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
+  Application.CreateForm(TDbprod, Dbprod);
   Application.CreateForm(TCadProduto, CadProduto);
   Application.CreateForm(TTelaCadastroProduto, TelaCadastroProduto);
-  Application.CreateForm(TDBprod, DBprod);
   Application.CreateForm(TTelaEdicaoProduto1, TelaEdicaoProduto1);
   Application.Run;
 end.
+
+
+
+
 
 
 

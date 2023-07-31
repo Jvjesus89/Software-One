@@ -2,7 +2,6 @@ program Vendas;
 
 uses
   Vcl.Forms,
-  CadastroVendas in '..\CadastroVendas.pas' {CadastroDeVendas},
   DBvendas in '..\DBvendas.pas' {DbVendas1},
   Vcl.Themes,
   Vcl.Styles,
@@ -21,7 +20,9 @@ uses
   U_JSON.XML in '..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas',
   U_XML.JSON in '..\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas',
   U_FormatConverter in '..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas',
-  DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule};
+  DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  CadastroVendas in '..\CadastroVendas.pas' {CadastroDeVendas};
 
 {$R *.res}
 
@@ -30,20 +31,23 @@ begin
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TDbVendas1, DbVendas1);
-  Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
+  Application.CreateForm(TDbXmlVendas, DbXmlVendas);
+  Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
   Application.CreateForm(TTelaConsultaCliente, TelaConsultaCliente);
+  Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
   Application.CreateForm(TTelaConsultaProduto, TelaConsultaProduto);
   Application.CreateForm(TTelaCadastroProdutoVenda, TelaCadastroProdutoVenda);
   Application.CreateForm(TExportarXML, ExportarXML);
   Application.CreateForm(TConsultaPrazo, ConsultaPrazo);
   Application.CreateForm(TConsultaFormaPagamento, ConsultaFormaPagamento);
   Application.CreateForm(TCadastroAreceber, CadastroAreceber);
-  Application.CreateForm(TDbXmlVendas, DbXmlVendas);
   Application.CreateForm(TXML, XML);
-  Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
   Application.Run;
 end.
+
+
 
 
 

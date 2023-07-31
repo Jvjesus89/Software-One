@@ -1,0 +1,23 @@
+unit CalculoValorTotalItem;
+
+interface
+
+implementation
+
+uses Pdv_Principal;
+       {
+procedure TCalculoValorTotalItem.CampoQuantidadeExit(Sender: TObject);
+var
+     Qtd, VlUnit , VlTot, vldesc , vlacres : integer;
+begin
+  Qtd   :=  StrToInt (TelaPdv.CampoQuantidade.Text)  ;
+  VlUnit := StrToInt (TelaPdv.CampoValorUnitario.Text) ;
+  vldesc  :=  StrToInt (TelaPdv.CampoDesconto.Text);
+  vlacres :=  StrToInt (TelaPdv.CampoAcrescimo.Text);
+
+  VlTot := (Qtd * VlUnit) - vldesc + vlacres;
+  TelaPdv.CampoValorVenda.text :=  IntToStr(VlTot)  ;
+
+end;  }
+
+end.

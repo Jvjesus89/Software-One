@@ -1,0 +1,60 @@
+unit TelaConsultaClienteAreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TTelaConsultaClienteAreceber1 = class(TForm)
+    Panel1: TPanel;
+    BotaoBusca: TButton;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Busca: TEdit;
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure BotaoBuscaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaClienteAreceber1: TTelaConsultaClienteAreceber1;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinreceber, TelaCadastroAreceber;
+
+procedure TTelaConsultaClienteAreceber1.BotaoBuscaClick(Sender: TObject);
+begin
+       with DbFinAreceber1.Qcliente do
+    begin
+      close;
+      sql.Clear;
+      sql.Add('Select * From clientes Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
+      open;
+    end;
+end;
+
+procedure TTelaConsultaClienteAreceber1.DBGrid1DblClick(Sender: TObject);
+begin
+
+     DbFinAreceber1.QTabelaTemp.Close;
+     DbFinAreceber1.QTabelaTemp.sql.clear;
+     DbFinAreceber1.QTabelaTemp.sql.add('Update temp."#areceber" Set idcliente = :Pidcliente ,nmcliente = :Pnmcliente ');
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pidcliente').AsInteger := DbGrid1.Fields[1].Value;
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pnmcliente').AsString := DbGrid1.Fields[3].Value;
+     DbFinAreceber1.QTabelaTemp.ExecSql;
+
+    TelaConsultaClienteAreceber1.close;
+      TelaCadasrroAreceber1.DBEdit3.Text := DBGrid1.Fields[1].value;
+      TelaCadasrroAreceber1.DBEdit2.Text := DBGrid1.Fields[3].value;
+end;
+
+end.

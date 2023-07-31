@@ -38,30 +38,31 @@
     <Transaction>2022/09/30 01:43:58.000.711,=C:\Sistema\Integrado\Configurações\Projeto\Unit4.pas</Transaction>
     <Transaction>2022/09/30 01:44:21.000.220,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\TelaConsultaContaCorrente.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit4.dfm</Transaction>
     <Transaction>2022/09/30 01:44:21.000.220,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\TelaConsultaContaCorrente.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit4.pas</Transaction>
-    <Transaction>2022/09/30 01:53:22.000.667,C:\Sistema\Integrado\Configurações\Conta Corrente\Cadastro\TelaCadastroContaCorrente.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/09/30 01:53:22.000.667,C:\Sistema\Integrado\Configurações\Conta Corrente\Cadastro\TelaCadastroContaCorrente.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm</Transaction>
-    <Transaction>2022/09/30 02:01:55.000.864,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaAgenciaConta.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit3.dfm</Transaction>
+    <Transaction>2022/09/30 01:53:22.000.667,C:\Sistema\Integrado\Configurações\Conta Corrente\Cadastro\TelaCadastroContaCorrente.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/09/30 02:01:55.000.864,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaAgenciaConta.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit3.pas</Transaction>
+    <Transaction>2022/09/30 02:01:55.000.864,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaAgenciaConta.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit3.dfm</Transaction>
     <Transaction>2022/09/30 02:08:22.000.742,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
-    <Transaction>2022/09/30 02:11:53.000.943,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaBancoConta.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/09/30 02:11:53.000.943,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaBancoConta.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm</Transaction>
+    <Transaction>2022/09/30 02:11:53.000.943,C:\Sistema\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaBancoConta.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/06 12:19:12.000.790,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/06 12:19:50.000.171,C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/06 12:19:50.000.171,C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm</Transaction>
     <Transaction>2022/10/06 12:39:24.000.977,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/06 12:39:40.000.265,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoes.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/06 12:39:40.000.265,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoes.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm</Transaction>
-    <Transaction>2022/10/06 12:44:21.000.449,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.dfm=C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoes.dfm</Transaction>
     <Transaction>2022/10/06 12:44:21.000.449,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas=C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoes.pas</Transaction>
+    <Transaction>2022/10/06 12:44:21.000.449,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.dfm=C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoes.dfm</Transaction>
     <Transaction>2022/10/09 12:33:40.000.211,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/09 13:01:26.000.104,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/09 13:01:57.000.528,C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.pas=</Transaction>
-    <Transaction>2022/10/09 13:02:16.000.420,C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas=C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.pas</Transaction>
     <Transaction>2022/10/09 13:02:16.000.420,C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm=C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.dfm</Transaction>
+    <Transaction>2022/10/09 13:02:16.000.420,C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas=C:\Sistema\Integrado\Configurações\Geral\Opções\TelaOpções.pas</Transaction>
     <Transaction>2022/10/09 13:04:48.000.345,=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
     <Transaction>2022/10/09 13:05:03.000.780,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas=</Transaction>
     <Transaction>2022/10/09 13:05:13.000.481,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.dfm=C:\Sistema\Integrado\Configurações\Projeto\Unit2.dfm</Transaction>
     <Transaction>2022/10/09 13:05:13.000.481,C:\Sistema\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas=C:\Sistema\Integrado\Configurações\Projeto\Unit2.pas</Transaction>
+    <Transaction>2022/12/01 22:21:52.000.551,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Configurações"/>
@@ -124,5 +125,9 @@
     <File Path="..\Prazo\Consulta\TelaCadastroPrazo.dfm"/>
     <File Path="..\TelaConfiguracoes.pas"/>
     <File Path="..\TelaConfiguracoes.dfm"/>
+    <File Path="..\..\..\Integrado"/>
+    <File Path="..\..\ConexãoDB"/>
+    <File Path="..\..\ConexãoDB\DbPrincipal.pas"/>
+    <File Path="..\..\ConexãoDB\DbPrincipal.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

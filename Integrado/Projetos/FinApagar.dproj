@@ -87,7 +87,6 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <UsePackages>true</UsePackages>
-        <DCC_UseMSBuildExternally>true</DCC_UseMSBuildExternally>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -103,27 +102,45 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Apagar.pas">
-            <Form>Apagar1</Form>
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
             <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\Dbfinapagar.pas">
-            <Form>DbFinApagar1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\TelaCadastroApagar.pas">
+        <DCCReference Include="..\CadastroApagar\Telas\TelaCadastroApagar.pas">
             <Form>TelaCadasrroApagar1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaClienteApagar.pas">
-            <Form>TelaConsultaCliente1</Form>
-        </DCCReference>
-        <DCCReference Include="..\TelaEdicaoApagar.pas">
+        <DCCReference Include="..\CadastroApagar\Telas\TelaEdicaoApagar.pas">
             <Form>TelaEdicaoApagar1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaExportaçãoDadosApagar.pas">
+        <DCCReference Include="..\CadastroApagar\Telas\TelaExportaçãoDadosApagar.pas">
             <Form>Exportar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\Apagar.pas">
+            <Form>Apagar1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\BancoApagar\Dbfinapagar.pas">
+            <Form>DbFinApagar1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastro.pas">
+            <Form>ConsultaFormaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagar.pas">
+            <Form>TelaConsultaCliente1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastroEdit.pas">
+            <Form>ConsultaFormaPagamentoEdit</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.pas">
+            <Form>ConsultaClienteEdit</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -148,6 +165,7 @@
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">

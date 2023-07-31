@@ -13,18 +13,10 @@ uses
 
 type
   TDbVendas1 = class(TForm)
-    DbVendas: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     TabelaVenda: TFDTable;
     DsVendas: TDataSource;
     Mvendas: TClientDataSet;
     Pvendas: TDataSetProvider;
-    TabelaVendaidvenda: TIntegerField;
-    TabelaVendaidcliente: TIntegerField;
-    TabelaVendaidformapagamento: TIntegerField;
-    TabelaVendadtvenda: TDateField;
-    TabelaVendanmformapagamento: TWideStringField;
-    TabelaVendanmcliente: TWideStringField;
     TabelaVendaItem: TFDTable;
     DsVendasItem: TDataSource;
     MvendasItem: TClientDataSet;
@@ -38,15 +30,6 @@ type
     TabelaVendaItemqtvendido: TIntegerField;
     DsQVendasItem: TDataSource;
     DsQVendas: TDataSource;
-    TabelaVendanrdocumento: TIntegerField;
-    Mvendasidvenda: TIntegerField;
-    Mvendasidcliente: TIntegerField;
-    Mvendasidformapagamento: TIntegerField;
-    Mvendasdtcadastro: TDateField;
-    Mvendasdtvenda: TDateField;
-    Mvendasnmformapagamento: TWideStringField;
-    Mvendasnmcliente: TWideStringField;
-    Mvendasnrdocumento: TIntegerField;
     MvendasItemidvendasitem: TIntegerField;
     MvendasItemidvenda: TIntegerField;
     MvendasItemidproduto: TIntegerField;
@@ -83,19 +66,8 @@ type
     DsQproduto: TDataSource;
     Qitemvenda: TFDQuery;
     DsQitemvenda: TDataSource;
-    TempItem: TFDTable;
-    MTempItem: TClientDataSet;
-    PTempItem: TDataSetProvider;
-    TempItemiditemvenda: TIntegerField;
-    TempItemnmitemvenda: TWideStringField;
-    MTempItemiditemvenda: TIntegerField;
-    MTempItemnmitemvenda: TWideStringField;
     DsTempItem: TDataSource;
-    TempItemidproduto: TIntegerField;
-    MTempItemidproduto: TIntegerField;
     Qitemvendasum: TSingleField;
-    TempItemqtitem: TIntegerField;
-    MTempItemqtitem: TIntegerField;
     QEntradaVenda: TFDQuery;
     IntegerField1: TIntegerField;
     IntegerField2: TIntegerField;
@@ -110,11 +82,6 @@ type
     QvendasItemidproduto: TIntegerField;
     QvendasItemnmproduto: TWideStringField;
     QvendasItemqtvendido: TIntegerField;
-    TabelaVendadtcadastro: TDateField;
-    TempItemvlunitario: TSingleField;
-    TempItemvlitem: TSingleField;
-    MTempItemvlunitario: TSingleField;
-    MTempItemvlitem: TSingleField;
     QEntradaVendaItem: TFDQuery;
     QIdVenda: TFDQuery;
     QEntradaTitulo: TFDQuery;
@@ -127,16 +94,7 @@ type
     QEntradaVendaItemnmproduto: TWideStringField;
     QEntradaVendaItemqtvendido: TIntegerField;
     QProdutovlproduto: TSingleField;
-    FDUpdateSQL1: TFDUpdateSQL;
-    DataSource1: TDataSource;
-    FDUpdateSQL2: TFDUpdateSQL;
-    DataSource2: TDataSource;
-    Qxml: TFDQuery;
-    Dsxml: TDataSource;
-    Qxmlitem: TFDQuery;
     DsQxmlitem: TDataSource;
-    TabelaVendavlvenda: TSingleField;
-    Mvendasvlvenda: TSingleField;
     TabelaVendaItemvlitem: TSingleField;
     TabelaVendaItemvlunitario: TSingleField;
     MvendasItemvlitem: TSingleField;
@@ -208,37 +166,6 @@ type
     IntegerField23: TIntegerField;
     QExclusãoAreceber: TFDQuery;
     QExclusãoTempItemVenda: TFDQuery;
-    Mxml: TClientDataSet;
-    Pxml: TDataSetProvider;
-    Xml: TFDTable;
-    Xmlnrnfe: TIntegerField;
-    Xmlnatoperacao: TWideStringField;
-    Xmlemissao: TDateField;
-    Xmlstatus: TWideStringField;
-    Xmlemi_nome: TWideStringField;
-    Xmlemi_cnpj: TWideStringField;
-    Xmlemi_end: TWideStringField;
-    Xmlemi_bai: TWideStringField;
-    Xmlemi_cid: TWideStringField;
-    Xmldes_nome: TWideStringField;
-    Xmldes_cnpj: TWideStringField;
-    Xmldes_end: TWideStringField;
-    Xmldes_bai: TWideStringField;
-    Xmldes_cid: TWideStringField;
-    Mxmlnrnfe: TIntegerField;
-    Mxmlnatoperacao: TWideStringField;
-    Mxmlemissao: TDateField;
-    Mxmlstatus: TWideStringField;
-    Mxmlemi_nome: TWideStringField;
-    Mxmlemi_cnpj: TWideStringField;
-    Mxmlemi_end: TWideStringField;
-    Mxmlemi_bai: TWideStringField;
-    Mxmlemi_cid: TWideStringField;
-    Mxmldes_nome: TWideStringField;
-    Mxmldes_cnpj: TWideStringField;
-    Mxmldes_end: TWideStringField;
-    Mxmldes_bai: TWideStringField;
-    Mxmldes_cid: TWideStringField;
     Label2: TLabel;
     QPrazo: TFDQuery;
     DsQprazo: TDataSource;
@@ -282,12 +209,29 @@ type
     Vendas: TLabel;
     Qrtm: TFDQuery;
     DsQrtm: TDataSource;
+    TabelaVendaidvenda: TIntegerField;
+    TabelaVendaidcliente: TIntegerField;
+    TabelaVendaidformapagamento: TIntegerField;
+    TabelaVendavlvenda: TSingleField;
+    TabelaVendadtcadastro: TDateField;
+    TabelaVendadtvenda: TDateField;
+    TabelaVendanmformapagamento: TWideStringField;
+    TabelaVendanmcliente: TWideStringField;
+    Mvendasidvenda: TIntegerField;
+    Mvendasidcliente: TIntegerField;
+    Mvendasidformapagamento: TIntegerField;
+    Mvendasvlvenda: TSingleField;
+    Mvendasdtcadastro: TDateField;
+    Mvendasdtvenda: TDateField;
+    Mvendasnmformapagamento: TWideStringField;
+    Mvendasnmcliente: TWideStringField;
+    Mvendasnrdocumento: TIntegerField;
+    TabelaVendanrdocumento: TIntegerField;
+    Label5: TLabel;
+    QvendasitemCampos: TFDQuery;
     procedure QitemvendaAfterPost(DataSet: TDataSet);
     procedure QitemvendaAfterCancel(DataSet: TDataSet);
     procedure QitemvendaAfterDelete(DataSet: TDataSet);
-    procedure MTempItemAfterCancel(DataSet: TDataSet);
-    procedure MTempItemAfterDelete(DataSet: TDataSet);
-    procedure MTempItemAfterPost(DataSet: TDataSet);
     procedure MvendasAfterPost(DataSet: TDataSet);
     procedure MvendasAfterDelete(DataSet: TDataSet);
     procedure MvendasAfterCancel(DataSet: TDataSet);
@@ -307,20 +251,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TDbVendas1.MTempItemAfterCancel(DataSet: TDataSet);
-begin
-    MTempItem.CancelUpdates;
-end;
-
-procedure TDbVendas1.MTempItemAfterDelete(DataSet: TDataSet);
-begin
-    MTempItem.ApplyUpdates(-1);
-end;
-
-procedure TDbVendas1.MTempItemAfterPost(DataSet: TDataSet);
-begin
-    MTempItem.ApplyUpdates(-1);
-end;
+uses DbPrincipal;
 
 procedure TDbVendas1.MvendasAfterCancel(DataSet: TDataSet);
 begin

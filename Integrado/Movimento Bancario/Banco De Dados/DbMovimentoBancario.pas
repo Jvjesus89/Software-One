@@ -13,8 +13,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    DbMovBanco: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     DsMovBancario: TDataSource;
     MMovBancario: TClientDataSet;
     PMovBancario: TDataSetProvider;
@@ -95,5 +93,7 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 end.

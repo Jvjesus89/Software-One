@@ -1,36 +1,21 @@
-object DbImportacaoXml: TDbImportacaoXml
+﻿object DbImportacaoXml: TDbImportacaoXml
   OldCreateOrder = False
   Height = 310
   Width = 487
-  object DbVendas: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 112
-    Top = 8
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 32
-    Top = 8
-  end
   object QInseriDadosXml: TFDQuery
-    Connection = DbVendas
+    Active = True
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
     Left = 32
     Top = 80
   end
   object QconsultaTempVendas: TFDQuery
-    Connection = DbVendas
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From Temp."#vendas"')
-    Left = 32
-    Top = 144
+    Left = 120
+    Top = 80
     object QconsultaTempVendasidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -72,6 +57,6 @@ object DbImportacaoXml: TDbImportacaoXml
   object DsQconsultaTempVendas: TDataSource
     DataSet = QconsultaTempVendas
     Left = 32
-    Top = 208
+    Top = 136
   end
 end

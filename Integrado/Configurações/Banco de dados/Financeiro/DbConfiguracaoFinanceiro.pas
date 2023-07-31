@@ -13,8 +13,6 @@ uses
 
 type
   TDbConfigFin = class(TForm)
-    DB: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     FormaPagamento: TFDTable;
     DsForma: TDataSource;
     Mforma: TClientDataSet;
@@ -160,6 +158,11 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
+
+
+
 
 procedure TDbConfigFin.MAgenciaAfterCancel(DataSet: TDataSet);
 begin

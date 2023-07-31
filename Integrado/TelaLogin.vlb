@@ -30,5 +30,9 @@ Visible=True
 Coordinates=143,154,97,36
 
 []
-Coordinates=449,78,91,36
+Coordinates=78,77,91,36
+
+[PrimeiroAcesso]
+Coordinates=0,0,59,58
+Visible=True
 

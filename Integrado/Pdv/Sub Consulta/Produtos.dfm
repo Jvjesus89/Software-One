@@ -2,8 +2,8 @@ object ConsultaProdutos: TConsultaProdutos
   Left = 0
   Top = 0
   Caption = 'Consulta Produtos'
-  ClientHeight = 234
-  ClientWidth = 512
+  ClientHeight = 254
+  ClientWidth = 480
   Color = clSkyBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,17 +11,18 @@ object ConsultaProdutos: TConsultaProdutos
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 512
+    Width = 480
     Height = 49
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -143
-    ExplicitWidth = 648
     object BotaoBusca: TButton
       Left = 287
       Top = 15
@@ -42,63 +43,51 @@ object ConsultaProdutos: TConsultaProdutos
   object Panel2: TPanel
     Left = 0
     Top = 49
-    Width = 512
-    Height = 185
+    Width = 480
+    Height = 205
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 1
-    ExplicitLeft = -143
-    ExplicitTop = -15
-    ExplicitWidth = 648
-    ExplicitHeight = 246
-    object cxGrid1: TcxGrid
+    object DBGrid1: TDBGrid
       Left = 1
       Top = 1
-      Width = 510
-      Height = 183
+      Width = 478
+      Height = 203
       Align = alClient
+      DataSource = BancoPdv.DsQprodutos
+      ReadOnly = True
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 6
-      object cxGrid1DBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        Navigator.Buttons.First.Visible = True
-        Navigator.Buttons.PriorPage.Visible = True
-        Navigator.Buttons.Prior.Visible = True
-        Navigator.Buttons.Next.Visible = True
-        Navigator.Buttons.NextPage.Visible = True
-        Navigator.Buttons.Last.Visible = True
-        Navigator.Buttons.Insert.Visible = True
-        Navigator.Buttons.Append.Visible = False
-        Navigator.Buttons.Delete.Visible = True
-        Navigator.Buttons.Edit.Visible = True
-        Navigator.Buttons.Post.Visible = True
-        Navigator.Buttons.Cancel.Visible = True
-        Navigator.Buttons.Refresh.Visible = True
-        Navigator.Buttons.SaveBookmark.Visible = True
-        Navigator.Buttons.GotoBookmark.Visible = True
-        Navigator.Buttons.Filter.Visible = True
-        ScrollbarAnnotations.CustomAnnotations = <>
-        DataController.DataSource = BancoPdv.DsQprodutos
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        OptionsView.GroupByBox = False
-        object cxGrid1DBTableView1cdproduto: TcxGridDBColumn
-          DataBinding.FieldName = 'cdproduto'
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDblClick = DBGrid1DblClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'cdproduto'
+          Width = 56
+          Visible = True
         end
-        object cxGrid1DBTableView1nmproduto: TcxGridDBColumn
-          DataBinding.FieldName = 'nmproduto'
-          Width = 332
+        item
+          Expanded = False
+          FieldName = 'nmproduto'
+          ReadOnly = False
+          Width = 294
+          Visible = True
         end
-        object cxGrid1DBTableView1vlproduto: TcxGridDBColumn
-          DataBinding.FieldName = 'vlproduto'
-          Width = 90
+        item
+          Expanded = False
+          FieldName = 'vlproduto'
+          Width = 86
+          Visible = True
         end
-      end
-      object cxGrid1Level1: TcxGridLevel
-        GridView = cxGrid1DBTableView1
-      end
+        item
+          Expanded = False
+          FieldName = 'idproduto'
+          Visible = False
+        end>
     end
   end
 end

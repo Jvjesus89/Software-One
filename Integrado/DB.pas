@@ -14,10 +14,8 @@ uses
 
 type
   TBanco = class(TForm)
-    DbSoft: TFDConnection;
     CadUsuario: TFDTable;
     Dsusuario: TDataSource;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     Pusuario: TDataSetProvider;
     Musuario: TClientDataSet;
     Musuarioidusuario: TIntegerField;
@@ -48,7 +46,7 @@ implementation
 
 {$R *.dfm}
 
-uses TelaCadastroUsuario;
+uses TelaCadastroUsuario, DbPrincipal;
 
 procedure TBanco.MusuarioAfterCancel(DataSet: TDataSet);
 begin

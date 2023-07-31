@@ -3,30 +3,46 @@
 	<Transactions>
     <Transaction>2022/07/26 00:24:35.000.600,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/07/26 00:26:13.000.505,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2022/07/26 00:29:56.000.443,C:\Sistema\Integrado\Dbcadastroproduto.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2022/07/26 00:29:56.000.443,C:\Sistema\Integrado\Dbcadastroproduto.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>2022/07/26 00:30:26.000.892,C:\Sistema\Integrado\CadProd.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/07/26 00:30:26.000.892,C:\Sistema\Integrado\CadProd.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2022/07/26 00:30:48.000.706,C:\Sistema\Integrado\Projetos\CadastroProduto.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2022/07/26 00:29:56.000.443,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Sistema\Integrado\Dbcadastroproduto.pas</Transaction>
+    <Transaction>2022/07/26 00:29:56.000.443,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Sistema\Integrado\Dbcadastroproduto.dfm</Transaction>
+    <Transaction>2022/07/26 00:30:26.000.892,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Sistema\Integrado\CadProd.dfm</Transaction>
+    <Transaction>2022/07/26 00:30:26.000.892,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Sistema\Integrado\CadProd.pas</Transaction>
+    <Transaction>2022/07/26 00:30:48.000.706,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Sistema\Integrado\Projetos\CadastroProduto.dproj</Transaction>
     <Transaction>2022/07/26 00:50:34.000.297,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\TelaCadastroDeProdutos.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
-    <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\TelaCadastroDeProdutos.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroDeProdutos.pas</Transaction>
+    <Transaction>2022/07/26 01:05:04.000.986,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroDeProdutos.dfm</Transaction>
     <Transaction>2022/08/28 01:15:47.000.299,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.pas</Transaction>
-    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.dfm</Transaction>
+    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/08/28 01:19:56.000.787,C:\Sistema\Integrado\Projetos\TelaEdicaoProduto.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/08/29 09:05:15.000.497,=C:\Sistema\Integrado\TelaEdicaoProduto.pas</Transaction>
     <Transaction>2022/08/29 09:05:55.000.437,C:\Sistema\Integrado\TelaEdicaoProduto.pas=</Transaction>
     <Transaction>2022/08/29 09:06:07.000.728,=C:\Sistema\Integrado\TelaEdicaoProduto.pas</Transaction>
+    <Transaction>2022/12/01 16:52:38.000.852,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
+    <Transaction>2023/07/02 20:53:21.000.397,=D:\Sistema\Integrado\CadastroProduto\Modulo\CadProd.pas</Transaction>
+    <Transaction>2023/07/02 20:53:39.000.717,=D:\Sistema\Integrado\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas</Transaction>
+    <Transaction>2023/07/02 20:53:39.000.779,=D:\Sistema\Integrado\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.pas</Transaction>
+    <Transaction>2023/07/02 20:54:09.000.297,=D:\Sistema\Integrado\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas</Transaction>
+    <Transaction>2023/07/02 21:42:33.000.248,=D:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2023/07/02 21:43:02.000.025,D:\Sistema\Integrado\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas=</Transaction>
+    <Transaction>2023/07/02 21:43:18.000.962,D:\Sistema\Integrado\Projetos\Unit1.dfm=D:\Sistema\Integrado\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.dfm</Transaction>
+    <Transaction>2023/07/02 21:43:18.000.962,D:\Sistema\Integrado\Projetos\Unit1.pas=D:\Sistema\Integrado\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Integrado"/>
-    <File Path="..\CadProd.pas"/>
-    <File Path="..\CadProd.dfm"/>
-    <File Path="..\Dbcadastroproduto.pas"/>
-    <File Path="..\Dbcadastroproduto.dfm"/>
-    <File Path="..\TelaCadastroDeProdutos.pas"/>
-    <File Path="..\TelaCadastroDeProdutos.dfm"/>
-    <File Path="..\TelaEdicaoProduto.pas"/>
-    <File Path="..\TelaEdicaoProduto.dfm"/>
+    <File Path="..\CadastroProduto"/>
+    <File Path="..\CadastroProduto\Banco cadastro de produto"/>
+    <File Path="..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas"/>
+    <File Path="..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.dfm"/>
+    <File Path="..\CadastroProduto\Modulo"/>
+    <File Path="..\CadastroProduto\Modulo\Telas"/>
+    <File Path="..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas"/>
+    <File Path="..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.dfm"/>
+    <File Path="..\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.pas"/>
+    <File Path="..\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.dfm"/>
+    <File Path="..\CadastroProduto\Modulo\CadProd.pas"/>
+    <File Path="..\CadastroProduto\Modulo\CadProd.dfm"/>
+    <File Path="..\ConexãoDB"/>
+    <File Path="..\ConexãoDB\DbPrincipal.pas"/>
+    <File Path="..\ConexãoDB\DbPrincipal.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

@@ -13,27 +13,16 @@
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object DbFin: TFDConnection
-    Params.Strings = (
-      'Database=Software One'
-      'User_Name=postgres'
-      'Password=123456'
-      'Server=localhost'
-      'DriverID=PG')
-    Connected = True
-    Left = 24
-    Top = 64
-  end
   object Qcliente: TFDQuery
     Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
-    Left = 168
-    Top = 112
+    Left = 176
+    Top = 64
     object Qclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -102,11 +91,11 @@
     AfterCancel = TabelaClienteAfterCancel
     AfterDelete = TabelaClienteAfterDelete
     IndexFieldNames = 'idcliente'
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'clientes'
-    Left = 24
-    Top = 112
+    Left = 32
+    Top = 64
     object TabelaClienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -164,19 +153,18 @@
   end
   object Dscliente: TDataSource
     DataSet = Mcliente
-    Left = 24
-    Top = 168
+    Left = 32
+    Top = 120
   end
   object Mcliente: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pcliente'
     AfterPost = MclienteAfterPost
     AfterCancel = MclienteAfterCancel
     AfterDelete = MclienteAfterDelete
-    Left = 96
-    Top = 168
+    Left = 104
+    Top = 120
     object Mclienteidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -234,29 +222,24 @@
   end
   object Pcliente: TDataSetProvider
     DataSet = TabelaCliente
-    Left = 96
-    Top = 112
-  end
-  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
-    VendorLib = 'C:\Program Files\PostgreSQL\psqlODBC\bin\libpq.dll'
-    Left = 24
-    Top = 8
+    Left = 104
+    Top = 64
   end
   object DsQcliente: TDataSource
     DataSet = Qcliente
-    Left = 168
-    Top = 176
+    Left = 176
+    Top = 128
   end
   object QClienteExclusao: TFDQuery
     Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
-    Left = 232
-    Top = 112
+    Left = 248
+    Top = 64
     object IntegerField1: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -324,11 +307,11 @@
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
-    Left = 360
-    Top = 112
+    Left = 368
+    Top = 64
     object IntegerField2: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -393,19 +376,19 @@
   end
   object DsQedicaoCamposClientes: TDataSource
     DataSet = QedicaoCamposClientes
-    Left = 360
-    Top = 176
+    Left = 368
+    Top = 128
   end
   object QedicaoCliente: TFDQuery
     Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
-    Connection = DbFin
+    Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
-    Left = 432
-    Top = 112
+    Left = 440
+    Top = 64
     object IntegerField3: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -470,7 +453,7 @@
   end
   object DsQedicaoCliente: TDataSource
     DataSet = QedicaoCliente
-    Left = 432
-    Top = 176
+    Left = 440
+    Top = 128
   end
 end

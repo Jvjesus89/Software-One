@@ -13,13 +13,11 @@ uses
 
 type
   TDbClient = class(TForm)
-    DbFin: TFDConnection;
     Qcliente: TFDQuery;
     TabelaCliente: TFDTable;
     Dscliente: TDataSource;
     Mcliente: TClientDataSet;
     Pcliente: TDataSetProvider;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     TabelaClienteidcliente: TIntegerField;
     TabelaClientenmcliente: TWideStringField;
     TabelaClientecpf_cnpj: TWideStringField;
@@ -113,6 +111,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
 
 procedure TDbClient.MclienteAfterCancel(DataSet: TDataSet);
 begin

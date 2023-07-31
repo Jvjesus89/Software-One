@@ -102,14 +102,8 @@ Coordinates=98,319,53,51
 [DbVendas1.DsQitemvenda]
 Coordinates=167,1,145,33
 
-[DbVendas1.MTempItem]
-Coordinates=404,672,130,159
-
 [DbVendas1.DsTempItem]
 Coordinates=698,399,135,33
-
-[DbVendas1.TempItem]
-Coordinates=64,710,121,159
 
 [Label1]
 Coordinates=227,461,46,51
@@ -120,4 +114,7 @@ Coordinates=555,399,61,51
 [Valor]
 Coordinates=350,242,54,33
 Visible=True
+
+[DbVendas1.]
+Coordinates=64,710,121,159
 

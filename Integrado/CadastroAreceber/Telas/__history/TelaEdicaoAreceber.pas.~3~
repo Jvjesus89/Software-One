@@ -1,0 +1,103 @@
+unit TelaEdicaoAreceber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TTelaEdicaoAreceber1 = class(TForm)
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label1: TLabel;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    Busca: TButton;
+    BotaoCadastrar: TButton;
+    DBEdit1: TDBEdit;
+    DBEdit8: TDBEdit;
+    Button1: TButton;
+    DBEdit9: TDBEdit;
+    Button2: TButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure BotaoCadastrarClick(Sender: TObject);
+    procedure BuscaClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaEdicaoAreceber1: TTelaEdicaoAreceber1;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinreceber, TelaConsultaClienteAreceber, Areceber,
+  ConsultaFormaPagamentoAreceberEdit;
+
+procedure TTelaEdicaoAreceber1.BotaoCadastrarClick(Sender: TObject);
+begin
+      if Areceber1.DBGrid1.fields[5].value = NULL then
+      begin
+            ShowMessage('Não será possivel editar o valor e o cliente do titulo');
+      end else
+      begin
+      DbFinAreceber1.QEdiçãoAreceber.close;
+      DbFinAreceber1.QEdiçãoAreceber.sql.Clear;
+      DbFinAreceber1.QEdiçãoAreceber.sql.Add('Update areceber SET idcliente=:Pidcliente, nmcliente=:Pnmcliente, idformapagamento=:Pidforma, nmformapagamento=:Pnmforma, vltitulo=:Pvltitulo, nrtitulo=:Pnrtitulo, dtvencimento=:Pdtvencimento Where idareceber =:Pidtitulo');
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidtitulo').AsInteger :=  StrToInt (DBEdit9.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidcliente').AsInteger :=  StrToInt (DBEdit2.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnmcliente').AsString :=  (DBEdit3.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidforma').AsInteger :=  1;
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnmforma').AsString := (DBEdit5.Text) ;
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pvltitulo').AsInteger :=  StrToInt (DBEdit6.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pnrtitulo').AsInteger := StrToInt (DBEdit7.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pdtvencimento').AsDate := StrToDate(DBEdit1.Text);
+      DbFinAreceber1.QEdiçãoAreceber.ExecSql;
+       TelaEdicaoAreceber1.close;
+       DbFinAreceber1.Qareceber.close;
+       DbFinAreceber1.Qareceber.open;
+      end;
+
+end;
+
+procedure TTelaEdicaoAreceber1.BuscaClick(Sender: TObject);
+begin
+     TelaConsultaClienteAreceber1.showmodal;
+end;
+
+procedure TTelaEdicaoAreceber1.Button1Click(Sender: TObject);
+begin
+       DbFinAreceber1.MAreceber.Close;
+    DbFinAreceber1.MAreceber.Cancel;
+    TelaEdicaoAreceber1.close;
+end;
+
+procedure TTelaEdicaoAreceber1.Button2Click(Sender: TObject);
+begin
+   FormaPagemento.showmodal;
+end;
+
+procedure TTelaEdicaoAreceber1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    DbFinAreceber1.MAreceber.Close;
+    DbFinAreceber1.MAreceber.Cancel;
+end;
+
+end.

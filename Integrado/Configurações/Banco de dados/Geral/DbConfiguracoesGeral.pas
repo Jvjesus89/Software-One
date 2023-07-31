@@ -14,8 +14,6 @@ uses
 type
   TDbGeral = class(TForm)
     Label2: TLabel;
-    DB: TFDConnection;
-    FDPhysPgDriverLink1: TFDPhysPgDriverLink;
     Diretorios: TFDTable;
     Diretoriosidconfiguracao: TIntegerField;
     Diretoriosnmconfiguracao: TWideStringField;
@@ -49,5 +47,9 @@ var
 implementation
 
 {$R *.dfm}
+
+uses DbPrincipal;
+
+
 
 end.

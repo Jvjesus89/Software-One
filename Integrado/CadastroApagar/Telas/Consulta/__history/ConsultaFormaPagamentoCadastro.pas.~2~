@@ -1,0 +1,75 @@
+unit ConsultaFormaPagamentoCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TConsultaFormaPagamento = class(TForm)
+    Panel1: TPanel;
+    Busca: TDBEdit;
+    BotaoBusca: TButton;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    procedure BotaoBuscaClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaFormaPagamento: TConsultaFormaPagamento;
+
+implementation
+
+{$R *.dfm}
+
+uses Dbfinapagar;
+
+
+
+procedure TConsultaFormaPagamento.BotaoBuscaClick(Sender: TObject);
+begin
+    begin
+    if Busca.Text = '' then
+    begin
+      DbFinApagar1.QFormaPagamento.close ;
+      DbFinApagar1.QFormaPagamento.sql.Clear;
+      DbFinApagar1.QFormaPagamento.sql.Add('Select * From formapagamento');
+      DbFinApagar1.QFormaPagamento.open;
+    end
+    else
+    begin
+      DbFinApagar1.QFormaPagamento.close;
+      DbFinApagar1.QFormaPagamento.sql.Clear;
+      DbFinApagar1.QFormaPagamento.sql.Add('Select * From formapagamento Where cdformapagamento = '+(Busca.Text));
+      DbFinApagar1.QFormaPagamento.open;
+    end;
+end;
+end;
+
+procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
+begin
+     DbFinApagar1.QTabelaTemp.Close;
+     DbFinApagar1.QTabelaTemp.sql.clear;
+     DbFinApagar1.QTabelaTemp.sql.add('Update temp."#apagar" Set idformapagamento = :Pidformapagamento ,nmformapagamento = :Pnmformapagamento ');
+     DbFinApagar1.QTabelaTemp.ParamByName('Pidformapagamento').AsInteger := StrToInt(DbGrid1.Fields[2].Value);
+     DbFinApagar1.QTabelaTemp.ParamByName('Pnmformapagamento').AsString := DbGrid1.Fields[1].Value;
+     DbFinApagar1.QTabelaTemp.ExecSql;
+    ConsultaFormaPagamento.close;
+end;
+
+procedure TConsultaFormaPagamento.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    DbFinApagar1.QTempCampos.Close;
+    DbFinApagar1.QTempCampos.open;
+end;
+
+end.

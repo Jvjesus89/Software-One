@@ -99,17 +99,22 @@ begin
       DbVendas1.QestoqueTemp.ParamByName('Pdtcadastro').Asdate := now ;
       DbVendas1.QestoqueTemp.ExecSql ;
 
-    DbVendas1.MTempItem.Insert;
+      // Inserir na tabela #vendasitem
+      DbVendas1.QestoqueTemp.close;
+      DbVendas1.QestoqueTemp.sql.clear;
+      DbVendas1.QestoqueTemp.sql.add('Update temp."#vendasitem" Set');
+      DbVendas1.QestoqueTemp.sql.add('vlunitario = :vlunitario, vlitem = :vlitem, qtitem = :qtitem');
+      DbVendas1.QestoqueTemp.ParamByName('vlunitario').AsInteger := StrToInt (vlunitario.Text);
+      DbVendas1.QestoqueTemp.ParamByName('vlitem').AsInteger :=  StrToInt(vlitem.Text);
+      DbVendas1.QestoqueTemp.ParamByName('quantidade').AsInteger := StrToInt (quantidade.text);
+      DbVendas1.QestoqueTemp.ExecSql ;
+
     DbVendas1.Qestoque.close;
-    DbVendas1.MTempItem.Close;
-    DbVendas1.MTempItem.Open;
-    DbVendas1.MTempItem.Append;
 end;
 
 
 procedure TTelaCadastroProdutoVenda.Button3Click(Sender: TObject);
 begin
-    DbVendas1.MTempItem.Cancel;
     TelaCadastroProdutoVenda.close;
     ExclusãoMovimentaçãoTemp;
 end;
@@ -118,7 +123,10 @@ procedure TTelaCadastroProdutoVenda.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
 
-   DbVendas1.MTempItem.Cancel;
+   dbvendas1.TempItemExclusao.close;
+   dbvendas1.TempItemExclusao.sql.Clear;
+   dbvendas1.TempItemExclusao.sql.add('drop table temp."#vendasitem"');
+   dbvendas1.TempItemExclusao.execsql;
    ExclusãoMovimentaçãoTemp;
 
 

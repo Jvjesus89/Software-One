@@ -76,6 +76,7 @@ end;
 
 procedure TConsultaCliente.BotaoNovoClick(Sender: TObject);
 begin
+    DbClient.Mcliente.Open;
     DbClient.Mcliente.Append;
     TelaCadastroCliente1.showmodal;
 end;

@@ -1,0 +1,1065 @@
+object CadastroDeVendas: TCadastroDeVendas
+  Left = 0
+  Top = 0
+  Caption = 'Vendas'
+  ClientHeight = 630
+  ClientWidth = 1540
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1540
+    Height = 73
+    Align = alTop
+    TabOrder = 0
+    object BotaoNovo: TButton
+      Left = 1
+      Top = 1
+      Width = 75
+      Height = 71
+      Align = alLeft
+      Caption = 'Novo'
+      TabOrder = 0
+      OnClick = BotaoNovoClick
+      ExplicitLeft = 49
+      ExplicitTop = -15
+    end
+    object BotaoExcluir: TButton
+      Left = 153
+      Top = 1
+      Width = 75
+      Height = 71
+      Align = alLeft
+      Caption = 'Excluir'
+      TabOrder = 1
+      OnClick = BotaoExcluirClick
+    end
+    object BotaoEditar: TButton
+      Left = 76
+      Top = 1
+      Width = 77
+      Height = 71
+      Align = alLeft
+      Caption = 'Editar'
+      TabOrder = 2
+    end
+    object ExportarDados: TButton
+      Left = 1456
+      Top = 1
+      Width = 83
+      Height = 71
+      Align = alRight
+      Caption = 'Exportar'
+      TabOrder = 3
+    end
+    object Button1: TButton
+      Left = 1375
+      Top = 1
+      Width = 81
+      Height = 71
+      Align = alRight
+      Caption = 'Importar xml'
+      TabOrder = 4
+      OnClick = Button1Click
+    end
+    object Button3: TButton
+      Left = 1294
+      Top = 1
+      Width = 81
+      Height = 71
+      Align = alRight
+      Caption = 'Exportar xml'
+      TabOrder = 5
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 228
+      Top = 1
+      Width = 75
+      Height = 71
+      Align = alLeft
+      Caption = 'Imprimir'
+      TabOrder = 6
+      OnClick = Button4Click
+      ExplicitLeft = 256
+      ExplicitTop = 24
+      ExplicitHeight = 25
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 73
+    Width = 1540
+    Height = 557
+    Align = alClient
+    TabOrder = 1
+    object Panel3: TPanel
+      Left = 1
+      Top = 1
+      Width = 1538
+      Height = 48
+      Align = alTop
+      TabOrder = 0
+      object Label2: TLabel
+        Left = 1277
+        Top = 14
+        Width = 87
+        Height = 19
+        Caption = 'Busca Venda'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Button2: TButton
+        Left = 1490
+        Top = 14
+        Width = 41
+        Height = 19
+        Caption = 'Busca'
+        TabOrder = 0
+        OnClick = Button2Click
+      end
+      object Busca: TEdit
+        Left = 1370
+        Top = 14
+        Width = 121
+        Height = 21
+        TabOrder = 1
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 49
+      Width = 1538
+      Height = 507
+      Align = alClient
+      DataSource = DbVendas1.DsQVendas
+      ReadOnly = True
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'nrdocumento'
+          Width = 97
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmcliente'
+          Width = 746
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'vlvenda'
+          Width = 114
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmformapagamento'
+          Width = 471
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'dtvenda'
+          Width = 73
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'idvenda'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'idcliente'
+          Visible = False
+        end>
+    end
+  end
+  object ppReport1: TppReport
+    AutoStop = False
+    DataPipeline = BDreport
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    Template.FileName = 'C:\Sistema\Rtm\Rtm-Venda.rtm'
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    EmailSettings.ConnectionSettings.MailService = 'SMTP'
+    EmailSettings.ConnectionSettings.WebMail.GmailSettings.OAuth2.RedirectPort = 0
+    EmailSettings.ConnectionSettings.WebMail.Outlook365Settings.OAuth2.RedirectPort = 0
+    EmailSettings.ConnectionSettings.EnableMultiPlugin = False
+    LanguageID = 'Default'
+    OpenFile = False
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    ThumbnailSettings.Enabled = True
+    ThumbnailSettings.Visible = True
+    ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
+    ThumbnailSettings.ThumbnailSize = tsSmall
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.AllowExtract = True
+    PDFSettings.EncryptSettings.AllowAssemble = True
+    PDFSettings.EncryptSettings.AllowQualityPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.EncryptSettings.KeyLength = kl40Bit
+    PDFSettings.EncryptSettings.EncryptionType = etRC4
+    PDFSettings.DigitalSignatureSettings.SignPDF = False
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    XLSSettings.WorksheetName = 'Report'
+    CloudDriveSettings.DropBoxSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.DropBoxSettings.DirectorySupport = True
+    CloudDriveSettings.GoogleDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.GoogleDriveSettings.DirectorySupport = False
+    CloudDriveSettings.OneDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.OneDriveSettings.DirectorySupport = True
+    Left = 384
+    Top = 16
+    Version = '21.05'
+    mmColumnWidth = 0
+    DataPipelineName = 'BDreport'
+    object ppHeaderBand1: TppHeaderBand
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 23283
+      mmPrintPosition = 0
+      object ppShape1: TppShape
+        DesignLayer = ppDesignLayer1
+        UserName = 'Shape1'
+        mmHeight = 13229
+        mmLeft = 5292
+        mmTop = 2910
+        mmWidth = 189971
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel1: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label1'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'Cliente'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 6617
+        mmTop = 10319
+        mmWidth = 14023
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppDBText1: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText1'
+        Border.mmPadding = 0
+        DataField = 'nmcliente'
+        DataPipeline = BDreport
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4763
+        mmLeft = 21698
+        mmTop = 10319
+        mmWidth = 159809
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel3: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label3'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'Nr. Documento'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 6617
+        mmTop = 3705
+        mmWidth = 28575
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppDBText3: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText3'
+        Border.mmPadding = 0
+        DataField = 'nrdocumento'
+        DataPipeline = BDreport
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4763
+        mmLeft = 36250
+        mmTop = 3705
+        mmWidth = 32808
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel4: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label4'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'nmproduto'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 5292
+        mmTop = 17463
+        mmWidth = 129646
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel5: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label5'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'vlunitario'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 149490
+        mmTop = 17463
+        mmWidth = 23813
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel6: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label6'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'Qtd'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 136261
+        mmTop = 17463
+        mmWidth = 13229
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel7: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label7'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'vlitem'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 181240
+        mmTop = 17463
+        mmWidth = 11642
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel8: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label8'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'dtvenda'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 145521
+        mmTop = 3705
+        mmWidth = 15610
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppDBText8: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText8'
+        Border.mmPadding = 0
+        DataField = 'dtvenda'
+        DataPipeline = BDreport
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4763
+        mmLeft = 162190
+        mmTop = 3705
+        mmWidth = 32808
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppTableGrid2: TppTableGrid
+        DesignLayer = ppDesignLayer1
+        UserName = 'TableGrid2'
+        DefaultColWidth = 0.500000000000000000
+        DefaultRowHeight = 0.500000000000000000
+        mmHeight = 4763
+        mmLeft = 5292
+        mmTop = 17463
+        mmWidth = 189971
+        BandType = 0
+        LayerName = Foreground
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        mmDefaultRowHeight = 12700
+        mmDefaultColWidth = 12700
+        object ppTableRow2: TppTableRow
+          DesignLayer = ppDesignLayer1
+          UserName = 'TableRow2'
+          mmHeight = 4763
+          mmLeft = 0
+          mmTop = 0
+          mmWidth = 48948
+          BandType = 4
+          LayerName = Foreground
+          mmBottomOffset = 0
+          mmOverFlowOffset = 0
+          mmStopPosition = 0
+          mmMinHeight = 0
+          object ppTableCell5: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell5'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell6: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell6'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell7: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell7'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell8: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell8'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+        end
+        object ppTableColumn5: TppTableColumn
+          UserName = 'TableColumn5'
+          mmWidth = 132127
+        end
+        object ppTableColumn6: TppTableColumn
+          UserName = 'TableColumn6'
+          mmWidth = 13196
+        end
+        object ppTableColumn7: TppTableColumn
+          UserName = 'TableColumn7'
+          mmWidth = 26293
+        end
+        object ppTableColumn8: TppTableColumn
+          UserName = 'TableColumn8'
+          mmWidth = 18355
+        end
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 6350
+      mmPrintPosition = 0
+      object ppDBText4: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText4'
+        Border.mmPadding = 0
+        DataField = 'nmproduto'
+        DataPipeline = BDreport
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4233
+        mmLeft = 6615
+        mmTop = 1588
+        mmWidth = 128323
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText5: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText5'
+        Border.mmPadding = 0
+        DataField = 'vlunitario'
+        DataPipeline = BDreport
+        DisplayFormat = '$#,0.00;-$#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4233
+        mmLeft = 149490
+        mmTop = 1588
+        mmWidth = 23813
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText6: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText6'
+        Border.mmPadding = 0
+        DataField = 'qtvendido'
+        DataPipeline = BDreport
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4233
+        mmLeft = 136261
+        mmTop = 1588
+        mmWidth = 13229
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText7: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText7'
+        Border.mmPadding = 0
+        DataField = 'vlitem'
+        DataPipeline = BDreport
+        DisplayFormat = '$#,0.00;-$#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4233
+        mmLeft = 175155
+        mmTop = 1588
+        mmWidth = 20902
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppTableGrid1: TppTableGrid
+        DesignLayer = ppDesignLayer1
+        UserName = 'TableGrid1'
+        DefaultColWidth = 0.500000000000000000
+        DefaultRowHeight = 0.500000000000000000
+        mmHeight = 4763
+        mmLeft = 5292
+        mmTop = 1588
+        mmWidth = 189971
+        BandType = 4
+        LayerName = Foreground
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        mmDefaultRowHeight = 12700
+        mmDefaultColWidth = 12700
+        object ppTableRow1: TppTableRow
+          DesignLayer = ppDesignLayer1
+          UserName = 'TableRow1'
+          mmHeight = 4763
+          mmLeft = 0
+          mmTop = 0
+          mmWidth = 48948
+          BandType = 4
+          LayerName = Foreground
+          mmBottomOffset = 0
+          mmOverFlowOffset = 0
+          mmStopPosition = 0
+          mmMinHeight = 0
+          object ppTableCell1: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell1'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell2: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell2'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell3: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell3'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+          object ppTableCell4: TppTableCell
+            DesignLayer = ppDesignLayer1
+            UserName = 'TableCell4'
+            Border.BorderPositions = [bpLeft, bpTop, bpRight, bpBottom]
+            Border.Weight = 1.000000000000000000
+            Border.mmPadding = 1058
+            Brush.Style = bsClear
+            Padding = 0.041700001806020740
+            Transparent = True
+            mmHeight = 23548
+            mmLeft = 0
+            mmTop = 0
+            mmWidth = 48948
+            BandType = 4
+            LayerName = Foreground
+            mmBottomOffset = 0
+            mmOverFlowOffset = 0
+            mmStopPosition = 0
+            mmMinHeight = 0
+            mmPadding = 1058
+          end
+        end
+        object ppTableColumn1: TppTableColumn
+          UserName = 'TableColumn1'
+          mmWidth = 132127
+        end
+        object ppTableColumn2: TppTableColumn
+          UserName = 'TableColumn2'
+          mmWidth = 13196
+        end
+        object ppTableColumn3: TppTableColumn
+          UserName = 'TableColumn3'
+          mmWidth = 26293
+        end
+        object ppTableColumn4: TppTableColumn
+          UserName = 'TableColumn4'
+          mmWidth = 18355
+        end
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+      object ppLabel2: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label2'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'Vl. venda'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 144198
+        mmTop = 1323
+        mmWidth = 17992
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppDBText2: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText2'
+        Border.mmPadding = 0
+        DataField = 'vlvenda'
+        DataPipeline = BDreport
+        DisplayFormat = '$#,0.00;-$#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'BDreport'
+        mmHeight = 4763
+        mmLeft = 163248
+        mmTop = 1323
+        mmWidth = 32808
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Border.mmPadding = 0
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 144198
+        mmTop = 6615
+        mmWidth = 51858
+        BandType = 8
+        LayerName = Foreground
+      end
+    end
+    object ppDesignLayers1: TppDesignLayers
+      object ppDesignLayer1: TppDesignLayer
+        UserName = 'Foreground'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList1: TppParameterList
+    end
+  end
+  object BDreport: TppBDEPipeline
+    DataSource = DbVendas1.DsQrtm
+    UserName = 'BDreport'
+    Left = 480
+    Top = 16
+    object ppBDEPipeline1ppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idvenda'
+      FieldName = 'idvenda'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppBDEPipeline1ppField2: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idcliente'
+      FieldName = 'idcliente'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 1
+    end
+    object ppBDEPipeline1ppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idformapagamento'
+      FieldName = 'idformapagamento'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 2
+    end
+    object ppBDEPipeline1ppField4: TppField
+      FieldAlias = 'vlvenda'
+      FieldName = 'vlvenda'
+      FieldLength = 0
+      DataType = dtSingle
+      DisplayWidth = 10
+      Position = 3
+    end
+    object ppBDEPipeline1ppField5: TppField
+      FieldAlias = 'dtcadastro'
+      FieldName = 'dtcadastro'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 4
+    end
+    object ppBDEPipeline1ppField6: TppField
+      FieldAlias = 'dtvenda'
+      FieldName = 'dtvenda'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 5
+    end
+    object ppBDEPipeline1ppField7: TppField
+      FieldAlias = 'nmformapagamento'
+      FieldName = 'nmformapagamento'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 6
+    end
+    object ppBDEPipeline1ppField8: TppField
+      FieldAlias = 'nmcliente'
+      FieldName = 'nmcliente'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 7
+    end
+    object ppBDEPipeline1ppField9: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'nrdocumento'
+      FieldName = 'nrdocumento'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 8
+    end
+    object ppBDEPipeline1ppField10: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idvendasitem'
+      FieldName = 'idvendasitem'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 9
+    end
+    object ppBDEPipeline1ppField11: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idvenda_1'
+      FieldName = 'idvenda_1'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 10
+    end
+    object ppBDEPipeline1ppField12: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'idproduto'
+      FieldName = 'idproduto'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 11
+    end
+    object ppBDEPipeline1ppField13: TppField
+      FieldAlias = 'nmproduto'
+      FieldName = 'nmproduto'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 12
+    end
+    object ppBDEPipeline1ppField14: TppField
+      FieldAlias = 'vlunitario'
+      FieldName = 'vlunitario'
+      FieldLength = 0
+      DataType = dtSingle
+      DisplayWidth = 10
+      Position = 13
+    end
+    object ppBDEPipeline1ppField15: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'qtvendido'
+      FieldName = 'qtvendido'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 14
+    end
+    object ppBDEPipeline1ppField16: TppField
+      FieldAlias = 'vlitem'
+      FieldName = 'vlitem'
+      FieldLength = 0
+      DataType = dtSingle
+      DisplayWidth = 10
+      Position = 15
+    end
+  end
+end

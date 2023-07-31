@@ -37,7 +37,7 @@ begin
     begin
       close;
       sql.Clear;
-      sql.Add('Select * From cliente Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
+      sql.Add('Select * From clientes Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
       open;
     end;
 end;

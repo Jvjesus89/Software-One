@@ -120,6 +120,51 @@ object Apagar1: TApagar1
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnDblClick = DBGrid1DblClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'nrtitulo'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmcliente'
+          Width = 885
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'vltitulo'
+          Width = 83
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'nmformapagamento'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'dtvencimento'
+          Width = 130
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'idapagar'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'idcliente'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'idapagar'
+          Visible = False
+        end>
     end
   end
 end
