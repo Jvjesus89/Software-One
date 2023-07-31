@@ -1,10 +1,5 @@
-# Sistema Software one #
+# Sistema ERP Software one #
 <h1>Sistema para gerenciamento de vendas, controle de estoque e controle do financeiro<h1/>
-Local onde deverá ser adicionado as pastas do sistema
-  
-  ```
-  Diretorio c:/sistema
-  ```
   
   Base de dados para inicio do sistema
   ```
