@@ -102,69 +102,55 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\DBvendas.pas">
+        <DCCReference Include="..\Vendas\Banco de dados\DBvendas.pas">
             <Form>DbVendas1</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaCadastroVenda.pas">
+        <DCCReference Include="..\Vendas\Cadastro\TelaCadastroVenda.pas">
             <Form>TelaCadastroVendas</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaClienteVenda.pas">
+        <DCCReference Include="..\Vendas\Consulta\TelaConsultaClienteVenda.pas">
             <Form>TelaConsultaCliente</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaProdutoVenda.pas">
+        <DCCReference Include="..\Vendas\Consulta\TelaConsultaProdutoVenda.pas">
             <Form>TelaConsultaProduto</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\CadastroProdutoVenda.pas">
+        <DCCReference Include="..\Vendas\Cadastro\CadastroProdutoVenda.pas">
             <Form>TelaCadastroProdutoVenda</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\TelaExportaçãoXML.pas">
             <Form>ExportarXML</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaPrazoVendas.pas">
+        <DCCReference Include="..\Vendas\Consulta\TelaConsultaPrazoVendas.pas">
             <Form>ConsultaPrazo</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaConsultaFormaPagamentoVendas.pas">
+        <DCCReference Include="..\Vendas\Consulta\TelaConsultaFormaPagamentoVendas.pas">
             <Form>ConsultaFormaPagamento</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\TelaCadastroFinanceiro.pas">
+        <DCCReference Include="..\Vendas\Cadastro\TelaCadastroFinanceiro.pas">
             <Form>CadastroAreceber</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas"/>
         <DCCReference Include="..\CoversorJsonXML\Padronizacao\U_Normalize.pas"/>
         <DCCReference Include="..\Vendas\Banco de dados\DbXml\DBXml.pas">
             <Form>DbXmlVendas</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\Vendas\Xml\ImportaXmlVendas.pas">
             <Form>XML</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\CoversorJsonXML\JSONtoXML\U_JSON.XML.pas"/>
         <DCCReference Include="..\ConversorXMlJson\XMLtoJSON\U_XML.JSON.pas"/>
         <DCCReference Include="..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas"/>
         <DCCReference Include="..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas">
             <Form>DbImportacaoXml</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
             <Form>DbMaster</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\CadastroVendas.pas">
+        <DCCReference Include="..\Vendas\CadastroVendas.pas">
             <Form>CadastroDeVendas</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

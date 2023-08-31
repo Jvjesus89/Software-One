@@ -39,5 +39,16 @@
     <Transaction>2023/07/04 17:41:06.000.735,D:\Sistema\Integrado\TelaLogin\ConexãoComOBanco.pas=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-	</ProjectSortOrder>
+    <File Path="..\..\Integrado"/>
+    <File Path="..\ConexãoDB"/>
+    <File Path="..\ConexãoDB\DbPrincipal.pas"/>
+    <File Path="..\ConexãoDB\DbPrincipal.dfm"/>
+    <File Path="..\TelaLogin"/>
+    <File Path="..\TelaLogin\BancoLogin.pas"/>
+    <File Path="..\TelaLogin\BancoLogin.dfm"/>
+    <File Path="..\TelaLogin\EditarConexao.pas"/>
+    <File Path="..\TelaLogin\EditarConexao.dfm"/>
+    <File Path="..\TelaLogin.pas"/>
+    <File Path="..\TelaLogin.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

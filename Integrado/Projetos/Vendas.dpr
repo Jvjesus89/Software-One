@@ -2,17 +2,17 @@ program Vendas;
 
 uses
   Vcl.Forms,
-  DBvendas in '..\DBvendas.pas' {DbVendas1},
+  DBvendas in '..\Vendas\Banco de dados\DBvendas.pas' {DbVendas1},
   Vcl.Themes,
   Vcl.Styles,
-  TelaCadastroVenda in '..\TelaCadastroVenda.pas' {TelaCadastroVendas},
-  TelaConsultaClienteVenda in '..\TelaConsultaClienteVenda.pas' {TelaConsultaCliente},
-  TelaConsultaProdutoVenda in '..\TelaConsultaProdutoVenda.pas' {TelaConsultaProduto},
-  CadastroProdutoVenda in '..\CadastroProdutoVenda.pas' {TelaCadastroProdutoVenda},
+  TelaCadastroVenda in '..\Vendas\Cadastro\TelaCadastroVenda.pas' {TelaCadastroVendas},
+  TelaConsultaClienteVenda in '..\Vendas\Consulta\TelaConsultaClienteVenda.pas' {TelaConsultaCliente},
+  TelaConsultaProdutoVenda in '..\Vendas\Consulta\TelaConsultaProdutoVenda.pas' {TelaConsultaProduto},
+  CadastroProdutoVenda in '..\Vendas\Cadastro\CadastroProdutoVenda.pas' {TelaCadastroProdutoVenda},
   TelaExportaçãoXML in '..\TelaExportaçãoXML.pas' {ExportarXML},
-  TelaConsultaPrazoVendas in '..\TelaConsultaPrazoVendas.pas' {ConsultaPrazo},
-  TelaConsultaFormaPagamentoVendas in '..\TelaConsultaFormaPagamentoVendas.pas' {ConsultaFormaPagamento},
-  TelaCadastroFinanceiro in '..\TelaCadastroFinanceiro.pas' {CadastroAreceber},
+  TelaConsultaPrazoVendas in '..\Vendas\Consulta\TelaConsultaPrazoVendas.pas' {ConsultaPrazo},
+  TelaConsultaFormaPagamentoVendas in '..\Vendas\Consulta\TelaConsultaFormaPagamentoVendas.pas' {ConsultaFormaPagamento},
+  TelaCadastroFinanceiro in '..\Vendas\Cadastro\TelaCadastroFinanceiro.pas' {CadastroAreceber},
   U_Origin.Return in '..\CoversorJsonXML\Padronizacao\U_Origin.Return.pas',
   U_Normalize in '..\CoversorJsonXML\Padronizacao\U_Normalize.pas',
   DBXml in '..\Vendas\Banco de dados\DbXml\DBXml.pas' {DbXmlVendas: TDataModule},
@@ -22,7 +22,7 @@ uses
   U_FormatConverter in '..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas',
   DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule},
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
-  CadastroVendas in '..\CadastroVendas.pas' {CadastroDeVendas};
+  CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas};
 
 {$R *.res}
 
@@ -30,8 +30,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
-  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
-  Application.CreateForm(TDbMaster, DbMaster);
+  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TDbVendas1, DbVendas1);
   Application.CreateForm(TDbXmlVendas, DbXmlVendas);
   Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
@@ -46,6 +45,9 @@ begin
   Application.CreateForm(TXML, XML);
   Application.Run;
 end.
+
+
+
 
 
 

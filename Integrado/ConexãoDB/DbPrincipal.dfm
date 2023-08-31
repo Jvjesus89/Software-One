@@ -11,11 +11,13 @@
       'ExtendedMetadata=True'
       'OidAsBlob=Yes'
       'DriverID=PG')
-    Connected = True
     Left = 64
     Top = 40
   end
   object Dll32bit: TFDPhysPgDriverLink
+    VendorLib = 
+      'D:\Sistema\Software-One\Integrado\Projetos\Win32\Debug\DLL\32 bi' +
+      't\libpq.dll'
     Left = 152
     Top = 40
   end
