@@ -93,27 +93,8 @@ Vnmforma : string;
 
 begin
    DbVendas1.QEntradaVenda.Open;
-    Vnmforma := (DBGrid2.Fields[0].value);
+   ValorSomatorioItem;
 
-   //Inserir Dados a tabela Vendas
-
-      DbVendas1.QEntradaVenda.close;
-      DbVendas1.QEntradaVenda.sql.Clear;
-      DbVendas1.QEntradaVenda.sql.Add('insert into vendas( vlvenda, dtcadastro, dtvenda, nrdocumento)');
-      DbVendas1.QEntradaVenda.sql.add('VALUES (  :Pvlvenda, :Pdtcadastro ,:Pdtvenda,:Pnrdocumento)');
-      DbVendas1.QEntradaVenda.ParamByName('Pvlvenda').AsFloat :=  StrToFloat(Valor.Text);
-      DbVendas1.QEntradaVenda.ParamByName('Pdtcadastro').AsDate :=  now;
-      DbVendas1.QEntradaVenda.ParamByName('Pdtvenda').AsDate :=  DateTimePicker1.Date;
-      DbVendas1.QEntradaVenda.ParamByName('Pnrdocumento').AsInteger :=  StrToInt(DBEdit10.Text);
-      DbVendas1.QEntradaVenda.ExecSQL;
-
-
-    //Consultar ultimo Idvenda
-     DbVendas1.QConsultaTabelaTemp.close;
-     DbVendas1.QConsultaTabelaTemp.sql.clear;
-     DbVendas1.QConsultaTabelaTemp.sql.add('Select idvenda from temp."#vendas" ');
-     DbVendas1.QConsultaTabelaTemp.open;
-     Vidvenda := DbVendas1.QConsultaTabelaTemp.FieldbyName('idvenda').AsInteger  ;
 
     //Consultar idcliente
      DbVendas1.QConsultaTabelaTemp.close;
@@ -121,6 +102,28 @@ begin
      DbVendas1.QConsultaTabelaTemp.sql.add('Select idcliente from temp."#vendas" ');
      DbVendas1.QConsultaTabelaTemp.open;
      idcliente := DbVendas1.QConsultaTabelaTemp.FieldbyName('idcliente').AsInteger  ;
+
+
+
+   //Inserir Dados a tabela Vendas
+
+      DbVendas1.QEntradaVenda.close;
+      DbVendas1.QEntradaVenda.sql.Clear;
+      DbVendas1.QEntradaVenda.sql.Add('insert into vendas( idcliente,vlvenda, dtcadastro, dtvenda, nrdocumento)');
+      DbVendas1.QEntradaVenda.sql.add('VALUES ( :Pidcliente, :Pvlvenda, :Pdtcadastro ,:Pdtvenda,:Pnrdocumento)');
+      DbVendas1.QEntradaVenda.ParamByName('Pidcliente').AsInteger :=  (idcliente);
+      DbVendas1.QEntradaVenda.ParamByName('Pvlvenda').AsFloat :=  StrToFloat(Valor.Text);
+      DbVendas1.QEntradaVenda.ParamByName('Pdtcadastro').AsDate :=  now;
+      DbVendas1.QEntradaVenda.ParamByName('Pdtvenda').AsDate :=  DateTimePicker1.Date;
+      DbVendas1.QEntradaVenda.ParamByName('Pnrdocumento').AsInteger :=  StrToInt(DBEdit10.Text);
+      DbVendas1.QEntradaVenda.ExecSQL;
+
+     //Consultar ultimo Idvenda
+     DbVendas1.QConsultaTabelaTemp.close;
+     DbVendas1.QConsultaTabelaTemp.sql.clear;
+     DbVendas1.QConsultaTabelaTemp.sql.add('Select max (idvenda) as idvenda  from vendas');
+     DbVendas1.QConsultaTabelaTemp.open;
+     Vidvenda := DbVendas1.QConsultaTabelaTemp.FieldbyName('idvenda').AsInteger  ;
 
     //Editar Dados da tabela Temp.Areceber
 
@@ -143,7 +146,6 @@ begin
 
     //Inserir o idvenda na tabela temporaria
 
-   DbVendas1.QEntradaVendaItem.Open;
     begin
       DbVendas1.QEntradaVendaItem.close;
       DbVendas1.QEntradaVendaItem.sql.Clear;
@@ -155,7 +157,7 @@ begin
     begin
       DbVendas1.QEntradaVendaItem.close;
       DbVendas1.QEntradaVendaItem.sql.Clear;
-      DbVendas1.QEntradaVendaItem.sql.Add('INSERT INTO vendasitem (idvenda,idproduto, nmproduto, vlunitario, qtvendido, vlitem)SELECT idvenda,idproduto, nmitemvenda, vlunitario, qtitem, vlitem FROM temp."#vendasitem"');
+      DbVendas1.QEntradaVendaItem.sql.Add('INSERT INTO vendasitem (idvenda,idproduto, vlunitario, qtvendido, vlitem)SELECT idvenda,idproduto, vlunitario, qtitem, vlitem FROM temp."#vendasitem"');
       DbVendas1.QEntradaVendaItem.ExecSQL;
     end;
 
@@ -163,7 +165,7 @@ begin
      begin
       DbVendas1.QExcluiTabelaTemp.close;
       DbVendas1.QExcluiTabelaTemp.sql.Clear;
-      DbVendas1.QExcluiTabelaTemp.sql.Add('delete from temp.itemvenda');
+      DbVendas1.QExcluiTabelaTemp.sql.Add('delete from temp."#vendasitem"');
       DbVendas1.QExcluiTabelaTemp.ExecSQL;
      end;
 
@@ -296,9 +298,12 @@ begin
 end;
 
 procedure TTelaCadastroVendas.ValorSomatorioItem;
+var valortotal : real ;
 begin
    DbVendas1.QTotalVenda.close;
    DbVendas1.QTotalVenda.open;
+   valortotal := DbVendas1.QTotalVenda.FieldByName('ValorVenda').AsFloat;
+   Valor.text := formatfloat('R$###.00',valortotal);
 end;
 
 procedure TTelaCadastroVendas.AdicionarExit(Sender: TObject);

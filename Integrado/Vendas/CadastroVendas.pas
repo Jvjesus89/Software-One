@@ -33,6 +33,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure BotaoEditarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +52,46 @@ uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas;
 
 
 
+
+procedure TCadastroDeVendas.BotaoEditarClick(Sender: TObject);
+var idvenda : integer;
+begin
+     idvenda := (DBGrid1.fields[4].Value);
+
+        // criação tabela temporaria para vendas
+     DbVendas1.QCriaTabelaTemp.close;
+     DbVendas1.QCriaTabelaTemp.sql.Clear;
+     DbVendas1.QCriaTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendas"');
+     DbVendas1.QCriaTabelaTemp.sql.Add('(idvenda integer,idcliente integer,vlvenda real ,dtcadastro date,dtvenda date,nrdocumento integer)');
+     DbVendas1.QCriaTabelaTemp.ExecSQl;
+     DbVendas1.QTempCamposVenda.close;
+
+     DbVendas1.QInseriTabelaTemp.close;
+     DbVendas1.QInseriTabelaTemp.sql.Clear;
+     DbVendas1.QInseriTabelaTemp.sql.Add('Insert into temp."#vendas" select * From vendas where idvenda = :Pidvenda');
+     DbVendas1.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
+     DbVendas1.QInseriTabelaTemp.ExecSQl;
+
+
+             // criação tabela temporaria para vendas item
+     DbVendas1.QInseriTabelaTemp.close;
+     DbVendas1.QInseriTabelaTemp.sql.Clear;
+     DbVendas1.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
+     DbVendas1.QInseriTabelaTemp.sql.Add('(idvendaitem integer DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
+     DbVendas1.QInseriTabelaTemp.sql.Add('vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
+     DbVendas1.QInseriTabelaTemp.ExecSQl;
+
+     DbVendas1.QInseriTabelaTemp.close;
+     DbVendas1.QInseriTabelaTemp.sql.Clear;
+     DbVendas1.QInseriTabelaTemp.sql.Add('Insert into temp."#vendasitem" select * From vendasitem Where idvenda = :Pidvenda ');
+     DbVendas1.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
+     DbVendas1.QInseriTabelaTemp.ExecSQl;
+
+     DbVendas1.QTempVendasItem.close;
+     DbVendas1.QTempVendasItem.open;
+
+     TelaCadastroVendas.showmodal;
+end;
 
 procedure TCadastroDeVendas.BotaoExcluirClick(Sender: TObject);
 var IdVenda : integer;

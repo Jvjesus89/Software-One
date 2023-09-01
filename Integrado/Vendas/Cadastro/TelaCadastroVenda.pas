@@ -217,17 +217,23 @@ begin
 end;
 
 procedure TTelaCadastroVendas.DBGrid1ColEnter(Sender: TObject);
+var valortotal : real ;
 begin
     //Somatorio valor da venda
-    ValorSomatorioItem
+    ValorSomatorioItem;
+       valortotal := DbVendas1.QTotalVenda.FieldByName('ValorVenda').AsFloat;
+   Valor.text := formatfloat('R$###.00',valortotal);
 end;
 
 
 procedure TTelaCadastroVendas.DBGrid1Exit(Sender: TObject);
+var valortotal : real ;
 begin
 
    //Somatorio valor da venda
-   ValorSomatorioItem
+   ValorSomatorioItem ;
+   valortotal := DbVendas1.QTotalVenda.FieldByName('ValorVenda').AsFloat;
+   Valor.text := formatfloat('R$###.00',valortotal);
 
 end;
 

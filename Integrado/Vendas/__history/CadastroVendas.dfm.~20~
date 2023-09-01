@@ -105,11 +105,15 @@ object CadastroDeVendas: TCadastroDeVendas
       Height = 48
       Align = alTop
       TabOrder = 0
+      DesignSize = (
+        1538
+        48)
       object Label2: TLabel
-        Left = 1277
-        Top = 14
-        Width = 87
+        Left = 1280
+        Top = 11
+        Width = 91
         Height = 19
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Busca Venda'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -119,19 +123,21 @@ object CadastroDeVendas: TCadastroDeVendas
         ParentFont = False
       end
       object Button2: TButton
-        Left = 1490
-        Top = 14
+        Left = 1496
+        Top = 11
         Width = 41
-        Height = 19
+        Height = 22
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Busca'
         TabOrder = 0
         OnClick = Button2Click
       end
       object Busca: TEdit
-        Left = 1370
-        Top = 14
+        Left = 1375
+        Top = 11
         Width = 121
         Height = 21
+        Anchors = [akLeft, akTop, akRight]
         TabOrder = 1
       end
     end
@@ -149,45 +155,39 @@ object CadastroDeVendas: TCadastroDeVendas
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-    end
-    object cxGrid1: TcxGrid
-      Left = 344
-      Top = 288
-      Width = 250
-      Height = 200
-      TabOrder = 2
-      object cxGrid1DBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        ScrollbarAnnotations.CustomAnnotations = <>
-        DataController.DataSource = DbVendas1.DsQVendas
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        object cxGrid1DBTableView1idvenda: TcxGridDBColumn
-          DataBinding.FieldName = 'idvenda'
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'nrdocumento'
+          Width = 166
+          Visible = True
         end
-        object cxGrid1DBTableView1idcliente: TcxGridDBColumn
-          DataBinding.FieldName = 'idcliente'
+        item
+          Expanded = False
+          FieldName = 'nmcliente'
+          Visible = True
         end
-        object cxGrid1DBTableView1dtcadastro: TcxGridDBColumn
-          DataBinding.FieldName = 'dtcadastro'
+        item
+          Expanded = False
+          FieldName = 'vlvenda'
+          Width = 90
+          Visible = True
         end
-        object cxGrid1DBTableView1dtvenda: TcxGridDBColumn
-          DataBinding.FieldName = 'dtvenda'
+        item
+          Expanded = False
+          FieldName = 'dtvenda'
+          Visible = True
         end
-        object cxGrid1DBTableView1nrdocumento: TcxGridDBColumn
-          DataBinding.FieldName = 'nrdocumento'
+        item
+          Expanded = False
+          FieldName = 'idvenda'
+          Visible = False
         end
-        object cxGrid1DBTableView1vlvenda: TcxGridDBColumn
-          DataBinding.FieldName = 'vlvenda'
-        end
-        object cxGrid1DBTableView1nmcliente: TcxGridDBColumn
-          DataBinding.FieldName = 'nmcliente'
-        end
-      end
-      object cxGrid1Level1: TcxGridLevel
-        GridView = cxGrid1DBTableView1
-      end
+        item
+          Expanded = False
+          FieldName = 'nmformapagamento'
+          Visible = True
+        end>
     end
   end
 end

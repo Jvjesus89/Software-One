@@ -971,18 +971,23 @@
       Origin = 'idvendaitem'
     end
     object SingleField5: TSingleField
+      DisplayLabel = 'Vl. Unitario'
       FieldName = 'vlunitario'
       Origin = 'vlunitario'
+      currency = True
     end
     object SingleField6: TSingleField
+      DisplayLabel = 'Vl. Item'
       FieldName = 'vlitem'
       Origin = 'vlitem'
+      currency = True
     end
     object IntegerField7: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
     end
     object IntegerField8: TIntegerField
+      DisplayLabel = 'Quantidade'
       FieldName = 'qtitem'
       Origin = 'qtitem'
     end
@@ -992,6 +997,7 @@
     end
     object WideStringField12: TWideStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Produto'
       FieldName = 'nmproduto'
       Origin = 'nmproduto'
       ProviderFlags = []

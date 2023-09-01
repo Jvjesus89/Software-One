@@ -50,6 +50,7 @@ object CadastroDeVendas: TCadastroDeVendas
       Align = alLeft
       Caption = 'Editar'
       TabOrder = 2
+      OnClick = BotaoEditarClick
     end
     object ExportarDados: TButton
       Left = 1456
@@ -105,11 +106,15 @@ object CadastroDeVendas: TCadastroDeVendas
       Height = 48
       Align = alTop
       TabOrder = 0
+      DesignSize = (
+        1538
+        48)
       object Label2: TLabel
-        Left = 1288
+        Left = 1280
         Top = 11
         Width = 87
-        Height = 22
+        Height = 19
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Busca Venda'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -123,6 +128,7 @@ object CadastroDeVendas: TCadastroDeVendas
         Top = 11
         Width = 41
         Height = 22
+        Anchors = [akLeft, akTop, akRight]
         Caption = 'Busca'
         TabOrder = 0
         OnClick = Button2Click
@@ -131,7 +137,8 @@ object CadastroDeVendas: TCadastroDeVendas
         Left = 1375
         Top = 11
         Width = 121
-        Height = 22
+        Height = 21
+        Anchors = [akLeft, akTop, akRight]
         TabOrder = 1
       end
     end
@@ -164,11 +171,22 @@ object CadastroDeVendas: TCadastroDeVendas
         item
           Expanded = False
           FieldName = 'vlvenda'
+          Width = 90
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'dtvenda'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'idvenda'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'nmformapagamento'
           Visible = True
         end>
     end

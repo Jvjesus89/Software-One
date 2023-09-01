@@ -50,6 +50,7 @@ object CadastroDeVendas: TCadastroDeVendas
       Align = alLeft
       Caption = 'Editar'
       TabOrder = 2
+      OnClick = BotaoEditarClick
     end
     object ExportarDados: TButton
       Left = 1456
@@ -111,7 +112,7 @@ object CadastroDeVendas: TCadastroDeVendas
       object Label2: TLabel
         Left = 1280
         Top = 11
-        Width = 91
+        Width = 87
         Height = 19
         Anchors = [akLeft, akTop, akRight]
         Caption = 'Busca Venda'
@@ -186,6 +187,7 @@ object CadastroDeVendas: TCadastroDeVendas
         item
           Expanded = False
           FieldName = 'nmformapagamento'
+          Width = 64
           Visible = True
         end>
     end
