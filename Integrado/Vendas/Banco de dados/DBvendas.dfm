@@ -40,8 +40,8 @@
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 24
-    Top = 8
+    Left = 544
+    Top = 256
     Width = 124
     Height = 19
     Caption = 'Temp.FinArecebe'
@@ -53,8 +53,8 @@
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 168
-    Top = 512
+    Left = 152
+    Top = 424
     Width = 35
     Height = 19
     Caption = 'Itens'
@@ -66,8 +66,8 @@
     ParentFont = False
   end
   object Vendas: TLabel
-    Left = 64
-    Top = 120
+    Left = 56
+    Top = 0
     Width = 51
     Height = 19
     Caption = 'Vendas'
@@ -78,22 +78,9 @@
     Font.Style = []
     ParentFont = False
   end
-  object Label5: TLabel
-    Left = 520
-    Top = 288
-    Width = 119
-    Height = 19
-    Caption = 'Temp.vendaitem'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object Label6: TLabel
-    Left = 128
-    Top = 264
+    Left = 112
+    Top = 152
     Width = 143
     Height = 19
     Caption = 'Tabelas temporarias'
@@ -109,8 +96,8 @@
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'vendasitem'
-    Left = 80
-    Top = 536
+    Left = 64
+    Top = 448
     object TabelaVendaItemidvendasitem: TIntegerField
       FieldName = 'idvendasitem'
       Origin = 'idvendasitem'
@@ -144,15 +131,15 @@
   end
   object DsVendasItem: TDataSource
     DataSet = MvendasItem
-    Left = 80
-    Top = 592
+    Left = 64
+    Top = 504
   end
   object MvendasItem: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'Pvendasitem'
-    Left = 168
-    Top = 592
+    Left = 152
+    Top = 504
     object MvendasItemidvendasitem: TIntegerField
       FieldName = 'idvendasitem'
       Origin = 'idvendasitem'
@@ -186,17 +173,18 @@
   end
   object Pvendasitem: TDataSetProvider
     DataSet = TabelaVendaItem
-    Left = 168
-    Top = 536
+    Left = 152
+    Top = 448
   end
   object Qvendas: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
-      
-        'Select * From vendas V join clientes C on C.idcliente = V.idclie' +
-        'nte')
-    Left = 32
-    Top = 152
+      'Select * From vendas V '
+      'join areceber A on V.idvenda = A.idorigem'
+      'join clientes C on C.idcliente = V.idcliente'
+      'join formapagamento F on F.idformapagamento = A.idformapagamento')
+    Left = 24
+    Top = 32
     object Qvendasidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -234,13 +222,22 @@
       ReadOnly = True
       Size = 100
     end
+    object Qvendasnmformapagamento: TWideStringField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'Forma Pagamento'
+      FieldName = 'nmformapagamento'
+      Origin = 'nmformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
   end
   object QvendasItem: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendasitem')
-    Left = 240
-    Top = 536
+    Left = 224
+    Top = 448
     object QvendasItemidvendasitem: TIntegerField
       FieldName = 'idvendasitem'
       Origin = 'idvendasitem'
@@ -274,19 +271,19 @@
   end
   object DsQVendasItem: TDataSource
     DataSet = QvendasItem
-    Left = 240
-    Top = 600
+    Left = 224
+    Top = 512
   end
   object DsQVendas: TDataSource
     DataSet = Qvendas
-    Left = 32
-    Top = 208
+    Left = 24
+    Top = 88
   end
   object Qcliente: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')
-    Left = 552
+    Left = 656
     Top = 152
     object Qclienteidcliente: TIntegerField
       FieldName = 'idcliente'
@@ -352,14 +349,14 @@
   end
   object DsQcliente: TDataSource
     DataSet = Qcliente
-    Left = 552
+    Left = 656
     Top = 200
   end
   object QProduto: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
-    Left = 504
+    Left = 600
     Top = 152
     object QProdutoidproduto: TIntegerField
       FieldName = 'idproduto'
@@ -404,86 +401,57 @@
   end
   object DsQproduto: TDataSource
     DataSet = QProduto
-    Left = 504
+    Left = 600
     Top = 200
-  end
-  object Qitemvenda: TFDQuery
-    Connection = DbMaster.ConexãoDb
-    SQL.Strings = (
-      'Select SUM(vlitem) from temp.vendaitem')
-    Left = 512
-    Top = 320
-    object Qitemvendasum: TSingleField
-      AutoGenerateValue = arDefault
-      FieldName = 'sum'
-      Origin = 'sum'
-      ReadOnly = True
-    end
-  end
-  object DsQitemvenda: TDataSource
-    DataSet = Qitemvenda
-    Left = 584
-    Top = 320
   end
   object DsTempItemCampos: TDataSource
     DataSet = QvendasitemCampos
-    Left = 248
-    Top = 408
+    Left = 232
+    Top = 296
   end
   object QEntradaVenda: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
-    Left = 80
-    Top = 152
-    object IntegerField1: TIntegerField
+    Left = 72
+    Top = 32
+    object QEntradaVendaidvenda: TFDAutoIncField
       FieldName = 'idvenda'
       Origin = 'idvenda'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
-    object IntegerField2: TIntegerField
+    object QEntradaVendaidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
-    end
-    object IntegerField3: TIntegerField
-      FieldName = 'idformapagamento'
-      Origin = 'idformapagamento'
-    end
-    object DateField1: TDateField
-      FieldName = 'dtcadastro'
-      Origin = 'dtcadastro'
-    end
-    object DateField2: TDateField
-      DisplayLabel = 'Data Venda'
-      FieldName = 'dtvenda'
-      Origin = 'dtvenda'
-    end
-    object WideStringField1: TWideStringField
-      FieldName = 'nmformapagamento'
-      Origin = 'nmformapagamento'
-    end
-    object WideStringField2: TWideStringField
-      DisplayLabel = 'Cliente'
-      FieldName = 'nmcliente'
-      Origin = 'nmcliente'
-      Size = 50
-    end
-    object IntegerField4: TIntegerField
-      DisplayLabel = 'Nr. Documento'
-      FieldName = 'nrdocumento'
-      Origin = 'nrdocumento'
+      Required = True
     end
     object QEntradaVendavlvenda: TSingleField
       FieldName = 'vlvenda'
       Origin = 'vlvenda'
+      Required = True
+    end
+    object QEntradaVendadtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      Required = True
+    end
+    object QEntradaVendadtvenda: TDateField
+      FieldName = 'dtvenda'
+      Origin = 'dtvenda'
+    end
+    object QEntradaVendanrdocumento: TIntegerField
+      FieldName = 'nrdocumento'
+      Origin = 'nrdocumento'
+      Required = True
     end
   end
   object QEntradaVendaItem: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendasitem')
-    Left = 296
-    Top = 536
+    Left = 280
+    Top = 448
     object QEntradaVendaItemidvendasitem: TIntegerField
       FieldName = 'idvendasitem'
       Origin = 'idvendasitem'
@@ -521,8 +489,8 @@
       
         'SELECT idvenda FROM vendas WHERE idvenda =(SELECT max(idvenda) F' +
         'ROM vendas)')
-    Left = 128
-    Top = 152
+    Left = 120
+    Top = 32
     object QIdVendaidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -531,97 +499,30 @@
   end
   object QEntradaTitulo: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 488
-    Top = 560
+    Left = 576
+    Top = 456
   end
   object DsIdVenda: TDataSource
     DataSet = QIdVenda
-    Left = 128
-    Top = 208
+    Left = 120
+    Top = 88
   end
   object DsEntradaItens: TDataSource
     DataSet = QEntradaVendaItem
-    Left = 304
-    Top = 600
+    Left = 288
+    Top = 512
   end
   object DsQxmlitem: TDataSource
-    Left = 496
-    Top = 608
-  end
-  object TempItemExclusao: TFDQuery
-    Connection = DbMaster.ConexãoDb
-    Left = 672
-    Top = 320
-    object IntegerField5: TIntegerField
-      FieldName = 'idcliente'
-      Origin = 'idcliente'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object WideStringField3: TWideStringField
-      DisplayLabel = 'Cliente'
-      FieldName = 'nmcliente'
-      Origin = 'nmcliente'
-      Size = 100
-    end
-    object WideStringField4: TWideStringField
-      FieldName = 'cpf_cnpj'
-      Origin = 'cpf_cnpj'
-      Size = 15
-    end
-    object WideStringField5: TWideStringField
-      DisplayLabel = 'Endereco'
-      FieldName = 'nmendereco'
-      Origin = 'nmendereco'
-      Size = 50
-    end
-    object WideStringField6: TWideStringField
-      DisplayLabel = 'Numero'
-      FieldName = 'nrendere'#231'o'
-      Origin = '"nrendere'#231'o"'
-      Size = 8
-    end
-    object WideStringField7: TWideStringField
-      FieldName = 'complemento'
-      Origin = 'complemento'
-      Size = 50
-    end
-    object DateField3: TDateField
-      FieldName = 'dtcadastro'
-      Origin = 'dtcadastro'
-    end
-    object WideStringField8: TWideStringField
-      DisplayLabel = 'Bairro'
-      FieldName = 'nmbairro'
-      Origin = 'nmbairro'
-      Size = 50
-    end
-    object WideStringField9: TWideStringField
-      DisplayLabel = 'Cidade'
-      FieldName = 'nmcidade'
-      Origin = 'nmcidade'
-      Size = 50
-    end
-    object WideStringField10: TWideStringField
-      DisplayLabel = 'UF'
-      FieldName = 'nmestado'
-      Origin = 'nmestado'
-      Size = 2
-    end
-    object WideStringField11: TWideStringField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'cdcliente'
-      Origin = 'cdcliente'
-      Size = 6
-    end
+    Left = 576
+    Top = 512
   end
   object Qestoque: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
-        'Select * From temp.movimentoestoque where  idmovimento=(SELECT m' +
-        'ax(idmovimento ) FROM temp.movimentoestoque Where idproduto = 25' +
-        ')')
-    Left = 608
+        'Select * From temp."#movimentoestoque" where  idmovimento=(SELEC' +
+        'T max(idmovimento ) FROM movimentoestoque Where idproduto = 25)')
+    Left = 712
     Top = 152
     object Qestoqueqtdisponivel: TIntegerField
       FieldName = 'qtdisponivel'
@@ -660,7 +561,7 @@
   end
   object DsQestoque: TDataSource
     DataSet = Qestoque
-    Left = 601
+    Left = 713
     Top = 200
   end
   object QExclusãoVenda: TFDQuery
@@ -870,9 +771,9 @@
   object QarecebrTemp: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
-      'Select * From temp.areceber')
-    Left = 24
-    Top = 31
+      'Select * From temp."#areceber"')
+    Left = 560
+    Top = 287
     object QarecebrTempidareceber: TIntegerField
       FieldName = 'idareceber'
       Origin = 'idareceber'
@@ -922,61 +823,8 @@
   end
   object DsQAreceberTemp: TDataSource
     DataSet = QarecebrTemp
-    Left = 88
-    Top = 31
-  end
-  object QarecebrTempInserir: TFDQuery
-    Connection = DbMaster.ConexãoDb
-    SQL.Strings = (
-      'Select * From temp.areceber')
-    Left = 152
-    Top = 31
-    object IntegerField24: TIntegerField
-      FieldName = 'idareceber'
-      Origin = 'idareceber'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object IntegerField25: TIntegerField
-      FieldName = 'idcliente'
-      Origin = 'idcliente'
-    end
-    object WideStringField17: TWideStringField
-      FieldName = 'nmcliente'
-      Origin = 'nmcliente'
-      Size = 100
-    end
-    object IntegerField26: TIntegerField
-      FieldName = 'idformapagamento'
-      Origin = 'idformapagamento'
-    end
-    object WideStringField18: TWideStringField
-      DisplayLabel = 'Forma Pagamento'
-      FieldName = 'nmformapagamento'
-      Origin = 'nmformapagamento'
-      Size = 50
-    end
-    object SingleField4: TSingleField
-      DisplayLabel = 'Valor'
-      FieldName = 'vltitulo'
-      Origin = 'vltitulo'
-    end
-    object IntegerField27: TIntegerField
-      FieldName = 'nrtitulo'
-      Origin = 'nrtitulo'
-    end
-    object DateField10: TDateField
-      FieldName = 'dtcadastro'
-      Origin = 'dtcadastro'
-    end
-    object DateField11: TDateField
-      DisplayLabel = 'Vencimento'
-      FieldName = 'dtvencimento'
-      Origin = 'dtvencimento'
-    end
-    object IntegerField28: TIntegerField
-      FieldName = 'idorigem'
-      Origin = 'idorigem'
-    end
+    Left = 560
+    Top = 343
   end
   object Qrtm: TFDQuery
     Connection = DbMaster.ConexãoDb
@@ -984,13 +832,11 @@
       
         'select * From vendas V join vendasitem VI on (V.idvenda = VI.idv' +
         'enda)')
-    Left = 16
-    Top = 536
+    Top = 448
   end
   object DsQrtm: TDataSource
     DataSet = Qrtm
-    Left = 16
-    Top = 592
+    Top = 504
   end
   object QvendasitemCampos: TFDQuery
     Connection = DbMaster.ConexãoDb
@@ -998,8 +844,8 @@
       
         'Select * From temp."#vendasItensCampos" VI join produto P on P.i' +
         'dproduto = VI.idproduto')
-    Left = 248
-    Top = 352
+    Left = 232
+    Top = 240
     object QvendasitemCamposidvendaitem: TIntegerField
       FieldName = 'idvendaitem'
       Origin = 'idvendaitem'
@@ -1042,13 +888,13 @@
   end
   object QCriaTabelaTemp: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 32
-    Top = 296
+    Left = 16
+    Top = 184
   end
   object QExcluiTabelaTemp: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 32
-    Top = 352
+    Left = 16
+    Top = 240
   end
   object QTempCamposVenda: TFDQuery
     Connection = DbMaster.ConexãoDb
@@ -1056,8 +902,8 @@
       
         'Select * From temp."#vendas" V join clientes C on C.idcliente = ' +
         'V.idcliente')
-    Left = 136
-    Top = 352
+    Left = 120
+    Top = 240
     object QTempCamposVendaidvenda: TFDAutoIncField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -1099,18 +945,18 @@
   end
   object QInseriTabelaTemp: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 136
-    Top = 296
+    Left = 120
+    Top = 184
   end
   object DsQtempCamposVendas: TDataSource
     DataSet = QTempCamposVenda
-    Left = 136
-    Top = 408
+    Left = 120
+    Top = 296
   end
   object QConsultaTabelaTemp: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 32
-    Top = 408
+    Left = 16
+    Top = 296
   end
   object QTempVendasItem: TFDQuery
     Connection = DbMaster.ConexãoDb
@@ -1118,8 +964,8 @@
       
         'Select * From temp."#vendasitem" VI join produto P on P.idprodut' +
         'o = VI.idproduto')
-    Left = 336
-    Top = 352
+    Left = 320
+    Top = 240
     object IntegerField6: TIntegerField
       FieldName = 'idvendaitem'
       Origin = 'idvendaitem'
@@ -1162,7 +1008,84 @@
   end
   object DsQTempVendasItem: TDataSource
     DataSet = QTempVendasItem
-    Left = 336
-    Top = 408
+    Left = 320
+    Top = 296
+  end
+  object QareceberTempCampo: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From temp."#areceberCampo"')
+    Left = 664
+    Top = 287
+    object IntegerField5: TIntegerField
+      FieldName = 'idareceber'
+      Origin = 'idareceber'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+    end
+    object WideStringField3: TWideStringField
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      Size = 100
+    end
+    object IntegerField24: TIntegerField
+      FieldName = 'idformapagamento'
+      Origin = 'idformapagamento'
+    end
+    object WideStringField4: TWideStringField
+      DisplayLabel = 'Forma Pagamento'
+      FieldName = 'nmformapagamento'
+      Origin = 'nmformapagamento'
+      Size = 50
+    end
+    object SingleField4: TSingleField
+      DisplayLabel = 'Valor'
+      FieldName = 'vltitulo'
+      Origin = 'vltitulo'
+    end
+    object IntegerField25: TIntegerField
+      FieldName = 'nrtitulo'
+      Origin = 'nrtitulo'
+    end
+    object DateField3: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object DateField4: TDateField
+      DisplayLabel = 'Vencimento'
+      FieldName = 'dtvencimento'
+      Origin = 'dtvencimento'
+    end
+    object IntegerField26: TIntegerField
+      FieldName = 'idorigem'
+      Origin = 'idorigem'
+    end
+  end
+  object DsQareceberTempCampo: TDataSource
+    DataSet = QareceberTempCampo
+    Left = 664
+    Top = 343
+  end
+  object QTotalVenda: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select SUM(vlitem)as ValorVenda from temp."#vendasitem"')
+    Left = 664
+    Top = 456
+    object QTotalVendavalorvenda: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'valorvenda'
+      Origin = 'valorvenda'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+  object DsQtotalvenda: TDataSource
+    DataSet = QTotalVenda
+    Left = 664
+    Top = 512
   end
 end

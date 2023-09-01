@@ -2,7 +2,7 @@ object TelaCadastroProdutoVenda: TTelaCadastroProdutoVenda
   Left = 0
   Top = 0
   Caption = 'Cadastro Produto'
-  ClientHeight = 139
+  ClientHeight = 134
   ClientWidth = 588
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

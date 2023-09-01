@@ -600,7 +600,7 @@
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'SELECT * FROM areceber')
-    Left = 456
+    Left = 464
     Top = 152
     object IntegerField12: TIntegerField
       FieldName = 'idareceber'
@@ -693,7 +693,7 @@
   end
   object QExcluiRecebimento: TFDQuery
     Connection = DbMaster.ConexãoDb
-    Left = 456
+    Left = 464
     Top = 200
   end
   object QTabelaTemp: TFDQuery
@@ -770,5 +770,25 @@
       'Select MAX (nrtitulo) From areceber')
     Left = 88
     Top = 344
+  end
+  object QtempCamposRecebimento: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      
+        'Select C.nmcontabancaria From temp."#areceber" A join contabanca' +
+        'ria C on C.idcontabancaria = A.idcontabancaria')
+    Left = 328
+    Top = 280
+    object QtempCamposRecebimentonmcontabancaria: TWideStringField
+      FieldName = 'nmcontabancaria'
+      Origin = 'nmcontabancaria'
+      Required = True
+      Size = 30
+    end
+  end
+  object DsQtenmpCamposRecebimento: TDataSource
+    DataSet = QtempCamposRecebimento
+    Left = 320
+    Top = 336
   end
 end

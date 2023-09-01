@@ -152,7 +152,20 @@ end;
 
 procedure TAreceber1.InserirDataClick(Sender: TObject);
 begin
-    DbFinAreceber1.MAreceber.open;
+     DbFinAreceber1.QTempCampos.close;
+     DbFinAreceber1.QTempCampos.sql.Clear;
+     DbFinAreceber1.QTempCampos.sql.Add('CREATE TABLE IF NOT EXISTS temp."#areceber"');
+     DbFinAreceber1.QTempCampos.sql.Add('(idareceber integer NOT NULL DEFAULT nextval($$temp."#areceber_idareceber_seq"$$::regclass),idcliente integer,nmcliente character varying(100) COLLATE pg_catalog."default" ,idformapagamento integer,');
+     DbFinAreceber1.QTempCampos.sql.Add('nmformapagamento character varying(50) COLLATE pg_catalog."default" ,vltitulo real ,nrtitulo integer ,dtcadastro date,dtvencimento date,idorigem integer,dtbaixa date,idcontabancaria integer)');
+     DbFinAreceber1.QTempCampos.ExecSQl;
+
+    DbFinAreceber1.QTempCampos.close;
+     DbFinAreceber1.QTempCampos.sql.Clear;
+     DbFinAreceber1.QTempCampos.sql.Add('insert into temp."#areceber"');
+     DbFinAreceber1.QTempCampos.sql.Add('(nrtitulo)values (:PNrtitulo)');
+     DbFinAreceber1.QTempCampos.ParamByName('PNrtitulo').AsInteger :=  DBGrid1.Fields[7].value;
+     DbFinAreceber1.QTempCampos.ExecSQl;
+
     CadastroBaixaAreceber.ShowModal;
     DbFinAreceber1.Qareceber.edit;
     DBGrid1.Fields[7].Value := CadastroBaixaAreceber.DBEdit1.Text;

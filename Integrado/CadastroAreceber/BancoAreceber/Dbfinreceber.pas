@@ -166,6 +166,9 @@ type
     QTempCamposidorigem: TIntegerField;
     QTempCamposdtbaixa: TDateField;
     QTempCamposidcontabancaria: TIntegerField;
+    QtempCamposRecebimento: TFDQuery;
+    DsQtenmpCamposRecebimento: TDataSource;
+    QtempCamposRecebimentonmcontabancaria: TWideStringField;
   private
     { Private declarations }
   public

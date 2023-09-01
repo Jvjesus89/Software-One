@@ -54,12 +54,14 @@ end;
 
 procedure TConsultaContaBancaria.DBGrid1DblClick(Sender: TObject);
 begin
-     //DbFinAreceber1.QTabelaTemp.Close;
-     //DbFinAreceber1.QTabelaTemp.sql.clear;
-     //DbFinAreceber1.QTabelaTemp.sql.add('Update temp"#areceber" Set idformapagamento = :Pidformapagamento ,nmformapagamento = :Pnmformapagamento ');
-     //DbFinAreceber1.QTabelaTemp.ParamByName('Pidformapagamento').AsString := DbGrid1.Fields[3].Value;
-     //DbFinAreceber1.QTabelaTemp.ParamByName('Pnmformapagamento').AsString := DbGrid1.Fields[1].Value;
-     //DbFinAreceber1.QTabelaTemp.ExecSql;
+     DbFinAreceber1.QTabelaTemp.Close;
+     DbFinAreceber1.QTabelaTemp.sql.clear;
+     DbFinAreceber1.QTabelaTemp.sql.add('Update temp."#areceber" Set idcontabancaria = :Pidcontabancaria');
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pidcontabancaria').AsInteger := DbGrid1.Fields[3].Value;
+     DbFinAreceber1.QTabelaTemp.ExecSql;
+
+     DbFinAreceber1.QtempCamposRecebimento.close;
+     DbFinAreceber1.QtempCamposRecebimento.open;
     ConsultaContaBancaria.close;
 end;
 

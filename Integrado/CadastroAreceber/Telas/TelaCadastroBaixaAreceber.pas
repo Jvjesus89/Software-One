@@ -14,11 +14,11 @@ type
     Button1: TButton;
     Button2: TButton;
     DateTimePicker1: TDateTimePicker;
-    Edit1: TEdit;
     Label4: TLabel;
     Button3: TButton;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
+    Edit1: TDBEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -45,10 +45,9 @@ idareceber := StrToInt(DBEdit1.Text);
 
       DbFinAreceber1.QEdiçãoAreceber.close;
       DbFinAreceber1.QEdiçãoAreceber.sql.Clear;
-      DbFinAreceber1.QEdiçãoAreceber.sql.Add('Update areceber Set dtbaixa = :PdataBaixa, idcontabancaria = :Pidcontabancaria Where idareceber = :Pidareceber');
+      DbFinAreceber1.QEdiçãoAreceber.sql.Add('Update areceber Set dtbaixa = :PdataBaixa Where idareceber = :Pidareceber');
       DbFinAreceber1.QEdiçãoAreceber.ParamByName('PdataBaixa').AsDate := DateTimePicker1.Date ;
       DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidareceber').AsInteger := idareceber;
-      DbFinAreceber1.QEdiçãoAreceber.ParamByName('Pidcontabancaria').AsInteger := StrToInt (DBEdit2.Text);
       DbFinAreceber1.QEdiçãoAreceber.ExecSql;
 
       DbFinAreceber1.QInseriDadosMovimentobancario.close;

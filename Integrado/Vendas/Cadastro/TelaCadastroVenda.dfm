@@ -57,6 +57,20 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Font.Style = []
     ParentFont = False
   end
+  object Label1: TLabel
+    Left = 672
+    Top = 243
+    Width = 66
+    Height = 19
+    Caption = 'Valor Total'
+    FocusControl = Valor
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
   object DBEdit8: TDBEdit
     Left = 148
     Top = 32
@@ -116,28 +130,12 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Time = 0.808297800926084200
     TabOrder = 4
   end
-  object DBEdit1: TDBEdit
-    Left = 8
-    Top = 240
-    Width = 134
-    Height = 27
-    DataField = 'idvenda'
-    DataSource = DbVendas1.DsIdVenda
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Times New Roman'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 5
-    Visible = False
-  end
   object Edit1: TEdit
     Left = 156
     Top = 240
     Width = 121
     Height = 21
-    TabOrder = 6
+    TabOrder = 5
     Text = 'Edit1'
     Visible = False
   end
@@ -147,7 +145,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 7
+    TabOrder = 6
     OnClick = Button2Click
   end
   object PageControl1: TPageControl
@@ -156,28 +154,14 @@ object TelaCadastroVendas: TTelaCadastroVendas
     Width = 886
     Height = 173
     ActivePage = TabSheet1
-    TabOrder = 8
+    TabOrder = 7
     object TabSheet1: TTabSheet
       Caption = 'Itens'
-      object Label1: TLabel
-        Left = 668
-        Top = 125
-        Width = 66
-        Height = 19
-        Caption = 'Valor Total'
-        FocusControl = Valor
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-      end
       object DBGrid1: TDBGrid
         Left = 0
         Top = 18
         Width = 878
-        Height = 103
+        Height = 127
         Align = alTop
         DataSource = DbVendas1.DsQTempVendasItem
         ReadOnly = True
@@ -197,7 +181,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
           end
           item
             Expanded = False
-            FieldName = 'nmitemvenda'
+            FieldName = 'nmproduto'
             Width = 516
             Visible = True
           end
@@ -225,7 +209,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
           end
           item
             Expanded = False
-            FieldName = 'iditemvenda'
+            FieldName = 'idvendaitem'
             Visible = False
           end>
       end
@@ -311,21 +295,6 @@ object TelaCadastroVendas: TTelaCadastroVendas
           TabOrder = 0
           OnClick = ExcluirprodutoClick
         end
-      end
-      object Valor: TDBEdit
-        Left = 744
-        Top = 125
-        Width = 134
-        Height = 27
-        DataField = 'sum'
-        DataSource = DbVendas1.DsQitemvenda
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
       end
     end
     object TabSheet2: TTabSheet
@@ -413,7 +382,7 @@ object TelaCadastroVendas: TTelaCadastroVendas
       object ToolBar2: TToolBar
         Left = 0
         Top = 0
-        Width = 65
+        Width = 52
         Height = 20
         Align = alLeft
         ButtonHeight = 19
@@ -455,7 +424,6 @@ object TelaCadastroVendas: TTelaCadastroVendas
             5C5E5C5C5EA1A1A2FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
           TabOrder = 1
           OnClick = AdicionarTitutloClick
-          OnExit = AdicionarExit
         end
         object ExxcluirAreceber: TBitBtn
           Left = 25
@@ -495,5 +463,20 @@ object TelaCadastroVendas: TTelaCadastroVendas
         end
       end
     end
+  end
+  object Valor: TDBEdit
+    Left = 744
+    Top = 240
+    Width = 134
+    Height = 27
+    DataField = 'valorvenda'
+    DataSource = DbVendas1.DsQtotalvenda
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
   end
 end

@@ -48,11 +48,8 @@ Coordinates=474,10,158,177
 Coordinates=568,1,152,33
 
 []
-Coordinates=145,344,54,33
+Coordinates=227,461,46,51
 Visible=True
-
-[DbVendas1.Qitemvenda]
-Coordinates=54,504,132,159
 
 [DbVendas1.DsQcliente]
 Coordinates=0,0,127,33
@@ -72,21 +69,11 @@ Coordinates=213,600,133,33
 [Button1]
 Coordinates=98,319,53,51
 
-[DbVendas1.DsQitemvenda]
-Coordinates=167,1,145,33
-
-[Label1]
-Coordinates=227,461,46,51
-
 [Excluirproduto]
 Coordinates=555,399,61,51
 
-[Valor]
-Coordinates=350,242,54,33
-Visible=True
-
 [DbVendas1.]
-Coordinates=327,10,117,213
+Coordinates=167,1,145,33
 
 [DbVendas1.DsTempItemCampos]
 Coordinates=698,399,135,33

@@ -70,20 +70,13 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
     Time = 0.622212939815654000
     TabOrder = 2
   end
-  object Edit1: TEdit
-    Left = 128
-    Top = 40
-    Width = 121
-    Height = 21
-    TabOrder = 3
-  end
   object Button3: TButton
     Left = 245
     Top = 40
     Width = 22
     Height = 21
     Caption = '...'
-    TabOrder = 4
+    TabOrder = 3
     OnClick = Button3Click
   end
   object DBEdit1: TDBEdit
@@ -93,7 +86,7 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
     Height = 21
     DataField = 'idareceber'
     DataSource = DbFinAreceber1.DsQAreceber
-    TabOrder = 5
+    TabOrder = 4
     Visible = False
   end
   object DBEdit2: TDBEdit
@@ -103,7 +96,16 @@ object CadastroBaixaAreceber: TCadastroBaixaAreceber
     Height = 21
     DataField = 'idcontabancaria'
     DataSource = DbFinAreceber1.DsQAreceber
-    TabOrder = 6
+    TabOrder = 5
     Visible = False
+  end
+  object Edit1: TDBEdit
+    Left = 128
+    Top = 40
+    Width = 119
+    Height = 21
+    DataField = 'nmcontabancaria'
+    DataSource = DbFinAreceber1.DsQtenmpCamposRecebimento
+    TabOrder = 6
   end
 end
