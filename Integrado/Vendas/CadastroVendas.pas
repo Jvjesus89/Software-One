@@ -5,10 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON,Vcl.Mask, Vcl.DBCtrls, cxGraphics,
-  cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxCustomData,
-  cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges,
-  dxScrollbarAnnotations;
+  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON,Vcl.Mask, Vcl.DBCtrls,System.IniFiles;
 
 type
   TCadastroDeVendas = class(TForm)
@@ -47,7 +44,8 @@ implementation
 
 {$R *.dfm}
 
-uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas;
+uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas,
+  DbPrincipal;
 
 
 
@@ -418,6 +416,7 @@ end;
 
 procedure TCadastroDeVendas.FormShow(Sender: TObject);
 begin
+
  DbVendas1.Qvendas.Open;
 end;
 

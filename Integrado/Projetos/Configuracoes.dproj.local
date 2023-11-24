@@ -1,52 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-	<Transactions>
-    <Transaction>2022/09/04 11:18:53.000.108,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 12:17:49.000.904,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 12:35:28.000.759,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 12:39:04.000.226,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 13:09:52.000.487,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 13:10:32.000.352,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/04 13:21:54.000.658,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/18 21:35:21.000.811,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/18 21:39:21.000.984,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 00:53:55.000.970,=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 00:54:11.000.543,C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
-    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.pas=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 00:54:42.000.787,C:\Sistema\Integrado\TelaConfiguracoes.dfm=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2022/09/25 00:55:15.000.979,C:\Sistema\Integrado\Projetos\Configuracoes.dproj=C:\Users\jvjes\OneDrive\Documents\Embarcadero\Studio\Projects\Configurações.dproj</Transaction>
-    <Transaction>2022/09/25 11:48:11.000.439,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 11:49:24.000.295,C:\Sistema\Integrado\TelaCadastroFormaPagamento.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
-    <Transaction>2022/09/25 11:49:24.000.295,C:\Sistema\Integrado\TelaCadastroFormaPagamento.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 11:57:49.000.540,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 12:14:01.000.487,C:\Sistema\Integrado\DbConfiguracoes.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 12:14:01.000.487,C:\Sistema\Integrado\DbConfiguracoes.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
-    <Transaction>2022/09/25 12:21:25.000.833,C:\Sistema\Integrado\DbConfiguracao.pas=C:\Sistema\Integrado\DbConfiguracoes.pas</Transaction>
-    <Transaction>2022/09/25 12:21:25.000.833,C:\Sistema\Integrado\DbConfiguracao.dfm=C:\Sistema\Integrado\DbConfiguracoes.dfm</Transaction>
-    <Transaction>2022/09/25 13:08:02.000.595,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamento.dfm</Transaction>
-    <Transaction>2022/09/25 13:08:28.000.597,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamento.pas</Transaction>
-    <Transaction>2022/09/25 13:34:12.000.973,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazo.dfm</Transaction>
-    <Transaction>2022/09/25 13:34:44.000.683,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazo.pas</Transaction>
-    <Transaction>2022/09/25 13:44:06.000.729,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaCadastroPrazos.pas</Transaction>
-    <Transaction>2022/09/25 13:44:40.000.697,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaCadastroPrazos.dfm</Transaction>
-    <Transaction>2022/09/25 20:03:24.000.304,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.pas</Transaction>
-    <Transaction>2022/09/25 20:03:46.000.728,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaConsultaFormaPagamantoPPrazo.dfm</Transaction>
-    <Transaction>2022/09/29 22:39:34.000.047,C:\Sistema\Integrado\DbConfiguracao.pas=C:\Sistema\Integrado\DbConfiguracaoFinanceiro.pas</Transaction>
-    <Transaction>2022/09/29 22:39:34.000.047,C:\Sistema\Integrado\DbConfiguracao.dfm=C:\Sistema\Integrado\DbConfiguracaoFinanceiro.dfm</Transaction>
+  <Transactions>
+    <Transaction>2023/11/11 11:48:25.295,=C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/11/11 11:48:52.419,=E:\Sistema\Software-One\Integrado\Configurações\TelaConfiguracoes.pas</Transaction>
+    <Transaction>2023/11/11 11:49:45.868,=E:\Sistema\Software-One\Integrado\Configurações\Prazo\Consulta\TelaCadastroPrazo.pas</Transaction>
+    <Transaction>2023/11/11 11:50:05.641,=E:\Sistema\Software-One\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
+    <Transaction>2023/11/11 11:50:31.972,=E:\Sistema\Software-One\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas</Transaction>
+    <Transaction>2023/11/11 11:50:54.060,=E:\Sistema\Software-One\Integrado\Configurações\Banco de dados\Financeiro\DbConfiguracaoFinanceiro.pas</Transaction>
+    <Transaction>2023/11/11 11:51:04.569,=E:\Sistema\Software-One\Integrado\Configurações\Agencia\Cadastro\TelaCadastraAgencia.pas</Transaction>
+    <Transaction>2023/11/11 11:51:15.592,=E:\Sistema\Software-One\Integrado\Configurações\Agencia\Consulta\TelaConsultaAgencia.pas</Transaction>
+    <Transaction>2023/11/11 11:51:28.550,=E:\Sistema\Software-One\Integrado\Configurações\Agencia\Consulta\SubConsulta\TelaConsultaBancoAgencia.pas</Transaction>
+    <Transaction>2023/11/11 11:51:42.918,=E:\Sistema\Software-One\Integrado\Configurações\Banco\Cadastro\TelaCadastroBanco.pas</Transaction>
+    <Transaction>2023/11/11 11:51:53.817,=E:\Sistema\Software-One\Integrado\Configurações\Banco\Consulta\TelaConsultaBanco.pas</Transaction>
+    <Transaction>2023/11/11 11:52:06.095,=E:\Sistema\Software-One\Integrado\Configurações\Conta Corrente\Cadastro\TelaCadastroContaCorrente.pas</Transaction>
+    <Transaction>2023/11/11 11:52:13.868,=E:\Sistema\Software-One\Integrado\Configurações\Forma pagamento\Consulta\TelaConsultaFormaPagamento.pas</Transaction>
+    <Transaction>2023/11/11 11:52:29.017,=E:\Sistema\Software-One\Integrado\Configurações\Forma pagamento\Cadastro\TelaCadastroFormaPagamento.pas</Transaction>
+    <Transaction>2023/11/11 11:52:44.823,=E:\Sistema\Software-One\Integrado\Configurações\Conta Corrente\Consulta\TelaConsultaContaCorrente.pas</Transaction>
+    <Transaction>2023/11/11 11:52:54.678,=E:\Sistema\Software-One\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaAgenciaConta.pas</Transaction>
+    <Transaction>2023/11/11 11:52:54.773,=E:\Sistema\Software-One\Integrado\Configurações\Conta Corrente\Consulta\SubConsulta\TelaConsultaBancoConta.pas</Transaction>
+    <Transaction>2023/11/11 11:53:09.995,=E:\Sistema\Software-One\Integrado\Configurações\Prazo\Cadastro\TelaCadastroPrazos.pas</Transaction>
+    <Transaction>2023/11/11 11:53:28.067,=E:\Sistema\Software-One\Integrado\Configurações\Prazo\Consulta\SubConsulta\TelaConsultaFormaPagamantoPPrazo.pas</Transaction>
+    <Transaction>2023/11/11 11:53:51.731,=E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas</Transaction>
+    <Transaction>2023/11/11 11:56:27.938,E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj=C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/11/11 11:59:49.478,E:\Sistema\Software-One\Integrado\Projetos\Configuracoes.dproj=E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj</Transaction>
+    <Transaction>2023/11/11 12:13:55.049,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=</Transaction>
+    <Transaction>2023/11/11 12:14:24.165,=E:\Sistema\Software-One\Integrado\Projetos\Unit2.pas</Transaction>
+    <Transaction>2023/11/11 12:14:40.930,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.dfm=E:\Sistema\Software-One\Integrado\Projetos\Unit2.dfm</Transaction>
+    <Transaction>2023/11/11 12:14:40.930,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=E:\Sistema\Software-One\Integrado\Projetos\Unit2.pas</Transaction>
+    <Transaction>2023/11/11 12:17:02.794,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=</Transaction>
   </Transactions>
-	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="..\..\Integrado"/>
-    <File Path="..\DbConfiguracaoFinanceiro.pas"/>
-    <File Path="..\TelaCadastroFormaPagamento.pas"/>
-    <File Path="..\TelaCadastroPrazo.pas"/>
-    <File Path="..\TelaCadastroPrazos.pas"/>
-    <File Path="..\TelaConfiguracoes.pas"/>
-    <File Path="..\TelaConfiguracoes.dfm"/>
-    <File Path="..\TelaConsultaFormaPagamantoPPrazo.pas"/>
-    <File Path="..\TelaConsultaFormaPagamento.pas"/>
-  </ProjectSortOrder>
 </BorlandProject>

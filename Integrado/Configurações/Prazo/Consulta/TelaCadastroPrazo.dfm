@@ -20,7 +20,7 @@ object Prazos: TPrazos
     Width = 457
     Height = 167
     Align = alBottom
-    DataSource = DbConfigFin.DsPrazo
+    DataSource = DbConfigFin.DsQprazo
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

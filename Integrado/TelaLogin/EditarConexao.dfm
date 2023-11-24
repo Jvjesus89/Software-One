@@ -84,6 +84,8 @@ object AlterarDB: TAlterarDB
     Top = 80
     Width = 121
     Height = 21
+    NumbersOnly = True
+    PasswordChar = '*'
     TabOrder = 4
   end
   object PortaPostgres: TEdit

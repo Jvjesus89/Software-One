@@ -1,0 +1,74 @@
+unit EditarConexao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,System.IniFiles;
+
+type
+  TAlterarDB = class(TForm)
+    Ip: TLabel;
+    NomeBancoDeDados: TLabel;
+    Usuario: TLabel;
+    Senha: TLabel;
+    Porta: TLabel;
+    ConectarBanco: TButton;
+    IPPostgres: TEdit;
+    Login: TEdit;
+    NomeBanco: TEdit;
+    Senhas: TEdit;
+    PortaPostgres: TEdit;
+    procedure ConectarBancoClick(Sender: TObject);
+    procedure IPPostgresExit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AlterarDB: TAlterarDB;
+
+implementation
+
+{$R *.dfm}
+
+uses DbPrincipal;
+
+procedure TAlterarDB.ConectarBancoClick(Sender: TObject);
+var
+ArquivoIni:TIniFile;
+DiretorioPadrao:string;
+begin
+  DiretorioPadrao := GetCurrentDir;
+  ArquivoIni := TIniFile.Create(DiretorioPadrao);
+
+   try
+    // Escreva valores no arquivo INI
+    ArquivoIni.WriteString('Seção', 'Chave1', 'Valor1');
+    ArquivoIni.WriteInteger('Seção', 'Chave2', 123);
+    ArquivoIni.WriteBool('Seção', 'Chave3', True);
+    ShowMessage('Arquivo INI criado com sucesso!');
+  finally
+    ArquivoIni.Free;
+  end;
+
+
+  DbMaster.ConexãoDb.Close;
+  DbMaster.ConexãoDb.Params.Clear;
+  DbMaster.ConexãoDb.Params.Add('DriverID=PG');
+  DbMaster.ConexãoDb.Params.Add('Database='+NomeBanco.Text);
+  DbMaster.ConexãoDb.Params.Add('User_Name='+Login.Text);
+  DbMaster.ConexãoDb.Params.Add('Password='+Senhas.Text);
+  DbMaster.ConexãoDb.Params.Add('Server='+IPPostgres.Text);
+  DbMaster.ConexãoDb.Params.Add('Port='+PortaPostgres.Text);
+  DbMaster.ConexãoDb.Open;
+end;
+
+procedure TAlterarDB.IPPostgresExit(Sender: TObject);
+begin
+    IPPostgres.Text := UpperCase(IPPostgres.Text);
+end;
+
+end.

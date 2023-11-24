@@ -131,6 +131,13 @@ type
     IntegerField2: TIntegerField;
     DsQAgenciaConta: TDataSource;
     QAgenciaContaidagencia: TIntegerField;
+    QPrazo: TFDQuery;
+    DsQprazo: TDataSource;
+    QPrazoidprazo: TFDAutoIncField;
+    QPrazonmprazo: TWideStringField;
+    QPrazonrparcelas: TIntegerField;
+    QPrazoidformapagamento: TIntegerField;
+    QPrazocdprazo: TFDAutoIncField;
     procedure MformaAfterDelete(DataSet: TDataSet);
     procedure MformaAfterCancel(DataSet: TDataSet);
     procedure MformaAfterPost(DataSet: TDataSet);

@@ -79,7 +79,6 @@
     ParentFont = False
   end
   object FormaPagamento: TFDTable
-    Active = True
     IndexFieldNames = 'idformapagamento'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -111,7 +110,6 @@
     Top = 184
   end
   object Mforma: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pforma'
@@ -147,7 +145,6 @@
     Top = 136
   end
   object Prazos: TFDTable
-    Active = True
     IndexFieldNames = 'idformapagamento'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -178,14 +175,13 @@
     Top = 184
   end
   object Mprazo: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pprazo'
     AfterPost = MprazoAfterPost
     AfterCancel = MprazoAfterCancel
     AfterDelete = MprazoAfterDelete
-    Left = 320
+    Left = 284
     Top = 184
     object Mprazoidprazo: TIntegerField
       FieldName = 'idprazo'
@@ -210,11 +206,10 @@
   end
   object Pprazo: TDataSetProvider
     DataSet = Prazos
-    Left = 320
+    Left = 284
     Top = 136
   end
   object QFormaPagamento: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From formapagamento')
@@ -242,7 +237,6 @@
     Top = 184
   end
   object ContaCorrente: TFDTable
-    Active = True
     IndexFieldNames = 'idcontabancaria'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -286,7 +280,6 @@
     Top = 320
   end
   object Mconta: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pconta'
@@ -332,7 +325,6 @@
     Top = 272
   end
   object Banco: TFDTable
-    Active = True
     IndexFieldNames = 'idbanco'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -367,7 +359,6 @@
     Top = 320
   end
   object MBanco: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PBanco'
@@ -404,7 +395,6 @@
     Top = 272
   end
   object MAgencia: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PAgencia'
@@ -451,7 +441,6 @@
     Top = 320
   end
   object Agencia: TFDTable
-    Active = True
     IndexFieldNames = 'idagencia'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -486,7 +475,6 @@
     end
   end
   object QContaCorrente: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From contabancaria')
@@ -532,7 +520,6 @@
     Top = 320
   end
   object Qbanco: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From banco')
@@ -569,7 +556,6 @@
     Top = 320
   end
   object Qagencia: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From agencia')
@@ -598,7 +584,6 @@
     Top = 320
   end
   object QBancoAgencia: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From banco')
@@ -635,7 +620,6 @@
     Top = 320
   end
   object QAgenciaConta: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From agencia')
@@ -667,5 +651,42 @@
     DataSet = QAgenciaConta
     Left = 168
     Top = 320
+  end
+  object QPrazo: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From prazopagamento')
+    Left = 320
+    Top = 138
+    object QPrazoidprazo: TFDAutoIncField
+      FieldName = 'idprazo'
+      Origin = 'idprazo'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object QPrazonmprazo: TWideStringField
+      FieldName = 'nmprazo'
+      Origin = 'nmprazo'
+      Required = True
+      Size = 50
+    end
+    object QPrazonrparcelas: TIntegerField
+      FieldName = 'nrparcelas'
+      Origin = 'nrparcelas'
+      Required = True
+    end
+    object QPrazoidformapagamento: TIntegerField
+      FieldName = 'idformapagamento'
+      Origin = 'idformapagamento'
+      Required = True
+    end
+    object QPrazocdprazo: TFDAutoIncField
+      FieldName = 'cdprazo'
+      Origin = 'cdprazo'
+    end
+  end
+  object DsQprazo: TDataSource
+    DataSet = QPrazo
+    Left = 320
+    Top = 186
   end
 end

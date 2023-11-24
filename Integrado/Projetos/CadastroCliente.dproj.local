@@ -23,17 +23,5 @@
     <Transaction>2022/12/01 21:57:32.000.788,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-    <File Path="..\..\Integrado"/>
-    <File Path="..\ConexãoDB"/>
-    <File Path="..\ConexãoDB\DbPrincipal.pas"/>
-    <File Path="..\ConexãoDB\DbPrincipal.dfm"/>
-    <File Path="..\CadastroCliente1.pas"/>
-    <File Path="..\CadastroCliente1.dfm"/>
-    <File Path="..\DbCliente.pas"/>
-    <File Path="..\DbCliente.dfm"/>
-    <File Path="..\TelaCadastoCliente.pas"/>
-    <File Path="..\TelaCadastoCliente.dfm"/>
-    <File Path="..\TelaEdicaoCliente.pas"/>
-    <File Path="..\TelaEdicaoCliente.dfm"/>
-  </ProjectSortOrder>
+	</ProjectSortOrder>
 </BorlandProject>

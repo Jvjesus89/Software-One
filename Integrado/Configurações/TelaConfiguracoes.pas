@@ -28,7 +28,6 @@ type
     procedure BitBtn8Click(Sender: TObject);
     procedure BitBtn9Click(Sender: TObject);
     procedure BitBtn7Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,8 +43,7 @@ implementation
 
 uses TelaCadastroFormaPagamento, DbConfiguracaoFinanceiro, TelaCadastroPrazo,
   TelaConsultaFormaPagamento, TelaConsultaBanco, TelaCadastroBanco,
-  TelaConsultaAgencia,TelaConsultaContaCorrente,
-  TelaOpções;
+  TelaConsultaAgencia,TelaConsultaContaCorrente;
 
 
 procedure TTelaConfig.BitBtn1Click(Sender: TObject);
@@ -56,24 +54,21 @@ end;
 
 procedure TTelaConfig.BitBtn2Click(Sender: TObject);
 begin
+    DbConfigFin.Qprazo.Open;
     Prazos.ShowModal;
-end;
-
-procedure TTelaConfig.BitBtn6Click(Sender: TObject);
-begin
-   Opções.showmodal;
 end;
 
 procedure TTelaConfig.BitBtn7Click(Sender: TObject);
 begin
+    DbConfigFin.QContaCorrente.Open;
    ConsultaContaCorrente.ShowModal;
-   DbConfigFin.QContaCorrente.Open;
+
 end;
 
 procedure TTelaConfig.BitBtn8Click(Sender: TObject);
 begin
-    ConsultaBanco.showmodal;
      DbConfigFin.Qbanco.Open;
+    ConsultaBanco.showmodal;
 end;
 
 procedure TTelaConfig.BitBtn9Click(Sender: TObject);

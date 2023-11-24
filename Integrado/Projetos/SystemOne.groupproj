@@ -9,6 +9,9 @@
         <Projects Include="CadastroUsuario.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="ConsultaEstoque.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Hub.dproj">
             <Dependencies/>
         </Projects>
@@ -30,7 +33,7 @@
         <Projects Include="..\Movimento Bancario\Projeto\MovimentoBancario.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Configurações\Projeto\Configurações.dproj">
+        <Projects Include="Configuracoes.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -58,6 +61,15 @@
     </Target>
     <Target Name="CadastroUsuario:Make">
         <MSBuild Projects="CadastroUsuario.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ConsultaEstoque">
+        <MSBuild Projects="ConsultaEstoque.dproj"/>
+    </Target>
+    <Target Name="ConsultaEstoque:Clean">
+        <MSBuild Projects="ConsultaEstoque.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConsultaEstoque:Make">
+        <MSBuild Projects="ConsultaEstoque.dproj" Targets="Make"/>
     </Target>
     <Target Name="Hub">
         <MSBuild Projects="Hub.dproj"/>
@@ -122,23 +134,23 @@
     <Target Name="MovimentoBancario:Make">
         <MSBuild Projects="..\Movimento Bancario\Projeto\MovimentoBancario.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Configurações">
-        <MSBuild Projects="..\Configurações\Projeto\Configurações.dproj"/>
+    <Target Name="Configuracoes">
+        <MSBuild Projects="Configuracoes.dproj"/>
     </Target>
-    <Target Name="Configurações:Clean">
-        <MSBuild Projects="..\Configurações\Projeto\Configurações.dproj" Targets="Clean"/>
+    <Target Name="Configuracoes:Clean">
+        <MSBuild Projects="Configuracoes.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Configurações:Make">
-        <MSBuild Projects="..\Configurações\Projeto\Configurações.dproj" Targets="Make"/>
+    <Target Name="Configuracoes:Make">
+        <MSBuild Projects="Configuracoes.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Sistema;CadastroUsuario;Hub;CadastroProduto;FinAreceber;CadastroCliente;FinApagar;Vendas;MovimentoBancario;Configurações"/>
+        <CallTarget Targets="Sistema;CadastroUsuario;ConsultaEstoque;Hub;CadastroProduto;FinAreceber;CadastroCliente;FinApagar;Vendas;MovimentoBancario;Configuracoes"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;Hub:Clean;CadastroProduto:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean;MovimentoBancario:Clean;Configurações:Clean"/>
+        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;ConsultaEstoque:Clean;Hub:Clean;CadastroProduto:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean;MovimentoBancario:Clean;Configuracoes:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;Hub:Make;CadastroProduto:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make;MovimentoBancario:Make;Configurações:Make"/>
+        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;ConsultaEstoque:Make;Hub:Make;CadastroProduto:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make;MovimentoBancario:Make;Configuracoes:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

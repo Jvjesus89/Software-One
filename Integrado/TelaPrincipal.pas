@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ComCtrls, Vcl.Imaging.pngimage;
+  System.ImageList, Vcl.ImgList, Vcl.Buttons, Vcl.ComCtrls, Vcl.Imaging.pngimage,ShellAPI;
 
 type
   THubPrin = class(TForm)
@@ -30,7 +30,11 @@ type
     procedure CadastroTituloApagarClick(Sender: TObject);
     procedure VendasClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure ConsultarConexão(Sender: TObject);
+
   private
+  var caminhovalido : string;
+  CoverterCaminho : array[0..255] of AnsiChar;
     { Private declarations }
   public
     { Public declarations }
@@ -46,108 +50,122 @@ implementation
 
 
 procedure THubPrin.BitBtn1Click(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
 begin
+
 // encontrar o arquivo de Configuracoes na pasta
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('Configuracoes.exe' ,DiretorioPadrao);
-if caminhovalido = 'Configuracoes.exe' then
+caminhovalido := (GetcurrentDir) + '\Configuracoes.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\Configuracoes.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo Configuracoes.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
 procedure THubPrin.CadastroClienteClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
 begin
-// encontrar o arquivo de CadastroCliente na pasta
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('CadastroCliente.exe' ,DiretorioPadrao);
-if caminhovalido = 'CadastroCliente.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\CadastroCliente.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\CadastroCliente.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo CadastroCliente.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
 procedure THubPrin.CadastroProdutoClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
 begin
-// encontrar o arquivo de CadastroProduto na pasta
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('CadastroProduto.exe' ,DiretorioPadrao);
-if caminhovalido = 'CadastroProduto.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\CadastroProduto.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\CadastroProduto.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo CadastroProduto.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
 procedure THubPrin.CadastroTituloApagarClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
-// encontrar o arquivo de FinApagar na pasta
 begin
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('FinApagar.exe' ,DiretorioPadrao);
-if caminhovalido = 'FinApagar.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\FinApagar.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\FinApagar.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo FinApagar.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
 procedure THubPrin.CadastroTituloAreceberClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
-// encontrar o arquivo de FinApagar na pasta
 begin
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('FinAreceber.exe' ,DiretorioPadrao);
-if caminhovalido = 'FinAreceber.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\FinAreceber.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\FinAreceber.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo FinAreceber.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
 procedure THubPrin.CadastroUsuarioClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
-// encontrar o arquivo de CadastroUsuario na pasta
 begin
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('CadastroUsuario.exe' ,DiretorioPadrao);
-if caminhovalido = 'CadastroUsuario.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\CadastroUsuario.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\CadastroUsuario.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo CadastroUsuario.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
-
 procedure THubPrin.ConsultaEstoqueClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
-// encontrar o arquivo de ConsultaEstoque na pasta
 begin
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('ConsultaEstoque.exe' ,DiretorioPadrao);
-if caminhovalido = 'ConsultaEstoque.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\ConsultaEstoque.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\ConsultaEstoque.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo ConsultaEstoque.exe não foi encontrado no diretório padrão.');
   end;
 end;
 
@@ -157,17 +175,19 @@ begin
 end;
 
 procedure THubPrin.VendasClick(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
-CoverterCaminho : array[0..255] of AnsiChar;
-// encontrar o arquivo de ConsultaEstoque na pasta
 begin
-DiretorioPadrao := GetCurrentDir;
-caminhovalido := FileSearch('Vendas.exe' ,DiretorioPadrao);
-if caminhovalido = 'Vendas.exe' then
+// encontrar o arquivo de Configuracoes na pasta
+caminhovalido := (GetcurrentDir) + '\Vendas.exe';
+
+ if FileExists(caminhovalido) then
   begin
-  DiretorioPadrao := GetCurrentDir +'\Vendas.exe';
-  StrPCopy(CoverterCaminho, DiretorioPadrao);
-  WinExec(CoverterCaminho,SW_SHOW)
+    // Se o arquivo for encontrado, execute-o
+  ShellExecute(0, 'open', PChar(caminhovalido), nil, nil, SW_SHOWNORMAL);
+  end
+  else
+  begin
+    // Se o arquivo não for encontrado, exiba uma mensagem
+    ShowMessage('O arquivo Vendas.exe não foi encontrado no diretório padrão.');
   end;
 end;
 

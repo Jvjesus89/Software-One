@@ -139,13 +139,11 @@ object Apagar1: TApagar1
         item
           Expanded = False
           FieldName = 'nmformapagamento'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'dtvencimento'
-          Width = 64
           Visible = True
         end
         item

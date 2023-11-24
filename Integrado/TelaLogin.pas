@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client,System.IniFiles;
 
 type
   TTelaLoginU = class(TForm)
@@ -23,6 +23,7 @@ type
     PrimeiroAcesso: TButton;
     procedure Button2Click(Sender: TObject);
     procedure PrimeiroAcessoClick(Sender: TObject);
+    procedure SenhaCampoKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -78,17 +79,48 @@ CoverterCaminho : array[0..255] of AnsiChar;
 
 
 procedure TTelaLoginU.FormShow(Sender: TObject);
-var caminhovalido,DiretorioPadrao : string;
+  var
+ArquivoIni:TIniFile;
+DiretorioPadrao,Caminhodll,ININomeBanco,INILogin,INISenhas,INIIPPostgres,INIPortaPostgres:string;
   begin
-  DiretorioPadrao := GetCurrentDir+ '\libpq.dll';
-  // encontrar o arquivo dll na pasta
-  DbMaster.Dll32bit.Vendorlib := DiretorioPadrao;
-  DbMaster.ConexãoDb.Open;
+    DbMaster.ConexãoDb.Close;
+    DiretorioPadrao := GetCurrentDir;
+
+    ArquivoIni := TIniFile.Create(GetCurrentDir +'\ConexaoBanco.ini');
+  try
+    ININomeBanco := ArquivoIni.ReadString('CONEXAO_BANCO', 'Database', ININomeBanco);
+    INILogin := ArquivoIni.ReadString('CONEXAO_BANCO','User_Name' , INILogin);
+    INISenhas := ArquivoIni.ReadString('CONEXAO_BANCO', 'Password', INISenhas);
+    INIIPPostgres := ArquivoIni.ReadString('CONEXAO_BANCO', 'Server', INIIPPostgres);
+    INIPortaPostgres := ArquivoIni.ReadString('CONEXAO_BANCO', 'Port', INIPortaPostgres);
+    Caminhodll := ArquivoIni.ReadString('DLL', 'dll', Caminhodll);
+
+
+  finally
+    ArquivoIni.Free;
   end;
+
+
+  DbMaster.ConexãoDb.Params.Clear;
+  DbMaster.ConexãoDb.Params.Add('DriverID=PG');
+  DbMaster.ConexãoDb.Params.Add('Database='+ININomeBanco);
+  DbMaster.ConexãoDb.Params.Add('User_Name='+INILogin);
+  DbMaster.ConexãoDb.Params.Add('Password='+INISenhas);
+  DbMaster.ConexãoDb.Params.Add('Server='+INIIPPostgres);
+  DbMaster.ConexãoDb.Params.Add('Port='+INIPortaPostgres);
+  DbMaster.Dll32bit.VendorLib  := Caminhodll;
+  DbMaster.ConexãoDb.Open;
+end;
 
 procedure TTelaLoginU.PrimeiroAcessoClick(Sender: TObject);
 begin
     AlterarDB.Showmodal;
+end;
+
+procedure TTelaLoginU.SenhaCampoKeyPress(Sender: TObject; var Key: Char);
+begin
+        if Key = #13 then
+        Button2.Click;
 end;
 
 end.
