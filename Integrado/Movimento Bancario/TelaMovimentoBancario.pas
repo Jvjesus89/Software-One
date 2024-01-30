@@ -13,7 +13,7 @@ uses
   dxDateRanges, dxScrollbarAnnotations, Data.DB, cxDBData, Vcl.ExtCtrls,
   cxGridLevel, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, dxSkinsCore, dxSkinVisualStudio2013Dark,
-  dxSkinDevExpressDarkStyle;
+  dxSkinDevExpressDarkStyle,conectarINI;
 
 type
   TConsultaMovimentoBancario = class(TdxRibbonForm)
@@ -43,6 +43,7 @@ type
     cxGrid1DBTableView1dtbaixa: TcxGridDBColumn;
     cxGrid1DBTableView1idcontabancaria_1: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +64,21 @@ uses DbMovimentoBancario;
 procedure TConsultaMovimentoBancario.FormCreate(Sender: TObject);
 begin
   DisableAero := True;
+end;
+
+procedure TConsultaMovimentoBancario.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
+begin
+
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
+
 end;
 
 end.

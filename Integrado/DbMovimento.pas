@@ -75,6 +75,8 @@ type
     DsQdisponivel: TDataSource;
     QDisponivelqtdisponivel: TIntegerField;
     QdisponivelTemp: TFDQuery;
+    QCriarTabelaTemp: TFDQuery;
+    DsQCriarTabelaTemp: TDataSource;
     procedure MprodutoAfterCancel(DataSet: TDataSet);
     procedure MprodutoAfterDelete(DataSet: TDataSet);
     procedure MprodutoAfterPost(DataSet: TDataSet);

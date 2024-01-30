@@ -6,7 +6,8 @@ uses
   DB in '..\DB.pas' {Banco},
   Vcl.Themes,
   Vcl.Styles,
-  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  conectarINI in '..\CadastroUsuario\Comandos\conectarINI.pas';
 
 {$R *.res}
 

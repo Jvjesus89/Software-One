@@ -21,7 +21,8 @@ uses
   TelaCadastroPrazo in '..\Configurações\Prazo\Consulta\TelaCadastroPrazo.pas' {Prazos},
   TelaConsultaFormaPagamantoPPrazo in '..\Configurações\Prazo\Consulta\SubConsulta\TelaConsultaFormaPagamantoPPrazo.pas' {ConsultaFormaPagamento},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  conectarINI in '..\Configurações\Comandos\conectarINI.pas';
 
 {$R *.res}
 
@@ -29,9 +30,9 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TTelaConfig, TelaConfig);
   Application.CreateForm(TPrazos, Prazos);
-  Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TDbGeral, DbGeral);
   Application.CreateForm(TDbConfigFin, DbConfigFin);
   Application.CreateForm(TCadastrarAgencia, CadastrarAgencia);

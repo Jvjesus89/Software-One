@@ -58,7 +58,6 @@ object ConsultaProduto: TConsultaProduto
     Height = 65
     Align = alTop
     TabOrder = 1
-    ExplicitTop = 8
     object Label1: TLabel
       Left = 8
       Top = 8
@@ -78,7 +77,6 @@ object ConsultaProduto: TConsultaProduto
       Width = 257
       Height = 21
       TabOrder = 0
-      OnChange = BuscaChange
     end
     object Button1: TButton
       Left = 271

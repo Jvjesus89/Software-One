@@ -14,14 +14,13 @@
   PixelsPerInch = 96
   TextHeight = 13
   object ConsultaEstoque: TFDTable
-    Active = True
     IndexFieldNames = 'idmovimento'
     Connection = DbMaster.ConexãoDb
     CatalogName = 'Software One'
     SchemaName = 'public'
     TableName = 'movimentoestoque'
     Left = 32
-    Top = 112
+    Top = 24
     object ConsultaEstoqueidmovimento: TIntegerField
       FieldName = 'idmovimento'
       Origin = 'idmovimento'
@@ -58,10 +57,9 @@
   object DsConsulta: TDataSource
     DataSet = MConsulta
     Left = 32
-    Top = 184
+    Top = 96
   end
   object MConsulta: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PConsulta'
@@ -69,7 +67,7 @@
     AfterCancel = MConsultaAfterCancel
     AfterDelete = MConsultaAfterDelete
     Left = 104
-    Top = 184
+    Top = 96
     object MConsultaidmovimento: TIntegerField
       FieldName = 'idmovimento'
       Origin = 'idmovimento'
@@ -110,16 +108,15 @@
   object PConsulta: TDataSetProvider
     DataSet = ConsultaEstoque
     Left = 104
-    Top = 112
+    Top = 24
   end
   object Produto: TFDTable
-    Active = True
     IndexFieldNames = 'idproduto'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
     TableName = 'produto'
-    Left = 376
-    Top = 112
+    Left = 400
+    Top = 24
     object nmproduto: TWideStringField
       FieldName = 'nmproduto'
       Origin = 'nmproduto'
@@ -143,19 +140,18 @@
   end
   object Pproduto: TDataSetProvider
     DataSet = Produto
-    Left = 432
-    Top = 112
+    Left = 456
+    Top = 24
   end
   object Mproduto: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pproduto'
     AfterPost = MprodutoAfterPost
     AfterCancel = MprodutoAfterCancel
     AfterDelete = MprodutoAfterDelete
-    Left = 432
-    Top = 184
+    Left = 456
+    Top = 96
     object Mprodutonmproduto: TWideStringField
       DisplayLabel = 'Produto'
       FieldName = 'nmproduto'
@@ -182,8 +178,8 @@
   end
   object DsProduto: TDataSource
     DataSet = QProduto
-    Left = 368
-    Top = 184
+    Left = 392
+    Top = 96
   end
   object QConsulta: TFDQuery
     AfterPost = QConsultaAfterPost
@@ -193,7 +189,7 @@
     SQL.Strings = (
       'Select * From movimentoestoque')
     Left = 32
-    Top = 240
+    Top = 152
     object QConsultaqtmovimentada: TIntegerField
       DisplayLabel = 'Quantidade Movimento'
       FieldName = 'qtmovimentada'
@@ -231,15 +227,14 @@
     end
   end
   object QProduto: TFDQuery
-    Active = True
     AfterPost = QProdutoAfterPost
     AfterCancel = QProdutoAfterCancel
     AfterDelete = QProdutoAfterDelete
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
-    Left = 320
-    Top = 120
+    Left = 344
+    Top = 32
     object QProdutoidproduto: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
@@ -283,20 +278,19 @@
   object DsConsultaQ: TDataSource
     DataSet = QConsulta
     Left = 32
-    Top = 296
+    Top = 208
   end
   object DsProdutoQ: TDataSource
     DataSet = QProduto1
-    Left = 312
-    Top = 184
+    Left = 336
+    Top = 96
   end
   object QProduto1: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From produto')
-    Left = 256
-    Top = 120
+    Left = 280
+    Top = 32
     object QProduto1idproduto: TIntegerField
       FieldName = 'idproduto'
       Origin = 'idproduto'
@@ -341,12 +335,11 @@
     end
   end
   object QDisponivel: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select qtdisponivel From movimentoestoque ')
     Left = 184
-    Top = 112
+    Top = 24
     object QDisponivelqtdisponivel: TIntegerField
       FieldName = 'qtdisponivel'
       Origin = 'qtdisponivel'
@@ -355,14 +348,23 @@
   object DsQdisponivel: TDataSource
     DataSet = QDisponivel
     Left = 176
-    Top = 184
+    Top = 96
   end
   object QdisponivelTemp: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From temp.movimentoestoque')
-    Left = 424
-    Top = 264
+    Left = 448
+    Top = 176
+  end
+  object QCriarTabelaTemp: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    Left = 176
+    Top = 152
+  end
+  object DsQCriarTabelaTemp: TDataSource
+    DataSet = QCriarTabelaTemp
+    Left = 176
+    Top = 208
   end
 end

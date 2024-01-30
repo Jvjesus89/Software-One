@@ -36,6 +36,9 @@
         <Projects Include="Configuracoes.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="ConexaoIni.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -143,14 +146,23 @@
     <Target Name="Configuracoes:Make">
         <MSBuild Projects="Configuracoes.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ConexaoIni">
+        <MSBuild Projects="ConexaoIni.dproj"/>
+    </Target>
+    <Target Name="ConexaoIni:Clean">
+        <MSBuild Projects="ConexaoIni.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConexaoIni:Make">
+        <MSBuild Projects="ConexaoIni.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="Sistema;CadastroUsuario;ConsultaEstoque;Hub;CadastroProduto;FinAreceber;CadastroCliente;FinApagar;Vendas;MovimentoBancario;Configuracoes"/>
+        <CallTarget Targets="Sistema;CadastroUsuario;ConsultaEstoque;Hub;CadastroProduto;FinAreceber;CadastroCliente;FinApagar;Vendas;MovimentoBancario;Configuracoes;ConexaoIni"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;ConsultaEstoque:Clean;Hub:Clean;CadastroProduto:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean;MovimentoBancario:Clean;Configuracoes:Clean"/>
+        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;ConsultaEstoque:Clean;Hub:Clean;CadastroProduto:Clean;FinAreceber:Clean;CadastroCliente:Clean;FinApagar:Clean;Vendas:Clean;MovimentoBancario:Clean;Configuracoes:Clean;ConexaoIni:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;ConsultaEstoque:Make;Hub:Make;CadastroProduto:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make;MovimentoBancario:Make;Configuracoes:Make"/>
+        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;ConsultaEstoque:Make;Hub:Make;CadastroProduto:Make;FinAreceber:Make;CadastroCliente:Make;FinApagar:Make;Vendas:Make;MovimentoBancario:Make;Configuracoes:Make;ConexaoIni:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

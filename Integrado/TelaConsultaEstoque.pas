@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client,conectarINI,DropTable,CreatTable;
 
 type
   TConsultaEstoque1 = class(TForm)
@@ -30,6 +30,8 @@ type
     procedure LocalizaprodutoClick(Sender: TObject);
     procedure EntradaClick(Sender: TObject);
     procedure IdProdutoChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -53,6 +55,34 @@ begin
      TelaCadastroMovimentacoes.ShowModal;
 end;
 
+procedure TConsultaEstoque1.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+var
+DropTabelaTempMovimento : TDropTableTempMovimento;
+begin
+
+   DropTabelaTempMovimento := TDropTableTempMovimento.Create;
+   try
+   DropTabelaTempMovimento.DropMovimento;
+   finally
+       DropTabelaTempMovimento.Free;
+   end;
+end;
+
+procedure TConsultaEstoque1.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
+begin
+
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
+end;
+
 procedure TConsultaEstoque1.IdProdutoChange(Sender: TObject);
 begin
       DbMov.QConsulta.close;
@@ -62,10 +92,18 @@ begin
 end;
 
 procedure TConsultaEstoque1.LocalizaprodutoClick(Sender: TObject);
+var
+CreatTabelamovimento : TCreatTableTempMovimento;
 begin
-     ConsultaProduto.ShowModal;
-     DbMov.QProduto.close;
-     DbMov.QProduto.open;
+   CreatTabelamovimento := TCreatTableTempMovimento.Create;
+   try
+   CreatTabelamovimento.CreatTableTempMovimento;
+   finally
+       CreatTabelamovimento.Free;
+   end;
+
+    DbMov.QProduto.open;
+    ConsultaProduto.ShowModal;
 end;
 
 end.

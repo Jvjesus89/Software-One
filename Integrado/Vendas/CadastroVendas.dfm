@@ -69,6 +69,7 @@ object CadastroDeVendas: TCadastroDeVendas
       Align = alRight
       Caption = 'Importar xml'
       TabOrder = 4
+      Visible = False
       OnClick = Button1Click
     end
     object Button3: TButton
@@ -79,6 +80,7 @@ object CadastroDeVendas: TCadastroDeVendas
       Align = alRight
       Caption = 'Exportar xml'
       TabOrder = 5
+      Visible = False
       OnClick = Button3Click
     end
     object Button4: TButton
@@ -110,12 +112,12 @@ object CadastroDeVendas: TCadastroDeVendas
         1538
         48)
       object Label2: TLabel
-        Left = 1280
+        Left = 1271
         Top = 11
-        Width = 87
+        Width = 99
         Height = 19
         Anchors = [akLeft, akTop, akRight]
-        Caption = 'Busca Venda'
+        Caption = 'Busca Venda   '
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -16

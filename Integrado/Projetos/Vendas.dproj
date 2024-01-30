@@ -85,8 +85,9 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Locale>1046</VerInfo_Locale>
         <UsePackages>true</UsePackages>
+        <VerInfo_Keys>CompanyName=Software One;FileDescription=Vendas;FileVersion=1.0.0.0;InternalName=;LegalCopyright=Software One;LegalTrademarks=Software One;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Vendas;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -152,6 +153,7 @@
         <DCCReference Include="..\Vendas\CadastroVendas.pas">
             <Form>CadastroDeVendas</Form>
         </DCCReference>
+        <DCCReference Include="..\Vendas\Comandos\conectarINI.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

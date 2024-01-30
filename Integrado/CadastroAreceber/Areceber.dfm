@@ -191,7 +191,6 @@ object Areceber1: TAreceber1
         item
           Expanded = False
           FieldName = 'dtbaixa'
-          Width = 64
           Visible = True
         end
         item

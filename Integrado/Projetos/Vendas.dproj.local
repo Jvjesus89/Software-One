@@ -54,20 +54,21 @@
     <Transaction>2022/10/28 13:34:41.000.901,=C:\Sistema\Integrado\ConversorXMlJson\FormatConverter\U_FormatConverter.pas</Transaction>
     <Transaction>2022/10/31 14:33:03.000.538,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/10/31 14:33:15.000.712,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/10/31 14:33:46.000.129,C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DbXmlImportacao.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/10/31 14:33:46.000.129,C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/31 14:33:46.000.129,C:\Sistema\Integrado\Vendas\Banco de dados\DbXml\DbXmlImportacao.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/12/01 22:15:55.000.200,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
     <Transaction>2023/07/27 14:46:53.000.680,D:\Sistema\Integrado\CadastroVendas.pas=</Transaction>
     <Transaction>2023/07/27 14:47:11.000.426,=D:\Sistema\Integrado\CadastroVendas.pas</Transaction>
     <Transaction>2023/08/27 10:55:20.000.491,=D:\Sistema\Software-One\Integrado\Vendas\CadastroVendas.pas</Transaction>
-    <Transaction>2023/08/27 10:55:30.000.254,=D:\Sistema\Software-One\Integrado\Vendas\Cadastro\TelaCadastroVenda.pas</Transaction>
     <Transaction>2023/08/27 10:55:30.000.192,=D:\Sistema\Software-One\Integrado\Vendas\Cadastro\TelaCadastroFinanceiro.pas</Transaction>
     <Transaction>2023/08/27 10:55:30.000.113,=D:\Sistema\Software-One\Integrado\Vendas\Cadastro\CadastroProdutoVenda.pas</Transaction>
-    <Transaction>2023/08/27 10:55:42.000.684,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaFormaPagamentoVendas.pas</Transaction>
-    <Transaction>2023/08/27 10:55:42.000.831,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaProdutoVenda.pas</Transaction>
+    <Transaction>2023/08/27 10:55:30.000.254,=D:\Sistema\Software-One\Integrado\Vendas\Cadastro\TelaCadastroVenda.pas</Transaction>
     <Transaction>2023/08/27 10:55:42.000.764,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaPrazoVendas.pas</Transaction>
+    <Transaction>2023/08/27 10:55:42.000.831,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaProdutoVenda.pas</Transaction>
     <Transaction>2023/08/27 10:55:42.000.618,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaClienteVenda.pas</Transaction>
+    <Transaction>2023/08/27 10:55:42.000.684,=D:\Sistema\Software-One\Integrado\Vendas\Consulta\TelaConsultaFormaPagamentoVendas.pas</Transaction>
     <Transaction>2023/08/27 10:55:52.000.797,=D:\Sistema\Software-One\Integrado\Vendas\Banco de dados\DBvendas.pas</Transaction>
+    <Transaction>2024/01/25 16:57:17.000.612,=E:\Sistema\Software-One\Integrado\Vendas\Comandos\conectarINI.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Integrado"/>
@@ -101,6 +102,8 @@
     <File Path="..\Vendas\Cadastro\TelaCadastroFinanceiro.dfm"/>
     <File Path="..\Vendas\Cadastro\TelaCadastroVenda.pas"/>
     <File Path="..\Vendas\Cadastro\TelaCadastroVenda.dfm"/>
+    <File Path="..\Vendas\Comandos"/>
+    <File Path="..\Vendas\Comandos\conectarINI.pas"/>
     <File Path="..\Vendas\Consulta"/>
     <File Path="..\Vendas\Consulta\TelaConsultaClienteVenda.pas"/>
     <File Path="..\Vendas\Consulta\TelaConsultaClienteVenda.dfm"/>

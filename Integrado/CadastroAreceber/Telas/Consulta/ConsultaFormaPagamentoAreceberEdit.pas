@@ -16,6 +16,7 @@ type
     DBGrid1: TDBGrid;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure BotaoBuscaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,6 +66,11 @@ begin
     DbFinAreceber1.QediçãoTituloAreceber.open;
     FormaPagemento.close;
 end;
+end;
+
+procedure TFormaPagemento.FormShow(Sender: TObject);
+begin
+   DbFinAreceber1.QFormapagamento.Open;
 end;
 
 end.

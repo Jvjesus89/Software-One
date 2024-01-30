@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
-  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, system.IniFiles,conectarINI;
 
 type
   TAreceber1 = class(TForm)
@@ -46,7 +46,7 @@ implementation
 {$R *.dfm}
 
 uses Dbfinreceber, TelaCadastroAreceber, TelaEdicaoAreceber,
-  TelaExportaçãoDadosAreceber, TelaCadastroBaixaAreceber;
+  TelaExportaçãoDadosAreceber, TelaCadastroBaixaAreceber, DbPrincipal;
 
 procedure TAreceber1.BotaoEditarClick(Sender: TObject);
 begin
@@ -111,7 +111,7 @@ begin
      DbFinAreceber1.QTabelaTemp.ExecSql;
 
      DbFinAreceber1.QTempCampos.open;
-     TelaCadasrroAreceber1.showmodal;
+     TelaCadasrroAreceber.showmodal;
 end;
 
 procedure TAreceber1.Button1Click(Sender: TObject);
@@ -145,7 +145,18 @@ begin
 end;
 
 procedure TAreceber1.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
 begin
+
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
+
      DbFinAreceber1.QAreceber.open;
      DbFinAreceber1.QConsultaConta.open;
 end;

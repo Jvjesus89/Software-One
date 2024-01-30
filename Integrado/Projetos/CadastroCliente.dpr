@@ -8,7 +8,8 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   TelaEdicaoCliente in '..\TelaEdicaoCliente.pas' {TelaEdicaoCliente1},
-  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  conectarINI in '..\CadastroCliente\Comandos\conectarINI.pas';
 
 {$R *.res}
 

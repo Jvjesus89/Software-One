@@ -14,7 +14,6 @@ type
     Busca: TEdit;
     Label1: TLabel;
     Button1: TButton;
-    procedure BuscaChange(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
@@ -31,15 +30,6 @@ implementation
 {$R *.dfm}
 
 uses DbMovimento, TelaConsultaEstoque, CadastroMovimentacoes;
-
-procedure TConsultaProduto.BuscaChange(Sender: TObject);
-begin
-{//
-     DbMov.Mproduto.locate('nmproduto',Busca.text,[loPartialKey]);
-     DbMov.Mproduto.locate('cdproduto',Busca.text,[loPartialKey]);
-}//*
-
-end;
 
 procedure TConsultaProduto.Button1Click(Sender: TObject);
 begin

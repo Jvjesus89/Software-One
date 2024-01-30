@@ -9,7 +9,10 @@ uses
   Produtos in '..\Produtos.pas' {ConsultaProduto},
   CadastroMovimentacoes in '..\CadastroMovimentacoes.pas' {TelaCadastroMovimentacoes},
   ProdutoMov in '..\ProdutoMov.pas' {ProdutoMov1},
-  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  conectarINI in '..\ConsultaEstoque\Comandos\conectarINI.pas',
+  DropTable in '..\ConsultaEstoque\Comandos\DropTable.pas',
+  CreatTable in '..\ConsultaEstoque\Comandos\CreatTable.pas';
 
 {$R *.res}
 

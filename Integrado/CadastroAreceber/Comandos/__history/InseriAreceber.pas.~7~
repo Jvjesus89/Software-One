@@ -1,0 +1,56 @@
+unit InseriAreceber;
+
+interface
+  uses
+  System.SysUtils, System.Classes;
+type
+
+  TVenda = class
+  Vltitulo : integer;
+  nrtitulo : integer;
+  dtvencimento : integer;
+  end;
+
+  TInseriAreceber = class(TComponent)
+
+    private
+
+    public
+    procedure InserirVendas (value : Tvenda);
+  end;
+
+implementation
+
+{ TInseriAreceber }
+
+uses Dbfinreceber;
+
+procedure TInseriAreceber.InserirVendas;
+var venda : Tvenda ;
+begin
+     venda := Tvenda.Create;
+    try
+         // inserir dados na tabela temp
+     DbFinAreceber1.QTabelaTemp.close;
+     DbFinAreceber1.QTabelaTemp.sql.Clear;
+     DbFinAreceber1.QTabelaTemp.sql.add('update temp."#areceber" Set vltitulo = :Pvltitulo, nrtitulo = :Pnrtitulo, dtcadastro = :Pdtcadastro, dtvencimento =:Pdtvencimento');
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pvltitulo').AsInteger := venda.Vltitulo;
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pnrtitulo').AsInteger := venda.nrtitulo;
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pdtcadastro').AsDateTime := now;
+     DbFinAreceber1.QTabelaTemp.ParamByName('Pdtvencimento').AsDateTime := venda.dtvencimento;
+     DbFinAreceber1.QTabelaTemp.ExecSQL;
+
+    finally
+     venda.Free;
+    end;
+     // verificar registro na tabela temp e copiar para tabela a receber
+     DbFinAreceber1.QTabelaTemp.close;
+     DbFinAreceber1.QTabelaTemp.sql.Clear;
+     DbFinAreceber1.QTabelaTemp.sql.add('Insert into areceber select * From temp."#areceber"');
+     DbFinAreceber1.QTabelaTemp.ExecSQL;
+
+     DbFinAreceber1.QAreceber.Close;
+     DbFinAreceber1.QAreceber.Open;
+end;
+
+end.

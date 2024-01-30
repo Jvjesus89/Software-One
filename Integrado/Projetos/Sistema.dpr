@@ -7,7 +7,8 @@ uses
   Vcl.Styles,
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
   BancoLogin in '..\TelaLogin\BancoLogin.pas' {BancoUsuario: TDataModule},
-  EditarConexao in '..\TelaLogin\EditarConexao.pas' {AlterarDB};
+  EditarConexao in '..\TelaLogin\EditarConexao.pas' {AlterarDB},
+  conectarINI in '..\TelaLogin\Comandos\conectarINI.pas';
 
 {$R *.res}
 
@@ -21,6 +22,11 @@ begin
   Application.CreateForm(TAlterarDB, AlterarDB);
   Application.Run;
 end.
+
+
+
+
+
 
 
 

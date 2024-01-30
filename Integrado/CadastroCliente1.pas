@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,conectarINI;
 
 type
   TConsultaCliente = class(TForm)
@@ -25,6 +25,7 @@ type
     procedure BotaoBuscaClick(Sender: TObject);
     procedure ExportarDadosClick(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -100,6 +101,22 @@ begin
   if FileExists('C:\Sistema\DadosExportados\Clientes.csv') then DeleteFile('C:\Sistema\DadosExportados\Clientes.csv');
   sLista.SaveToFile('C:\Sistema\DadosExportados\Clientes.csv');
 
+end;
+
+procedure TConsultaCliente.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
+begin
+
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
+
+   DbClient.Qcliente.open;
 end;
 
 procedure TConsultaCliente.BotaoBuscaClick(Sender: TObject);

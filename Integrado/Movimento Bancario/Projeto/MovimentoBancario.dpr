@@ -6,7 +6,8 @@ uses
   DbMovimentoBancario in '..\Banco De Dados\DbMovimentoBancario.pas' {Form1},
   Vcl.Themes,
   Vcl.Styles,
-  DbPrincipal in '..\..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule};
+  DbPrincipal in '..\..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  conectarINI in '..\Comandos\conectarINI.pas';
 
 {$R *.res}
 

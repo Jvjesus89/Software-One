@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.DBGrids, Vcl.Buttons, Vcl.ExtCtrls, Data.DB, Vcl.DBCGrids;
+  Vcl.DBGrids, Vcl.Buttons, Vcl.ExtCtrls, Data.DB, Vcl.DBCGrids,conectarINI;
 
 type
   TCadProduto = class(TForm)
@@ -132,10 +132,19 @@ begin
 end;
 
 procedure TCadProduto.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
 begin
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
+
     dbprod.TabelaProd.open;
     dbprod.Qproduto.open;
-
 end;
 
 end.

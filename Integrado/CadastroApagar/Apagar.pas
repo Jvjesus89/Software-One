@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
-  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ExtCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids,conectarINI;
 
 type
   TApagar1 = class(TForm)
@@ -128,7 +128,17 @@ begin
 end;
 
 procedure TApagar1.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
 begin
+
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
   DbFinApagar1.QApagar.open;
 end;
 

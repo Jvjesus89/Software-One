@@ -13,6 +13,7 @@ object ConsultaMovimentoBancario: TConsultaMovimentoBancario
   OldCreateOrder = True
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object cxGrid1: TcxGrid
@@ -22,8 +23,6 @@ object ConsultaMovimentoBancario: TConsultaMovimentoBancario
     Height = 780
     Align = alLeft
     TabOrder = 0
-    ExplicitLeft = -6
-    ExplicitTop = 71
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True

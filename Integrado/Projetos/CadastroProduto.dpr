@@ -8,7 +8,8 @@ uses
   CadProd in '..\CadastroProduto\Modulo\CadProd.pas' {CadProduto},
   TelaCadastroDeProdutos in '..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas' {TelaCadastroProduto},
   TelaEdicaoProduto in '..\CadastroProduto\Modulo\Telas\TelaEdicaoProduto.pas' {TelaEdicaoProduto1},
-  Dbcadastroproduto in '..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas' {Dbprod: TDataModule};
+  Dbcadastroproduto in '..\CadastroProduto\Banco cadastro de produto\Dbcadastroproduto.pas' {Dbprod: TDataModule},
+  conectarINI in '..\CadastroProduto\Comandos\conectarINI.pas';
 
 {$R *.res}
 

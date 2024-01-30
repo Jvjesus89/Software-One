@@ -8,7 +8,7 @@ uses
   Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
 
 type
-  TConsultaFormaPagamento = class(TForm)
+  TConsultaFormaPagamentoC = class(TForm)
     Panel1: TPanel;
     Busca: TDBEdit;
     BotaoBusca: TButton;
@@ -17,6 +17,7 @@ type
     procedure BotaoBuscaClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,15 +25,15 @@ type
   end;
 
 var
-  ConsultaFormaPagamento: TConsultaFormaPagamento;
+  ConsultaFormaPagamentoC: TConsultaFormaPagamentoC;
 
 implementation
 
 {$R *.dfm}
 
-uses Dbfinreceber, TelaCadastroAreceber;
+uses Dbfinreceber;
 
-procedure TConsultaFormaPagamento.BotaoBuscaClick(Sender: TObject);
+procedure TConsultaFormaPagamentoC.BotaoBuscaClick(Sender: TObject);
 begin
     begin
     if Busca.Text = '' then
@@ -52,7 +53,7 @@ begin
 end;
 end;
 
-procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
+procedure TConsultaFormaPagamentoC.DBGrid1DblClick(Sender: TObject);
 begin
      DbFinAreceber1.QTabelaTemp.Close;
      DbFinAreceber1.QTabelaTemp.sql.clear;
@@ -60,14 +61,19 @@ begin
      DbFinAreceber1.QTabelaTemp.ParamByName('Pidformapagamento').AsInteger := StrToInt(DbGrid1.Fields[2].Value);
      DbFinAreceber1.QTabelaTemp.ParamByName('Pnmformapagamento').AsString := DbGrid1.Fields[1].Value;
      DbFinAreceber1.QTabelaTemp.ExecSql;
-    ConsultaFormaPagamento.close;
+    ConsultaFormaPagamentoC.close;
 end;
 
-procedure TConsultaFormaPagamento.FormClose(Sender: TObject;
+procedure TConsultaFormaPagamentoC.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
        DbFinAreceber1.QTempCampos.Close;
     DbFinAreceber1.QTempCampos.open;
+end;
+
+procedure TConsultaFormaPagamentoC.FormShow(Sender: TObject);
+begin
+      DbFinAreceber1.QFormapagamento.Open;
 end;
 
 end.

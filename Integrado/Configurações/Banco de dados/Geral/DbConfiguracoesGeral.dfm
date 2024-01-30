@@ -27,7 +27,6 @@
     ParentFont = False
   end
   object Diretorios: TFDTable
-    Active = True
     IndexFieldNames = 'idconfiguracao'
     Connection = DbMaster.ConexãoDb
     SchemaName = 'public'
@@ -70,7 +69,6 @@
     Top = 56
   end
   object Mdiretorios: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'PDiretorios'
@@ -102,7 +100,6 @@
     end
   end
   object InsrerirDireotiros: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From configuracoes')
@@ -134,6 +131,7 @@
     end
   end
   object FDUpdateSQL2: TFDUpdateSQL
+    Connection = DbMaster.ConexãoDb
     InsertSQL.Strings = (
       'INSERT INTO configuracoes'
       '(idconfiguracao, nmconfiguracao, dsvalorantigo, '

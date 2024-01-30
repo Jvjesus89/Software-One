@@ -1,4 +1,4 @@
-object ConsultaFormaPagamento: TConsultaFormaPagamento
+object ConsultaFormaPagamentoC: TConsultaFormaPagamentoC
   Left = 0
   Top = 0
   Caption = 'Consulta Forma Pagamento'
@@ -12,6 +12,7 @@ object ConsultaFormaPagamento: TConsultaFormaPagamento
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel

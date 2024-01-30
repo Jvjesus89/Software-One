@@ -22,7 +22,8 @@ uses
   U_FormatConverter in '..\ConversorXMlJson\FormatConverter\U_FormatConverter.pas',
   DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule},
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
-  CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas};
+  CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas},
+  conectarINI in '..\Vendas\Comandos\conectarINI.pas';
 
 {$R *.res}
 
@@ -30,7 +31,8 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
-  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);  Application.CreateForm(TDbMaster, DbMaster);
+  Application.CreateForm(TDbMaster, DbMaster);
+  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
   Application.CreateForm(TDbVendas1, DbVendas1);
   Application.CreateForm(TDbXmlVendas, DbXmlVendas);
   Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
@@ -45,6 +47,7 @@ begin
   Application.CreateForm(TXML, XML);
   Application.Run;
 end.
+
 
 
 

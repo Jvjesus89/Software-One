@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
-  FireDAC.Comp.Client;
+  FireDAC.Comp.Client,conectarINI;
 
 type
   TCadastro = class(TForm)
@@ -110,12 +110,17 @@ begin
 end;
 
 procedure TCadastro.FormShow(Sender: TObject);
+var
+ConectarIni : TconectarINI;
 begin
-   //Banco.Dbsoft.open;
-   //Banco.Musuario.open;
-   //StatusBarra(Banco.Musuario);
-    //StatusBarra(Banco.Musuario);
 
+   ConectarIni := TconectarINI.Create;
+   try
+   ConectarIni.DiretorioPadrao := GetCurrentDir;
+   ConectarIni.consultarConexaoBanco;
+   finally
+       ConectarIni.Free;
+   end;
 end;
 
 procedure TCadastro.NovoClick(Sender: TObject);

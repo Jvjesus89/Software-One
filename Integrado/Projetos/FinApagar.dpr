@@ -13,7 +13,8 @@ uses
   ConsultaFormaPagamentoCadastro in '..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastro.pas' {ConsultaFormaPagamento},
   TelaConsultaClienteApagar in '..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagar.pas' {TelaConsultaCliente1},
   ConsultaFormaPagamentoCadastroEdit in '..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastroEdit.pas' {ConsultaFormaPagamentoEdit},
-  TelaConsultaClienteApagarEdit in '..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.pas' {ConsultaClienteEdit};
+  TelaConsultaClienteApagarEdit in '..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.pas' {ConsultaClienteEdit},
+  conectarINI in '..\CadastroApagar\Comandos\conectarINI.pas';
 
 {$R *.res}
 
