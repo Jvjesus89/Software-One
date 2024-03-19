@@ -3,7 +3,6 @@
   Height = 374
   Width = 535
   object QItensGeradoXML: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       
@@ -80,7 +79,6 @@
     Top = 134
   end
   object QClienteXml: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From clientes')

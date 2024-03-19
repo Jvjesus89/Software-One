@@ -59,7 +59,6 @@ object Formapagamento: TFormapagamento
       Caption = 'Novo'
       TabOrder = 0
       OnClick = BitBtn1Click
-      ExplicitLeft = 17
     end
     object BitBtn2: TBitBtn
       Left = 76

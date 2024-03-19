@@ -1,0 +1,63 @@
+object FrameDinheiro: TFrameDinheiro
+  Left = 0
+  Top = 0
+  Width = 507
+  Height = 304
+  TabOrder = 0
+  object pnlConteiner: TPanel
+    Left = 0
+    Top = 0
+    Width = 507
+    Height = 304
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 96
+    ExplicitTop = 144
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object pnlTotalRecebido: TPanel
+      Left = 40
+      Top = 120
+      Width = 425
+      Height = 40
+      BevelOuter = bvNone
+      TabOrder = 0
+      object lblTotalRecebido: TLabel
+        Left = 0
+        Top = 0
+        Width = 226
+        Height = 40
+        Align = alLeft
+        Caption = 'Total Recebido:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6708056
+        Font.Height = -33
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblValorRecebido: TLabel
+        Left = 226
+        Top = 0
+        Width = 199
+        Height = 40
+        Margins.Left = 0
+        Margins.Top = 0
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alClient
+        Alignment = taRightJustify
+        Caption = '0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6708056
+        Font.Height = -33
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 361
+        ExplicitWidth = 64
+      end
+    end
+  end
+end

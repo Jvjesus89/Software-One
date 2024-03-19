@@ -1,0 +1,64 @@
+unit Pdv.view.page.cartao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+
+type
+  TFrameCartao = class(TFrame)
+    pnlConteinerCartao: TPanel;
+    pnlFormasPG: TPanel;
+    pnlFormaPgCredito: TPanel;
+    ShapeCredito: TShape;
+    pnlFormaCredito: TPanel;
+    pnlImageCredito: TPanel;
+    ImageBanco: TImage;
+    pnlCredito: TPanel;
+    pnlFormaPgDebito: TPanel;
+    ShapeDebito: TShape;
+    pnlFormaDebito: TPanel;
+    pnlImageDebito: TPanel;
+    imageDebito: TImage;
+    pnlDebito: TPanel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Shape1: TShape;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Image1: TImage;
+    Panel6: TPanel;
+    Shape2: TShape;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Image2: TImage;
+    Panel5: TPanel;
+    Shape3: TShape;
+    Panel9: TPanel;
+    Panel10: TPanel;
+    Image3: TImage;
+    Panel11: TPanel;
+    Shape4: TShape;
+    Panel12: TPanel;
+    Panel13: TPanel;
+    Image4: TImage;
+  private
+    { Private declarations }
+  public
+    class function New(Aowner: Tcomponent): TframeCartao;
+  end;
+
+implementation
+
+{$R *.dfm}
+
+{ TFrameCartao }
+
+class function TFrameCartao.New(Aowner: Tcomponent): TframeCartao;
+begin
+  Result := Self.Create(Aowner);
+end;
+
+end.

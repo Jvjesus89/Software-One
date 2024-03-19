@@ -1,0 +1,27 @@
+unit Pdv.view.pagamentos.login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TPagePagamentos = class(TForm)
+    pnlConteiner: TPanel;
+    pnlInformacoes: TPanel;
+    pnlFormasPagamentos: TPanel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PagePagamentos: TPagePagamentos;
+
+implementation
+
+{$R *.dfm}
+
+end.

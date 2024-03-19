@@ -1,0 +1,52 @@
+object PagePagamentos: TPagePagamentos
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'PagePagamentos'
+  ClientHeight = 617
+  ClientWidth = 840
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlConteiner: TPanel
+    Left = 0
+    Top = 0
+    Width = 840
+    Height = 617
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 216
+    ExplicitTop = 280
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object pnlInformacoes: TPanel
+      Left = 0
+      Top = 0
+      Width = 273
+      Height = 617
+      Align = alLeft
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+    object pnlFormasPagamentos: TPanel
+      Left = 273
+      Top = 0
+      Width = 567
+      Height = 617
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 472
+      ExplicitTop = 360
+      ExplicitWidth = 185
+      ExplicitHeight = 41
+    end
+  end
+end

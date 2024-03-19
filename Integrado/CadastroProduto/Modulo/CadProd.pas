@@ -5,7 +5,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.DBGrids, Vcl.Buttons, Vcl.ExtCtrls, Data.DB, Vcl.DBCGrids,conectarINI;
+  Vcl.DBGrids, Vcl.Buttons, Vcl.ExtCtrls, Data.DB, Vcl.DBCGrids,conectarINI,
+  frxSmartMemo, frxClass, frxExportBaseDialog, frxExportPDF, frxDBSet,
+  frCoreClasses, frxDCtrl, frxDesgn;
 
 type
   TCadProduto = class(TForm)
@@ -20,6 +22,11 @@ type
     BuscaProduto: TLabel;
     ExportarDados: TButton;
     BuscaBotao: TButton;
+    btnImprimirProdutos: TBitBtn;
+    frxRelatorio: TfrxReport;
+    frxPDFExport1: TfrxPDFExport;
+    frxDBClientes: TfrxDBDataset;
+    frxDialogControls1: TfrxDialogControls;
     procedure FormCreate(Sender: TObject);
     procedure BtExcluirClick(Sender: TObject);
     procedure BtEditarClick(Sender: TObject);
@@ -29,6 +36,7 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnImprimirProdutosClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -73,6 +81,11 @@ begin
 
 
 
+end;
+
+procedure TCadProduto.btnImprimirProdutosClick(Sender: TObject);
+begin
+    frxRelatorio.showreport;
 end;
 
 procedure TCadProduto.BtNovoClick(Sender: TObject);

@@ -12,6 +12,7 @@ object TelaConfig: TTelaConfig
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Visible = True
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -49,7 +50,6 @@ object TelaConfig: TTelaConfig
         Layout = blGlyphTop
         TabOrder = 0
         OnClick = BitBtn1Click
-        ExplicitHeight = 61
       end
       object BitBtn2: TBitBtn
         Left = 191
@@ -61,7 +61,6 @@ object TelaConfig: TTelaConfig
         Layout = blGlyphTop
         TabOrder = 1
         OnClick = BitBtn2Click
-        ExplicitHeight = 61
       end
       object BitBtn3: TBitBtn
         Left = 0
@@ -72,7 +71,6 @@ object TelaConfig: TTelaConfig
         Caption = 'Op'#231#245'es'
         Layout = blGlyphTop
         TabOrder = 2
-        ExplicitHeight = 61
       end
       object BitBtn7: TBitBtn
         Left = 416
@@ -83,7 +81,6 @@ object TelaConfig: TTelaConfig
         Caption = 'Conta Corrente'
         TabOrder = 3
         OnClick = BitBtn7Click
-        ExplicitHeight = 61
       end
       object BitBtn8: TBitBtn
         Left = 266
@@ -94,7 +91,6 @@ object TelaConfig: TTelaConfig
         Caption = 'Banco'
         TabOrder = 4
         OnClick = BitBtn8Click
-        ExplicitHeight = 61
       end
       object BitBtn9: TBitBtn
         Left = 341
@@ -105,7 +101,6 @@ object TelaConfig: TTelaConfig
         Caption = 'Agencia'
         TabOrder = 5
         OnClick = BitBtn9Click
-        ExplicitHeight = 61
       end
     end
     object TabSheet3: TTabSheet

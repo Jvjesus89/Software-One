@@ -15,7 +15,7 @@
     Top = 40
   end
   object Dll32bit: TFDPhysPgDriverLink
-    VendorLib = 'E:\Sistema\Software-One\DLL\32 bit\libpq1.dll'
+    VendorLib = 'E:\Sistema\Software-One\DLL\32 bit\libpq.dll'
     Left = 136
     Top = 40
   end

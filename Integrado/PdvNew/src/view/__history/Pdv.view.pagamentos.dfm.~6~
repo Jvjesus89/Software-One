@@ -1,0 +1,517 @@
+object PagePagamentos: TPagePagamentos
+  Left = 0
+  Top = 0
+  Align = alClient
+  BorderStyle = bsNone
+  Caption = 'PagePagamentos'
+  ClientHeight = 617
+  ClientWidth = 840
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlConteiner: TPanel
+    Left = 0
+    Top = 0
+    Width = 840
+    Height = 617
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    object pnlInformacoes: TPanel
+      Left = 0
+      Top = 0
+      Width = 273
+      Height = 617
+      Align = alLeft
+      BevelOuter = bvNone
+      Color = 5589317
+      Padding.Left = 20
+      Padding.Top = 35
+      Padding.Right = 20
+      Padding.Bottom = 50
+      ParentBackground = False
+      TabOrder = 0
+      object pnlResumoVenda: TPanel
+        Left = 20
+        Top = 35
+        Width = 233
+        Height = 41
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Resumo da venda'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWhite
+        Font.Height = -27
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+      object pnlInfoVenda: TPanel
+        AlignWithMargins = True
+        Left = 20
+        Top = 126
+        Width = 233
+        Height = 400
+        Margins.Left = 0
+        Margins.Top = 50
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 1
+        object Shape1: TShape
+          Left = 0
+          Top = 153
+          Width = 233
+          Height = 5
+          Align = alTop
+          Brush.Color = 1357025
+          Pen.Style = psClear
+          ExplicitLeft = 72
+          ExplicitTop = 192
+          ExplicitWidth = 65
+        end
+        object pnlInfoValores: TPanel
+          Left = 0
+          Top = 0
+          Width = 233
+          Height = 153
+          Align = alTop
+          BevelOuter = bvNone
+          TabOrder = 0
+          object pnlImagem: TPanel
+            Left = 0
+            Top = 0
+            Width = 233
+            Height = 20
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object Image1: TImage
+              Left = 0
+              Top = 0
+              Width = 17
+              Height = 20
+              Align = alLeft
+              Picture.Data = {
+                0954506E67496D61676589504E470D0A1A0A0000000D49484452000000100000
+                001008060000001FF3FF610000000473424954080808087C0864880000000970
+                48597300000EC400000EC401952B0E1B0000001974455874536F667477617265
+                007777772E696E6B73636170652E6F72679BEE3C1A000001194944415478DA63
+                642011FC7EC960C5F08FA1968585218C5194E13323299AFFFF6760FAF382E13C
+                90A907C4475898193C8936E0F753066B46660619E67F0CC7FF32321CF8CFC0A0
+                0814DE4E94015067EF0032B918FF332430FF6738F88789610B909F4FD00090CD
+                0C4C0CDB814C5EA8D05F46468668667186D540FA1F239136F322097F05621F56
+                498603200E23259A711A40AC66AC0690A219C3005235A318408E668401FFFB38
+                7FBF28BA0B644922C97D061AE8C92ACD70145F4C810DF8FF9441F60F23830290
+                B70DC8E5215633C480B7BDB2BF7F155F04264D77C67F0C6CC044B306281E89CF
+                D92806FC7ECE500EA43B80F82DCB7F062386BF0CAF196519BE13A3196CC0AF17
+                0C4B80E9FB3250F37246298647C46A8401005F736CC04BE9E928000000004945
+                4E44AE426082}
+              Stretch = True
+            end
+            object Label1: TLabel
+              AlignWithMargins = True
+              Left = 20
+              Top = 0
+              Width = 213
+              Height = 20
+              Margins.Top = 0
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alClient
+              Caption = 'Editar'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = 1357025
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitWidth = 41
+              ExplicitHeight = 19
+            end
+          end
+          object pnlTotalVenda: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 40
+            Width = 227
+            Height = 20
+            Margins.Top = 20
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 1
+            object lblTotalVenda: TLabel
+              Left = 0
+              Top = 0
+              Width = 113
+              Height = 20
+              Align = alLeft
+              Caption = 'Total da Venda:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object lblValorVenda: TLabel
+              Left = 113
+              Top = 0
+              Width = 114
+              Height = 20
+              Align = alClient
+              Alignment = taRightJustify
+              Caption = '0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitLeft = 195
+              ExplicitWidth = 32
+              ExplicitHeight = 19
+            end
+          end
+          object pnlDesconto: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 68
+            Width = 227
+            Height = 20
+            Margins.Top = 5
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 2
+            object lblDesconto: TLabel
+              Left = 0
+              Top = 0
+              Width = 71
+              Height = 20
+              Align = alLeft
+              Caption = 'Desconto:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object editDesconto: TEdit
+              AlignWithMargins = True
+              Left = 71
+              Top = 0
+              Width = 156
+              Height = 20
+              Margins.Left = 0
+              Margins.Top = 0
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alClient
+              Alignment = taRightJustify
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 5589317
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              Text = '0.00'
+            end
+          end
+          object pnlAcrescimo: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 96
+            Width = 227
+            Height = 20
+            Margins.Top = 5
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 3
+            object lblAcrescimo: TLabel
+              Left = 0
+              Top = 0
+              Width = 79
+              Height = 20
+              Align = alLeft
+              Caption = 'Acr'#233'scimo:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object editAcrescimo: TEdit
+              AlignWithMargins = True
+              Left = 79
+              Top = 0
+              Width = 148
+              Height = 20
+              Margins.Left = 0
+              Margins.Top = 0
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alClient
+              Alignment = taRightJustify
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 5589317
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              Text = '0.00'
+            end
+          end
+          object pnlTotalAreceber: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 124
+            Width = 227
+            Height = 20
+            Margins.Top = 5
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 4
+            object lblTotalAreceber: TLabel
+              Left = 0
+              Top = 0
+              Width = 116
+              Height = 20
+              Align = alLeft
+              Caption = 'Total a Receber:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object lblValorAreceber: TLabel
+              Left = 116
+              Top = 0
+              Width = 111
+              Height = 20
+              Align = alClient
+              Alignment = taRightJustify
+              Caption = '0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitLeft = 195
+              ExplicitWidth = 32
+              ExplicitHeight = 19
+            end
+          end
+        end
+        object pnlRecebimentos: TPanel
+          Left = 0
+          Top = 158
+          Width = 233
+          Height = 242
+          Align = alClient
+          BevelOuter = bvNone
+          TabOrder = 1
+          object pnlTotalRecebido: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 20
+            Width = 227
+            Height = 20
+            Margins.Top = 20
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object lblTotalRecebido: TLabel
+              Left = 0
+              Top = 0
+              Width = 111
+              Height = 20
+              Align = alLeft
+              Caption = 'Total Recebido:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object editTotalRecebido: TEdit
+              AlignWithMargins = True
+              Left = 111
+              Top = 0
+              Width = 116
+              Height = 20
+              Margins.Left = 0
+              Margins.Top = 0
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alClient
+              Alignment = taRightJustify
+              BevelOuter = bvNone
+              BorderStyle = bsNone
+              Color = 5589317
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              Text = '0.00'
+            end
+          end
+          object pnlSaldoRestante: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 48
+            Width = 227
+            Height = 20
+            Margins.Top = 5
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 1
+            object lblSaldoRestante: TLabel
+              Left = 0
+              Top = 0
+              Width = 110
+              Height = 20
+              Align = alLeft
+              Caption = 'Saldo Restante:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object lblValorSaldoRestante: TLabel
+              Left = 110
+              Top = 0
+              Width = 117
+              Height = 20
+              Align = alClient
+              Alignment = taRightJustify
+              Caption = '0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitLeft = 195
+              ExplicitWidth = 32
+              ExplicitHeight = 19
+            end
+          end
+          object pnlTroco: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 76
+            Width = 227
+            Height = 20
+            Margins.Top = 5
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 2
+            object lblTroco: TLabel
+              Left = 0
+              Top = 0
+              Width = 47
+              Height = 20
+              Align = alLeft
+              Caption = 'Troco:'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitHeight = 19
+            end
+            object lblValorTroco: TLabel
+              Left = 47
+              Top = 0
+              Width = 180
+              Height = 20
+              Align = alClient
+              Alignment = taRightJustify
+              Caption = '0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWhite
+              Font.Height = -16
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              ExplicitLeft = 195
+              ExplicitWidth = 32
+              ExplicitHeight = 19
+            end
+          end
+        end
+      end
+      object pnlCancelar: TPanel
+        Left = 20
+        Top = 526
+        Width = 233
+        Height = 41
+        Align = alBottom
+        BevelOuter = bvNone
+        Caption = 'Cancelar / Retornar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 1357025
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+    end
+    object pnlFormasPagamentos: TPanel
+      Left = 273
+      Top = 0
+      Width = 567
+      Height = 617
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      object Panel1: TPanel
+        Left = 0
+        Top = 0
+        Width = 567
+        Height = 100
+        Align = alTop
+        BevelOuter = bvNone
+        Padding.Left = 30
+        Padding.Top = 20
+        Padding.Right = 30
+        TabOrder = 0
+      end
+    end
+  end
+end

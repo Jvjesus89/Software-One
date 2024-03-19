@@ -1,0 +1,71 @@
+unit DbEditarVendas;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TDataModule1 = class(TDataModule)
+    DsTempItemCampos: TDataSource;
+    QvendasitemCampos: TFDQuery;
+    QvendasitemCamposidvendaitem: TIntegerField;
+    QvendasitemCamposvlunitario: TSingleField;
+    QvendasitemCamposvlitem: TSingleField;
+    QvendasitemCamposidproduto: TIntegerField;
+    QvendasitemCamposqtitem: TIntegerField;
+    QvendasitemCamposidvenda: TIntegerField;
+    QvendasitemCamposnmproduto: TWideStringField;
+    QvendasitemCamposvlproduto: TSingleField;
+    QCriaTabelaTemp: TFDQuery;
+    QExcluiTabelaTemp: TFDQuery;
+    QTempCamposVenda: TFDQuery;
+    QTempCamposVendaidvenda: TFDAutoIncField;
+    QTempCamposVendaidcliente: TIntegerField;
+    QTempCamposVendavlvenda: TSingleField;
+    QTempCamposVendadtcadastro: TDateField;
+    QTempCamposVendadtvenda: TDateField;
+    QTempCamposVendanrdocumento: TIntegerField;
+    QTempCamposVendanmcliente: TWideStringField;
+    QInseriTabelaTemp: TFDQuery;
+    DsQtempCamposVendas: TDataSource;
+    QConsultaTabelaTemp: TFDQuery;
+    QTempVendasItem: TFDQuery;
+    IntegerField6: TIntegerField;
+    SingleField5: TSingleField;
+    SingleField6: TSingleField;
+    IntegerField7: TIntegerField;
+    IntegerField8: TIntegerField;
+    IntegerField9: TIntegerField;
+    WideStringField12: TWideStringField;
+    SingleField7: TSingleField;
+    DsQTempVendasItem: TDataSource;
+    Qvendas: TFDQuery;
+    Qvendasidvenda: TIntegerField;
+    Qvendasidcliente: TIntegerField;
+    Qvendasdtcadastro: TDateField;
+    Qvendasdtvenda: TDateField;
+    Qvendasnrdocumento: TIntegerField;
+    Qvendasvlvenda: TSingleField;
+    Qvendasnmcliente: TWideStringField;
+    Qvendasnmformapagamento: TWideStringField;
+    DsQVendas: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

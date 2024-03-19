@@ -1,0 +1,14 @@
+program PDVNew;
+
+uses
+  Vcl.Forms,
+  Pdv.view.principal in 'src\view\Pdv.view.principal.pas' {pageprincipal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tpageprincipal, pageprincipal);
+  Application.Run;
+end.

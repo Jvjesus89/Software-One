@@ -1,0 +1,16 @@
+﻿[pnlTitle]
+Coordinates=178,10,57,58
+
+[pnlMain]
+Coordinates=10,10,60,58
+
+[pnlConteiner]
+Coordinates=80,10,88,58
+
+[]
+Coordinates=155,78,91,36
+
+[pnlButton]
+Coordinates=10,78,55,58
+Visible=True
+

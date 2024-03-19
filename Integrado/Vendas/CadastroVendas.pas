@@ -45,7 +45,7 @@ implementation
 {$R *.dfm}
 
 uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas,
-  DbPrincipal;
+  DbPrincipal,DbEditarVendas;
 
 
 
@@ -55,35 +55,49 @@ procedure TCadastroDeVendas.BotaoEditarClick(Sender: TObject);
 var idvenda : integer;
 begin
      idvenda := (DBGrid1.fields[4].Value);
+     // consulta venda
+     DbEditVenda.QConsultavendas.close;
+     DbEditVenda.QConsultavendas.sql.Clear;
+     DbEditVenda.QConsultavendas.sql.Add('Select * From vendas V  Where v.idvenda= :PIdVenda');
+     DbEditVenda.QConsultavendas.ParamByName('PIdVenda').AsInteger := IdVenda;
+     DbEditVenda.QConsultavendas.open;
+     // consulta item venda
+     DbEditVenda.QConsultaVendaItem.close;
+     DbEditVenda.QConsultaVendaItem.sql.Clear;
+     DbEditVenda.QConsultaVendaItem.sql.Add('Select * From vendasitem Where idvenda= :PIdVenda');
+     DbEditVenda.QConsultaVendaItem.ParamByName('PIdVenda').AsInteger := IdVenda;
+     DbEditVenda.QConsultaVendaItem.open;
 
-        // criação tabela temporaria para vendas
-     DbVendas1.QCriaTabelaTemp.close;
-     DbVendas1.QCriaTabelaTemp.sql.Clear;
-     DbVendas1.QCriaTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendas"');
-     DbVendas1.QCriaTabelaTemp.sql.Add('(idvenda integer,idcliente integer,vlvenda real ,dtcadastro date,dtvenda date,nrdocumento integer)');
-     DbVendas1.QCriaTabelaTemp.ExecSQl;
-     DbVendas1.QTempCamposVenda.close;
 
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('Insert into temp."#vendas" select * From vendas where idvenda = :Pidvenda');
-     DbVendas1.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
+
+       // criação tabela temporaria para vendas
+     DbEditVenda.QCriaTabelaTemp.close;
+     DbEditVenda.QCriaTabelaTemp.sql.Clear;
+     DbEditVenda.QCriaTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendas"');
+     DbEditVenda.QCriaTabelaTemp.sql.Add('(idvenda integer,idcliente integer,vlvenda real ,dtcadastro date,dtvenda date,nrdocumento integer)');
+     DbEditVenda.QCriaTabelaTemp.ExecSQl;
+     DbEditVenda.QCriaTabelaTemp.close;
+
+     DbEditVenda.QInseriTabelaTemp.close;
+     DbEditVenda.QInseriTabelaTemp.sql.Clear;
+     DbEditVenda.QInseriTabelaTemp.sql.Add('Insert into temp."#vendas" select * From vendas where idvenda = :Pidvenda');
+     DbEditVenda.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
+     DbEditVenda.QInseriTabelaTemp.ExecSQl;
 
 
              // criação tabela temporaria para vendas item
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
-     DbVendas1.QInseriTabelaTemp.sql.Add('(idvendaitem integer DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
-     DbVendas1.QInseriTabelaTemp.sql.Add('vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
+     DbEditVenda.QInseriTabelaTemp.close;
+     DbEditVenda.QInseriTabelaTemp.sql.Clear;
+     DbEditVenda.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
+     DbEditVenda.QInseriTabelaTemp.sql.Add('(idvendaitem integer DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
+     DbEditVenda.QInseriTabelaTemp.sql.Add('vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
+     DbEditVenda.QInseriTabelaTemp.ExecSQl;
 
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('Insert into temp."#vendasitem" select * From vendasitem Where idvenda = :Pidvenda ');
-     DbVendas1.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
+     DbEditVenda.QInseriTabelaTemp.close;
+     DbEditVenda.QInseriTabelaTemp.sql.Clear;
+     DbEditVenda.QInseriTabelaTemp.sql.Add('Insert into temp."#vendasitem" select * From vendasitem Where idvenda = :Pidvenda ');
+     DbEditVenda.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
+     DbEditVenda.QInseriTabelaTemp.ExecSQl;
 
      DbVendas1.QTempVendasItem.close;
      DbVendas1.QTempVendasItem.open;

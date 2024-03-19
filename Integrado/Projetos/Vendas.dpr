@@ -23,7 +23,9 @@ uses
   DbXmlImportacao in '..\Vendas\Banco de dados\DbXml\DbXmlImportacao.pas' {DbImportacaoXml: TDataModule},
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
   CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas},
-  conectarINI in '..\Vendas\Comandos\conectarINI.pas';
+  conectarINI in '..\Vendas\Comandos\conectarINI.pas',
+  TelaEditaVendas in '..\Vendas\Editar\TelaEditaVendas.pas' {Form2},
+  DbEditarVendas in '..\Vendas\Editar\Db\DbEditarVendas.pas' {DbEditVenda: TDataModule};
 
 {$R *.res}
 
@@ -45,6 +47,8 @@ begin
   Application.CreateForm(TConsultaFormaPagamento, ConsultaFormaPagamento);
   Application.CreateForm(TCadastroAreceber, CadastroAreceber);
   Application.CreateForm(TXML, XML);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TDbEditVenda, DbEditVenda);
   Application.Run;
 end.
 

@@ -1,0 +1,18 @@
+program PDVNew;
+
+uses
+  Vcl.Forms,
+  Pdv.view.principal in 'src\view\Pdv.view.principal.pas' {pageprincipal},
+  Pdv.view.page.login in 'src\view\Pdv.view.page.login.pas' {PageLogin},
+  Pdv.view.pagamentos in 'src\view\Pdv.view.pagamentos.pas' {PagePagamentos};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  reportMemoryLeaksOnShutDown := true;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tpageprincipal, pageprincipal);
+  Application.CreateForm(TPagePagamentos, PagePagamentos);
+  Application.Run;
+end.

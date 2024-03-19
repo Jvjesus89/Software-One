@@ -1,21 +1,20 @@
 ﻿object DbImportacaoXml: TDbImportacaoXml
   OldCreateOrder = False
-  Height = 310
-  Width = 487
+  Height = 192
+  Width = 290
   object QInseriDadosXml: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From vendas')
-    Left = 32
-    Top = 80
+    Left = 56
+    Top = 48
   end
   object QconsultaTempVendas: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'Select * From Temp."#vendas"')
-    Left = 120
-    Top = 80
+    Left = 144
+    Top = 48
     object QconsultaTempVendasidvenda: TIntegerField
       FieldName = 'idvenda'
       Origin = 'idvenda'
@@ -56,7 +55,7 @@
   end
   object DsQconsultaTempVendas: TDataSource
     DataSet = QconsultaTempVendas
-    Left = 32
-    Top = 136
+    Left = 56
+    Top = 104
   end
 end

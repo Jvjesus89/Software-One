@@ -1,0 +1,308 @@
+﻿object DbEditVenda: TDbEditVenda
+  OldCreateOrder = False
+  Height = 276
+  Width = 481
+  object QCriaTabelaTemp: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    Left = 376
+    Top = 80
+  end
+  object QExcluiTabelaTemp: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    Left = 272
+    Top = 24
+  end
+  object QInseriTabelaTemp: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    Left = 368
+    Top = 24
+  end
+  object QConsultavendas: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      
+        'Select * From vendas V join vendasitem VI on Vi.idvenda = V.idve' +
+        'nda join areceber A on V.idvenda = A.idorigem join clientes C on' +
+        ' C.idcliente = V.idcliente join formapagamento F on F.idformapag' +
+        'amento = A.idformapagamento')
+    Left = 24
+    Top = 160
+    object QConsultavendasidvenda: TFDAutoIncField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object QConsultavendasidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      Required = True
+    end
+    object QConsultavendasvlvenda: TSingleField
+      FieldName = 'vlvenda'
+      Origin = 'vlvenda'
+      Required = True
+    end
+    object QConsultavendasdtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      Required = True
+    end
+    object QConsultavendasdtvenda: TDateField
+      FieldName = 'dtvenda'
+      Origin = 'dtvenda'
+    end
+    object QConsultavendasnrdocumento: TIntegerField
+      FieldName = 'nrdocumento'
+      Origin = 'nrdocumento'
+      Required = True
+    end
+    object QConsultavendasidvendasitem: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidvenda_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idvenda_1'
+      Origin = 'idvenda'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidproduto: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasvlunitario: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasqtvendido: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasvlitem: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidareceber: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idareceber'
+      Origin = 'idareceber'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidcliente_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idcliente_1'
+      Origin = 'idcliente'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnmcliente: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object QConsultavendasidformapagamento: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idformapagamento'
+      Origin = 'idformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnmformapagamento: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmformapagamento'
+      Origin = 'nmformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasvltitulo: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'vltitulo'
+      Origin = 'vltitulo'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnrtitulo: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'nrtitulo'
+      Origin = 'nrtitulo'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasdtcadastro_1: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtcadastro_1'
+      Origin = 'dtcadastro'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasdtvencimento: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtvencimento'
+      Origin = 'dtvencimento'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidorigem: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idorigem'
+      Origin = 'idorigem'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasdtbaixa: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtbaixa'
+      Origin = 'dtbaixa'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidcontabancaria: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idcontabancaria'
+      Origin = 'idcontabancaria'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasidcliente_2: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idcliente_2'
+      Origin = 'idcliente'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnmcliente_1: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmcliente_1'
+      Origin = 'nmcliente'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object QConsultavendascpf_cnpj: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cpf_cnpj'
+      Origin = 'cpf_cnpj'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 15
+    end
+    object QConsultavendasnmendereco: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmendereco'
+      Origin = 'nmendereco'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasnrendereço: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nrendere'#231'o'
+      Origin = '"nrendere'#231'o"'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 8
+    end
+    object QConsultavendascomplemento: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasdtcadastro_2: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtcadastro_2'
+      Origin = 'dtcadastro'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnmbairro: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmbairro'
+      Origin = 'nmbairro'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasnmcidade: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmcidade'
+      Origin = 'nmcidade'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasnmestado: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmestado'
+      Origin = 'nmestado'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 2
+    end
+    object QConsultavendascdcliente: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdcliente'
+      Origin = 'cdcliente'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 6
+    end
+    object QConsultavendasidformapagamento_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idformapagamento_1'
+      Origin = 'idformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendasnmformapagamento_1: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmformapagamento_1'
+      Origin = 'nmformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QConsultavendasdtcadastro_3: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtcadastro_3'
+      Origin = 'dtcadastro'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object QConsultavendascdformapagamento: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdformapagamento'
+      Origin = 'cdformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+  object DsQConsultaVendas: TDataSource
+    DataSet = QConsultavendas
+    Left = 24
+    Top = 216
+  end
+end

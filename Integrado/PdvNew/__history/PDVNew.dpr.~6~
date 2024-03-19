@@ -1,0 +1,18 @@
+program PDVNew;
+
+uses
+  Vcl.Forms,
+  Pdv.view.principal in 'src\view\Pdv.view.principal.pas' {pageprincipal},
+  Pdv.view.page.login in 'src\view\Pdv.view.page.login.pas' {PageLogin},
+  pdv.view.componente.Transparencia in 'src\view\componente\pdv.view.componente.Transparencia.pas' {fundoTransparente};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  reportMemoryLeaksOnShutDown := true;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(Tpageprincipal, pageprincipal);
+  Application.CreateForm(TfundoTransparente, fundoTransparente);
+  Application.Run;
+end.
