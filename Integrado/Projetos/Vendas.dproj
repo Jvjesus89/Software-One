@@ -6,7 +6,7 @@
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>Vendas.dpr</MainSource>
     </PropertyGroup>
@@ -34,6 +34,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -41,6 +47,12 @@
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
         <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
@@ -59,18 +71,27 @@
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>Vendas</SanitizedProjectName>
         <Custom_Styles>Glow|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Glow.vsf;Glossy|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Glossy.vsf</Custom_Styles>
+        <UsePackages>true</UsePackages>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;bindcompvclsmp;tethering;svnui;bindcompvclwinx;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;svn;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;vcledge;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;dxSkinBasicRS27;dxSkinBlackRS27;dxSkinBlueprintRS27;dxSkinBlueRS27;dxSkinCaramelRS27;dxSkinCoffeeRS27;dxSkinDarkRoomRS27;dxSkinDarkSideRS27;dxSkinDevExpressDarkStyleRS27;dxSkinDevExpressStyleRS27;dxSkinFoggyRS27;dxSkinGlassOceansRS27;dxSkinHighContrastRS27;dxSkiniMaginaryRS27;dxSkinLilianRS27;dxSkinLiquidSkyRS27;dxSkinLondonLiquidSkyRS27;dxSkinMcSkinRS27;dxSkinMetropolisDarkRS27;dxSkinMetropolisRS27;dxSkinMoneyTwinsRS27;dxSkinOffice2007BlackRS27;dxSkinOffice2007BlueRS27;dxSkinOffice2007GreenRS27;dxSkinOffice2007PinkRS27;dxSkinOffice2007SilverRS27;dxSkinOffice2010BlackRS27;dxSkinOffice2010BlueRS27;dxSkinOffice2010SilverRS27;dxSkinOffice2013DarkGrayRS27;dxSkinOffice2013LightGrayRS27;dxSkinOffice2013WhiteRS27;dxSkinOffice2016ColorfulRS27;dxSkinOffice2016DarkRS27;dxSkinOffice2019BlackRS27;dxSkinOffice2019ColorfulRS27;dxSkinOffice2019DarkGrayRS27;dxSkinOffice2019WhiteRS27;dxSkinPumpkinRS27;dxSkinSevenClassicRS27;dxSkinSevenRS27;dxSkinSharpPlusRS27;dxSkinSharpRS27;dxSkinSilverRS27;dxSkinSpringTimeRS27;dxSkinStardustRS27;dxSkinSummer2008RS27;dxSkinTheAsphaltWorldRS27;dxSkinTheBezierRS27;dxSkinValentineRS27;dxSkinVisualStudio2013BlueRS27;dxSkinVisualStudio2013DarkRS27;dxSkinVisualStudio2013LightRS27;dxSkinVS2010RS27;dxSkinWhiteprintRS27;dxSkinXmas2008BlueRS27;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;bindcompvclsmp;tethering;bindcompvclwinx;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;vcledge;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;dxSkinBasicRS27;dxSkinBlackRS27;dxSkinBlueprintRS27;dxSkinBlueRS27;dxSkinCaramelRS27;dxSkinCoffeeRS27;dxSkinDarkRoomRS27;dxSkinDarkSideRS27;dxSkinDevExpressDarkStyleRS27;dxSkinDevExpressStyleRS27;dxSkinFoggyRS27;dxSkinGlassOceansRS27;dxSkinHighContrastRS27;dxSkiniMaginaryRS27;dxSkinLilianRS27;dxSkinLiquidSkyRS27;dxSkinLondonLiquidSkyRS27;dxSkinMcSkinRS27;dxSkinMetropolisDarkRS27;dxSkinMetropolisRS27;dxSkinMoneyTwinsRS27;dxSkinOffice2007BlackRS27;dxSkinOffice2007BlueRS27;dxSkinOffice2007GreenRS27;dxSkinOffice2007PinkRS27;dxSkinOffice2007SilverRS27;dxSkinOffice2010BlackRS27;dxSkinOffice2010BlueRS27;dxSkinOffice2010SilverRS27;dxSkinOffice2013DarkGrayRS27;dxSkinOffice2013LightGrayRS27;dxSkinOffice2013WhiteRS27;dxSkinOffice2016ColorfulRS27;dxSkinOffice2016DarkRS27;dxSkinOffice2019BlackRS27;dxSkinOffice2019ColorfulRS27;dxSkinOffice2019DarkGrayRS27;dxSkinOffice2019WhiteRS27;dxSkinPumpkinRS27;dxSkinSevenClassicRS27;dxSkinSevenRS27;dxSkinSharpPlusRS27;dxSkinSharpRS27;dxSkinSilverRS27;dxSkinSpringTimeRS27;dxSkinStardustRS27;dxSkinSummer2008RS27;dxSkinTheAsphaltWorldRS27;dxSkinTheBezierRS27;dxSkinValentineRS27;dxSkinVisualStudio2013BlueRS27;dxSkinVisualStudio2013DarkRS27;dxSkinVisualStudio2013LightRS27;dxSkinVS2010RS27;dxSkinWhiteprintRS27;dxSkinXmas2008BlueRS27;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -79,15 +100,21 @@
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1046</VerInfo_Locale>
         <UsePackages>true</UsePackages>
-        <VerInfo_Keys>CompanyName=Software One;FileDescription=Vendas;FileVersion=1.0.0.0;InternalName=;LegalCopyright=Software One;LegalTrademarks=Software One;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Vendas;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <BT_BuildType>Debug</BT_BuildType>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -98,14 +125,19 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
+        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Vendas\Banco de dados\DBvendas.pas">
-            <Form>DbVendas1</Form>
-        </DCCReference>
         <DCCReference Include="..\Vendas\Cadastro\TelaCadastroVenda.pas">
             <Form>TelaCadastroVendas</Form>
         </DCCReference>
@@ -163,6 +195,11 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\Vendas\Banco de dados\DbVendas.pas">
+            <Form>DbVendas1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -189,7 +226,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\Vendas.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\Vendas.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Vendas.exe</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -968,7 +1005,7 @@
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
             <ModelSupport>False</ModelSupport>
         </BorlandProject>

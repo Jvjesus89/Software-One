@@ -59,15 +59,18 @@
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>CadastroCliente</SanitizedProjectName>
         <Custom_Styles>Glow|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Glow.vsf;Glossy|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Glossy.vsf</Custom_Styles>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;bindcompvclsmp;tethering;svnui;bindcompvclwinx;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;svn;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;vcledge;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;dxSkinBasicRS27;dxSkinBlackRS27;dxSkinBlueprintRS27;dxSkinBlueRS27;dxSkinCaramelRS27;dxSkinCoffeeRS27;dxSkinDarkRoomRS27;dxSkinDarkSideRS27;dxSkinDevExpressDarkStyleRS27;dxSkinDevExpressStyleRS27;dxSkinFoggyRS27;dxSkinGlassOceansRS27;dxSkinHighContrastRS27;dxSkiniMaginaryRS27;dxSkinLilianRS27;dxSkinLiquidSkyRS27;dxSkinLondonLiquidSkyRS27;dxSkinMcSkinRS27;dxSkinMetropolisDarkRS27;dxSkinMetropolisRS27;dxSkinMoneyTwinsRS27;dxSkinOffice2007BlackRS27;dxSkinOffice2007BlueRS27;dxSkinOffice2007GreenRS27;dxSkinOffice2007PinkRS27;dxSkinOffice2007SilverRS27;dxSkinOffice2010BlackRS27;dxSkinOffice2010BlueRS27;dxSkinOffice2010SilverRS27;dxSkinOffice2013DarkGrayRS27;dxSkinOffice2013LightGrayRS27;dxSkinOffice2013WhiteRS27;dxSkinOffice2016ColorfulRS27;dxSkinOffice2016DarkRS27;dxSkinOffice2019BlackRS27;dxSkinOffice2019ColorfulRS27;dxSkinOffice2019DarkGrayRS27;dxSkinOffice2019WhiteRS27;dxSkinPumpkinRS27;dxSkinSevenClassicRS27;dxSkinSevenRS27;dxSkinSharpPlusRS27;dxSkinSharpRS27;dxSkinSilverRS27;dxSkinSpringTimeRS27;dxSkinStardustRS27;dxSkinSummer2008RS27;dxSkinTheAsphaltWorldRS27;dxSkinTheBezierRS27;dxSkinValentineRS27;dxSkinVisualStudio2013BlueRS27;dxSkinVisualStudio2013DarkRS27;dxSkinVisualStudio2013LightRS27;dxSkinVS2010RS27;dxSkinWhiteprintRS27;dxSkinXmas2008BlueRS27;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;bindcompvclsmp;tethering;bindcompvclwinx;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;vcledge;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;dxSkinBasicRS27;dxSkinBlackRS27;dxSkinBlueprintRS27;dxSkinBlueRS27;dxSkinCaramelRS27;dxSkinCoffeeRS27;dxSkinDarkRoomRS27;dxSkinDarkSideRS27;dxSkinDevExpressDarkStyleRS27;dxSkinDevExpressStyleRS27;dxSkinFoggyRS27;dxSkinGlassOceansRS27;dxSkinHighContrastRS27;dxSkiniMaginaryRS27;dxSkinLilianRS27;dxSkinLiquidSkyRS27;dxSkinLondonLiquidSkyRS27;dxSkinMcSkinRS27;dxSkinMetropolisDarkRS27;dxSkinMetropolisRS27;dxSkinMoneyTwinsRS27;dxSkinOffice2007BlackRS27;dxSkinOffice2007BlueRS27;dxSkinOffice2007GreenRS27;dxSkinOffice2007PinkRS27;dxSkinOffice2007SilverRS27;dxSkinOffice2010BlackRS27;dxSkinOffice2010BlueRS27;dxSkinOffice2010SilverRS27;dxSkinOffice2013DarkGrayRS27;dxSkinOffice2013LightGrayRS27;dxSkinOffice2013WhiteRS27;dxSkinOffice2016ColorfulRS27;dxSkinOffice2016DarkRS27;dxSkinOffice2019BlackRS27;dxSkinOffice2019ColorfulRS27;dxSkinOffice2019DarkGrayRS27;dxSkinOffice2019WhiteRS27;dxSkinPumpkinRS27;dxSkinSevenClassicRS27;dxSkinSevenRS27;dxSkinSharpPlusRS27;dxSkinSharpRS27;dxSkinSilverRS27;dxSkinSpringTimeRS27;dxSkinStardustRS27;dxSkinSummer2008RS27;dxSkinTheAsphaltWorldRS27;dxSkinTheBezierRS27;dxSkinValentineRS27;dxSkinVisualStudio2013BlueRS27;dxSkinVisualStudio2013DarkRS27;dxSkinVisualStudio2013LightRS27;dxSkinVS2010RS27;dxSkinWhiteprintRS27;dxSkinXmas2008BlueRS27;$(DCC_UsePackage)</DCC_UsePackage>
@@ -81,12 +84,10 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -95,8 +96,11 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -124,6 +128,10 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\CadastroCliente\Comandos\conectarINI.pas"/>
+        <DCCReference Include="..\CadastroCliente\TelaExportacaoDadosCliente.pas">
+            <Form>TelaExportaCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -146,10 +154,17 @@
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\CadastroCliente.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\CadastroCliente.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>CadastroCliente.rsm</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\bin\CadastroCliente.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>CadastroCliente.exe</RemoteName>
                         <Overwrite>true</Overwrite>

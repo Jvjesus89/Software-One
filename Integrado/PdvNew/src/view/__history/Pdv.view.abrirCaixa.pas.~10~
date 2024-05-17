@@ -1,0 +1,82 @@
+unit Pdv.view.abrirCaixa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TPageAbrirCaixa = class(TForm)
+    pnlConteiner: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    Shape1: TShape;
+    Edit1: TEdit;
+    Shape2: TShape;
+    SpeedButton1: TSpeedButton;
+    procedure FormShow(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+  Procedure  Responsive ;
+    { Private declarations }
+  public
+  class function New(Aowner:TComponent): TPageAbrirCaixa;
+  function Embed(Value:TWincontrol):TPageAbrirCaixa;
+    { Public declarations }
+  end;
+
+var
+  PageAbrirCaixa: TPageAbrirCaixa;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+function TPageAbrirCaixa.Embed(Value: TWincontrol): TPageAbrirCaixa;
+begin
+  Result:=self;
+  Self.Parent := value;
+end;
+
+procedure TPageAbrirCaixa.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+  Self.Close;
+end;
+
+procedure TPageAbrirCaixa.FormResize(Sender: TObject);
+begin
+ Responsive;
+end;
+
+procedure TPageAbrirCaixa.FormShow(Sender: TObject);
+begin
+ Responsive;
+end;
+
+class function TPageAbrirCaixa.New(Aowner: TComponent): TPageAbrirCaixa;
+begin
+  Result := Self.New(AOwner);
+end;
+
+procedure TPageAbrirCaixa.Responsive;
+begin
+ pnlconteiner.Margins.Left := Round ((Self.Width - pnlconteiner.Width)/2);
+ pnlconteiner.Margins.Right := Round ((Self.Width - pnlconteiner.Width)/2);
+  pnlconteiner.Margins.Top := Round ((Self.Height - pnlconteiner.Height)/2);
+  pnlconteiner.Margins.Bottom := Round ((Self.Height - pnlconteiner.Height)/2);
+  pnlconteiner.Align := alClient;
+end;
+
+end.

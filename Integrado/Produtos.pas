@@ -43,12 +43,33 @@ begin
 end;
 
 procedure TConsultaProduto.DBGrid1DblClick(Sender: TObject);
+var idproduto : integer;
 begin
+      idproduto := DBGrid1.Fields[3].value  ;
+
+      //inserir tabela temp
+      DbMov.QCriarTabelaTemp.close;
+      DbMov.QCriarTabelaTemp.sql.Clear;
+      DbMov.QCriarTabelaTemp.sql.Add('Insert into temp."#movimentoestoque" (idproduto) values (:Pidproduto)');
+      DbMov.QCriarTabelaTemp.ParamByName('Pidproduto').AsInteger := idproduto;
+      DbMov.QCriarTabelaTemp.ExecSql;
+
+      // selecionar o produto inserido
+      DbMov.QConsultaTemp.close;
+      DbMov.QConsultaTemp.sql.Clear;
+      DbMov.QConsultaTemp.sql.Add('Select * From temp."#movimentoestoque" T join produto P on P.idproduto = T.idproduto  Where P.idproduto = :Pidproduto');
+      DbMov.QConsultaTemp.ParamByName('Pidproduto').AsInteger := idproduto;
+      DbMov.QConsultaTemp.open;
+
+      // consulta movimentação
+      DbMov.QConsulta.close;
+      DbMov.QConsulta.sql.Clear;
+      DbMov.QConsulta.sql.Add('Select * From movimentoestoque  Where idproduto = :Pidproduto');
+      DbMov.QConsulta.ParamByName('Pidproduto').AsInteger := idproduto;
+      DbMov.QConsulta.open;
+
       ConsultaProduto.close;
-      ConsultaEstoque1.CodigoProduto.Text := DBGrid1.Fields[0].value;
-      ConsultaEstoque1.NomeProduto.Text := DBGrid1.Fields[1].value;
-      ConsultaEstoque1.FamiliaProduto.Text := DBGrid1.Fields[2].value;
-      ConsultaEstoque1.IdProduto.Text := DBGrid1.Fields[3].value;
+
 end;
 
 end.

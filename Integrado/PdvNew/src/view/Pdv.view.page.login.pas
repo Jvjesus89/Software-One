@@ -32,7 +32,11 @@ type
     Imagem: TImage;
     procedure btnLogarClick(Sender: TObject);
   private
+  Fproc: Tproc<String>;
   public
+  class function New(AOWNER: Tcomponent): Tpagelogin;
+  function Embed (Value: TwinControl): TpageLogin;
+  function Informacao (Value:Tproc<String>):Tpagelogin;
   end;
 
 var
@@ -50,8 +54,27 @@ begin
       ShowMessage ('Login e senha invalido');
       Exit;
     end;
-    close
+    FProc(editUsuario.Text);
+    close;
 end;
 
+
+function TPageLogin.Embed(Value: TwinControl): TpageLogin;
+begin
+    Result := Self;
+    Self.Parent := value;
+
+end;
+
+function TPageLogin.Informacao(Value: Tproc<String>): Tpagelogin;
+begin
+   Result:= Self;
+   Fproc := value;
+end;
+
+class function TPageLogin.New(AOWNER: Tcomponent): Tpagelogin;
+begin
+    Result := Self.Create(AOwner) ;
+end;
 
 end.

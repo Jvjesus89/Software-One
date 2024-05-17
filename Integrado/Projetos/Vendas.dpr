@@ -2,7 +2,6 @@ program Vendas;
 
 uses
   Vcl.Forms,
-  DBvendas in '..\Vendas\Banco de dados\DBvendas.pas' {DbVendas1},
   Vcl.Themes,
   Vcl.Styles,
   TelaCadastroVenda in '..\Vendas\Cadastro\TelaCadastroVenda.pas' {TelaCadastroVendas},
@@ -25,7 +24,8 @@ uses
   CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas},
   conectarINI in '..\Vendas\Comandos\conectarINI.pas',
   TelaEditaVendas in '..\Vendas\Editar\TelaEditaVendas.pas' {Form2},
-  DbEditarVendas in '..\Vendas\Editar\Db\DbEditarVendas.pas' {DbEditVenda: TDataModule};
+  DbEditarVendas in '..\Vendas\Editar\Db\DbEditarVendas.pas' {DbEditVenda: TDataModule},
+  DbVendas in '..\Vendas\Banco de dados\DbVendas.pas' {DbVendas1: TDataModule};
 
 {$R *.res}
 
@@ -34,12 +34,12 @@ begin
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TDbMaster, DbMaster);
-  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
   Application.CreateForm(TDbVendas1, DbVendas1);
+  Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
+  Application.CreateForm(TDbEditVenda, DbEditVenda);
   Application.CreateForm(TDbXmlVendas, DbXmlVendas);
-  Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
-  Application.CreateForm(TTelaConsultaCliente, TelaConsultaCliente);
   Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
+  Application.CreateForm(TTelaConsultaCliente, TelaConsultaCliente);
   Application.CreateForm(TTelaConsultaProduto, TelaConsultaProduto);
   Application.CreateForm(TTelaCadastroProdutoVenda, TelaCadastroProdutoVenda);
   Application.CreateForm(TExportarXML, ExportarXML);
@@ -47,10 +47,12 @@ begin
   Application.CreateForm(TConsultaFormaPagamento, ConsultaFormaPagamento);
   Application.CreateForm(TCadastroAreceber, CadastroAreceber);
   Application.CreateForm(TXML, XML);
+  Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
   Application.CreateForm(TForm2, Form2);
-  Application.CreateForm(TDbEditVenda, DbEditVenda);
   Application.Run;
 end.
+
+
 
 
 

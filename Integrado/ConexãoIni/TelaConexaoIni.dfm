@@ -1,7 +1,7 @@
-object Form3: TForm3
+object ConectarINI: TConectarINI
   Left = 0
   Top = 0
-  Caption = 'Form3'
+  Caption = 'Conectar INI'
   ClientHeight = 200
   ClientWidth = 341
   Color = clBtnFace

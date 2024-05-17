@@ -73,6 +73,7 @@ procedure TTelaCadastroCliente1.BitBtn1Click(Sender: TObject);
     CampoCidade  : String;
     CampoNumero  : String;
     CampoComplemento : String;
+    CampoUF : string;
 
 
 begin
@@ -107,6 +108,9 @@ begin
 
         CampoComplemento:=  ObjectPed.GetValue<string>('complemento', '');
         Complemento.Text :=  (CampoBairro);
+
+        CampoUF:=  ObjectPed.GetValue<string>('uf', '');
+        DBEdit8.Text :=  (CampoUF);
 
     end;
     ObjectPed.DisposeOf;

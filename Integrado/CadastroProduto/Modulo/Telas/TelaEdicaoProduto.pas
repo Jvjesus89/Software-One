@@ -50,7 +50,7 @@ begin
       Dbprod.QProdutoEdicao.ParamByName('Pnmproduto').AsString :=  (NmProduto.Text);
       Dbprod.QProdutoEdicao.ParamByName('Pcdproduto').AsInteger :=  StrToInt (CdProduto.Text);
       Dbprod.QProdutoEdicao.ParamByName('Pidfamiliaproduto').AsInteger :=  1 ;
-      Dbprod.QProdutoEdicao.ParamByName('Pvlproduto').AsInteger :=  StrToInt (VlUnitario.Text);
+      Dbprod.QProdutoEdicao.ParamByName('Pvlproduto').AsFloat :=  StrToFloat (VlUnitario.Text);
       Dbprod.QProdutoEdicao.ParamByName('Pnmfamiliaproduto').AsString := (FamiliaProduto.Text);
       Dbprod.QProdutoEdicao.ParamByName('Pstproduto').AsBoolean  := (Bativo.Checked);
       Dbprod.QProdutoEdicao.ParamByName('Pidproduto').AsInteger :=  StrToInt (IdProduto.Text);

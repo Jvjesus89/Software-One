@@ -3,11 +3,11 @@ unit TelaConexaoIni;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+    Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,System.IniFiles;
 
 type
-  TForm3 = class(TForm)
+  TConectarINI = class(TForm)
     Ip: TLabel;
     NomeBancoDeDados: TLabel;
     Usuario: TLabel;
@@ -28,13 +28,13 @@ type
   end;
 
 var
-  Form3: TForm3;
+  ConectarINI: TConectarINI;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm3.ConectarBancoClick(Sender: TObject);
+procedure TConectarINI.ConectarBancoClick(Sender: TObject);
 var
 ArquivoIni:TIniFile;
 DiretorioPadrao,Caminhodll,ININomeBanco,INILogin,INISenhas,INIIPPostgres,INIPortaPostgres:string;
@@ -65,7 +65,7 @@ Caminhodll       := GetCurrentDir+ '\libpq.dll';
 
 end;
 
-procedure TForm3.IPPostgresExit(Sender: TObject);
+procedure TConectarINI.IPPostgresExit(Sender: TObject);
 begin
     IPPostgres.Text := UpperCase(IPPostgres.Text);
 end;

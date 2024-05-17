@@ -9,12 +9,12 @@ uses
   TelaEdicaoApagar in '..\CadastroApagar\Telas\TelaEdicaoApagar.pas' {TelaEdicaoApagar1},
   TelaExportaçãoDadosApagar in '..\CadastroApagar\Telas\TelaExportaçãoDadosApagar.pas' {Exportar},
   Apagar in '..\CadastroApagar\Apagar.pas' {Apagar1},
-  Dbfinapagar in '..\CadastroApagar\BancoApagar\Dbfinapagar.pas' {DbFinApagar1},
   ConsultaFormaPagamentoCadastro in '..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastro.pas' {ConsultaFormaPagamento},
   TelaConsultaClienteApagar in '..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagar.pas' {TelaConsultaCliente1},
   ConsultaFormaPagamentoCadastroEdit in '..\CadastroApagar\Telas\Consulta\ConsultaFormaPagamentoCadastroEdit.pas' {ConsultaFormaPagamentoEdit},
   TelaConsultaClienteApagarEdit in '..\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.pas' {ConsultaClienteEdit},
-  conectarINI in '..\CadastroApagar\Comandos\conectarINI.pas';
+  conectarINI in '..\CadastroApagar\Comandos\conectarINI.pas',
+  Dbfinapagar in '..\CadastroApagar\BancoApagar\Dbfinapagar.pas' {DbFinApagar1: TDataModule};
 
 {$R *.res}
 
@@ -34,6 +34,8 @@ begin
   Application.CreateForm(TConsultaClienteEdit, ConsultaClienteEdit);
   Application.Run;
 end.
+
+
 
 
 

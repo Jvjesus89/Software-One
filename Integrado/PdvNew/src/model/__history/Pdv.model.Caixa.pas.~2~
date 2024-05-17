@@ -1,0 +1,38 @@
+unit Pdv.model.Caixa;
+
+interface
+type
+Tturno = (MANHA, TARDE, NOITE) ;
+Tcaixa = class
+  private
+    FOperador: String;
+    Fcaixa: integer;
+    Fid: integer;
+    FTurno: Tturno;
+    FSupervisor: String;
+    Fdatahoraabertura: TDateTime;
+    FAberto: Boolean;
+    FSaldoInicial: Currency;
+
+  public
+  property id: integer  read Fid write Fid;
+  property Caixa: integer  read Fcaixa write Fcaixa;
+  property Turno: Tturno  read FTurno write FTurno;
+  property Operador: String  read FOperador write FOperador;
+  property Supervisor: String  read FSupervisor write FSupervisor;
+  property Aberto: Boolean  read FAberto write FAberto;
+  property DataHoraAbertura: TDateTime  read Fdatahoraabertura write Fdatahoraabertura;
+  property Saldoinicial: Currency  read FSaldoInicial write FSaldoInicial;
+  class function New: Tcaixa;
+end;
+
+implementation
+
+{ Tcaixa }
+
+class function Tcaixa.New: Tcaixa;
+begin
+   Result := self.Create;
+end;
+
+end.

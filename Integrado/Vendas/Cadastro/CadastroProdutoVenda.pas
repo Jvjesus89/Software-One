@@ -115,7 +115,7 @@ begin
       DbVendas1.QInseriTabelaTemp.sql.clear;
       DbVendas1.QInseriTabelaTemp.sql.add('Update temp."#vendasItensCampos"  Set');
       DbVendas1.QInseriTabelaTemp.sql.add('vlunitario = :vlunitario, vlitem = :vlitem, qtitem = :qtitem');
-      DbVendas1.QInseriTabelaTemp.ParamByName('vlunitario').AsInteger := StrToInt (vlunitario.Text);
+      DbVendas1.QInseriTabelaTemp.ParamByName('vlunitario').AsFloat := StrToFloat (vlunitario.Text);
       DbVendas1.QInseriTabelaTemp.ParamByName('vlitem').AsFloat :=  StrToFloat (vlitem.Text);
       DbVendas1.QInseriTabelaTemp.ParamByName('qtitem').AsInteger := StrToInt (quantidade.text);
       DbVendas1.QInseriTabelaTemp.ExecSql ;

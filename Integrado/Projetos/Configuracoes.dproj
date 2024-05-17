@@ -59,15 +59,19 @@
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>Configuracoes</SanitizedProjectName>
         <Custom_Styles>Glossy|VCLSTYLE|$(BDSCOMMONDIR)\Styles\Glossy.vsf</Custom_Styles>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXInterBaseDriver;dxSpreadSheetConditionalFormattingDialogsRS27;vclactnband;dxGaugeControlRS27;vclFireDAC;dxSpreadSheetReportDesignerRS27;dxSpreadSheetRS27;bindcompvclsmp;cxPivotGridOLAPRS27;tethering;svnui;dxPSRichEditControlLnkRS27;FireDACADSDriver;dxBarDBNavRS27;cxLibraryRS27;dxRibbonCustomizationFormRS27;cxPivotGridRS27;rbClient2227;dxADOServerModeRS27;vcltouch;rbCIDE2227;vcldb;bindcompfmx;svn;dxPScxExtCommonRS27;rbDAD2227;inetdb;dxFlowChartDesignerRS27;cxTreeListRS27;dxPScxSchedulerLnkRS27;fmx;FireDACIBDriver;fmxdae;vcledge;dxRichEditDocumentModelRS27;dxPsPrVwAdvRS27;dbexpress;IndyCore;dxRibbonRS27;dxOrgChartAdvancedCustomizeFormRS27;vclx;dxPSdxFCLnkRS27;rbUSERDesign2227;dsnap;dxSpellCheckerRS27;FireDACCommon;dxTileControlRS27;dxPDFViewerRS27;RESTBackendComponents;cxSchedulerRS27;dxBarExtItemsRS27;cxGridEMFRS27;rbRAP2227;VCLRESTComponents;soapserver;dxWizardControlRS27;cxSchedulerTreeBrowserRS27;dxRichEditControlRS27;rbDB2227;dxPScxTLLnkRS27;vclie;bindengine;DBXMySQLDriver;CloudService;dxBarExtDBItemsRS27;FireDACMySQLDriver;dxPSCoreRS27;dxFlowChartLayoutsRS27;dxADOEMFRS27;cxExportRS27;dclRBADO2227;FireDACCommonODBC;FireDACCommonDriver;rbServer2227;dxPScxPivotGridLnkRS27;cxSchedulerWebServiceStorageRS27;inet;cxPivotGridChartRS27;IndyIPCommon;bindcompdbx;dxPSdxOCLnkRS27;vcl;IndyIPServer;dxPScxPCProdRS27;rbFireDAC2227;IndySystem;dxHttpIndyRequestRS27;bindcompvclwinx;dxPSdxDBOCLnkRS27;dsnapcon;dxComnRS27;dxFlowChartRS27;dxPSdxGaugeControlLnkRS27;dxMapControlRS27;FireDACMSAccDriver;fmxFireDAC;dxmdsRS27;vclimg;dxPSPrVwRibbonRS27;dxPSdxPDFViewerLnkRS27;FireDAC;cxTreeListdxBarPopupMenuRS27;dxCoreRS27;dxPScxVGridLnkRS27;dxEMFRS27;dxPSdxSpreadSheetLnkRS27;rbRCL2227;rbDIDE2227;rbRIDE2227;FireDACSqliteDriver;FireDACPgDriver;rbWebTier2227;rbServiceCore2227;cxSchedulerRibbonStyleEventEditorRS27;rbBDE2227;rbIDE2227;soaprtl;DbxCommonDriver;dxTabbedMDIRS27;dxRichEditCoreRS27;dxGanttControlRS27;dxCloudServiceLibraryRS27;xmlrtl;soapmidas;fmxobj;vclwinx;dxPScxCommonRS27;rtl;dxdborRS27;DbxClientDriver;dxdbtrRS27;rbADO2227;CustomIPTransport;vcldsnap;dxSkinsCoreRS27;dxPScxGridLnkRS27;bindcomp;appanalytics;dxSpreadSheetCoreRS27;cxSchedulerGridRS27;cxVerticalGridRS27;dxGDIPlusRS27;IndyIPClient;dxFireDACServerModeRS27;dxRichEditControlCoreRS27;bindcompvcl;dxDockingRS27;dxServerModeRS27;dxNavBarRS27;dxFlowChartAdvancedCustomizeFormRS27;dclRBE2227;dxPSLnksRS27;dxorgcRS27;rbCloudSC2227;dclRBDBE2227;dbxcds;VclSmp;rbUSER2227;adortl;dxDBXServerModeRS27;dclRBFireDAC2227;cxGridRS27;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;dxBarRS27;dxPSdxLCLnkRS27;dxFireDACEMFRS27;dxPSdxMapControlLnkRS27;rbDBE2227;dxPSdxDBTVLnkRS27;dxtrmdRS27;dxSpreadSheetCoreConditionalFormattingDialogsRS27;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;vcl;IndyIPServer;vclactnband;vclFireDAC;IndySystem;bindcompvclsmp;tethering;svnui;bindcompvclwinx;dsnapcon;FireDACADSDriver;FireDACMSAccDriver;fmxFireDAC;vclimg;FireDAC;vcltouch;vcldb;bindcompfmx;svn;FireDACSqliteDriver;FireDACPgDriver;inetdb;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;fmxdae;xmlrtl;soapmidas;vcledge;fmxobj;vclwinx;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;dbexpress;IndyCore;vclx;bindcomp;appanalytics;dsnap;FireDACCommon;IndyIPClient;bindcompvcl;RESTBackendComponents;VCLRESTComponents;soapserver;dbxcds;VclSmp;adortl;vclie;bindengine;DBXMySQLDriver;CloudService;dsnapxml;FireDACMySQLDriver;dbrtl;IndyProtocols;inetdbxpress;FireDACCommonODBC;FireDACCommonDriver;inet;fmxase;dxSkinBasicRS27;dxSkinBlackRS27;dxSkinBlueprintRS27;dxSkinBlueRS27;dxSkinCaramelRS27;dxSkinCoffeeRS27;dxSkinDarkRoomRS27;dxSkinDarkSideRS27;dxSkinDevExpressDarkStyleRS27;dxSkinDevExpressStyleRS27;dxSkinFoggyRS27;dxSkinGlassOceansRS27;dxSkinHighContrastRS27;dxSkiniMaginaryRS27;dxSkinLilianRS27;dxSkinLiquidSkyRS27;dxSkinLondonLiquidSkyRS27;dxSkinMcSkinRS27;dxSkinMetropolisDarkRS27;dxSkinMetropolisRS27;dxSkinMoneyTwinsRS27;dxSkinOffice2007BlackRS27;dxSkinOffice2007BlueRS27;dxSkinOffice2007GreenRS27;dxSkinOffice2007PinkRS27;dxSkinOffice2007SilverRS27;dxSkinOffice2010BlackRS27;dxSkinOffice2010BlueRS27;dxSkinOffice2010SilverRS27;dxSkinOffice2013DarkGrayRS27;dxSkinOffice2013LightGrayRS27;dxSkinOffice2013WhiteRS27;dxSkinOffice2016ColorfulRS27;dxSkinOffice2016DarkRS27;dxSkinOffice2019BlackRS27;dxSkinOffice2019ColorfulRS27;dxSkinOffice2019DarkGrayRS27;dxSkinOffice2019WhiteRS27;dxSkinPumpkinRS27;dxSkinSevenClassicRS27;dxSkinSevenRS27;dxSkinSharpPlusRS27;dxSkinSharpRS27;dxSkinSilverRS27;dxSkinSpringTimeRS27;dxSkinStardustRS27;dxSkinSummer2008RS27;dxSkinTheAsphaltWorldRS27;dxSkinTheBezierRS27;dxSkinValentineRS27;dxSkinVisualStudio2013BlueRS27;dxSkinVisualStudio2013DarkRS27;dxSkinVisualStudio2013LightRS27;dxSkinVS2010RS27;dxSkinWhiteprintRS27;dxSkinXmas2008BlueRS27;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;RESTComponents;fmxase;DBXInterBaseDriver;dxSpreadSheetConditionalFormattingDialogsRS27;vclactnband;dxGaugeControlRS27;vclFireDAC;dxSpreadSheetReportDesignerRS27;dxSpreadSheetRS27;bindcompvclsmp;cxPivotGridOLAPRS27;tethering;dxPSRichEditControlLnkRS27;FireDACADSDriver;dxBarDBNavRS27;cxLibraryRS27;dxRibbonCustomizationFormRS27;cxPivotGridRS27;dxADOServerModeRS27;vcltouch;vcldb;bindcompfmx;dxPScxExtCommonRS27;inetdb;dxFlowChartDesignerRS27;cxTreeListRS27;dxPScxSchedulerLnkRS27;fmx;FireDACIBDriver;fmxdae;vcledge;dxRichEditDocumentModelRS27;dxPsPrVwAdvRS27;dbexpress;IndyCore;dxRibbonRS27;dxOrgChartAdvancedCustomizeFormRS27;vclx;dxPSdxFCLnkRS27;dsnap;dxSpellCheckerRS27;FireDACCommon;dxTileControlRS27;dxPDFViewerRS27;RESTBackendComponents;cxSchedulerRS27;dxBarExtItemsRS27;cxGridEMFRS27;VCLRESTComponents;soapserver;dxWizardControlRS27;cxSchedulerTreeBrowserRS27;dxRichEditControlRS27;dxPScxTLLnkRS27;vclie;bindengine;DBXMySQLDriver;CloudService;dxBarExtDBItemsRS27;FireDACMySQLDriver;dxPSCoreRS27;dxFlowChartLayoutsRS27;dxADOEMFRS27;cxExportRS27;FireDACCommonODBC;FireDACCommonDriver;dxPScxPivotGridLnkRS27;cxSchedulerWebServiceStorageRS27;inet;cxPivotGridChartRS27;IndyIPCommon;bindcompdbx;dxPSdxOCLnkRS27;vcl;IndyIPServer;dxPScxPCProdRS27;IndySystem;dxHttpIndyRequestRS27;bindcompvclwinx;dxPSdxDBOCLnkRS27;dsnapcon;dxComnRS27;dxFlowChartRS27;dxPSdxGaugeControlLnkRS27;dxMapControlRS27;FireDACMSAccDriver;fmxFireDAC;dxmdsRS27;vclimg;dxPSPrVwRibbonRS27;dxPSdxPDFViewerLnkRS27;FireDAC;cxTreeListdxBarPopupMenuRS27;dxCoreRS27;dxPScxVGridLnkRS27;dxEMFRS27;dxPSdxSpreadSheetLnkRS27;FireDACSqliteDriver;FireDACPgDriver;cxSchedulerRibbonStyleEventEditorRS27;soaprtl;DbxCommonDriver;dxTabbedMDIRS27;dxRichEditCoreRS27;dxGanttControlRS27;dxCloudServiceLibraryRS27;xmlrtl;soapmidas;fmxobj;vclwinx;dxPScxCommonRS27;rtl;dxdborRS27;DbxClientDriver;dxdbtrRS27;CustomIPTransport;vcldsnap;dxSkinsCoreRS27;dxPScxGridLnkRS27;bindcomp;appanalytics;dxSpreadSheetCoreRS27;cxSchedulerGridRS27;cxVerticalGridRS27;dxGDIPlusRS27;IndyIPClient;dxFireDACServerModeRS27;dxRichEditControlCoreRS27;bindcompvcl;dxDockingRS27;dxServerModeRS27;dxNavBarRS27;dxFlowChartAdvancedCustomizeFormRS27;dxPSLnksRS27;dxorgcRS27;dbxcds;VclSmp;adortl;dxDBXServerModeRS27;cxGridRS27;dsnapxml;dbrtl;IndyProtocols;inetdbxpress;dxBarRS27;dxPSdxLCLnkRS27;dxFireDACEMFRS27;dxPSdxMapControlLnkRS27;dxPSdxDBTVLnkRS27;dxtrmdRS27;dxSpreadSheetCoreConditionalFormattingDialogsRS27;$(DCC_UsePackage)</DCC_UsePackage>
@@ -79,14 +83,13 @@
         <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
         <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
-        <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -95,8 +98,11 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
-        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -110,10 +116,6 @@
             <Form>DbMaster</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="..\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas">
-            <Form>DbGeral</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Configurações\Banco de dados\Financeiro\DbConfiguracaoFinanceiro.pas">
             <Form>DbConfigFin</Form>
@@ -202,7 +204,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\Configuracoes.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\Configuracoes.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Configuracoes.exe</RemoteName>
                         <Overwrite>true</Overwrite>

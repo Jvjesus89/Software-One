@@ -50,8 +50,6 @@ uses DbMovimento, Produtos, CadastroMovimentacoes;
 procedure TConsultaEstoque1.EntradaClick(Sender: TObject);
 
 begin
-     DbMov.MConsulta.Open;
-     DbMov.MConsulta.Append;
      TelaCadastroMovimentacoes.ShowModal;
 end;
 

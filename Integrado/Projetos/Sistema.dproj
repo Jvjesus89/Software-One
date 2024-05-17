@@ -109,6 +109,8 @@
         <VerInfo_Locale>1046</VerInfo_Locale>
         <UsePackages>true</UsePackages>
         <VerInfo_Keys>CompanyName=Software One;FileDescription=Sistema;FileVersion=1.0.0.0;InternalName=;LegalCopyright=Software One;LegalTrademarks=Software One;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=Sistena;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
+        <DCC_ExeOutput>E:\Sistema\Software-One\bin</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>

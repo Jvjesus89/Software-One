@@ -23,7 +23,6 @@ object PagePagamentos: TPagePagamentos
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 617
     object pnlInformacoes: TPanel
       Left = 0
       Top = 0
@@ -38,7 +37,6 @@ object PagePagamentos: TPagePagamentos
       Padding.Bottom = 50
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 617
       object pnlResumoVenda: TPanel
         Left = 20
         Top = 35
@@ -68,7 +66,6 @@ object PagePagamentos: TPagePagamentos
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitHeight = 400
         object Shape1: TShape
           Left = 0
           Top = 153
@@ -338,7 +335,6 @@ object PagePagamentos: TPagePagamentos
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitHeight = 242
           object pnlTotalRecebido: TPanel
             AlignWithMargins = True
             Left = 3
@@ -494,7 +490,6 @@ object PagePagamentos: TPagePagamentos
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        ExplicitTop = 526
       end
     end
     object pnlFormasPagamentos: TPanel
@@ -505,7 +500,6 @@ object PagePagamentos: TPagePagamentos
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitHeight = 617
       object pnlTitulo: TPanel
         Left = 0
         Top = 0
@@ -571,7 +565,6 @@ object PagePagamentos: TPagePagamentos
         Padding.Top = 5
         Padding.Right = 30
         TabOrder = 1
-        ExplicitHeight = 517
         object pnlEscolherForma: TPanel
           Left = 30
           Top = 5
@@ -687,12 +680,11 @@ object PagePagamentos: TPagePagamentos
                 Caption = 'Cart'#227'o'
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = 6708056
-                Font.Height = -11
+                Font.Height = -13
                 Font.Name = 'Tahoma'
                 Font.Style = []
                 ParentFont = False
                 TabOrder = 1
-                ExplicitTop = 54
               end
             end
           end
@@ -1005,9 +997,6 @@ object PagePagamentos: TPagePagamentos
           BevelOuter = bvNone
           Padding.Top = 20
           TabOrder = 2
-          ExplicitTop = 139
-          ExplicitWidth = 501
-          ExplicitHeight = 358
           object Panel2: TPanel
             AlignWithMargins = True
             Left = 0
@@ -1023,7 +1012,6 @@ object PagePagamentos: TPagePagamentos
             Color = clMedGray
             ParentBackground = False
             TabOrder = 0
-            ExplicitWidth = 501
             object Shape6: TShape
               Left = 0
               Top = 0

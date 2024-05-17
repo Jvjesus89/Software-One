@@ -12,11 +12,10 @@ type
     Vltitulo: integer;
     nrtitulo: integer;
     dtvencimento: Tdate;
+     dtcadastro: Tdate;
   Private
-    dtcadastro: Tdate;
 
   public
-  constructor DataCadastro;
     procedure InserirAreceber;
   end;
 
@@ -26,11 +25,6 @@ implementation
 { TInseriAreceber }
 
 uses Dbfinreceber;
-
-constructor TtituloAreceber.DataCadastro;
-begin
-    dtcadastro := now;
-end;
 
 procedure TtituloAreceber.InserirAreceber;
 begin
@@ -47,8 +41,8 @@ begin
    // verificar registro na tabela temp e copiar para tabela a receber
   DbFinAreceber1.QTabelaTemp.close;
   DbFinAreceber1.QTabelaTemp.sql.Clear;
-  DbFinAreceber1.QTabelaTemp.sql.add
-    ('Insert into areceber select * From temp."#areceber"');
+  DbFinAreceber1.QTabelaTemp.sql.add('Insert into areceber (idcliente, nmcliente, idformapagamento, nmformapagamento, vltitulo, nrtitulo, dtcadastro, dtvencimento, idorigem, dtbaixa, idcontabancaria)');
+  DbFinAreceber1.QTabelaTemp.sql.add('select idcliente, nmcliente  ,idformapagamento ,nmformapagamento,vltitulo  ,nrtitulo  ,dtcadastro  ,dtvencimento ,idorigem ,dtbaixa ,idcontabancaria  From temp."#areceber"');
   DbFinAreceber1.QTabelaTemp.ExecSQL;
 
   DbFinAreceber1.QAreceber.close;

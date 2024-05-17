@@ -57,13 +57,13 @@ begin
      // verificar registro na tabela temp e copiar para tabela a receber
      DbFinApagar1.QTabelaTemp.close;
      DbFinApagar1.QTabelaTemp.sql.Clear;
-     DbFinApagar1.QTabelaTemp.sql.add('Insert into apagar select * From temp."#apagar"');
+     DbFinApagar1.QTabelaTemp.sql.add('Insert into apagar (idcliente, nmcliente, idformapagamento, nmformapagamento, vltitulo, nrtitulo, dtcadastro, dtvencimento, dtbaixa, idcontabancaria)');
+     DbFinApagar1.QTabelaTemp.sql.add('select idcliente, nmcliente, idformapagamento, nmformapagamento, vltitulo, nrtitulo, dtcadastro, dtvencimento, dtbaixa, idcontabancaria From temp."#apagar"');
      DbFinApagar1.QTabelaTemp.ExecSQL;
-     ShowMessage('Titulo Cadastrado');
 
      DbFinApagar1.Qapagar.close;
      DbFinApagar1.Qapagar.open;
-     TelaCadasrroApagar1.Close;
+     Self.Close;
 
 end;
 

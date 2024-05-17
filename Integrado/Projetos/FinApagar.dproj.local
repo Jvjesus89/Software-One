@@ -13,16 +13,16 @@
     <Transaction>2022/08/04 23:41:16.000.455,=C:\Sistema\Integrado\TelaConsultaClienteAreceber.pas</Transaction>
     <Transaction>2022/08/04 23:42:36.000.148,C:\Sistema\Integrado\TelaConsultaClienteAreceber.pas=</Transaction>
     <Transaction>2022/08/30 20:41:56.000.956,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
-    <Transaction>2022/08/30 20:42:14.000.499,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaEdicaoApagar.dfm</Transaction>
     <Transaction>2022/08/30 20:42:14.000.499,C:\Sistema\Integrado\Projetos\Unit1.pas=C:\Sistema\Integrado\TelaEdicaoApagar.pas</Transaction>
+    <Transaction>2022/08/30 20:42:14.000.499,C:\Sistema\Integrado\Projetos\Unit1.dfm=C:\Sistema\Integrado\TelaEdicaoApagar.dfm</Transaction>
     <Transaction>2022/09/25 01:02:15.000.877,=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/09/25 01:10:58.000.888,C:\Sistema\Integrado\TelaExportaçãoDadosApagar.dfm=C:\Sistema\Integrado\Projetos\Unit1.dfm</Transaction>
     <Transaction>2022/09/25 01:10:58.000.888,C:\Sistema\Integrado\TelaExportaçãoDadosApagar.pas=C:\Sistema\Integrado\Projetos\Unit1.pas</Transaction>
     <Transaction>2022/12/01 22:06:07.000.512,=C:\Sistema\Integrado\ConexãoDB\DbPrincipal.pas</Transaction>
-    <Transaction>2023/07/16 04:03:06.000.849,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaExportaçãoDadosApagar.pas</Transaction>
-    <Transaction>2023/07/16 04:03:06.000.383,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaCadastroApagar.pas</Transaction>
     <Transaction>2023/07/16 04:03:06.000.642,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaConsultaClienteApagar.pas</Transaction>
+    <Transaction>2023/07/16 04:03:06.000.383,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaCadastroApagar.pas</Transaction>
     <Transaction>2023/07/16 04:03:06.000.756,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaEdicaoApagar.pas</Transaction>
+    <Transaction>2023/07/16 04:03:06.000.849,=D:\Sistema\Integrado\CadastroApagar\Telas\TelaExportaçãoDadosApagar.pas</Transaction>
     <Transaction>2023/07/16 04:03:20.000.992,=D:\Sistema\Integrado\CadastroApagar\Apagar.pas</Transaction>
     <Transaction>2023/07/16 04:03:32.000.522,=D:\Sistema\Integrado\CadastroApagar\BancoApagar\Dbfinapagar.pas</Transaction>
     <Transaction>2023/07/16 04:07:35.000.103,=D:\Sistema\Integrado\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagar.pas</Transaction>
@@ -34,6 +34,10 @@
     <Transaction>2023/07/16 07:38:33.000.058,D:\Sistema\Integrado\Projetos\Unit3.dfm=D:\Sistema\Integrado\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.dfm</Transaction>
     <Transaction>2023/07/16 07:38:33.000.058,D:\Sistema\Integrado\Projetos\Unit3.pas=D:\Sistema\Integrado\CadastroApagar\Telas\Consulta\TelaConsultaClienteApagarEdit.pas</Transaction>
     <Transaction>2024/01/25 16:55:49.000.836,=E:\Sistema\Software-One\Integrado\CadastroApagar\Comandos\conectarINI.pas</Transaction>
+    <Transaction>2024/03/24 18:41:07.000.329,=E:\Sistema\Software-One\Integrado\Projetos\Unit1.pas</Transaction>
+    <Transaction>2024/03/24 18:43:16.000.402,E:\Sistema\Software-One\Integrado\CadastroApagar\BancoApagar\Dbfinapagar.pas=</Transaction>
+    <Transaction>2024/03/24 18:43:28.000.179,E:\Sistema\Software-One\Integrado\Projetos\Unit1.dfm=E:\Sistema\Software-One\Integrado\CadastroApagar\BancoApagar\Dbfinapagar.dfm</Transaction>
+    <Transaction>2024/03/24 18:43:28.000.178,E:\Sistema\Software-One\Integrado\Projetos\Unit1.pas=E:\Sistema\Software-One\Integrado\CadastroApagar\BancoApagar\Dbfinapagar.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\Integrado"/>

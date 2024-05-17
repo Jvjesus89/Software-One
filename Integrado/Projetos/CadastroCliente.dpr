@@ -9,7 +9,8 @@ uses
   Vcl.Styles,
   TelaEdicaoCliente in '..\TelaEdicaoCliente.pas' {TelaEdicaoCliente1},
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
-  conectarINI in '..\CadastroCliente\Comandos\conectarINI.pas';
+  conectarINI in '..\CadastroCliente\Comandos\conectarINI.pas',
+  TelaExportacaoDadosCliente in '..\CadastroCliente\TelaExportacaoDadosCliente.pas' {TelaExportaCliente};
 
 {$R *.res}
 
@@ -22,8 +23,10 @@ begin
   Application.CreateForm(TDbClient, DbClient);
   Application.CreateForm(TTelaCadastroCliente1, TelaCadastroCliente1);
   Application.CreateForm(TTelaEdicaoCliente1, TelaEdicaoCliente1);
+  Application.CreateForm(TTelaExportaCliente, TelaExportaCliente);
   Application.Run;
 end.
+
 
 
 

@@ -4,18 +4,18 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask,
+  Vcl.ComCtrls;
 
 type
   TTelaCadastroMovimentacoes = class(TForm)
     Label1: TLabel;
     IdProdutoMov: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
+    QtdeMovimentada: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
     Label5: TLabel;
     DBEdit5: TDBEdit;
     TipoMovimento: TDBComboBox;
@@ -25,16 +25,14 @@ type
     Label8: TLabel;
     NomeProdutoMov: TDBEdit;
     CodigoProdutoMov: TDBEdit;
-    BuscaProduto: TButton;
-    DBEdit1: TDBEdit;
+    QtdeDisponivel: TDBEdit;
     Button2: TButton;
-    procedure FormShow(Sender: TObject);
+    DtMovimento: TDateTimePicker;
     procedure Button1Click(Sender: TObject);
     procedure BuscaProdutoClick(Sender: TObject);
-    procedure DBEdit2Exit(Sender: TObject);
     procedure TipoMovimentoClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button2Click(Sender: TObject);
+    procedure QtdeMovimentadaExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,13 +50,20 @@ uses DbMovimento, Produtos, TelaConsultaEstoque, ProdutoMov;
 
 procedure TTelaCadastroMovimentacoes.Button1Click(Sender: TObject);
 begin
-       DbMov.MConsulta.Insert;
+       DbMov.QInseriMov.Close;
+       DbMov.QInseriMov.Sql.Clear;
+       DbMov.QInseriMov.Sql.Add('INSERT INTO public.movimentoestoque(idproduto, qtmovimentada, qtdisponivel, dtmovimento, tpmovimento, dtcadastro)');
+       DbMov.QInseriMov.Sql.Add('	VALUES (:Pidproduto, :Pqtmovimentada, :Pqtdisponivel, :Pdtmovimento, :Ptpmovimento, :Pdtcadastro);');
+       DbMov.QInseriMov.ParamByName('Pidproduto').AsInteger := StrToInt(idprodutoMov.Text);
+       DbMov.QInseriMov.ParamByName('Pqtmovimentada').AsInteger := StrToInt(QtdeMovimentada.Text);
+       DbMov.QInseriMov.ParamByName('Pqtdisponivel').AsInteger := StrToInt(QtdeDisponivel.Text);
+       DbMov.QInseriMov.ParamByName('Pdtmovimento').AsDate := DtMovimento.Date;
+       DbMov.QInseriMov.ParamByName('Ptpmovimento').AsString := (TipoMovimento.Text);
+       DbMov.QInseriMov.ParamByName('Pdtcadastro').AsDateTime := now;
+       DbMov.QInseriMov.ExecSql;
+
        ShowMessage('Movimento Cadastro');
        TelaCadastroMovimentacoes.Close;
-       if (Trim(ConsultaEstoque1.IdProduto.text).IsEmpty) then
-       begin
-           DbMov.QConsulta.close;
-       end else
        begin
        DbMov.QConsulta.close;
        DbMov.QConsulta.open;
@@ -67,13 +72,12 @@ end;
 
 procedure TTelaCadastroMovimentacoes.Button2Click(Sender: TObject);
 begin
-      DbMov.MConsulta.Cancel;
-      DbMov.MConsulta.close;
+
       TelaCadastroMovimentacoes.Close;
 end;
 
-procedure TTelaCadastroMovimentacoes.DBEdit2Exit(Sender: TObject);
-var qtdisponivel : integer;
+procedure TTelaCadastroMovimentacoes.QtdeMovimentadaExit(Sender: TObject);
+   var qtdisponivel : integer;
 TpMovimento : String;
 begin
 TpMovimento := TipoMovimento.Text;
@@ -81,35 +85,22 @@ TpMovimento := TipoMovimento.Text;
    begin
    DBEdit3.Text := '0';
     if TpMovimento = 'Entrada' then
-    qtdisponivel :=  StrToInt (DBEdit3.Text) +  StrToInt (DBEdit2.Text);
-    DBEdit1.Text :=  IntToStr (qtdisponivel);
+    qtdisponivel :=  StrToInt (DBEdit3.Text) +  StrToInt (QtdeMovimentada.Text);
+    QtdeDisponivel.Text :=  IntToStr (qtdisponivel);
     if TpMovimento = 'Saida' then
-    qtdisponivel :=  StrToInt (DBEdit3.Text) -  StrToInt (DBEdit2.Text);
-    DBEdit1.Text :=  IntToStr (qtdisponivel);
+    qtdisponivel :=  StrToInt (DBEdit3.Text) -  StrToInt (QtdeMovimentada.Text);
+    QtdeDisponivel.Text :=  IntToStr (qtdisponivel);
    end
    else
    begin
     if TpMovimento = 'Entrada' then
-    qtdisponivel :=  StrToInt (DBEdit3.Text) +  StrToInt (DBEdit2.Text);
-    DBEdit1.Text :=  IntToStr (qtdisponivel);
+    qtdisponivel :=  StrToInt (DBEdit3.Text) +  StrToInt (QtdeMovimentada.Text);
+    QtdeDisponivel.Text :=  IntToStr (qtdisponivel);
     if TpMovimento = 'Saida' then
-    qtdisponivel :=  StrToInt (DBEdit3.Text) -  StrToInt (DBEdit2.Text);
-    DBEdit1.Text :=  IntToStr (qtdisponivel);
+    qtdisponivel :=  StrToInt (DBEdit3.Text) -  StrToInt (QtdeMovimentada.Text);
+    QtdeDisponivel.Text :=  IntToStr (qtdisponivel);
    end;
-
-end ;
-procedure TTelaCadastroMovimentacoes.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-    DbMov.MConsulta.Cancel;
-    DbMov.MConsulta.close;
 end;
-
-procedure TTelaCadastroMovimentacoes.FormShow(Sender: TObject);
-begin
-     DbMov.MConsulta.FieldByName('dtcadastro').Value := now;
-end;
-
 
 procedure TTelaCadastroMovimentacoes.TipoMovimentoClick(Sender: TObject);
 begin
@@ -120,7 +111,7 @@ begin
     DbMov.QDisponivel.sql.Add('Select qtdisponivel From movimentoestoque where  idmovimento=(SELECT max(idmovimento ) FROM movimentoestoque Where idproduto =  :Pidproduto)');
     DbMov.QDisponivel.ParamByName('Pidproduto').AsInteger := StrToInt (IdProdutoMov.text);
     DbMov.QDisponivel.open;
-    DBEdit1.Text := DBEdit3.Text;
+    QtdeDisponivel.Text := DBEdit3.Text;
     end;
 end;
 

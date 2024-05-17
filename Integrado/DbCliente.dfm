@@ -14,7 +14,6 @@
   PixelsPerInch = 96
   TextHeight = 13
   object Qcliente: TFDQuery
-    Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
@@ -157,6 +156,7 @@
     Top = 120
   end
   object Mcliente: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'Pcliente'
@@ -231,7 +231,6 @@
     Top = 128
   end
   object QClienteExclusao: TFDQuery
-    Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
@@ -303,7 +302,6 @@
     end
   end
   object QedicaoCamposClientes: TFDQuery
-    Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete
@@ -380,7 +378,6 @@
     Top = 128
   end
   object QedicaoCliente: TFDQuery
-    Active = True
     AfterPost = QclienteAfterPost
     AfterCancel = QclienteAfterCancel
     AfterDelete = QclienteAfterDelete

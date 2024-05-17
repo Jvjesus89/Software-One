@@ -61,11 +61,12 @@ begin
    CadastrarFinanceiro.Vltitulo := StrToInt(CampoVltitulo.Text);
    CadastrarFinanceiro.nrtitulo:=  StrToInt(CampoNrtitulo.Text);
    CadastrarFinanceiro.dtvencimento:=  (CampoDtVencimento.date);
+   CadastrarFinanceiro.dtcadastro:=  now;
    CadastrarFinanceiro.InserirAreceber;
    finally
        CadastrarFinanceiro.Free;
    end;
-
+  self.Close;
 end;
 
 procedure TTelaCadasrroAreceber1.BotaoCancelarClick(Sender: TObject);

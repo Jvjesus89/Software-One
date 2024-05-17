@@ -39,8 +39,12 @@ type
     RESTResponse1: TRESTResponse;
     IdCliente: TEdit;
     Label6: TLabel;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -102,7 +106,7 @@ begin
         Complemento.Text :=  (CampoBairro);
 
         CampoUF:=  ObjectPed.GetValue<string>('uf', '');
-        Complemento.Text :=  (CampoUF);
+        DBEdit8.Text :=  (CampoUF);
 
     end;
     ObjectPed.DisposeOf;
@@ -114,20 +118,20 @@ begin
      begin
      DbClient.QedicaoCliente.close;
      DbClient.QedicaoCliente.sql.clear;
-     DbClient.QedicaoCliente.sql.Add('Update Clientes Set nmcliente = :PNmCliente , cpf_cnpj = :PCpfCnpj, nmendereco = :Pnmendereco, nrendereço = :Pnrendereço, complemento = :Pcomplemento, nmbairro = :Pnmbairro, nmcidade =:Pnmcidade, nmestado = :Pnmestado, cdcliente=:Pcdcliente');
+     DbClient.QedicaoCliente.sql.Add('Update Clientes Set nmcliente = :PNmCliente , cpf_cnpj = :PCpfCnpj, nmendereco = :Pnmendereco, nrendereço = :Pnrendereco, complemento = :Pcomplemento, nmbairro = :Pnmbairro, nmcidade =:Pnmcidade, nmestado = :Pnmestado, cdcliente=:Pcdcliente');
      DbClient.QedicaoCliente.sql.Add('Where idcliente = :Pidcliente');
-     DbClient.QedicaoCliente.ParamByName('Pidcliente').AsString :=  (IdCliente.Text);
+     DbClient.QedicaoCliente.ParamByName('Pidcliente').AsInteger :=  StrToInt(IdCliente.Text);
      DbClient.QedicaoCliente.ParamByName('PNmCliente').AsString :=  (NomeClienteCampo.Text);
      DbClient.QedicaoCliente.ParamByName('PCpfCnpj').AsString :=  (Cpf_Cpnj.Text);
      DbClient.QedicaoCliente.ParamByName('Pnmendereco').AsString :=  (Endereço.Text);
-     DbClient.QedicaoCliente.ParamByName('Pnrendereço').AsString :=  (Numero.Text);
+     DbClient.QedicaoCliente.ParamByName('Pnrendereco').AsString :=  (Numero.Text);
      DbClient.QedicaoCliente.ParamByName('Pcomplemento').AsString :=  (Complemento.Text);
      DbClient.QedicaoCliente.ParamByName('Pnmbairro').AsString :=  (Bairro.Text);
      DbClient.QedicaoCliente.ParamByName('Pnmcidade').AsString :=  (Cidade.Text);
      DbClient.QedicaoCliente.ParamByName('Pnmestado').AsString :=  (DBEdit8.Text);
      DbClient.QedicaoCliente.ParamByName('Pcdcliente').AsInteger := StrToInt (DBEdit9.Text);
      DbClient.QedicaoCliente.ExecSql;
-     ShowMessage('Cliente Cadastrado');
+     ShowMessage('Cliente Editado');
      TelaEdicaoCliente1.Close;
      DbClient.Qcliente.close;
      DbClient.Qcliente.Open;
@@ -136,6 +140,21 @@ begin
      begin
      ShowMessage('Campos obrigatorios para cadastro de cliente CPF/CNPJ, Nome , Código') ;
      end;
+end;
+
+procedure TTelaEdicaoCliente1.Button2Click(Sender: TObject);
+begin
+   Self.close;
+end;
+
+procedure TTelaEdicaoCliente1.RadioButton1Click(Sender: TObject);
+begin
+Label2.caption :=  'CPF';
+end;
+
+procedure TTelaEdicaoCliente1.RadioButton2Click(Sender: TObject);
+begin
+Label2.caption :=  'CNPJ';
 end;
 
 end.

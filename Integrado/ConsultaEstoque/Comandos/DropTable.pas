@@ -18,7 +18,7 @@ procedure TDropTableTempMovimento.DropMovimento;
 begin
     DbMov.QCriarTabelaTemp.close;
     DbMov.QCriarTabelaTemp.sql.Clear;
-    DbMov.QCriarTabelaTemp.sql.Add('Drop Table temp."#movimentoestoque"');
+    DbMov.QCriarTabelaTemp.sql.Add('Drop Table IF EXISTS temp."#movimentoestoque"');
     DbMov.QCriarTabelaTemp.ExecSQl;
 end;
 

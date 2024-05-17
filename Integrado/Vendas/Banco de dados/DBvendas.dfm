@@ -1,96 +1,7 @@
 ﻿object DbVendas1: TDbVendas1
-  Left = 0
-  Top = 0
-  Caption = 'DbVendas'
-  ClientHeight = 692
-  ClientWidth = 765
-  Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
-  Font.Style = []
   OldCreateOrder = False
-  PixelsPerInch = 96
-  TextHeight = 13
-  object Label1: TLabel
-    Left = 512
-    Top = 0
-    Width = 61
-    Height = 19
-    Caption = 'Exclus'#227'o'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label2: TLabel
-    Left = 264
-    Top = 0
-    Width = 184
-    Height = 19
-    Caption = 'Prazo / Forma Pagamento'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label3: TLabel
-    Left = 544
-    Top = 256
-    Width = 124
-    Height = 19
-    Caption = 'Temp.FinArecebe'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label4: TLabel
-    Left = 152
-    Top = 424
-    Width = 35
-    Height = 19
-    Caption = 'Itens'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Vendas: TLabel
-    Left = 56
-    Top = 0
-    Width = 51
-    Height = 19
-    Caption = 'Vendas'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object Label6: TLabel
-    Left = 112
-    Top = 152
-    Width = 143
-    Height = 19
-    Caption = 'Tabelas temporarias'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
+  Height = 563
+  Width = 881
   object TabelaVendaItem: TFDTable
     IndexFieldNames = 'idvenda'
     Connection = DbMaster.ConexãoDb
@@ -179,43 +90,46 @@
   object Qvendas: TFDQuery
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
-      'Select * From vendas V '
-      'join areceber A on V.idvenda = A.idorigem'
-      'join clientes C on C.idcliente = V.idcliente'
-      'join formapagamento F on F.idformapagamento = A.idformapagamento')
+      
+        'Select v.*,C.nmcliente, (Select F.nmformapagamento from formapag' +
+        'amento F '
+      
+        #9#9#9#9#9' join  areceber A on V.idvenda = A.idorigem Where F.idforma' +
+        'pagamento = A.idformapagamento limit 1) From vendas V '
+      'join clientes C on C.idcliente = V.idcliente')
     Left = 24
     Top = 32
-    object Qvendasidvenda: TIntegerField
+    object Qvendasidvenda: TFDAutoIncField
       FieldName = 'idvenda'
       Origin = 'idvenda'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object Qvendasidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
+      Required = True
+    end
+    object Qvendasvlvenda: TSingleField
+      FieldName = 'vlvenda'
+      Origin = 'vlvenda'
+      Required = True
     end
     object Qvendasdtcadastro: TDateField
       FieldName = 'dtcadastro'
       Origin = 'dtcadastro'
+      Required = True
     end
     object Qvendasdtvenda: TDateField
-      DisplayLabel = 'Data Venda'
       FieldName = 'dtvenda'
       Origin = 'dtvenda'
     end
     object Qvendasnrdocumento: TIntegerField
-      DisplayLabel = 'Nr. Documento'
       FieldName = 'nrdocumento'
       Origin = 'nrdocumento'
-    end
-    object Qvendasvlvenda: TSingleField
-      DisplayLabel = 'Vl. venda'
-      FieldName = 'vlvenda'
-      currency = True
+      Required = True
     end
     object Qvendasnmcliente: TWideStringField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'Cliente'
       FieldName = 'nmcliente'
       Origin = 'nmcliente'
       ProviderFlags = []
@@ -224,7 +138,6 @@
     end
     object Qvendasnmformapagamento: TWideStringField
       AutoGenerateValue = arDefault
-      DisplayLabel = 'Forma Pagamento'
       FieldName = 'nmformapagamento'
       Origin = 'nmformapagamento'
       ProviderFlags = []
@@ -510,10 +423,6 @@
   object DsEntradaItens: TDataSource
     DataSet = QEntradaVendaItem
     Left = 288
-    Top = 512
-  end
-  object DsQxmlitem: TDataSource
-    Left = 576
     Top = 512
   end
   object Qestoque: TFDQuery

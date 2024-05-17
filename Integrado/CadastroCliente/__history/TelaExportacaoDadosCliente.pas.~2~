@@ -1,0 +1,51 @@
+unit TelaExportacaoDadosCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, DbCliente;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    OpenDialog1: TOpenDialog;
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  sLista: TStringList;
+ nCampo: integer;
+ cLinha : string;
+begin
+  sLista := TstringList.Create;
+  DbClient.Qcliente.First;
+  while not DbClient.Qcliente.EOF do
+  begin
+    cLinha := '';
+    for nCampo :=0 to DbClient.Qcliente.fields.Count-1 do
+    cLinha := cLinha + DbClient.Qcliente.Fields[nCampo].DisplayText+';';
+    sLista.Add(cLinha);
+    DbClient.Qcliente.Next;
+  end;
+  if FileExists(Edit1.Text + '.xls') then DeleteFile(Edit1.Text+ '.xls');
+  sLista.SaveToFile(Edit1.Text+ '.xls');
+  self.Close;
+end;
+
+end.

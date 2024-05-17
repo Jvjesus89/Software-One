@@ -1,0 +1,97 @@
+object PageImportarCliente: TPageImportarCliente
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  ClientHeight = 650
+  ClientWidth = 1000
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlConteiner: TPanel
+    Left = 0
+    Top = 0
+    Width = 1000
+    Height = 650
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 320
+    ExplicitTop = 288
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object pnlTop: TPanel
+      Left = 0
+      Top = 0
+      Width = 1000
+      Height = 57
+      Align = alTop
+      BevelOuter = bvNone
+      Color = clNavy
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitTop = -6
+      object Panel1: TPanel
+        Left = 950
+        Top = 0
+        Width = 50
+        Height = 57
+        Align = alRight
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitLeft = 815
+        object Image1: TImage
+          Left = 0
+          Top = 0
+          Width = 50
+          Height = 57
+          Align = alClient
+          Center = True
+          Picture.Data = {
+            0954506E67496D61676589504E470D0A1A0A0000000D49484452000000300000
+            003008060000005702F987000000097048597300000B1300000B1301009A9C18
+            000002224944415478DAED99BB4A0341148667B1112D142C04058B28B1132D2C
+            BD62610251898DBE80A6133B1FC0DAC24EDF420B15B588365A88DA889844ECB4
+            126F584958FFC3CECAB8D9EC2D9BDD5998033F934C66CE9C2F3B3B7B96A3B184
+            9B167700A103E8BA9E4293875A2258BF0ADD43479AA655C3027840938E2078D1
+            2EA10C20DEC300D0230EDEB45D00ACC601F0069D404F0182EE800AFCF333007A
+            C306E88766A10C340DB539F8A2AD7700ED219033AF0188EB619EEF43C5114074
+            88EE5634E31C8634E8E0F714CA63FA97340036E3E8B4A2AB9385A658EDD5D9C6
+            F43569012C73CCABB308ADF0EE174CEF49044023F315800250000A207680329A
+            01A88CE169DE4719C03C339EEA8FB20350F03968DF0C56807A8566D07F2B2D40
+            1D1F260073839015609819F954971B44A4007CBB2C306F6F7B04B1247CB78588
+            1AA0C28C143DA8FDDDE87101887B3B8895E0F25F1A1FC7165A86DA3DB81A62C6
+            7B8769F16F211F3EE4BC897DF848CE31CAB7D51C331E64150B80FC0F32E164B2
+            A6122694F4A944E2933905A00014800250000AA03900B04EF8FC080A00DB7019
+            DE0DADF3CF4D297050E1ED06A28245113AC7229F3E00FCD80E7C17FC4EB203A0
+            E4295567BC0954E450354001012EA06C58453E4A63A9D836098D30E717701188
+            4475B23BFEDB0FB4E5B2FE3774CDC22CB35A60A80837C661263C00897685A046
+            8304151A400340F46FE600702815800B109598FAA012B489E08F9B1D7CC30032
+            980288DB7E0123660D4F72A1A09F0000000049454E44AE426082}
+          ExplicitLeft = 16
+          ExplicitTop = 24
+          ExplicitWidth = 105
+          ExplicitHeight = 105
+        end
+      end
+    end
+    object pnlInfor: TPanel
+      Left = 0
+      Top = 57
+      Width = 1000
+      Height = 593
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 368
+      ExplicitTop = 248
+      ExplicitWidth = 185
+      ExplicitHeight = 41
+    end
+  end
+end

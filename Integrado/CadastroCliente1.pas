@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,conectarINI;
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,conectarINI,
+  TelaExportacaoDadosCliente;
 
 type
   TConsultaCliente = class(TForm)
@@ -23,10 +24,12 @@ type
     procedure BotaoEditarClick(Sender: TObject);
     procedure BotaoNovoClick(Sender: TObject);
     procedure BotaoBuscaClick(Sender: TObject);
-    procedure ExportarDadosClick(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure ExportarDadosClick(Sender: TObject);
   private
+  procedure ConsultarClienteEdicao;
     { Private declarations }
   public
     { Public declarations }
@@ -42,20 +45,8 @@ implementation
 uses DbCliente, TelaCadastoCliente, TelaEdicaoCliente;
 
 procedure TConsultaCliente.BotaoEditarClick(Sender: TObject);
-var
-   VIdcliente : String;
 begin
-     VIdcliente := dbgrid1.Fields[7].Value ;
-     TelaEdicaoCliente1.IdCliente.Text := VIdcliente   ;
-    begin;
-      DbClient.QedicaoCamposClientes.close;
-      DbClient.QedicaoCamposClientes.sql.Clear;
-      DbClient.QedicaoCamposClientes.sql.Add('Select * From clientes Where idcliente = :PIcliente');
-      DbClient.QedicaoCamposClientes.Parambyname('PIcliente').AsInteger := StrToInt (VIdcliente);
-      DbClient.QedicaoCamposClientes.Open;
-      end;
-    TelaEdicaoCliente1.showmodal;
-
+    ConsultarClienteEdicao;
 end;
 
 procedure TConsultaCliente.BotaoExcluirClick(Sender: TObject);
@@ -82,25 +73,30 @@ begin
     TelaCadastroCliente1.showmodal;
 end;
 
-procedure TConsultaCliente.ExportarDadosClick(Sender: TObject);
+procedure TConsultaCliente.ConsultarClienteEdicao;
 var
-  sLista: TStringList;
- nCampo: integer;
- cLinha : string;
+   VIdcliente : String;
 begin
-  sLista := TstringList.Create;
-  DbClient.Qcliente.First;
-  while not DbClient.Qcliente.EOF do
-  begin
-    cLinha := '';
-    for nCampo :=0 to DbClient.Qcliente.fields.Count-1 do
-    cLinha := cLinha + DbClient.Qcliente.Fields[nCampo].DisplayText+';';
-    sLista.Add(cLinha);
-    DbClient.Qcliente.Next;
-  end;
-  if FileExists('C:\Sistema\DadosExportados\Clientes.csv') then DeleteFile('C:\Sistema\DadosExportados\Clientes.csv');
-  sLista.SaveToFile('C:\Sistema\DadosExportados\Clientes.csv');
+     VIdcliente := dbgrid1.Fields[7].Value ;
+     TelaEdicaoCliente1.IdCliente.Text := VIdcliente   ;
+    begin;
+      DbClient.QedicaoCamposClientes.close;
+      DbClient.QedicaoCamposClientes.sql.Clear;
+      DbClient.QedicaoCamposClientes.sql.Add('Select * From clientes Where idcliente = :PIcliente');
+      DbClient.QedicaoCamposClientes.Parambyname('PIcliente').AsInteger := StrToInt (VIdcliente);
+      DbClient.QedicaoCamposClientes.Open;
+      end;
+    TelaEdicaoCliente1.showmodal;
+end;
 
+procedure TConsultaCliente.DBGrid1DblClick(Sender: TObject);
+begin
+  ConsultarClienteEdicao;
+end;
+
+procedure TConsultaCliente.ExportarDadosClick(Sender: TObject);
+begin
+  TelaExportaCliente.showmodal;
 end;
 
 procedure TConsultaCliente.FormShow(Sender: TObject);
