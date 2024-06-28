@@ -1,0 +1,56 @@
+unit TelaConsultaProdutoVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TTelaConsultaProduto = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Busca: TEdit;
+    Button1: TButton;
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaProduto: TTelaConsultaProduto;
+
+implementation
+
+{$R *.dfm}
+
+uses DBvendas, CadastroProdutoVenda;
+
+procedure TTelaConsultaProduto.Button1Click(Sender: TObject);
+begin
+
+      DbVendas1.QProduto.close;
+      DbVendas1.QProduto.sql.Clear;
+      DbVendas1.QProduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
+      DbVendas1.QProduto.open;
+end;
+
+procedure TTelaConsultaProduto.DBGrid1DblClick(Sender: TObject);
+begin
+     try
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('idproduto').AsInteger := DbVendas1.QProduto.FieldByName('idproduto').AsInteger;
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('nmproduto').AsString :=  DbVendas1.QProduto.FieldByName('nmproduto').AsString;
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('vlunitario').AsString :=  DbVendas1.QProduto.FieldByName('vlproduto').AsString;
+
+     TelaConsultaProduto.close;
+     finally
+
+     end;
+
+end;
+
+end.

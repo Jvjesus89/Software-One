@@ -9,7 +9,7 @@ uses
   Vcl.WinXCtrls,
   Pdv.view.page.pagamentos, Pdv.view.page.IdentifcarCliente,
   Pdv.view.page.ImportarCliente, Pdv.view.abrirCaixa, Vcl.Imaging.pngimage,
-  Pdv.model.Caixa;
+  Pdv.model.Caixa, Pdv.view.page.fechamentocaixa;
 
 type
   Tpageprincipal = class(TForm)
@@ -153,28 +153,41 @@ procedure Tpageprincipal.FormKeyDown(Sender: TObject; var Key: Word;
   lKeyEvent: TKeyEvent;
   I: Integer;
 begin
-   for I := Pred(pnlMaster.ControlCount) downto 0 do
-   begin
-     if (pnlMaster.Controls[I] is TForm) then
-     begin
-       if not (Shift = [ssCtrl]) then
-       begin
-       if Tform(pnlmaster.controls[I]).KeyPreview then
-       lKeyEvent:= Tform(pnlmaster.controls[I]).onKeyDown;
+     for I := Pred(pnlMaster.ControlCount) downto 0 do
+  begin
+    if ((pnlMaster.Controls[I] is TForm) and
+    (TForm(pnlMaster.Controls[I]).ModalResult = mrOK)) then
+    begin
+        if (TForm(pnlMaster.Controls[I]).KeyPreview) then
+          lKeyEvent := TForm(pnlMaster.Controls[I]).OnKeyDown;
 
-       if Assigned(lKeyEvent) then
-       lKeyEvent(Sender,Key,Shift);
-       Exit
-       end;
-     end;
+          if (Assigned(lKeyEvent)) then
+          lKeyEvent(Sender, Key, Shift);
 
-   end;
+        exit;
+    end;
+  end;
 
 
    case key of
       VK_ESCAPE: Self.Close;
-      VK_F4 : ShowMessage('Consultar Preço');
+      VK_F4 :begin
+      if Fcaixa.Aberto then
+      begin
+         TPageFecharCaixa.New(Self)
+         .Embed(pnlMaster)
+         .Informacoes(Procedure(Value:tcaixa)
+         begin
+           Fcaixa.Aberto := Value.Aberto;
+           FCaixa.DataHoraFechamento := Value.DataHoraFechamento;
+           VerificaCaixaFechadoOuAberto;
+         end);
+         end;
+      end;
+
        VK_F2 : Begin
+       if not Fcaixa.Aberto then
+       begin
         TPageAbrirCaixa.New(Self)
         .Embed(pnlMaster)
         .Informacoes(procedure(Value : Tcaixa)
@@ -186,8 +199,8 @@ begin
           Fcaixa.DataHoraAbertura := Value.DataHoraAbertura;
           Fcaixa.SaldoInicial := Value.SaldoInicial;
           VerificaCaixaFechadoOuAberto;
-        end)
-        .show;
+        end);
+       end;
        end;
       VK_F6 : begin
       inc(FF6);
@@ -204,8 +217,7 @@ begin
       end;
       VK_F1:begin
            TPageImportarCliente.New(Self)
-           .Embed(pnlMaster)
-           .Show;
+           .Embed(pnlMaster);
       end;
        VK_F9:begin
            TPageIdentificarCliente.new(Self)
@@ -223,8 +235,7 @@ begin
                   pnlIdentificaCliente.Visible := true;
                   pnlIdentificaCliente.Caption := aCliente + ' ' + aCPF;
                 end;
-           end)
-           .Show;
+           end);
       end;
    end;
 end;
@@ -242,9 +253,7 @@ begin
      Fcaixa.Operador:= value;
 
      VerificaCaixaFechadoOuAberto;
-   end
-   )
-   .show;
+   end);
    end;
 
 procedure Tpageprincipal.InformacoesDoOperador;
@@ -259,7 +268,7 @@ end;
 procedure Tpageprincipal.MontarBotoes;
 begin
   btnCancelarOP.Caption := 'Cancelar Operação' + ''#13'' + ' (F10)';
-  btnConsultarPreco.Caption := 'Consultar Preço' + ''#13'' + ' (F4)';
+  btnConsultarPreco.Caption := 'Fechar Caixa' + ''#13'' + ' (F4)';
   btnAbrirCaixa.Caption := 'Abrir Caixa' + ''#13'' + ' (F2)';
   btnCancelarVenda.Caption := 'Cancelar Venda' + ''#13'' + ' (F6)';
   btnCancelarItem.Caption := 'Cancelar Item' + ''#13'' + ' (F5)';

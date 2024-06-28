@@ -1,9 +1,9 @@
-object TelaConsultaProduto: TTelaConsultaProduto
+﻿object TelaConsultaProduto: TTelaConsultaProduto
   Left = 0
   Top = 0
   Caption = 'Consulta Produto'
-  ClientHeight = 330
-  ClientWidth = 724
+  ClientHeight = 308
+  ClientWidth = 649
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +17,10 @@ object TelaConsultaProduto: TTelaConsultaProduto
   object DBGrid1: TDBGrid
     Left = 0
     Top = 57
-    Width = 724
-    Height = 273
+    Width = 649
+    Height = 251
     Align = alClient
-    DataSource = DbVendas1.DsQproduto
+    DataSource = DsQproduto
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -49,6 +49,7 @@ object TelaConsultaProduto: TTelaConsultaProduto
       item
         Expanded = False
         FieldName = 'vlproduto'
+        Title.Caption = 'Vl. Produto'
         Visible = True
       end
       item
@@ -60,25 +61,100 @@ object TelaConsultaProduto: TTelaConsultaProduto
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 724
+    Width = 649
     Height = 57
     Align = alTop
+    BevelOuter = bvLowered
+    Padding.Left = 5
+    Padding.Top = 15
+    Padding.Right = 50
+    Padding.Bottom = 15
     TabOrder = 1
+    ExplicitTop = -6
     object Busca: TEdit
-      Left = 296
-      Top = 19
-      Width = 121
-      Height = 21
+      AlignWithMargins = True
+      Left = 206
+      Top = 17
+      Width = 185
+      Height = 23
+      Margins.Left = 200
+      Margins.Top = 1
+      Margins.Right = 0
+      Margins.Bottom = 1
+      Align = alLeft
       TabOrder = 0
+      ExplicitLeft = 248
+      ExplicitTop = 18
+      ExplicitWidth = 85
     end
     object Button1: TButton
-      Left = 423
+      AlignWithMargins = True
+      Left = 391
       Top = 19
-      Width = 40
-      Height = 21
+      Width = 62
+      Height = 22
+      Margins.Left = 0
+      Margins.Right = 100
+      Margins.Bottom = 0
+      Align = alLeft
       Caption = 'Busca'
       TabOrder = 1
       OnClick = Button1Click
+      ExplicitLeft = 51
+      ExplicitTop = 16
+      ExplicitHeight = 25
     end
+  end
+  object QProduto: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 584
+    Top = 152
+    object QProdutoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object QProdutonmproduto: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object QProdutocdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object QProdutoidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object QProdutonmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Familia Produto'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object QProdutostproduto: TBooleanField
+      DisplayLabel = 'Ativo'
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object QProdutodtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object QProdutovlproduto: TSingleField
+      FieldName = 'vlproduto'
+    end
+  end
+  object DsQproduto: TDataSource
+    DataSet = QProduto
+    Left = 584
+    Top = 200
   end
 end

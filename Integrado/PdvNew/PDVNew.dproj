@@ -142,6 +142,28 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\model\Pdv.model.Caixa.pas"/>
+        <DCCReference Include="src\view\Pdv.view.page.fechamentocaixa.pas">
+            <Form>PageFecharCaixa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\componente\Pdv.view.componente.listatipospgfechamento.pas">
+            <Form>ComponenteListaFechamentoCaixa</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\model\Pdv.model.FechamentoCaixa.pas"/>
+        <DCCReference Include="src\model\Pdv.model.Enum.pas"/>
+        <DCCReference Include="src\model\db\Pdv.model.Dbpdv.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\Utils\PdvNew.Utils.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -163,8 +185,8 @@
                     <Source Name="MainSource">PDVNew.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">

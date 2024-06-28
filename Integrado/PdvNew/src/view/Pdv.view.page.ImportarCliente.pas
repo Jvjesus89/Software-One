@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
-  Vcl.Buttons, Data.DB, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.WinXCtrls;
+  Vcl.Buttons, Data.DB, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.WinXCtrls,pdvnew.Utils;
 
 type
   TPageImportarCliente = class(TForm)
@@ -33,7 +33,7 @@ type
   function Titulo(Value: String):TPageImportarCliente;
   function Image(value:String):TPageImportarCliente;
   function Click(value:Tproc<Tobject>) :TPageImportarCliente;
-  function Embed(Value : TWincontrol):TPageImportarCliente ;
+  function Embed(Value : TPanel):TPageImportarCliente ;
 
   end;
 
@@ -48,7 +48,7 @@ implementation
 
 procedure TPageImportarCliente.btnSairClick(Sender: TObject);
 begin
-    Self.close;
+    Self.RemoveObject;
 end;
 
 function TPageImportarCliente.Click(
@@ -58,10 +58,10 @@ begin
      FProc := Value;
 end;
 
-function TPageImportarCliente.Embed(Value: TWincontrol): TPageImportarCliente;
+function TPageImportarCliente.Embed(Value: TPanel): TPageImportarCliente;
 begin
     Result := Self;
-    Self.Parent := Value;
+    Self.AddObject(value);
 end;
 
 procedure TPageImportarCliente.FormKeyDown(Sender: TObject; var Key: Word;
@@ -69,8 +69,7 @@ procedure TPageImportarCliente.FormKeyDown(Sender: TObject; var Key: Word;
 begin
   if Key = VK_ESCAPE then
   begin
-   Self.close;
-   Self.DisposeOf
+   Self.RemoveObject;
   end;
 end;
 

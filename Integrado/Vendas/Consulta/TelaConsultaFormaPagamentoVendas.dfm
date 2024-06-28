@@ -1,9 +1,9 @@
-object ConsultaFormaPagamento: TConsultaFormaPagamento
+﻿object ConsultaFormaPagamento: TConsultaFormaPagamento
   Left = 0
   Top = 0
   Caption = 'Consulta Forma Pagamento'
-  ClientHeight = 231
-  ClientWidth = 505
+  ClientHeight = 308
+  ClientWidth = 649
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,26 +14,13 @@ object ConsultaFormaPagamento: TConsultaFormaPagamento
   Position = poOwnerFormCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 152
-    Top = 8
-    Width = 174
-    Height = 19
-    Caption = 'Busca Forma Pagamento'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 60
-    Width = 505
-    Height = 171
-    Align = alBottom
-    DataSource = DbVendas1.DsQFormaPagamento
+    Top = 57
+    Width = 649
+    Height = 251
+    Align = alClient
+    DataSource = DsQFormaPagamento
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -55,22 +42,75 @@ object ConsultaFormaPagamento: TConsultaFormaPagamento
       item
         Expanded = False
         FieldName = 'idformapagamento'
-        Visible = True
+        Visible = False
       end>
   end
-  object Busca: TEdit
-    Left = 152
-    Top = 33
-    Width = 174
-    Height = 21
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 649
+    Height = 57
+    Align = alTop
+    BevelOuter = bvNone
+    Padding.Left = 5
+    Padding.Top = 15
+    Padding.Right = 50
+    Padding.Bottom = 15
     TabOrder = 1
+    object Busca: TEdit
+      AlignWithMargins = True
+      Left = 205
+      Top = 16
+      Width = 185
+      Height = 25
+      Margins.Left = 200
+      Margins.Top = 1
+      Margins.Right = 0
+      Margins.Bottom = 1
+      Align = alLeft
+      TabOrder = 0
+      ExplicitHeight = 21
+    end
+    object Button2: TButton
+      AlignWithMargins = True
+      Left = 390
+      Top = 18
+      Width = 62
+      Height = 24
+      Margins.Left = 0
+      Margins.Right = 100
+      Margins.Bottom = 0
+      Align = alLeft
+      Caption = 'Busca'
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
-  object Button1: TButton
-    Left = 332
-    Top = 33
-    Width = 61
-    Height = 21
-    Caption = 'Buscar'
-    TabOrder = 2
+  object QFormaPagamento: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From formapagamento')
+    Left = 416
+    Top = 71
+    object QFormaPagamentoidformapagamento: TIntegerField
+      FieldName = 'idformapagamento'
+    end
+    object QFormaPagamentonmformapagamento: TWideStringField
+      DisplayLabel = 'Forma Pagamento'
+      FieldName = 'nmformapagamento'
+      Size = 50
+    end
+    object QFormaPagamentodtcadastro: TDateField
+      FieldName = 'dtcadastro'
+    end
+    object QFormaPagamentocdformapagamento: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdformapagamento'
+    end
+  end
+  object DsQFormaPagamento: TDataSource
+    DataSet = QFormaPagamento
+    Left = 416
+    Top = 119
   end
 end

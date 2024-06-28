@@ -1,0 +1,40 @@
+unit Pdv.model.Dbpdv;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.SqlExpr, Datasnap.Provider,
+  Data.DB, Datasnap.DBClient;
+
+type
+  TDataModule1 = class(TDataModule)
+    DataSource1: TDataSource;
+    ClientDataSet1: TClientDataSet;
+    DataSetProvider1: TDataSetProvider;
+    SQLDataSet1: TSQLDataSet;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+
+
+procedure TDataModule1.DataModuleCreate(Sender: TObject);
+begin
+     if clientdataset1.ApplyUpdates(0) > 0 then
+     //showmessage ('deu erro');
+     clientdataset1.ApplyUpdates(0)
+end;
+
+end.

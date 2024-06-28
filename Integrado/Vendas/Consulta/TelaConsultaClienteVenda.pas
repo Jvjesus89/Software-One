@@ -5,17 +5,33 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TTelaConsultaCliente = class(TForm)
-    Panel1: TPanel;
-    BotaoBusca: TButton;
     Panel2: TPanel;
     DBGrid1: TDBGrid;
+    Qcliente: TFDQuery;
+    Qclienteidcliente: TIntegerField;
+    Qclientenmcliente: TWideStringField;
+    Qclientecpf_cnpj: TWideStringField;
+    Qclientenmendereco: TWideStringField;
+    Qclientenrendereço: TWideStringField;
+    Qclientecomplemento: TWideStringField;
+    Qclientedtcadastro: TDateField;
+    Qclientenmbairro: TWideStringField;
+    Qclientenmcidade: TWideStringField;
+    Qclientenmestado: TWideStringField;
+    Qclientecdcliente: TWideStringField;
+    DsQcliente: TDataSource;
+    Panel1: TPanel;
     Busca: TEdit;
-    procedure BotaoBuscaClick(Sender: TObject);
+    btnBusca: TButton;
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure btnBuscaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,9 +47,10 @@ implementation
 
 uses DBvendas, TelaCadastroVenda;
 
-procedure TTelaConsultaCliente.BotaoBuscaClick(Sender: TObject);
+
+procedure TTelaConsultaCliente.btnBuscaClick(Sender: TObject);
 begin
-      with DbVendas1.Qcliente do
+    with Qcliente do
     begin
       close;
       sql.Clear;
@@ -44,15 +61,14 @@ end;
 
 procedure TTelaConsultaCliente.DBGrid1DblClick(Sender: TObject);
 begin
-     TelaConsultaCliente.close;
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.clear;
-     DbVendas1.QInseriTabelaTemp.sql.add('Update temp."#vendas" Set idcliente = :PIdCliente');
-     DbVendas1.QInseriTabelaTemp.ParamByname('PIdCliente').AsInteger := DBGrid1.Fields[3].value;;
-     DbVendas1.QInseriTabelaTemp.Execsql;
-
-     DbVendas1.QTempCamposVenda.close;
-     DbVendas1.QTempCamposVenda.open;
+  try
+    TelaCadastroVendas.MVenda.FieldByName('idcliente').AsInteger := Qcliente.FieldByName('idcliente').AsInteger ;
+    TelaCadastroVendas.MVenda.FieldByName('nmcliente').AsString := Qcliente.FieldByName('nmcliente').AsString ;
+    self.Close;
+  except
+    TelaCadastroVendas.MVenda.Cancel;
+    raise;
+  end;
 end;
 
 end.

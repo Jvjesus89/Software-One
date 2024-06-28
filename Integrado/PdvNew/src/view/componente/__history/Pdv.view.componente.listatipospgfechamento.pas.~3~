@@ -1,0 +1,78 @@
+unit Pdv.view.componente.listatipospgfechamento;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TComponenteListaFechamentoCaixa = class(TFrame)
+    Shape1: TShape;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    SpeedButton1: TSpeedButton;
+    pnlTipoPg: TPanel;
+    pnlValor: TPanel;
+  private
+      FPrco: TProc<TObject>;
+  public
+      class function New(Aowner:TComponent): TComponenteListaFechamentoCaixa;
+      function Embed(Value:TWincontrol):TComponenteListaFechamentoCaixa;
+      function Nome (Value: String):TComponenteListaFechamentoCaixa;
+      function TipoPagamento (Value: String):TComponenteListaFechamentoCaixa;
+      function Valor (Value: String):TComponenteListaFechamentoCaixa;
+      function Click (Value: TProc<Tobject>):TComponenteListaFechamentoCaixa;
+      function alinhamento(Value: TAlign):TComponenteListaFechamentoCaixa;
+
+  end;
+
+implementation
+
+{$R *.dfm}
+
+{ TComponenteListaFechamentoCaixa }
+
+function TComponenteListaFechamentoCaixa.alinhamento(
+  Value: TAlign): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+function TComponenteListaFechamentoCaixa.Click(
+  Value: TProc<Tobject>): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+function TComponenteListaFechamentoCaixa.Embed(
+  Value: TWincontrol): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+class function TComponenteListaFechamentoCaixa.New(
+  Aowner: TComponent): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+function TComponenteListaFechamentoCaixa.Nome(
+  Value: String): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+function TComponenteListaFechamentoCaixa.TipoPagamento(
+  Value: String): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+function TComponenteListaFechamentoCaixa.Valor(
+  Value: String): TComponenteListaFechamentoCaixa;
+begin
+
+end;
+
+end.

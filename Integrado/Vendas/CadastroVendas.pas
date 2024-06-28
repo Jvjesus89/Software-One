@@ -5,8 +5,16 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON,Vcl.Mask, Vcl.DBCtrls,System.IniFiles,conectarINI;
-
+  Vcl.StdCtrls, Vcl.ExtCtrls,System.JSON,Vcl.Mask, Vcl.DBCtrls,System.IniFiles,conectarINI,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator,
+  dxDateRanges, dxScrollbarAnnotations, cxDBData, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView,
+  cxGrid, Vcl.Buttons, Vcl.ComCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, frxSmartMemo, frCoreClasses, frxClass,
+  frxExportBaseDialog, frxExportPDF, frxDCtrl, frxDBSet;
 type
   TCadastroDeVendas = class(TForm)
     Panel1: TPanel;
@@ -14,16 +22,74 @@ type
     BotaoExcluir: TButton;
     BotaoEditar: TButton;
     ExportarDados: TButton;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    DBGrid1: TDBGrid;
-    Label2: TLabel;
-    Button2: TButton;
-    Busca: TEdit;
     Button1: TButton;
     Button3: TButton;
     Button4: TButton;
-    procedure Button2Click(Sender: TObject);
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Label2: TLabel;
+    Busca: TEdit;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    DtFinal: TDateTimePicker;
+    DtInicial: TDateTimePicker;
+    Label1: TLabel;
+    Label3: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    QGridVendas: TFDQuery;
+    DsQGridVendas: TDataSource;
+    QGridVendasidvenda: TFDAutoIncField;
+    QGridVendasidcliente: TIntegerField;
+    QGridVendasvlvenda: TSingleField;
+    QGridVendasdtvenda: TDateField;
+    QGridVendasnrdocumento: TIntegerField;
+    QGridVendasnmcliente: TWideStringField;
+    QGridVendasnmformapagamento: TWideStringField;
+    cxGrid1DBTableView1idvenda: TcxGridDBColumn;
+    cxGrid1DBTableView1idcliente: TcxGridDBColumn;
+    cxGrid1DBTableView1vlvenda: TcxGridDBColumn;
+    cxGrid1DBTableView1dtcadastro: TcxGridDBColumn;
+    cxGrid1DBTableView1dtvenda: TcxGridDBColumn;
+    cxGrid1DBTableView1nrdocumento: TcxGridDBColumn;
+    cxGrid1DBTableView1nmcliente: TcxGridDBColumn;
+    cxGrid1DBTableView1nmformapagamento: TcxGridDBColumn;
+    QGridVendasdtcadastro: TDateField;
+    QExclusão: TFDQuery;
+    IntegerField15: TIntegerField;
+    IntegerField16: TIntegerField;
+    IntegerField17: TIntegerField;
+    WideStringField15: TWideStringField;
+    IntegerField18: TIntegerField;
+    SingleField2: TSingleField;
+    SingleField3: TSingleField;
+    ImpriveVendaDialog: TfrxDialogControls;
+    ExportPDF: TfrxPDFExport;
+    ImprimeVenda: TfrxReport;
+    frxDbVendas: TfrxDBDataset;
+    QfrxDbVendas: TFDQuery;
+    DsQfrxDbVendas: TDataSource;
+    QfrxDbVendasvlunitario: TSingleField;
+    QfrxDbVendasqtvendido: TIntegerField;
+    QfrxDbVendasvlitem: TSingleField;
+    QfrxDbVendasvlvenda: TSingleField;
+    QfrxDbVendasdtvenda: TDateField;
+    QfrxDbVendasnrdocumento: TIntegerField;
+    QfrxDbVendasnmcliente: TWideStringField;
+    QfrxDbVendascpf_cnpj: TWideStringField;
+    QfrxDbVendasnmendereco: TWideStringField;
+    QfrxDbVendasnrendereço: TWideStringField;
+    QfrxDbVendascomplemento: TWideStringField;
+    QfrxDbVendasnmbairro: TWideStringField;
+    QfrxDbVendasnmcidade: TWideStringField;
+    QfrxDbVendasnmestado: TWideStringField;
+    QfrxDbVendascdcliente: TWideStringField;
+    QfrxDbVendasnmproduto: TWideStringField;
+    QfrxDbVendascdproduto: TWideStringField;
+    QfrxDbVendasvlproduto: TSingleField;
+    QfrxDbVendasnmfamiliaproduto: TWideStringField;
+    QfrxDbVendasnmformapagamento: TWideStringField;
     procedure BotaoNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BotaoExcluirClick(Sender: TObject);
@@ -31,8 +97,14 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure BotaoEditarClick(Sender: TObject);
+    procedure BuscaExit(Sender: TObject);
+    procedure BuscaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
-    { Private declarations }
+    procedure BuscaVendaPorNumero;
+    procedure BuscaVendaFiltros;
   public
     { Public declarations }
   end;
@@ -54,7 +126,7 @@ uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas,
 procedure TCadastroDeVendas.BotaoEditarClick(Sender: TObject);
 var idvenda : integer;
 begin
-     idvenda := (DBGrid1.fields[4].Value);
+     idVenda := QGridVendas.FieldByName('idvenda').AsInteger;
      // consulta venda
      DbEditVenda.QConsultavendas.close;
      DbEditVenda.QConsultavendas.sql.Clear;
@@ -68,129 +140,125 @@ begin
      DbEditVenda.QConsultaVendaItem.ParamByName('PIdVenda').AsInteger := IdVenda;
      DbEditVenda.QConsultaVendaItem.open;
 
-
-
-       // criação tabela temporaria para vendas
-     DbEditVenda.QCriaTabelaTemp.close;
-     DbEditVenda.QCriaTabelaTemp.sql.Clear;
-     DbEditVenda.QCriaTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendas"');
-     DbEditVenda.QCriaTabelaTemp.sql.Add('(idvenda integer,idcliente integer,vlvenda real ,dtcadastro date,dtvenda date,nrdocumento integer)');
-     DbEditVenda.QCriaTabelaTemp.ExecSQl;
-     DbEditVenda.QCriaTabelaTemp.close;
-
-     DbEditVenda.QInseriTabelaTemp.close;
-     DbEditVenda.QInseriTabelaTemp.sql.Clear;
-     DbEditVenda.QInseriTabelaTemp.sql.Add('Insert into temp."#vendas" select * From vendas where idvenda = :Pidvenda');
-     DbEditVenda.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
-     DbEditVenda.QInseriTabelaTemp.ExecSQl;
-
-
-             // criação tabela temporaria para vendas item
-     DbEditVenda.QInseriTabelaTemp.close;
-     DbEditVenda.QInseriTabelaTemp.sql.Clear;
-     DbEditVenda.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
-     DbEditVenda.QInseriTabelaTemp.sql.Add('(idvendaitem integer DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
-     DbEditVenda.QInseriTabelaTemp.sql.Add('vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
-     DbEditVenda.QInseriTabelaTemp.ExecSQl;
-
-     DbEditVenda.QInseriTabelaTemp.close;
-     DbEditVenda.QInseriTabelaTemp.sql.Clear;
-     DbEditVenda.QInseriTabelaTemp.sql.Add('Insert into temp."#vendasitem" select * From vendasitem Where idvenda = :Pidvenda ');
-     DbEditVenda.QInseriTabelaTemp.ParamByName('Pidvenda').AsInteger  :=  idvenda;
-     DbEditVenda.QInseriTabelaTemp.ExecSQl;
-
-     DbVendas1.QTempVendasItem.close;
-     DbVendas1.QTempVendasItem.open;
-
      TelaCadastroVendas.showmodal;
 end;
 
 procedure TCadastroDeVendas.BotaoExcluirClick(Sender: TObject);
 var IdVenda : integer;
 begin
-   IdVenda := dbgrid1.Fields[4].Value;
+   idVenda := QGridVendas.FieldByName('idvenda').AsInteger;
+
    if Application.MessageBox(Pchar('Deseja excluir o Titulo?'), 'Confirmação', MB_USEGLYPHCHARS + MB_DEFBUTTON2)= mrYes then
-
-
+     begin
+     QExclusão.close;
+     QExclusão.sql.Clear;
+     QExclusão.sql.Add('Delete From movimentoestoque Where idorigem = :Pidorigem');
+     QExclusão.ParamByName('Pidorigem').AsInteger := IdVenda;
+     QExclusão.ExecSql;
+     end;
       begin
-      DbVendas1.QExclusãoVendaItem.close;
-      DbVendas1.QExclusãoVendaItem.sql.Clear;
-      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From movimentoestoque Where idorigem = :Pidorigem');
-      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
-      DbVendas1.QExclusãoVendaItem.ExecSql;
-      end;
-      begin
-      DbVendas1.QExclusãoVendaItem.close;
-      DbVendas1.QExclusãoVendaItem.sql.Clear;
-      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From areceber Where idorigem = :Pidorigem');
-      DbVendas1.QExclusãoVendaItem.ParamByName('Pidorigem').AsInteger := IdVenda;
-      DbVendas1.QExclusãoVendaItem.ExecSql;
+      QExclusão.close;
+      QExclusão.sql.Clear;
+      QExclusão.sql.Add('Delete From areceber Where idorigem = :Pidorigem');
+      QExclusão.ParamByName('Pidorigem').AsInteger := IdVenda;
+      QExclusão.ExecSql;
       end;
        begin
-      DbVendas1.QExclusãoVendaItem.close;
-      DbVendas1.QExclusãoVendaItem.sql.Clear;
-      DbVendas1.QExclusãoVendaItem.sql.Add('Delete From vendasitem Where idvenda = :Pidvenda');
-      DbVendas1.QExclusãoVendaItem.ParamByName('Pidvenda').AsInteger := IdVenda;
-      DbVendas1.QExclusãoVendaItem.ExecSql;
-      end;
+       QExclusão.close;
+       QExclusão.sql.Clear;
+       QExclusão.sql.Add('Delete From vendasitem Where idvenda = :Pidvenda');
+       QExclusão.ParamByName('Pidvenda').AsInteger := IdVenda;
+       QExclusão.ExecSql;
+       end;
       begin;
-      DbVendas1.QExclusãoVenda.close;
-      DbVendas1.QExclusãoVenda.sql.Clear;
-      DbVendas1.QExclusãoVenda.sql.Add('Delete From vendas Where idvenda = :Pidvenda');
-      DbVendas1.QExclusãoVenda.ParamByName('Pidvenda').AsInteger := IdVenda;
-      DbVendas1.QExclusãoVenda.ExecSql;
+      QExclusão.close;
+      QExclusão.sql.Clear;
+      QExclusão.sql.Add('Delete From vendas Where idvenda = :Pidvenda');
+      QExclusão.ParamByName('Pidvenda').AsInteger := IdVenda;
+      QExclusão.ExecSql;
       end;
-
-      DbVendas1.Qvendas.Close;
-      DbVendas1.Qvendas.Open;
+    QGridVendas.close;
+    QGridVendas.Open;
 end;
 
 procedure TCadastroDeVendas.BotaoNovoClick(Sender: TObject);
-var ultimonrdocumento : integer;
 begin
             // criação Trigger numero vendas
-     DbVendas1.QCriaTabelaTemp.close;
-     DbVendas1.QCriaTabelaTemp.sql.Clear;
-     DbVendas1.QCriaTabelaTemp.sql.Add('CREATE OR REPLACE FUNCTION NrVenda() RETURNS TRIGGER AS $$ BEGIN NEW.nrdocumento :=  NEXTVAL(''"Vendas_NumeroVenda_Seq"''); RETURN NEW; END; $$ LANGUAGE plpgsql;');
-     DbVendas1.QCriaTabelaTemp.sql.Add('DO $$ BEGIN  IF NOT EXISTS ( SELECT 1  FROM pg_trigger   WHERE tgname = ''nrvenda''  AND tgrelid = ''vendas''::regclass    )');
-     DbVendas1.QCriaTabelaTemp.sql.Add(' THEN EXECUTE ''CREATE TRIGGER NrVenda BEFORE INSERT ON vendas FOR EACH ROW EXECUTE FUNCTION NrVenda()''; END IF; END $$;');
-     DbVendas1.QCriaTabelaTemp.ExecSQl;
+     DbVendas1.QCriaTrigger.close;
+     DbVendas1.QCriaTrigger.sql.Clear;
+     DbVendas1.QCriaTrigger.sql.Add('CREATE OR REPLACE FUNCTION NrVenda() RETURNS TRIGGER AS $$ BEGIN NEW.nrdocumento :=  NEXTVAL(''"Vendas_NumeroVenda_Seq"''); RETURN NEW; END; $$ LANGUAGE plpgsql;');
+     DbVendas1.QCriaTrigger.sql.Add('DO $$ BEGIN  IF NOT EXISTS ( SELECT 1  FROM pg_trigger   WHERE tgname = ''nrvenda''  AND tgrelid = ''vendas''::regclass    )');
+     DbVendas1.QCriaTrigger.sql.Add(' THEN EXECUTE ''CREATE TRIGGER NrVenda BEFORE INSERT ON vendas FOR EACH ROW EXECUTE FUNCTION NrVenda()''; END IF; END $$;');
+     DbVendas1.QCriaTrigger.ExecSQl;
 
-
-        // criação tabela temporaria para vendas
-     DbVendas1.QCriaTabelaTemp.close;
-     DbVendas1.QCriaTabelaTemp.sql.Clear;
-     DbVendas1.QCriaTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendas"');
-     DbVendas1.QCriaTabelaTemp.sql.Add('(idvenda integer,idcliente integer,vlvenda real ,dtcadastro date,dtvenda date,nrdocumento integer)');
-     DbVendas1.QCriaTabelaTemp.ExecSQl;
-
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('Insert into temp."#vendas"(dtcadastro)values (:Pdtcadastro) ');
-     DbVendas1.QInseriTabelaTemp.ParamByname('Pdtcadastro').AsDate := now;
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
-
-
-             // criação tabela temporaria para vendas item
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#vendasitem"');
-     DbVendas1.QInseriTabelaTemp.sql.Add('(idvendaitem integer DEFAULT nextval($$temp."#itemvenda_iditemvenda_seq"$$::regclass),CONSTRAINT "#vendasitem_pkey" PRIMARY KEY (idvendaitem),');
-     DbVendas1.QInseriTabelaTemp.sql.Add('vlunitario real, vlitem real,idproduto integer,qtitem integer,idvenda integer)');
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
-
-             // criação tabela temporaria para Movimento Estoque
-     DbVendas1.QInseriTabelaTemp.close;
-     DbVendas1.QInseriTabelaTemp.sql.Clear;
-     DbVendas1.QInseriTabelaTemp.sql.Add('CREATE TABLE IF NOT EXISTS temp."#movimentoestoque"');
-     DbVendas1.QInseriTabelaTemp.sql.Add('(idmovimento integer NOT NULL DEFAULT nextval($$movimentoestoque_idmovimento_seq$$::regclass),idproduto integer NOT NULL,qtmovimentada integer NOT NULL,qtdisponivel integer NOT NULL,');
-     DbVendas1.QInseriTabelaTemp.sql.Add('dtmovimento date NOT NULL,tpmovimento character varying(8) COLLATE pg_catalog."default" NOT NULL,dtcadastro date NOT NULL,idorigem integer)');
-     DbVendas1.QInseriTabelaTemp.ExecSQl;
 
     TelaCadastroVendas.showmodal;
-     DbVendas1.QTempCamposVenda.close;
-     DbVendas1.QTempCamposVenda.open;
 
+end;
+
+procedure TCadastroDeVendas.BuscaExit(Sender: TObject);
+begin
+    BuscaVendaPorNumero;
+end;
+
+procedure TCadastroDeVendas.BuscaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+case key of
+  VK_RETURN: BuscaVendaPorNumero;
+end;
+end;
+
+procedure TCadastroDeVendas.BuscaVendaFiltros;
+begin
+
+    if (dtInicial.Date <> 0) and (DtFinal.Date <> 0) then
+    begin
+      QGridVendas.close ;
+      QGridVendas.sql.Clear;
+      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
+      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
+      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where  v.dtvenda between (:Pdtinicial) and (:Pdtfinal)');
+      QGridVendas.ParamByName('Pdtinicial').AsDate :=  DtInicial.Date;
+      QGridVendas.ParamByName('Pdtfinal').AsDate :=  DtFinal.Date;
+      QGridVendas.open;
+    end;
+
+    if  (Busca.text <> '') then
+    begin
+      QGridVendas.close ;
+      QGridVendas.sql.Clear;
+      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
+      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
+      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where v.nrdocumento = (:Pnrdocumento) and v.dtvenda between (:Pdtinicial) and (:Pdtfinal) ');
+      QGridVendas.ParamByName('Pdtinicial').AsDate :=  DtInicial.Date;
+      QGridVendas.ParamByName('Pdtfinal').AsDate :=  DtFinal.Date;
+      QGridVendas.ParamByName('Pnrdocumento').AsInteger :=  StrToInt(Busca.text);
+      QGridVendas.open;
+    end;
+end;
+
+procedure TCadastroDeVendas.BuscaVendaPorNumero;
+begin
+    if (Trim(Busca.text).IsEmpty) then
+
+    begin
+      QGridVendas.close ;
+      QGridVendas.sql.Clear;
+      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
+      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
+      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente');
+      QGridVendas.open;
+    end
+    else
+    begin
+      QGridVendas.close ;
+      QGridVendas.sql.Clear;
+      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
+      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
+      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where v.nrdocumento = '+(Busca.Text));
+      QGridVendas.open;
+    end;
 end;
 
 procedure TCadastroDeVendas.Button1Click(Sender: TObject);
@@ -198,31 +266,6 @@ begin
    XML.showmodal;
 end;
 
-procedure TCadastroDeVendas.Button2Click(Sender: TObject);
-begin
-
-    if (Trim(Busca.text).IsEmpty) then
-
-    begin
-      DbVendas1.Qvendas.close ;
-      DbVendas1.Qvendas.sql.Clear;
-      DbVendas1.Qvendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      DbVendas1.Qvendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      DbVendas1.Qvendas.sql.Add('join clientes C on C.idcliente = V.idcliente');
-      DbVendas1.Qvendas.open;
-    end
-    else
-    begin
-      DbVendas1.Qvendas.close ;
-      DbVendas1.Qvendas.sql.Clear;
-      DbVendas1.Qvendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      DbVendas1.Qvendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      DbVendas1.Qvendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where v.nrdocumento = '+(Busca.Text));
-      DbVendas1.Qvendas.open;
-    end;;
-
-
-end;
 
 procedure TCadastroDeVendas.Button3Click(Sender: TObject);
 var
@@ -238,7 +281,7 @@ var
     IdVenda : integer;
     QtdItensGrid: integer;
 begin
-   IdVenda := dbgrid1.Fields[5].Value;
+   {IdVenda := dbgrid1.Fields[5].Value;
    ExportarXML.MemoResultado.lines.clear;
    ExportarXML.MemoOriginal.lines.clear;
 
@@ -417,24 +460,30 @@ begin
     end;
 
     ExportarXML.showmodal;
+    }
 end;
 
 procedure TCadastroDeVendas.Button4Click(Sender: TObject);
 begin
-dbvendas1.Qrtm.close;
-dbvendas1.Qrtm.sql.clear;
-dbvendas1.Qrtm.sql.add('select * From vendas V join vendasitem VI on (V.idvenda = VI.idvenda) where v.idvenda = :Pidvenda') ;
-dbvendas1.Qrtm.ParamByName('Pidvenda').AsInteger := dbgrid1.Fields[5].Value; ;
-dbvendas1.Qrtm.open;
+    ImprimeVenda.showreport;
+end;
 
- //ppReport1.Print;
-
+procedure TCadastroDeVendas.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  if not DirectoryExists(GetcurrentDir + '\ConfigGrid') then
+    CreateDir(GetcurrentDir + '\ConfigGrid');
+  // Salva a customização da grid no arquivo INI
+  cxGrid1DBTableView1.StoreToIniFile(GetcurrentDir + '\ConfigGrid\LayoutGridVendas.ini');
 end;
 
 procedure TCadastroDeVendas.FormShow(Sender: TObject);
 var
 ConectarIni : TconectarINI;
 begin
+ //filtro de data
+   dtinicial.datetime := now - 30;
+   dtfinal.datetime := now;
 
    ConectarIni := TconectarINI.Create;
    try
@@ -444,8 +493,33 @@ begin
       ConectarIni.Free;
   end;
 
- DbVendas1.Qvendas.Open;
+  // Ativara Grid
+  begin
+      QGridVendas.close ;
+      QGridVendas.sql.Clear;
+      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
+      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
+      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where  v.dtvenda between (:Pdtinicial) and (:Pdtfinal)');
+      QGridVendas.ParamByName('Pdtinicial').AsDate :=  DtInicial.Date;
+      QGridVendas.ParamByName('Pdtfinal').AsDate :=  DtFinal.Date;
+      QGridVendas.open;
+    end;
 
+
+    // Restaura a customização da grid de um arquivo INI
+  if FileExists(GetcurrentDir + '\ConfigGrid\LayoutGridVendas.ini') then
+    cxGrid1DBTableView1.RestoreFromIniFile(GetcurrentDir + '\ConfigGrid\LayoutGridVendas.ini');
+
+end;
+
+procedure TCadastroDeVendas.SpeedButton1Click(Sender: TObject);
+begin
+  BuscaVendaFiltros;
+end;
+
+procedure TCadastroDeVendas.SpeedButton2Click(Sender: TObject);
+begin
+ cxGrid1DBTableView1.Controller.Customization := True;
 end;
 
 end.

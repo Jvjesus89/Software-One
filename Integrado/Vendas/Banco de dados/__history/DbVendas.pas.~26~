@@ -1,0 +1,180 @@
+unit DbVendas;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider,
+  Datasnap.DBClient;
+
+type
+  TDbVendas1 = class(TDataModule)
+    TabelaVendaItem: TFDTable;
+    TabelaVendaItemidvendasitem: TIntegerField;
+    TabelaVendaItemidvenda: TIntegerField;
+    TabelaVendaItemidproduto: TIntegerField;
+    TabelaVendaItemnmproduto: TWideStringField;
+    TabelaVendaItemqtvendido: TIntegerField;
+    TabelaVendaItemvlitem: TSingleField;
+    TabelaVendaItemvlunitario: TSingleField;
+    DsVendasItem: TDataSource;
+    MvendasItem: TClientDataSet;
+    MvendasItemidvendasitem: TIntegerField;
+    MvendasItemidvenda: TIntegerField;
+    MvendasItemidproduto: TIntegerField;
+    MvendasItemnmproduto: TWideStringField;
+    MvendasItemqtvendido: TIntegerField;
+    MvendasItemvlitem: TSingleField;
+    MvendasItemvlunitario: TSingleField;
+    Pvendasitem: TDataSetProvider;
+    Qvendas: TFDQuery;
+    QvendasItem: TFDQuery;
+    QvendasItemidvendasitem: TIntegerField;
+    QvendasItemidvenda: TIntegerField;
+    QvendasItemidproduto: TIntegerField;
+    QvendasItemnmproduto: TWideStringField;
+    QvendasItemqtvendido: TIntegerField;
+    QvendasItemvlunitario: TSingleField;
+    QvendasItemvlitem: TSingleField;
+    DsQVendasItem: TDataSource;
+    DsQVendas: TDataSource;
+    Qcliente: TFDQuery;
+    Qclienteidcliente: TIntegerField;
+    Qclientenmcliente: TWideStringField;
+    Qclientecpf_cnpj: TWideStringField;
+    Qclientenmendereco: TWideStringField;
+    Qclientenrendereço: TWideStringField;
+    Qclientecomplemento: TWideStringField;
+    Qclientedtcadastro: TDateField;
+    Qclientenmbairro: TWideStringField;
+    Qclientenmcidade: TWideStringField;
+    Qclientenmestado: TWideStringField;
+    Qclientecdcliente: TWideStringField;
+    DsQcliente: TDataSource;
+    QEntradaVenda: TFDQuery;
+    QEntradaVendaidvenda: TFDAutoIncField;
+    QEntradaVendaidcliente: TIntegerField;
+    QEntradaVendavlvenda: TSingleField;
+    QEntradaVendadtcadastro: TDateField;
+    QEntradaVendadtvenda: TDateField;
+    QEntradaVendanrdocumento: TIntegerField;
+    QEntradaVendaItem: TFDQuery;
+    QEntradaVendaItemidvendasitem: TIntegerField;
+    QEntradaVendaItemidvenda: TIntegerField;
+    QEntradaVendaItemidproduto: TIntegerField;
+    QEntradaVendaItemnmproduto: TWideStringField;
+    QEntradaVendaItemqtvendido: TIntegerField;
+    QEntradaVendaItemvlunitario: TSingleField;
+    QEntradaVendaItemvlitem: TSingleField;
+    QIdVenda: TFDQuery;
+    QIdVendaidvenda: TIntegerField;
+    QEntradaTitulo: TFDQuery;
+    DsIdVenda: TDataSource;
+    DsEntradaItens: TDataSource;
+    QExclusãoVenda: TFDQuery;
+    IntegerField11: TIntegerField;
+    IntegerField12: TIntegerField;
+    IntegerField13: TIntegerField;
+    DateField6: TDateField;
+    DateField7: TDateField;
+    WideStringField13: TWideStringField;
+    WideStringField14: TWideStringField;
+    IntegerField14: TIntegerField;
+    SingleField1: TSingleField;
+    QExclusãoVendaItem: TFDQuery;
+    IntegerField15: TIntegerField;
+    IntegerField16: TIntegerField;
+    IntegerField17: TIntegerField;
+    WideStringField15: TWideStringField;
+    IntegerField18: TIntegerField;
+    SingleField2: TSingleField;
+    SingleField3: TSingleField;
+    QExclusãoEstoque: TFDQuery;
+    IntegerField19: TIntegerField;
+    IntegerField20: TIntegerField;
+    IntegerField21: TIntegerField;
+    IntegerField22: TIntegerField;
+    DateField8: TDateField;
+    WideStringField16: TWideStringField;
+    DateField9: TDateField;
+    IntegerField23: TIntegerField;
+    QExclusãoAreceber: TFDQuery;
+    QExclusãoTempItemVenda: TFDQuery;
+    QPrazo: TFDQuery;
+    QPrazoidprazo: TIntegerField;
+    QPrazonmprazo: TWideStringField;
+    QPrazonrparcelas: TIntegerField;
+    QPrazoidformapagamento: TIntegerField;
+    QPrazocdprazo: TIntegerField;
+    DsQprazo: TDataSource;
+    QFormaPagamento: TFDQuery;
+    QFormaPagamentoidformapagamento: TIntegerField;
+    QFormaPagamentonmformapagamento: TWideStringField;
+    QFormaPagamentodtcadastro: TDateField;
+    QFormaPagamentocdformapagamento: TIntegerField;
+    DsQFormaPagamento: TDataSource;
+    QarecebrTemp: TFDQuery;
+    QarecebrTempidareceber: TIntegerField;
+    QarecebrTempidcliente: TIntegerField;
+    QarecebrTempnmcliente: TWideStringField;
+    QarecebrTempidformapagamento: TIntegerField;
+    QarecebrTempnmformapagamento: TWideStringField;
+    QarecebrTempvltitulo: TSingleField;
+    QarecebrTempnrtitulo: TIntegerField;
+    QarecebrTempdtcadastro: TDateField;
+    QarecebrTempdtvencimento: TDateField;
+    QarecebrTempidorigem: TIntegerField;
+    DsQAreceberTemp: TDataSource;
+    Qrtm: TFDQuery;
+    DsQrtm: TDataSource;
+    QCriaTabelaTemp: TFDQuery;
+    QExcluiTabelaTemp: TFDQuery;
+    QTempCamposVenda: TFDQuery;
+    QTempCamposVendaidvenda: TFDAutoIncField;
+    QTempCamposVendaidcliente: TIntegerField;
+    QTempCamposVendavlvenda: TSingleField;
+    QTempCamposVendadtcadastro: TDateField;
+    QTempCamposVendadtvenda: TDateField;
+    QTempCamposVendanrdocumento: TIntegerField;
+    QTempCamposVendanmcliente: TWideStringField;
+    QInseriTabelaTemp: TFDQuery;
+    DsQtempCamposVendas: TDataSource;
+    QConsultaTabelaTemp: TFDQuery;
+    QareceberTempCampo: TFDQuery;
+    IntegerField5: TIntegerField;
+    IntegerField10: TIntegerField;
+    WideStringField3: TWideStringField;
+    IntegerField24: TIntegerField;
+    WideStringField4: TWideStringField;
+    SingleField4: TSingleField;
+    IntegerField25: TIntegerField;
+    DateField3: TDateField;
+    DateField4: TDateField;
+    IntegerField26: TIntegerField;
+    DsQareceberTempCampo: TDataSource;
+    Qvendasidvenda: TFDAutoIncField;
+    Qvendasidcliente: TIntegerField;
+    Qvendasvlvenda: TSingleField;
+    Qvendasdtcadastro: TDateField;
+    Qvendasdtvenda: TDateField;
+    Qvendasnrdocumento: TIntegerField;
+    Qvendasnmcliente: TWideStringField;
+    Qvendasnmformapagamento: TWideStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DbVendas1: TDbVendas1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

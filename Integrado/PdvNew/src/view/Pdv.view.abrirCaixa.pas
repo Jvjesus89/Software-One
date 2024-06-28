@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
-  Pdv.model.Caixa;
+  Pdv.model.Caixa,PdvNew.Utils;
 
 type
   TPageAbrirCaixa = class(TForm)
@@ -32,7 +32,7 @@ type
     { Private declarations }
   public
   class function New(Aowner:TComponent): TPageAbrirCaixa;
-  function Embed(Value:TWincontrol):TPageAbrirCaixa;
+  function Embed(Value:Tpanel):TPageAbrirCaixa;
   function Informacoes(Value: Tproc<Tcaixa>) : TPageAbrirCaixa;
     { Public declarations }
   end;
@@ -43,6 +43,7 @@ var
 implementation
 
 {$R *.dfm}
+
 
 { TForm1 }
 
@@ -64,23 +65,22 @@ begin
     Fproc(lCaixa);
   finally
     lCaixa.DisposeOf;
-    Self.Close;
+    Self.RemoveObject;
   end;
 
 end;
 
-function TPageAbrirCaixa.Embed(Value: TWincontrol): TPageAbrirCaixa;
+function TPageAbrirCaixa.Embed(Value: Tpanel): TPageAbrirCaixa;
 begin
   Result:=self;
-  Self.Parent := value;
+  Self.AddObject(value);
 end;
 
 procedure TPageAbrirCaixa.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_ESCAPE then
-  Self.Close;
-  self.DisposeOf
+  Self.RemoveObject;
 end;
 
 procedure TPageAbrirCaixa.FormResize(Sender: TObject);

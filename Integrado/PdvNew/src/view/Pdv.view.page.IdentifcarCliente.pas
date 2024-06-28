@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage,PdvNew.Utils;
 
 type
   TPageIdentificarCliente = class(TForm)
@@ -41,7 +41,7 @@ type
   Fproc: Tproc<String, String>;
   public
   class function New (Aowner: Tcomponent) :  TPageIdentificarCliente;
-  function Embed(Value : TwinControl): TPageIdentificarCliente;
+  function Embed(Value : TPanel): TPageIdentificarCliente;
   function IdentifcarCpf :TPageIdentificarCliente;
   Function IdentificarCliente(Value : Tproc<String,String>): TPageIdentificarCliente;
   end;
@@ -54,10 +54,10 @@ implementation
 {$R *.dfm}
 
 function TPageIdentificarCliente.Embed(
-  Value: TwinControl): TPageIdentificarCliente;
+  Value: TPanel): TPageIdentificarCliente;
 begin
   Result := Self;
-  Self.Parent := value;
+  Self.AddObject(value);
 end;
 
 procedure TPageIdentificarCliente.FormKeyDown(Sender: TObject; var Key: Word;
@@ -68,8 +68,7 @@ begin
      VK_F5: pnlImageConfirmaClick(Sender);
 
      VK_ESCAPE: begin
-     Self.Close;
-     self.DisposeOf
+     Self.RemoveObject;
      end;
     end;
 end;
@@ -119,8 +118,7 @@ procedure TPageIdentificarCliente.pnlImageConfirmaClick(Sender: TObject);
 begin
     if Assigned(FProc) then
     FProc(EditCPFCNPJ.Text,EditNome.Text);
-    Self.Close;
-    Self.DisposeOf
+    Self.RemoveObject;
 end;
 
 end.

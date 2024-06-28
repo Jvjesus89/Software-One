@@ -1,0 +1,26 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 225
+  Width = 354
+  object DataSource1: TDataSource
+    Left = 272
+    Top = 16
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    OnReconcileError = ClientDataSet1ReconcileError
+    Left = 200
+    Top = 16
+  end
+  object DataSetProvider1: TDataSetProvider
+    Left = 112
+    Top = 16
+  end
+  object SQLDataSet1: TSQLDataSet
+    Params = <>
+    Left = 24
+    Top = 16
+  end
+end

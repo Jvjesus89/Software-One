@@ -5,15 +5,25 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.DBGrids;
+  Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.ExtCtrls;
 
 type
   TConsultaFormaPagamento = class(TForm)
     DBGrid1: TDBGrid;
-    Label1: TLabel;
+    QFormaPagamento: TFDQuery;
+    QFormaPagamentoidformapagamento: TIntegerField;
+    QFormaPagamentonmformapagamento: TWideStringField;
+    QFormaPagamentodtcadastro: TDateField;
+    QFormaPagamentocdformapagamento: TIntegerField;
+    DsQFormaPagamento: TDataSource;
+    Panel1: TPanel;
     Busca: TEdit;
-    Button1: TButton;
+    Button2: TButton;
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,20 +39,27 @@ implementation
 
 uses DBvendas, TelaCadastroFinanceiro;
 
+procedure TConsultaFormaPagamento.Button1Click(Sender: TObject);
+begin
+      QFormaPagamento.close;
+      QFormaPagamento.sql.Clear;
+      QFormaPagamento.sql.Add('Select * From formapagamento Where nmformapagamento like '+#39+'%'+(Busca.Text)+'%'+#39);
+      QFormaPagamento.open;
+end;
+
 procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
 begin
 
-   DbVendas1.QInseriTabelaTemp.close;
-   DbVendas1.QInseriTabelaTemp.sql.clear;
-   DbVendas1.QInseriTabelaTemp.sql.add('Insert into temp."#areceberCampo"');
-   DbVendas1.QInseriTabelaTemp.sql.add('(nmformapagamento, idformapagamento)VALUES (:Pnmformapagamento, :Pidformapagamento)');
-   DbVendas1.QInseriTabelaTemp.Parambyname('Pnmformapagamento').AsString := DBGrid1.Fields[1].value;
-   DbVendas1.QInseriTabelaTemp.Parambyname('Pidformapagamento').AsInteger := StrToInt (DBGrid1.Fields[2].value);
-   DbVendas1.QInseriTabelaTemp.ExecSQL;
+    try
+    CadastroAreceber.MAreceber.FieldByName('idformapagamento').AsInteger := QFormaPagamento.FieldByName('idformapagamento').AsInteger ;
+    CadastroAreceber.MAreceber.FieldByName('nmformapagamento').AsString := QFormaPagamento.FieldByName('nmformapagamento').AsString ;
+    ConsultaFormaPagamento.Close;
+     except
+     on E: Exception do
+      ShowMessage('Erro ao Salvar o produto: ' + E.Message);
+     end;
 
-   DbVendas1.QareceberTempCampo.close;
-   DbVendas1.QareceberTempCampo.open;
-  ConsultaFormaPagamento.Close;
+
  end;
 
 

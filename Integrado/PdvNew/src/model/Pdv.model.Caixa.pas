@@ -22,8 +22,10 @@ Tcaixa = class
     FTurno: Tturno;
     FSupervisor: String;
     Fdatahoraabertura: TDateTime;
+    FDataHoraFechamento : TDateTime;
     FAberto: Boolean;
     FSaldoInicial: Currency;
+
 
   public
   property id: integer  read Fid write Fid;
@@ -33,6 +35,7 @@ Tcaixa = class
   property Supervisor: String  read FSupervisor write FSupervisor;
   property Aberto: Boolean  read FAberto write FAberto;
   property DataHoraAbertura: TDateTime  read Fdatahoraabertura write Fdatahoraabertura;
+  property DataHoraFechamento: TDateTime  read FDataHoraFechamento write FDataHoraFechamento;
   property Saldoinicial: Currency  read FSaldoInicial write FSaldoInicial;
   class function New: Tcaixa;
 end;

@@ -5,7 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Datasnap.Provider, Datasnap.DBClient,DbPrincipal,
+  Data.FMTBcd, Data.SqlExpr,Consultas;
 
 type
   TTelaCadastroProdutoVenda = class(TForm)
@@ -20,23 +24,49 @@ type
     vlitem: TDBEdit;
     Button2: TButton;
     Button3: TButton;
-    QtDisponivel: TDBEdit;
-    Edit1: TEdit;
     DBGrid1: TDBGrid;
+    MVendasItem: TClientDataSet;
+    PVendasItem: TDataSetProvider;
+    DsVendasItem: TDataSource;
+    VendasItem: TFDQuery;
+    VendasItemidvenda: TIntegerField;
+    VendasItemidproduto: TIntegerField;
+    VendasItemvlunitario: TSingleField;
+    VendasItemqtvendido: TIntegerField;
+    VendasItemvlitem: TSingleField;
+    VendasItemidproduto_1: TIntegerField;
+    VendasItemnmproduto: TWideStringField;
+    VendasItemcdproduto: TWideStringField;
+    VendasItemidfamiliaproduto: TIntegerField;
+    VendasItemvlproduto: TSingleField;
+    VendasItemnmfamiliaproduto: TWideStringField;
+    VendasItemstproduto: TBooleanField;
+    VendasItemdtcadastro: TDateField;
+    MVendasItemidvenda: TIntegerField;
+    MVendasItemidproduto: TIntegerField;
+    MVendasItemvlunitario: TSingleField;
+    MVendasItemqtvendido: TIntegerField;
+    MVendasItemvlitem: TSingleField;
+    MVendasItemnmproduto: TWideStringField;
+    MVendasItemvlproduto: TSingleField;
+    QQtdeDisponivel: TFDQuery;
+    DsQQtdeDisponivel: TDataSource;
+    QQtdeDisponivelidestoque: TFDAutoIncField;
+    QQtdeDisponivelidproduto: TIntegerField;
+    QQtdeDisponivelqtdeestoque: TIntegerField;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure vlunitarioExit(Sender: TObject);
     procedure quantidadeExit(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Exit(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
-      ConsultaIdProduto : integer;
-    procedure ExclusãoMovimentaçãoTemp;
-    procedure ConsultarIdProduto;
+  QtDisponivel : real;
     { Private declarations }
   public
+   idproduto : integer;
     { Public declarations }
   end;
 
@@ -47,117 +77,83 @@ implementation
 
 {$R *.dfm}
 
-uses DBvendas, TelaConsultaProdutoVenda;
+uses DBvendas, TelaConsultaProdutoVenda ;
 
 procedure TTelaCadastroProdutoVenda.Button1Click(Sender: TObject);
 begin
-   dbvendas1.QExcluiTabelaTemp.close;
-   dbvendas1.QExcluiTabelaTemp.sql.Clear;
-   dbvendas1.QExcluiTabelaTemp.sql.add('delete from temp."#vendasItensCampos"');
-   dbvendas1.QExcluiTabelaTemp.execsql;
-   ExclusãoMovimentaçãoTemp;
-
-    DbVendas1.Qproduto.open;
     TelaConsultaProduto.showmodal;
 end;
 
 procedure TTelaCadastroProdutoVenda.Button1Exit(Sender: TObject);
 
 begin
-    ConsultarIdProduto;
-    begin
-        // realizar a inclusão da tabela movimentoestoque para a temp
-    DbVendas1.QInseriTabelaTemp.close;
-    DbVendas1.QInseriTabelaTemp.sql.clear;
-    DbVendas1.QInseriTabelaTemp.sql.add('Insert Into temp."#movimentoestoque" Select * From movimentoestoque where idmovimento=(SELECT max(idmovimento ) FROM movimentoestoque Where idproduto= :Pidproduto)');
-    DbVendas1.QInseriTabelaTemp.ParamByName('Pidproduto').AsInteger := ConsultaIdProduto ;
-    DbVendas1.QInseriTabelaTemp.execsql;
-    end;
 
         //Trazer quantidade disponivel
    begin
-      DbVendas1.Qestoque.close;
-      DbVendas1.Qestoque.sql.Clear;
-      DbVendas1.Qestoque.sql.add('Select * From temp."#movimentoestoque" Where idproduto = :Pidproduto');
-      DbVendas1.Qestoque.ParamByName('Pidproduto').AsInteger := ConsultaIdProduto ;
-      DbVendas1.Qestoque.open;
-
+      QQtdeDisponivel.close;
+      QQtdeDisponivel.sql.Clear;
+      QQtdeDisponivel.sql.add('select * From estoque  Where idproduto = :Pidproduto');
+      QQtdeDisponivel.ParamByName('Pidproduto').AsInteger := TelaConsultaProduto.QProduto.FieldByName('idproduto').AsInteger;
+      QQtdeDisponivel.open;
    end;
 
 end;
 
-procedure TTelaCadastroProdutoVenda.ExclusãoMovimentaçãoTemp;
-begin
 
-end;
 
 procedure TTelaCadastroProdutoVenda.Button2Click(Sender: TObject);
-//var
-//Qdisponivel : Integer;
-
+var
+  ConsultandoIdVenda : TconsultaIdVenda;
+  idvenda : integer;
 begin
 
+      QtDisponivel := QQtdeDisponivel.FieldByName('qtdeestoque').AsFloat;
+      if  (QtDisponivel) < StrToInt(quantidade.Text) then
+      begin
+      ShowMessage('Produto sem quantidade em estoque');
+      exit
+      end;
 
-      // movimentação na tabela temp
-      DbVendas1.QInseriTabelaTemp.close;
-      DbVendas1.QInseriTabelaTemp.sql.clear;
-      DbVendas1.QInseriTabelaTemp.sql.add('Update temp."#movimentoestoque" Set qtmovimentada = :Pqtmovimentada, qtdisponivel = :Pqtdisponivel, dtmovimento = :Pdtmovimento, tpmovimento = :Ptpmovimento, dtcadastro = :Pdtcadastro Where idproduto = :Pidproduto');
-      DbVendas1.QInseriTabelaTemp.ParamByName('Pidproduto').AsInteger :=  ConsultaIdProduto;
-      DbVendas1.QInseriTabelaTemp.ParamByName('Pqtmovimentada').AsInteger := StrToInt (quantidade.Text);
-      DbVendas1.QInseriTabelaTemp.ParamByName('Pqtdisponivel').AsInteger :=  StrToInt(Edit1.Text);
-      DbVendas1.QInseriTabelaTemp.ParamByName('Pdtmovimento').Asdate :=  now;
-      DbVendas1.QInseriTabelaTemp.ParamByName('Ptpmovimento').AsString :=  'Saida';
-      DbVendas1.QInseriTabelaTemp.ParamByName('Pdtcadastro').Asdate := now ;
-      DbVendas1.QInseriTabelaTemp.ExecSql ;
+      // consulta idvenda
+         ConsultandoIdVenda := TconsultaIdVenda.Create;
+   try
+   ConsultandoIdVenda.ConsultandoIdVenda;
+   idvenda := ConsultandoIdVenda.idvenda;
+   finally
+      ConsultandoIdVenda.Free;
+  end;
 
-      // Inserir na tabela #vendasitem
-      DbVendas1.QInseriTabelaTemp.close;
-      DbVendas1.QInseriTabelaTemp.sql.clear;
-      DbVendas1.QInseriTabelaTemp.sql.add('Update temp."#vendasItensCampos"  Set');
-      DbVendas1.QInseriTabelaTemp.sql.add('vlunitario = :vlunitario, vlitem = :vlitem, qtitem = :qtitem');
-      DbVendas1.QInseriTabelaTemp.ParamByName('vlunitario').AsFloat := StrToFloat (vlunitario.Text);
-      DbVendas1.QInseriTabelaTemp.ParamByName('vlitem').AsFloat :=  StrToFloat (vlitem.Text);
-      DbVendas1.QInseriTabelaTemp.ParamByName('qtitem').AsInteger := StrToInt (quantidade.text);
-      DbVendas1.QInseriTabelaTemp.ExecSql ;
+  try
+    MVendasItem.FieldByName('idvenda').AsInteger := idvenda + 1;
+    MVendasItem.FieldByName('vlunitario').AsFloat := StrToFloat(vlunitario.Text);
+    MVendasItem.FieldByName('qtvendido').AsFloat := StrToFloat(quantidade.Text);
+    MVendasItem.FieldByName('vlitem').AsFloat := StrToFloat(vlitem.Text);
+    MVendasItem.Post;
+    TelaCadastroProdutoVenda.close;
+  except
+    MVendasItem.Cancel;
+    raise;
+  end;
 
-      // realizar a inclusão da tabela vendasitenscampos para a temp.vendasitens
-      DbVendas1.QInseriTabelaTemp.close;
-      DbVendas1.QInseriTabelaTemp.sql.clear;
-      DbVendas1.QInseriTabelaTemp.sql.add('Insert Into temp."#vendasitem"  Select * From temp."#vendasItensCampos"');
-      ConsultarIdProduto;
-      DbVendas1.QInseriTabelaTemp.execsql;
-
-      DbVendas1.QTempVendasItem.close;
-      DbVendas1.QTempVendasItem.open;
-      DbVendas1.Qestoque.close;
-      TelaCadastroProdutoVenda.close;
 end;
 
 
 procedure TTelaCadastroProdutoVenda.Button3Click(Sender: TObject);
 begin
     TelaCadastroProdutoVenda.close;
-    ExclusãoMovimentaçãoTemp;
+
 end;
 
 procedure TTelaCadastroProdutoVenda.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-
-   dbvendas1.QExcluiTabelaTemp.close;
-   dbvendas1.QExcluiTabelaTemp.sql.Clear;
-   dbvendas1.QExcluiTabelaTemp.sql.add('drop table temp."#vendasItensCampos"');
-   dbvendas1.QExcluiTabelaTemp.execsql;
-   ExclusãoMovimentaçãoTemp;
-
-   DbVendas1.QvendasitemCampos.close;
-
+   QQtdeDisponivel.Close;
 end;
 
 procedure TTelaCadastroProdutoVenda.quantidadeExit(Sender: TObject);
 var qtitem, vlunit, vltotal : real;
-qtdisponivelatual : integer;
 begin
+  // converter campo
    if (Trim(quantidade.text).IsEmpty) then
    begin
    quantidade.text := '1';
@@ -173,25 +169,19 @@ begin
    vlitem.text := formatfloat('###.00',vltotal);
    end;
 
-                   //Cadastrar a movimentação no estoque
 
-   DbVendas1.Qestoque.open;
 
-   if (Trim(QtDisponivel.text).IsEmpty) then
-    begin
-     QtDisponivel.Text := '0';
+    try
+      QtDisponivel := QQtdeDisponivel.FieldByName('qtdeestoque').AsFloat;
+      if  (QtDisponivel) < StrToInt(quantidade.Text) then
+      begin
+      ShowMessage('Produto sem quantidade em estoque');
+      exit
+    end;
+    finally
+
     end;
 
-     if StrToInt (QtDisponivel.text) >= StrToInt (quantidade.Text) then
-    begin
-      qtdisponivelatual :=  StrToInt (QtDisponivel.Text) - StrToInt (quantidade.Text) ;
-      Edit1.Text := IntToStr (qtdisponivelatual);
-    end;
-
-    if StrToInt (QtDisponivel.text) < StrToInt(quantidade.Text) then
-    begin
-    ShowMessage('Produto sem quantidade em estoque');
-    end;
 end;
 
 procedure TTelaCadastroProdutoVenda.vlunitarioExit(Sender: TObject);
@@ -206,13 +196,6 @@ begin
    end;
 end;
 
-procedure TTelaCadastroProdutoVenda.ConsultarIdProduto;
-begin
-     DbVendas1.QConsultaTabelaTemp.close;
-     DbVendas1.QConsultaTabelaTemp.sql.clear;
-     DbVendas1.QConsultaTabelaTemp.sql.add('Select idproduto from temp."#vendasItensCampos" ');
-     DbVendas1.QConsultaTabelaTemp.open;
-     ConsultaIdProduto := DbVendas1.QConsultaTabelaTemp.FieldbyName('idproduto').AsInteger  ;
-end;
+
 
 end.

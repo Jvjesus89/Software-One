@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
    Vcl.Buttons,
-  Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+  Vcl.Imaging.pngimage, Vcl.Imaging.jpeg,PdvNew.Utils;
 
 type
   TPageLogin = class(TForm)
@@ -35,7 +35,7 @@ type
   Fproc: Tproc<String>;
   public
   class function New(AOWNER: Tcomponent): Tpagelogin;
-  function Embed (Value: TwinControl): TpageLogin;
+  function Embed (Value: TPanel): TpageLogin;
   function Informacao (Value:Tproc<String>):Tpagelogin;
   end;
 
@@ -55,14 +55,14 @@ begin
       Exit;
     end;
     FProc(editUsuario.Text);
-    close;
+    Self.RemoveObject;
 end;
 
 
-function TPageLogin.Embed(Value: TwinControl): TpageLogin;
+function TPageLogin.Embed(Value: TPanel): TpageLogin;
 begin
     Result := Self;
-    Self.Parent := value;
+    Self.AddObject(value);
 
 end;
 

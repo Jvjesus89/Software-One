@@ -1,0 +1,32 @@
+unit ConsultarIdVenda;
+
+interface
+uses
+DbVendas;
+
+type
+  TconsultaIdVenda = class
+    public idvenda : integer;
+
+    procedure ConsultandoIdVenda;
+  end;
+
+implementation
+
+{ TconsultaIdVenda }
+
+
+
+procedure TconsultaIdVenda.ConsultandoIdVenda;
+begin
+      DbVendas1.QConsultaIdVenda.Close;
+      DbVendas1.QConsultaIdVenda.sql.Clear;
+      DbVendas1.QConsultaIdVenda.sql.Add('SELECT max(idvenda) as idvenda from vendas');
+      DbVendas1.QConsultaIdVenda.Open;
+
+      idvenda := DbVendas1.QConsultaIdVenda.Fields[0].AsInteger;
+
+      DbVendas1.QConsultaIdVenda.Close;
+end;
+
+end.

@@ -1,0 +1,384 @@
+﻿object CadastroDeVendas: TCadastroDeVendas
+  Left = 0
+  Top = 0
+  Caption = 'Vendas'
+  ClientHeight = 636
+  ClientWidth = 1540
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Visible = True
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1540
+    Height = 73
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object BotaoNovo: TButton
+      Left = 0
+      Top = 0
+      Width = 75
+      Height = 73
+      Align = alLeft
+      Caption = 'Novo'
+      TabOrder = 0
+      OnClick = BotaoNovoClick
+    end
+    object BotaoExcluir: TButton
+      Left = 152
+      Top = 0
+      Width = 75
+      Height = 73
+      Align = alLeft
+      Caption = 'Excluir'
+      TabOrder = 1
+      OnClick = BotaoExcluirClick
+    end
+    object BotaoEditar: TButton
+      Left = 75
+      Top = 0
+      Width = 77
+      Height = 73
+      Align = alLeft
+      Caption = 'Editar'
+      TabOrder = 2
+      OnClick = BotaoEditarClick
+    end
+    object ExportarDados: TButton
+      Left = 1457
+      Top = 0
+      Width = 83
+      Height = 73
+      Align = alRight
+      Caption = 'Exportar'
+      TabOrder = 3
+    end
+    object Button1: TButton
+      Left = 1376
+      Top = 0
+      Width = 81
+      Height = 73
+      Align = alRight
+      Caption = 'Importar xml'
+      TabOrder = 4
+      Visible = False
+      OnClick = Button1Click
+    end
+    object Button3: TButton
+      Left = 1295
+      Top = 0
+      Width = 81
+      Height = 73
+      Align = alRight
+      Caption = 'Exportar xml'
+      TabOrder = 5
+      Visible = False
+      OnClick = Button3Click
+    end
+    object Button4: TButton
+      Left = 227
+      Top = 0
+      Width = 75
+      Height = 73
+      Align = alLeft
+      Caption = 'Imprimir'
+      TabOrder = 6
+      OnClick = Button4Click
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 73
+    Width = 1540
+    Height = 563
+    Align = alClient
+    TabOrder = 1
+    object Panel3: TPanel
+      Left = 1
+      Top = 1
+      Width = 1538
+      Height = 48
+      Align = alTop
+      BevelOuter = bvNone
+      Padding.Top = 12
+      Padding.Right = 10
+      Padding.Bottom = 15
+      TabOrder = 0
+      object Label2: TLabel
+        AlignWithMargins = True
+        Left = 1318
+        Top = 15
+        Width = 64
+        Height = 15
+        Align = alRight
+        BiDiMode = bdLeftToRight
+        Caption = 'N'#176' Venda'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentBiDiMode = False
+        ParentFont = False
+        ExplicitHeight = 19
+      end
+      object Label1: TLabel
+        AlignWithMargins = True
+        Left = 994
+        Top = 15
+        Width = 62
+        Height = 15
+        Align = alRight
+        BiDiMode = bdLeftToRight
+        Caption = 'Dt Inicial'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentBiDiMode = False
+        ParentFont = False
+        ExplicitHeight = 19
+      end
+      object Label3: TLabel
+        AlignWithMargins = True
+        Left = 1160
+        Top = 15
+        Width = 54
+        Height = 15
+        Align = alRight
+        BiDiMode = bdLeftToRight
+        Caption = 'Dt Final'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentBiDiMode = False
+        ParentFont = False
+        ExplicitHeight = 19
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 1496
+        Top = 12
+        Width = 32
+        Height = 21
+        Align = alRight
+        Caption = 'OK'
+        OnClick = SpeedButton1Click
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 0
+        Top = 12
+        Width = 65
+        Height = 21
+        Align = alLeft
+        Caption = 'Edit Layout'
+        OnClick = SpeedButton2Click
+        ExplicitTop = 5
+      end
+      object Busca: TEdit
+        Left = 1385
+        Top = 12
+        Width = 111
+        Height = 21
+        Align = alRight
+        BevelInner = bvNone
+        BevelOuter = bvNone
+        NumbersOnly = True
+        TabOrder = 0
+        OnExit = BuscaExit
+        OnKeyDown = BuscaKeyDown
+      end
+      object DtFinal: TDateTimePicker
+        Left = 1217
+        Top = 12
+        Width = 98
+        Height = 21
+        Align = alRight
+        Date = 45462.000000000000000000
+        Time = 0.952586157407495200
+        TabOrder = 1
+      end
+      object DtInicial: TDateTimePicker
+        Left = 1059
+        Top = 12
+        Width = 98
+        Height = 21
+        Align = alRight
+        Date = 45462.000000000000000000
+        Time = 0.952586157407495200
+        TabOrder = 2
+      end
+    end
+    object cxGrid1: TcxGrid
+      Left = 1
+      Top = 49
+      Width = 1538
+      Height = 513
+      Align = alClient
+      TabOrder = 1
+      object cxGrid1DBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        DataController.DataSource = DsQGridVendas
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Kind = skSum
+          end
+          item
+            Kind = skCount
+          end>
+        DataController.Summary.SummaryGroups = <>
+        OptionsView.Footer = True
+        object cxGrid1DBTableView1nrdocumento: TcxGridDBColumn
+          Caption = 'Nr Documento'
+          DataBinding.FieldName = 'nrdocumento'
+        end
+        object cxGrid1DBTableView1dtvenda: TcxGridDBColumn
+          Caption = 'Dt Venda'
+          DataBinding.FieldName = 'dtvenda'
+        end
+        object cxGrid1DBTableView1nmcliente: TcxGridDBColumn
+          Caption = 'Cliente'
+          DataBinding.FieldName = 'nmcliente'
+        end
+        object cxGrid1DBTableView1vlvenda: TcxGridDBColumn
+          Caption = 'Vl. Venda'
+          DataBinding.FieldName = 'vlvenda'
+        end
+        object cxGrid1DBTableView1nmformapagamento: TcxGridDBColumn
+          Caption = 'Forma Pagamento'
+          DataBinding.FieldName = 'nmformapagamento'
+        end
+        object cxGrid1DBTableView1dtcadastro: TcxGridDBColumn
+          DataBinding.FieldName = 'dtcadastro'
+        end
+        object cxGrid1DBTableView1idvenda: TcxGridDBColumn
+          DataBinding.FieldName = 'idvenda'
+          Visible = False
+        end
+        object cxGrid1DBTableView1idcliente: TcxGridDBColumn
+          DataBinding.FieldName = 'idcliente'
+          Visible = False
+        end
+      end
+      object cxGrid1Level1: TcxGridLevel
+        GridView = cxGrid1DBTableView1
+      end
+    end
+  end
+  object QGridVendas: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select v.*,C.nmcliente, '
+      '(Select F.nmformapagamento from formapagamento F '
+      
+        'join  areceber A on V.idvenda = A.idorigem Where F.idformapagame' +
+        'nto = A.idformapagamento limit 1) '
+      'From vendas V  '
+      'join clientes C on C.idcliente = V.idcliente')
+    Left = 1072
+    Top = 209
+    object QGridVendasidvenda: TFDAutoIncField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object QGridVendasidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      Required = True
+    end
+    object QGridVendasvlvenda: TSingleField
+      FieldName = 'vlvenda'
+      Origin = 'vlvenda'
+      Required = True
+    end
+    object QGridVendasdtvenda: TDateField
+      FieldName = 'dtvenda'
+      Origin = 'dtvenda'
+    end
+    object QGridVendasnrdocumento: TIntegerField
+      FieldName = 'nrdocumento'
+      Origin = 'nrdocumento'
+      Required = True
+    end
+    object QGridVendasnmcliente: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmcliente'
+      Origin = 'nmcliente'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object QGridVendasnmformapagamento: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmformapagamento'
+      Origin = 'nmformapagamento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object QGridVendasdtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      Required = True
+    end
+  end
+  object DsQGridVendas: TDataSource
+    DataSet = QGridVendas
+    Left = 1072
+    Top = 273
+  end
+  object QExclusão: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From vendasitem')
+    Left = 176
+    Top = 8
+    object IntegerField15: TIntegerField
+      FieldName = 'idvendasitem'
+      Origin = 'idvendasitem'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IntegerField16: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object IntegerField17: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object WideStringField15: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 50
+    end
+    object IntegerField18: TIntegerField
+      FieldName = 'qtvendido'
+      Origin = 'qtvendido'
+    end
+    object SingleField2: TSingleField
+      FieldName = 'vlunitario'
+      Origin = 'vlunitario'
+    end
+    object SingleField3: TSingleField
+      FieldName = 'vlitem'
+      Origin = 'vlitem'
+    end
+  end
+end

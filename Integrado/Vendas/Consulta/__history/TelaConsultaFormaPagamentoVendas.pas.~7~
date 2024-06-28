@@ -1,0 +1,57 @@
+unit TelaConsultaFormaPagamentoVendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TConsultaFormaPagamento = class(TForm)
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    Busca: TEdit;
+    Button1: TButton;
+    QFormaPagamento: TFDQuery;
+    QFormaPagamentoidformapagamento: TIntegerField;
+    QFormaPagamentonmformapagamento: TWideStringField;
+    QFormaPagamentodtcadastro: TDateField;
+    QFormaPagamentocdformapagamento: TIntegerField;
+    DsQFormaPagamento: TDataSource;
+    procedure DBGrid1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaFormaPagamento: TConsultaFormaPagamento;
+
+implementation
+
+{$R *.dfm}
+
+uses DBvendas, TelaCadastroFinanceiro;
+
+procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
+begin
+
+    try
+    CadastroAreceber.MAreceber.FieldByName('idformapagamento').AsInteger := QFormaPagamento.FieldByName('idformapagamento').AsInteger ;
+    CadastroAreceber.MAreceber.FieldByName('nmformapagamento').AsString := QFormaPagamento.FieldByName('nmformapagamento').AsString ;
+    CadastroAreceber.MAreceber.Post;
+  except
+    CadastroAreceber.MAreceber.Cancel;
+    raise;
+  end;
+
+  ConsultaFormaPagamento.Close;
+ end;
+
+
+
+end.

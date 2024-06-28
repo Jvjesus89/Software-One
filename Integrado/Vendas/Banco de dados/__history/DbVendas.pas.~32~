@@ -1,0 +1,98 @@
+unit DbVendas;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Datasnap.Provider,
+  Datasnap.DBClient;
+
+type
+  TDbVendas1 = class(TDataModule)
+    TabelaVendaItem: TFDTable;
+    TabelaVendaItemidvendasitem: TIntegerField;
+    TabelaVendaItemidvenda: TIntegerField;
+    TabelaVendaItemidproduto: TIntegerField;
+    TabelaVendaItemnmproduto: TWideStringField;
+    TabelaVendaItemqtvendido: TIntegerField;
+    TabelaVendaItemvlitem: TSingleField;
+    TabelaVendaItemvlunitario: TSingleField;
+    DsVendasItem: TDataSource;
+    MvendasItem: TClientDataSet;
+    MvendasItemidvendasitem: TIntegerField;
+    MvendasItemidvenda: TIntegerField;
+    MvendasItemidproduto: TIntegerField;
+    MvendasItemnmproduto: TWideStringField;
+    MvendasItemqtvendido: TIntegerField;
+    MvendasItemvlitem: TSingleField;
+    MvendasItemvlunitario: TSingleField;
+    Pvendasitem: TDataSetProvider;
+    QvendasItem: TFDQuery;
+    QvendasItemidvendasitem: TIntegerField;
+    QvendasItemidvenda: TIntegerField;
+    QvendasItemidproduto: TIntegerField;
+    QvendasItemnmproduto: TWideStringField;
+    QvendasItemqtvendido: TIntegerField;
+    QvendasItemvlunitario: TSingleField;
+    QvendasItemvlitem: TSingleField;
+    DsQVendasItem: TDataSource;
+    QEntradaVendaItem: TFDQuery;
+    QEntradaVendaItemidvendasitem: TIntegerField;
+    QEntradaVendaItemidvenda: TIntegerField;
+    QEntradaVendaItemidproduto: TIntegerField;
+    QEntradaVendaItemnmproduto: TWideStringField;
+    QEntradaVendaItemqtvendido: TIntegerField;
+    QEntradaVendaItemvlunitario: TSingleField;
+    QEntradaVendaItemvlitem: TSingleField;
+    DsEntradaItens: TDataSource;
+    QExclusãoVenda: TFDQuery;
+    IntegerField11: TIntegerField;
+    IntegerField12: TIntegerField;
+    IntegerField13: TIntegerField;
+    DateField6: TDateField;
+    DateField7: TDateField;
+    WideStringField13: TWideStringField;
+    WideStringField14: TWideStringField;
+    IntegerField14: TIntegerField;
+    SingleField1: TSingleField;
+    QExclusãoVendaItem: TFDQuery;
+    IntegerField15: TIntegerField;
+    IntegerField16: TIntegerField;
+    IntegerField17: TIntegerField;
+    WideStringField15: TWideStringField;
+    IntegerField18: TIntegerField;
+    SingleField2: TSingleField;
+    SingleField3: TSingleField;
+    QExclusãoEstoque: TFDQuery;
+    IntegerField19: TIntegerField;
+    IntegerField20: TIntegerField;
+    IntegerField21: TIntegerField;
+    IntegerField22: TIntegerField;
+    DateField8: TDateField;
+    WideStringField16: TWideStringField;
+    DateField9: TDateField;
+    IntegerField23: TIntegerField;
+    QExclusãoAreceber: TFDQuery;
+    QExclusãoTempItemVenda: TFDQuery;
+    Qrtm: TFDQuery;
+    DsQrtm: TDataSource;
+    QComandoConsulta: TFDQuery;
+    QCriaTrigger: TFDQuery;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DbVendas1: TDbVendas1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

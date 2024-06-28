@@ -1,0 +1,115 @@
+object PageFecharCaixa: TPageFecharCaixa
+  AlignWithMargins = True
+  Left = 0
+  Top = 0
+  Align = alClient
+  AlphaBlend = True
+  AlphaBlendValue = 240
+  BorderStyle = bsNone
+  ClientHeight = 656
+  ClientWidth = 1189
+  Color = clBackground
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  OnKeyDown = FormKeyDown
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlConteiner: TPanel
+    AlignWithMargins = True
+    Left = 304
+    Top = 120
+    Width = 593
+    Height = 409
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 0
+    BevelOuter = bvNone
+    ParentBackground = False
+    TabOrder = 0
+    object Panel2: TPanel
+      Left = 0
+      Top = 0
+      Width = 593
+      Height = 53
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Cofer'#234'ncia de Caixa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -53
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object Panel3: TPanel
+      Left = 0
+      Top = 53
+      Width = 593
+      Height = 24
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Informe os valores recebidos no caixa'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6708056
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object Panel4: TPanel
+      Left = 0
+      Top = 77
+      Width = 593
+      Height = 332
+      Align = alClient
+      BevelOuter = bvNone
+      Padding.Left = 10
+      Padding.Top = 20
+      Padding.Right = 10
+      Padding.Bottom = 10
+      TabOrder = 2
+      ExplicitTop = 83
+      object Panel1: TPanel
+        Left = 10
+        Top = 20
+        Width = 573
+        Height = 61
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+        object Panel5: TPanel
+          Left = 512
+          Top = 0
+          Width = 61
+          Height = 61
+          Align = alRight
+          BevelOuter = bvNone
+          TabOrder = 0
+          object Shape1: TShape
+            Left = 0
+            Top = 0
+            Width = 61
+            Height = 61
+            Align = alClient
+            Pen.Style = psClear
+            Shape = stRoundRect
+            ExplicitLeft = 24
+            ExplicitTop = 24
+            ExplicitWidth = 65
+            ExplicitHeight = 65
+          end
+        end
+      end
+    end
+  end
+end

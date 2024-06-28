@@ -5,7 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TTelaConsultaProduto = class(TForm)
@@ -13,6 +16,16 @@ type
     Panel1: TPanel;
     Busca: TEdit;
     Button1: TButton;
+    QProduto: TFDQuery;
+    QProdutoidproduto: TIntegerField;
+    QProdutonmproduto: TWideStringField;
+    QProdutocdproduto: TWideStringField;
+    QProdutoidfamiliaproduto: TIntegerField;
+    QProdutonmfamiliaproduto: TWideStringField;
+    QProdutostproduto: TBooleanField;
+    QProdutodtcadastro: TDateField;
+    QProdutovlproduto: TSingleField;
+    DsQproduto: TDataSource;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
@@ -33,27 +46,25 @@ uses DBvendas, CadastroProdutoVenda;
 procedure TTelaConsultaProduto.Button1Click(Sender: TObject);
 begin
 
-      DbVendas1.QProduto.close;
-      DbVendas1.QProduto.sql.Clear;
-      DbVendas1.QProduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
-      DbVendas1.QProduto.open;
+      QProduto.close;
+      QProduto.sql.Clear;
+      QProduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
+      QProduto.open;
 end;
 
 procedure TTelaConsultaProduto.DBGrid1DblClick(Sender: TObject);
 begin
-      // Inserir na tabela #vendasitem
-      DbVendas1.QInseriTabelaTemp.close;
-      DbVendas1.QInseriTabelaTemp.sql.clear;
-      DbVendas1.QInseriTabelaTemp.sql.add('insert into temp."#vendasItensCampos"');
-      DbVendas1.QInseriTabelaTemp.sql.add('(vlunitario, idproduto) VALUES (:vlunitario, :idproduto)');
-      DbVendas1.QInseriTabelaTemp.ParamByName('vlunitario').AsFloat := StrToFloat (DBGrid1.Fields[3].value);
-      DbVendas1.QInseriTabelaTemp.ParamByName('idproduto').AsInteger := StrToInt(DBGrid1.Fields[4].value);
-      DbVendas1.QInseriTabelaTemp.ExecSql ;
-
-      DbVendas1.QvendasitemCampos.close;
-      DbVendas1.QvendasitemCampos.open;
+     try
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('idproduto').AsInteger := QProduto.FieldByName('idproduto').AsInteger;
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('nmproduto').AsString :=  QProduto.FieldByName('nmproduto').AsString;
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('vlunitario').AsString :=  QProduto.FieldByName('vlproduto').AsString;
 
      TelaConsultaProduto.close;
+     except
+     on E: Exception do
+      ShowMessage('Erro ao Salvar o produto: ' + E.Message);
+     end;
+
 end;
 
 end.
