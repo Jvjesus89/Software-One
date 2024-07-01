@@ -18,6 +18,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,6 +49,11 @@ begin
     DbConfigFin.Mforma.Close;
     CadastroFormaPagamento.close;
     DbConfigFin.Mforma.open;
+end;
+
+procedure TCadastroFormaPagamento.DBEdit1Exit(Sender: TObject);
+begin
+  DBEdit1.Text := UpperCase(DBEdit1.Text)
 end;
 
 procedure TCadastroFormaPagamento.FormClose(Sender: TObject;

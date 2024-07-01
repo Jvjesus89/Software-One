@@ -161,6 +161,7 @@
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    OnExit = NomeClienteCampoExit
   end
   object Cpf_Cpnj: TDBEdit
     Left = 8

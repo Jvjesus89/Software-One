@@ -26,6 +26,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure NmProdutoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +81,11 @@ procedure TTelaEdicaoProduto1.FormShow(Sender: TObject);
 begin
      Dbprod.Mproduto.Open;
      Dbprod.Mproduto.Edit;
+end;
+
+procedure TTelaEdicaoProduto1.NmProdutoExit(Sender: TObject);
+begin
+    NmProduto.Text := UpperCase(NmProduto.Text);
 end;
 
 end.

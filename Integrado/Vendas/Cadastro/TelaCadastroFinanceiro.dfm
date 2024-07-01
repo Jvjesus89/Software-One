@@ -29,7 +29,7 @@
     Width = 87
     Height = 13
     Caption = 'Forma Pagamento'
-    FocusControl = DBEdit2
+    FocusControl = EditFormaPagamento
   end
   object Label3: TLabel
     Left = 365
@@ -47,14 +47,15 @@
     FocusControl = DBEdit4
     Visible = False
   end
-  object DBEdit2: TDBEdit
+  object EditFormaPagamento: TDBEdit
     Left = 18
     Top = 27
     Width = 318
     Height = 21
     DataField = 'nmformapagamento'
     DataSource = DsAreceber
-    TabOrder = 1
+    TabOrder = 0
+    OnKeyDown = EditFormaPagamentoKeyDown
   end
   object Button1: TButton
     Left = 180
@@ -62,7 +63,7 @@
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 2
+    TabOrder = 3
     OnClick = Button1Click
   end
   object Button2: TButton
@@ -71,7 +72,7 @@
     Width = 75
     Height = 25
     Caption = 'Salvar'
-    TabOrder = 3
+    TabOrder = 1
     OnClick = Button2Click
   end
   object Button3: TButton
@@ -80,7 +81,7 @@
     Width = 23
     Height = 21
     Caption = '...'
-    TabOrder = 0
+    TabOrder = 2
     OnClick = Button3Click
   end
   object DBEdit4: TDBEdit
@@ -111,16 +112,10 @@
     TabOrder = 6
   end
   object Areceber: TFDQuery
-    Active = True
     Connection = DbMaster.ConexãoDb
     SQL.Strings = (
       'select * from areceber where 1=2')
     Left = 120
-    object Areceberidareceber: TFDAutoIncField
-      FieldName = 'idareceber'
-      Origin = 'idareceber'
-      ProviderFlags = [pfInWhere, pfInKey]
-    end
     object Areceberidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'
@@ -173,7 +168,6 @@
     Left = 176
   end
   object MAreceber: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -232,11 +226,6 @@
     ProviderName = 'PAreceber'
     StoreDefs = True
     Left = 240
-    object MAreceberidareceber: TAutoIncField
-      FieldName = 'idareceber'
-      Origin = 'idareceber'
-      ProviderFlags = [pfInWhere, pfInKey]
-    end
     object MAreceberidcliente: TIntegerField
       FieldName = 'idcliente'
       Origin = 'idcliente'

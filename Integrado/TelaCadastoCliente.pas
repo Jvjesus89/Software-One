@@ -47,6 +47,7 @@ type
     procedure RadioButton2Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NomeClienteCampoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -146,6 +147,11 @@ end;
 procedure TTelaCadastroCliente1.FormShow(Sender: TObject);
 begin
      DbClient.Mcliente.FieldByName('dtcadastro').Value := now;
+end;
+
+procedure TTelaCadastroCliente1.NomeClienteCampoExit(Sender: TObject);
+begin
+    NomeClienteCampo.Text := UpperCase(NomeClienteCampo.Text)
 end;
 
 procedure TTelaCadastroCliente1.RadioButton1Click(Sender: TObject);

@@ -28,7 +28,11 @@ type
     DsQproduto: TDataSource;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
+    procedure SelecionaProduto;
     { Private declarations }
   public
     { Public declarations }
@@ -48,13 +52,35 @@ begin
 
       QProduto.close;
       QProduto.sql.Clear;
-      QProduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
+      QProduto.sql.Add('Select * From produto Where nmproduto like '+#39+'%'+UpperCase(Busca.Text)+'%'+#39);
       QProduto.open;
 end;
 
 procedure TTelaConsultaProduto.DBGrid1DblClick(Sender: TObject);
 begin
-     try
+   SelecionaProduto;
+end;
+
+procedure TTelaConsultaProduto.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    case key of
+   VK_return : begin
+   SelecionaProduto;
+   end;
+  end;
+
+end;
+
+procedure TTelaConsultaProduto.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  TelaCadastroProdutoVenda.quantidade.SetFocus;
+end;
+
+procedure TTelaConsultaProduto.SelecionaProduto;
+begin
+   try
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('idproduto').AsInteger := QProduto.FieldByName('idproduto').AsInteger;
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('nmproduto').AsString :=  QProduto.FieldByName('nmproduto').AsString;
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('vlunitario').AsString :=  QProduto.FieldByName('vlproduto').AsString;
@@ -64,7 +90,6 @@ begin
      on E: Exception do
       ShowMessage('Erro ao Salvar o produto: ' + E.Message);
      end;
-
 end;
 
 end.

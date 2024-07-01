@@ -34,8 +34,8 @@ procedure TConsultaBancoContaCorrente.BotaoBuscaClick(Sender: TObject);
 begin
       DbConfigFin.QBancoAgencia.close;
       DbConfigFin.QBancoAgencia.sql.Clear;
-      DbConfigFin.QBancoAgencia.sql.Add('Select * From banco Where nmbanco like ''%:Pnmbanco%');
-      DbConfigFin.QBancoAgencia.ParamByName('Pnmbanco').AsString := Busca.text;
+      DbConfigFin.QBancoAgencia.sql.Add('Select * From banco Where nmbanco like :Pnmbanco');
+      DbConfigFin.QBancoAgencia.ParamByName('Pnmbanco').AsString := '%' + Busca.text + '%';
       DbConfigFin.QBancoAgencia.open;
 end;
 

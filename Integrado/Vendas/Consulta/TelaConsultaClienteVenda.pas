@@ -32,7 +32,10 @@ type
     btnBusca: TButton;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure btnBuscaClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
+    procedure SelecionaCliente;
     { Private declarations }
   public
     { Public declarations }
@@ -54,12 +57,27 @@ begin
     begin
       close;
       sql.Clear;
-      sql.Add('Select * From clientes Where nmcliente like '+#39+'%'+(Busca.Text)+'%'+#39);
+      sql.Add('Select * From clientes Where nmcliente like '+#39+'%'+UpperCase(Busca.Text)+'%'+#39);
       open;
     end;
 end;
 
 procedure TTelaConsultaCliente.DBGrid1DblClick(Sender: TObject);
+begin
+   SelecionaCliente
+end;
+
+procedure TTelaConsultaCliente.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   case key of
+   VK_return : begin
+   SelecionaCliente;
+   end;
+  end;
+end;
+
+procedure TTelaConsultaCliente.SelecionaCliente;
 begin
   try
     TelaCadastroVendas.MVenda.FieldByName('idcliente').AsInteger := Qcliente.FieldByName('idcliente').AsInteger ;

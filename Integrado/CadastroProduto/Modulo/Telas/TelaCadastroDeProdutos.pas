@@ -26,6 +26,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure NmProdutoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -92,6 +93,11 @@ begin
       Dbprod.QConsultaCodigo.Open;
       codigoproduto := Dbprod.QConsultaCodigo.FieldByName('cdproduto').AsInteger ;
       TelaCadastroProduto.CdProduto.Text :=  IntToStr(codigoproduto + 1);
+end;
+
+procedure TTelaCadastroProduto.NmProdutoExit(Sender: TObject);
+begin
+    NmProduto.Text := UpperCase(NmProduto.Text);
 end;
 
 end.

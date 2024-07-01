@@ -21,12 +21,12 @@
     <Transaction>2023/11/11 11:53:09.000.995,=E:\Sistema\Software-One\Integrado\Configurações\Prazo\Cadastro\TelaCadastroPrazos.pas</Transaction>
     <Transaction>2023/11/11 11:53:28.000.067,=E:\Sistema\Software-One\Integrado\Configurações\Prazo\Consulta\SubConsulta\TelaConsultaFormaPagamantoPPrazo.pas</Transaction>
     <Transaction>2023/11/11 11:53:51.000.731,=E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas</Transaction>
-    <Transaction>2023/11/11 11:56:27.000.938,E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj=C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2023/11/11 11:59:49.000.478,E:\Sistema\Software-One\Integrado\Projetos\Configuracoes.dproj=E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj</Transaction>
+    <Transaction>2023/11/11 11:56:27.000.938,C:\Users\jvjes\Documents\Embarcadero\Studio\Projects\Project1.dproj=E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj</Transaction>
+    <Transaction>2023/11/11 11:59:49.000.478,E:\Sistema\Software-One\Integrado\Projetos\Configuracoes_new.dproj=E:\Sistema\Software-One\Integrado\Projetos\Configuracoes.dproj</Transaction>
     <Transaction>2023/11/11 12:13:55.000.049,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=</Transaction>
     <Transaction>2023/11/11 12:14:24.000.165,=E:\Sistema\Software-One\Integrado\Projetos\Unit2.pas</Transaction>
-    <Transaction>2023/11/11 12:14:40.000.930,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=E:\Sistema\Software-One\Integrado\Projetos\Unit2.pas</Transaction>
-    <Transaction>2023/11/11 12:14:40.000.930,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.dfm=E:\Sistema\Software-One\Integrado\Projetos\Unit2.dfm</Transaction>
+    <Transaction>2023/11/11 12:14:40.000.930,E:\Sistema\Software-One\Integrado\Projetos\Unit2.dfm=E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.dfm</Transaction>
+    <Transaction>2023/11/11 12:14:40.000.930,E:\Sistema\Software-One\Integrado\Projetos\Unit2.pas=E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas</Transaction>
     <Transaction>2023/11/11 12:17:02.000.794,E:\Sistema\Software-One\Integrado\Configurações\Geral\Opções\TelaOpções.pas=</Transaction>
     <Transaction>2024/01/25 16:59:37.000.643,=E:\Sistema\Software-One\Integrado\Configurações\Comandos\conectarINI.pas</Transaction>
     <Transaction>2024/04/20 14:03:32.000.497,E:\Sistema\Software-One\Integrado\Configurações\Banco de dados\Geral\DbConfiguracoesGeral.pas=</Transaction>

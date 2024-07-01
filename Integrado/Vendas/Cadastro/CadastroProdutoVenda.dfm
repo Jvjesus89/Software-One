@@ -55,8 +55,9 @@
     Height = 21
     DataField = 'nmproduto'
     DataSource = DsVendasItem
-    ReadOnly = True
-    TabOrder = 7
+    TabOrder = 0
+    OnExit = nmprodutoExit
+    OnKeyDown = nmprodutoKeyDown
   end
   object vlunitario: TDBEdit
     Left = 8
@@ -65,7 +66,7 @@
     Height = 21
     DataField = 'vlunitario'
     DataSource = DsVendasItem
-    TabOrder = 4
+    TabOrder = 6
     OnExit = vlunitarioExit
   end
   object quantidade: TDBEdit
@@ -84,7 +85,7 @@
     Width = 29
     Height = 21
     Caption = '...'
-    TabOrder = 0
+    TabOrder = 4
     OnClick = Button1Click
     OnExit = Button1Exit
   end
@@ -95,7 +96,7 @@
     Height = 21
     DataField = 'vlitem'
     DataSource = DsVendasItem
-    TabOrder = 3
+    TabOrder = 5
   end
   object Button2: TButton
     Left = 240
@@ -112,7 +113,7 @@
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 5
+    TabOrder = 3
     OnClick = Button3Click
   end
   object DBGrid1: TDBGrid
@@ -121,7 +122,7 @@
     Width = 96
     Height = 138
     DataSource = DsQQtdeDisponivel
-    TabOrder = 6
+    TabOrder = 7
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11

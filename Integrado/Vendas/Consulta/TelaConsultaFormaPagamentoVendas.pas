@@ -24,7 +24,10 @@ type
     Button2: TButton;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
+   procedure SelecionaFormaPagamento;
     { Private declarations }
   public
     { Public declarations }
@@ -43,14 +46,28 @@ procedure TConsultaFormaPagamento.Button1Click(Sender: TObject);
 begin
       QFormaPagamento.close;
       QFormaPagamento.sql.Clear;
-      QFormaPagamento.sql.Add('Select * From formapagamento Where nmformapagamento like '+#39+'%'+(Busca.Text)+'%'+#39);
+      QFormaPagamento.sql.Add('Select * From formapagamento Where nmformapagamento like '+#39+'%'+UpperCase(Busca.Text)+'%'+#39);
       QFormaPagamento.open;
 end;
 
 procedure TConsultaFormaPagamento.DBGrid1DblClick(Sender: TObject);
 begin
+    SelecionaFormaPagamento;
+ end;
 
-    try
+procedure TConsultaFormaPagamento.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   case key of
+   VK_return : begin
+   SelecionaFormaPagamento;
+   end;
+  end;
+end;
+
+procedure TConsultaFormaPagamento.SelecionaFormaPagamento;
+begin
+   try
     CadastroAreceber.MAreceber.FieldByName('idformapagamento').AsInteger := QFormaPagamento.FieldByName('idformapagamento').AsInteger ;
     CadastroAreceber.MAreceber.FieldByName('nmformapagamento').AsString := QFormaPagamento.FieldByName('nmformapagamento').AsString ;
     ConsultaFormaPagamento.Close;
@@ -58,10 +75,6 @@ begin
      on E: Exception do
       ShowMessage('Erro ao Salvar o produto: ' + E.Message);
      end;
-
-
- end;
-
-
+end;
 
 end.

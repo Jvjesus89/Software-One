@@ -61,9 +61,14 @@ type
     procedure quantidadeExit(Sender: TObject);
     procedure Button1Exit(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure nmprodutoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure nmprodutoExit(Sender: TObject);
 
   private
   QtDisponivel : real;
+  procedure ConsultaProdutoGrid;
+  procedure ConsultaQuantidadeDisponivel;
     { Private declarations }
   public
    idproduto : integer;
@@ -87,16 +92,7 @@ end;
 procedure TTelaCadastroProdutoVenda.Button1Exit(Sender: TObject);
 
 begin
-
-        //Trazer quantidade disponivel
-   begin
-      QQtdeDisponivel.close;
-      QQtdeDisponivel.sql.Clear;
-      QQtdeDisponivel.sql.add('select * From estoque  Where idproduto = :Pidproduto');
-      QQtdeDisponivel.ParamByName('Pidproduto').AsInteger := TelaConsultaProduto.QProduto.FieldByName('idproduto').AsInteger;
-      QQtdeDisponivel.open;
-   end;
-
+     ConsultaQuantidadeDisponivel;
 end;
 
 
@@ -144,10 +140,29 @@ begin
 
 end;
 
+
+
 procedure TTelaCadastroProdutoVenda.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
+   MVendasItem.Cancel;
    QQtdeDisponivel.Close;
+end;
+
+
+procedure TTelaCadastroProdutoVenda.nmprodutoExit(Sender: TObject);
+begin
+   ConsultaQuantidadeDisponivel
+end;
+
+procedure TTelaCadastroProdutoVenda.nmprodutoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  case key of
+   VK_return : begin
+   ConsultaProdutoGrid;
+   end;
+  end;
 end;
 
 procedure TTelaCadastroProdutoVenda.quantidadeExit(Sender: TObject);
@@ -196,6 +211,38 @@ begin
    end;
 end;
 
+procedure TTelaCadastroProdutoVenda.ConsultaProdutoGrid;
+begin
+    if trim(nmproduto.Text).IsEmpty then
+   begin
+   TelaConsultaProduto.QProduto.Close;
+   TelaConsultaProduto.QProduto.Sql.Clear;
+   TelaConsultaProduto.QProduto.Sql.Add('Select * From produto');
+   TelaConsultaProduto.QProduto.Open;
+   end
+   else
+   begin
+   TelaConsultaProduto.QProduto.Close;
+   TelaConsultaProduto.QProduto.Sql.Clear;
+   TelaConsultaProduto.QProduto.Sql.Add('Select * From produto where nmproduto like :PNmproduto');
+   TelaConsultaProduto.QProduto.ParamByName('PNmproduto').AsString := '%' + UpperCase(nmproduto.text)  + '%';
+   TelaConsultaProduto.QProduto.Open;
+   TelaConsultaProduto.ShowModal;
+   end;
+end;
 
+
+
+procedure TTelaCadastroProdutoVenda.ConsultaQuantidadeDisponivel;
+begin
+                //Trazer quantidade disponivel
+   begin
+      QQtdeDisponivel.close;
+      QQtdeDisponivel.sql.Clear;
+      QQtdeDisponivel.sql.add('select * From estoque  Where idproduto = :Pidproduto');
+      QQtdeDisponivel.ParamByName('Pidproduto').AsInteger := TelaConsultaProduto.QProduto.FieldByName('idproduto').AsInteger;
+      QQtdeDisponivel.open;
+   end;
+end;
 
 end.

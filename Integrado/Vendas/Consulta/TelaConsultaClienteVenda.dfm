@@ -21,9 +21,6 @@
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 0
-    ExplicitTop = 49
-    ExplicitWidth = 376
-    ExplicitHeight = 182
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
@@ -38,11 +35,11 @@
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnDblClick = DBGrid1DblClick
+      OnKeyDown = DBGrid1KeyDown
       Columns = <
         item
           Expanded = False
           FieldName = 'cdcliente'
-          Width = 64
           Visible = True
         end
         item
@@ -75,7 +72,6 @@
     Padding.Right = 50
     Padding.Bottom = 15
     TabOrder = 1
-    ExplicitTop = 8
     object Busca: TEdit
       AlignWithMargins = True
       Left = 206

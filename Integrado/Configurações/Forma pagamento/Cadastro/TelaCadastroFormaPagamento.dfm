@@ -40,6 +40,7 @@ object CadastroFormaPagamento: TCadastroFormaPagamento
     DataField = 'nmformapagamento'
     DataSource = DbConfigFin.DsForma
     TabOrder = 0
+    OnExit = DBEdit1Exit
   end
   object DBEdit2: TDBEdit
     Left = 328

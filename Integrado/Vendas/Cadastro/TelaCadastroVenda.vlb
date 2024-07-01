@@ -68,9 +68,6 @@ Coordinates=951,837,68,58
 [GridVendasItemDBTableView1vlproduto]
 Coordinates=1166,540,245,36
 
-[TelaCadastroProdutoVenda.DsVendasItem]
-Coordinates=652,232,261,36
-
 [cxGridLevel1]
 Coordinates=306,1094,90,36
 
@@ -116,20 +113,11 @@ Coordinates=1166,298,242,58
 [GridVendasItemDBTableView1]
 Coordinates=1274,966,192,36
 
-[TelaCadastroProdutoVenda.MVendasItem]
-Coordinates=652,1,256,212
-
 [DbVendas1.QCriaTrigger]
 Coordinates=951,760,160,58
 
-[TelaCadastroProdutoVenda.VendasItem]
-Coordinates=368,1,246,344
-
 [PageControl1]
 Coordinates=128,1094,93,36
-
-[TelaCadastroProdutoVenda.DsQQtdeDisponivel]
-Coordinates=946,617,290,36
 
 [AdicionarTitutlo]
 Coordinates=951,1068,104,58
@@ -145,9 +133,6 @@ Coordinates=152,231,209,212
 
 [DbVendas1.DsQrtm]
 Coordinates=17,231,129,36
-
-[TelaCadastroProdutoVenda.QQtdeDisponivel]
-Coordinates=1166,1,275,124
 
 [DbVendas1.QExclusãoVenda]
 Coordinates=274,734,184,256

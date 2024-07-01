@@ -92,10 +92,13 @@ type
     procedure FormShow(Sender: TObject);
     procedure AdicionarExit(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
+    procedure DBEdit8KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     TotalVendido: real;
     nrdocuemnto : integer;
     procedure TotalVenda;
+    procedure ConsultaCliente;
     { Private declarations }
   public
     { Public declarations }
@@ -171,6 +174,36 @@ begin
   TelaCadastroVendas.Close;
 end;
 
+procedure TTelaCadastroVendas.ConsultaCliente;
+begin
+   if trim(DBEdit8.Text).IsEmpty then
+   begin
+   TelaConsultaCliente.Qcliente.close;
+   TelaConsultaCliente.Qcliente.Sql.Clear;
+   TelaConsultaCliente.Qcliente.Sql.Add('Select * From Clientes');
+   TelaConsultaCliente.Qcliente.Open;
+   end
+   else
+   begin
+   TelaConsultaCliente.Qcliente.Close;
+   TelaConsultaCliente.Qcliente.Sql.Clear;
+   TelaConsultaCliente.Qcliente.Sql.Add('Select * From Clientes where nmcliente like :PClientes');
+   TelaConsultaCliente.Qcliente.ParamByName('PClientes').AsString := '%' + UpperCase(DBEdit8.text)  + '%';
+   TelaConsultaCliente.Qcliente.Open;
+   TelaConsultaCliente.ShowModal;
+   end;
+end;
+
+procedure TTelaCadastroVendas.DBEdit8KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+   VK_return : begin
+   ConsultaCliente;
+   end;
+  end;
+end;
+
 procedure TTelaCadastroVendas.ExcluirprodutoClick(Sender: TObject);
 begin
   if TelaCadastroProdutoVenda.MVendasItem.RecordCount > 0 then
@@ -194,8 +227,7 @@ begin
   GridVendasItemDBTableView1.StoreToIniFile(GetcurrentDir + '\ConfigGrid\LayoutGridVendasItem.ini');
 
    TelaCadastroProdutoVenda.MVendasItem.Close;
-
-
+   CadastroAreceber.MAreceber.close;
 end;
 
 procedure TTelaCadastroVendas.FormShow(Sender: TObject);
@@ -255,13 +287,13 @@ procedure TTelaCadastroVendas.AdicionarTitutloClick(Sender: TObject);
 begin
   try
     CadastroAreceber.MAreceber.Append;
+    CadastroAreceber.MAreceber.FieldByName('vltitulo').AsFloat := TotalVendido;
   except
     on E: Exception do
       ShowMessage('Erro ao ativar ClientDataSet: ' + E.Message);
   end;
 
-
-    CadastroAreceber.ShowModal;
+  CadastroAreceber.ShowModal;
 end;
 
 

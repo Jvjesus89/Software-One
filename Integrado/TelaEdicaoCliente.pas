@@ -45,6 +45,7 @@ type
     procedure RadioButton2Click(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure NomeClienteCampoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -145,6 +146,11 @@ end;
 procedure TTelaEdicaoCliente1.Button2Click(Sender: TObject);
 begin
    Self.close;
+end;
+
+procedure TTelaEdicaoCliente1.NomeClienteCampoExit(Sender: TObject);
+begin
+    NomeClienteCampo.Text := UpperCase(NomeClienteCampo.Text)
 end;
 
 procedure TTelaEdicaoCliente1.RadioButton1Click(Sender: TObject);
