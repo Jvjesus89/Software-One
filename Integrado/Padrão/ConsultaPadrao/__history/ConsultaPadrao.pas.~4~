@@ -1,0 +1,43 @@
+unit ConsultaPadrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls;
+
+type
+  TTelaConsultaPadrao = class(TForm)
+    pnlMaster: TPanel;
+    Panel1: TPanel;
+    Consultar: TPanel;
+    Cadastrar: TPanel;
+    btnCadastrar: TButton;
+    btnConsultas: TButton;
+    Shape1: TShape;
+    Shape2: TShape;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaPadrao: TTelaConsultaPadrao;
+
+implementation
+
+{$R *.dfm}
+{ TTelaConsultaPadrao }
+
+
+procedure TTelaConsultaPadrao.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+ self.Free;
+end;
+
+end.

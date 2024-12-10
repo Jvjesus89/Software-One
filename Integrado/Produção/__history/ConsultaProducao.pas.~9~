@@ -1,0 +1,38 @@
+unit ConsultaProducao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TTelaConsultaProducao = class(TForm)
+    pnlMaster: TPanel;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+   constructor Create(AOwner: TComponent); override;
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaProducao: TTelaConsultaProducao;
+
+implementation
+
+{$R *.dfm}
+
+{ TTelaConsultaProducao }
+
+
+procedure TTelaConsultaProducao.FormCreate(Sender: TObject);
+begin
+  inherited Create(AOwner);
+  ShowMessage('Form Created');
+  FormStyle := fsMDIChild;
+  Show;
+end;
+
+end.

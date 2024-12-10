@@ -23,7 +23,7 @@ var
   ArquivoIni:TIniFile;
   INICaminhodll,ININomeBanco,INILogin,INISenhas,INIIPPostgres,INIPortaPostgres:string;
 begin
-    DbMaster.ConexãoDb.Close;
+  DbMaster.ConexãoDb.Close;
 
     ArquivoIni := TIniFile.Create(DiretorioPadrao +'\ConexaoBanco.ini');
   try
@@ -39,8 +39,8 @@ begin
     ArquivoIni.Free;
   end;
 
-
   DbMaster.ConexãoDb.Params.Clear;
+
   DbMaster.ConexãoDb.Params.Add('DriverID=PG');
   DbMaster.ConexãoDb.Params.Add('Database='+ININomeBanco);
   DbMaster.ConexãoDb.Params.Add('User_Name='+INILogin);

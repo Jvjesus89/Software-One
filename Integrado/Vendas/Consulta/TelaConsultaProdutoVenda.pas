@@ -82,6 +82,7 @@ procedure TTelaConsultaProduto.SelecionaProduto;
 begin
    try
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('idproduto').AsInteger := QProduto.FieldByName('idproduto').AsInteger;
+      TelaCadastroProdutoVenda.MVendasItem.FieldByName('cdproduto').AsString :=  QProduto.FieldByName('cdproduto').AsString;
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('nmproduto').AsString :=  QProduto.FieldByName('nmproduto').AsString;
       TelaCadastroProdutoVenda.MVendasItem.FieldByName('vlunitario').AsString :=  QProduto.FieldByName('vlproduto').AsString;
 

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.CategoryButtons, Vcl.ExtCtrls,conectarINI,Data.DB;
+  Vcl.CategoryButtons, Vcl.ExtCtrls,conectarINI,Data.DB,
+  TelaCadastroFamiliaProduto;
 
 type
   TTelaConfig = class(TForm)
@@ -23,12 +24,14 @@ type
     BitBtn7: TBitBtn;
     BitBtn8: TBitBtn;
     BitBtn9: TBitBtn;
+    btnCadastraFamiliaProduto: TSpeedButton;
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn8Click(Sender: TObject);
     procedure BitBtn9Click(Sender: TObject);
     procedure BitBtn7Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnCadastraFamiliaProdutoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,6 +79,17 @@ procedure TTelaConfig.BitBtn9Click(Sender: TObject);
 begin
     DbConfigFin.QAgencia.open;
     ConsultaAgencia.showmodal;
+end;
+
+procedure TTelaConfig.btnCadastraFamiliaProdutoClick(Sender: TObject);
+var cadastroFamilia : TCaadastroFamilia;
+begin
+  cadastroFamilia := TCaadastroFamilia.Create(self);
+  try
+    cadastroFamilia.showModal;
+  finally
+    cadastroFamilia.Free;
+  end;
 end;
 
 procedure TTelaConfig.FormShow(Sender: TObject);

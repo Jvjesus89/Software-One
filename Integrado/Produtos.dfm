@@ -1,4 +1,4 @@
-object ConsultaProduto: TConsultaProduto
+﻿object ConsultaProduto: TConsultaProduto
   Left = 0
   Top = 0
   Caption = 'Produtos'
@@ -11,6 +11,7 @@ object ConsultaProduto: TConsultaProduto
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -19,7 +20,7 @@ object ConsultaProduto: TConsultaProduto
     Width = 883
     Height = 356
     Align = alClient
-    DataSource = DbMov.DsProdutoQ
+    DataSource = DsProduto
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -86,6 +87,60 @@ object ConsultaProduto: TConsultaProduto
       Caption = 'Busca'
       TabOrder = 1
       OnClick = Button1Click
+    end
+  end
+  object DsProduto: TDataSource
+    DataSet = Qproduto
+    Left = 560
+    Top = 272
+  end
+  object Qproduto: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 560
+    Top = 200
+    object Qprodutoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Qprodutonmproduto: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object Qprodutocdproduto: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object Qprodutoidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object Qprodutovlproduto: TSingleField
+      DisplayLabel = 'Valor Unitario'
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+    end
+    object Qprodutonmfamiliaproduto: TWideStringField
+      DisplayLabel = 'Familia Produto'
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object Qprodutostproduto: TBooleanField
+      DisplayLabel = 'Ativo'
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object Qprodutodtcadastro: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
     end
   end
 end

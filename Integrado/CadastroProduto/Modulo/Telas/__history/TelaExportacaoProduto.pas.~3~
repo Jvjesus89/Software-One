@@ -1,0 +1,29 @@
+unit TelaExportacaoProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TExportaProdutos = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    OpenDialog1: TOpenDialog;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ExportaProdutos: TExportaProdutos;
+
+implementation
+
+{$R *.dfm}
+
+end.

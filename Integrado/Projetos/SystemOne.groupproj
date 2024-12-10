@@ -3,9 +3,6 @@
         <ProjectGuid>{746FD25B-DDB6-4474-B2CD-6316E5B7F544}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Sistema.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="CadastroUsuario.dproj">
             <Dependencies/>
         </Projects>
@@ -16,9 +13,6 @@
             <Dependencies/>
         </Projects>
         <Projects Include="CadastroCliente.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="CadastroProduto.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="FinAreceber.dproj">
@@ -44,15 +38,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Sistema">
-        <MSBuild Projects="Sistema.dproj"/>
-    </Target>
-    <Target Name="Sistema:Clean">
-        <MSBuild Projects="Sistema.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="Sistema:Make">
-        <MSBuild Projects="Sistema.dproj" Targets="Make"/>
-    </Target>
     <Target Name="CadastroUsuario">
         <MSBuild Projects="CadastroUsuario.dproj"/>
     </Target>
@@ -88,15 +73,6 @@
     </Target>
     <Target Name="CadastroCliente:Make">
         <MSBuild Projects="CadastroCliente.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="CadastroProduto">
-        <MSBuild Projects="CadastroProduto.dproj"/>
-    </Target>
-    <Target Name="CadastroProduto:Clean">
-        <MSBuild Projects="CadastroProduto.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="CadastroProduto:Make">
-        <MSBuild Projects="CadastroProduto.dproj" Targets="Make"/>
     </Target>
     <Target Name="FinAreceber">
         <MSBuild Projects="FinAreceber.dproj"/>
@@ -144,13 +120,13 @@
         <MSBuild Projects="ConexaoIni.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Sistema;CadastroUsuario;ConsultaEstoque;Hub;CadastroCliente;CadastroProduto;FinAreceber;FinApagar;Vendas;Configuracoes;ConexaoIni"/>
+        <CallTarget Targets="CadastroUsuario;ConsultaEstoque;Hub;CadastroCliente;FinAreceber;FinApagar;Vendas;Configuracoes;ConexaoIni"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Sistema:Clean;CadastroUsuario:Clean;ConsultaEstoque:Clean;Hub:Clean;CadastroCliente:Clean;CadastroProduto:Clean;FinAreceber:Clean;FinApagar:Clean;Vendas:Clean;Configuracoes:Clean;ConexaoIni:Clean"/>
+        <CallTarget Targets="CadastroUsuario:Clean;ConsultaEstoque:Clean;Hub:Clean;CadastroCliente:Clean;FinAreceber:Clean;FinApagar:Clean;Vendas:Clean;Configuracoes:Clean;ConexaoIni:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Sistema:Make;CadastroUsuario:Make;ConsultaEstoque:Make;Hub:Make;CadastroCliente:Make;CadastroProduto:Make;FinAreceber:Make;FinApagar:Make;Vendas:Make;Configuracoes:Make;ConexaoIni:Make"/>
+        <CallTarget Targets="CadastroUsuario:Make;ConsultaEstoque:Make;Hub:Make;CadastroCliente:Make;FinAreceber:Make;FinApagar:Make;Vendas:Make;Configuracoes:Make;ConexaoIni:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

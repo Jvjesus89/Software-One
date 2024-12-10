@@ -21,7 +21,8 @@ uses
   TelaConsultaFormaPagamantoPPrazo in '..\Configurações\Prazo\Consulta\SubConsulta\TelaConsultaFormaPagamantoPPrazo.pas' {ConsultaFormaPagamento},
   Vcl.Themes,
   Vcl.Styles,
-  conectarINI in '..\Configurações\Comandos\conectarINI.pas';
+  conectarINI in '..\Configurações\Comandos\conectarINI.pas',
+  TelaCadastroFamiliaProduto in '..\Configurações\Estoque\TelaCadastroFamiliaProduto.pas' {CaadastroFamilia};
 
 {$R *.res}
 
@@ -46,5 +47,6 @@ begin
   Application.CreateForm(TTelaPrazos, TelaPrazos);
   Application.CreateForm(TPrazos, Prazos);
   Application.CreateForm(TConsultaFormaPagamento, ConsultaFormaPagamento);
+  Application.CreateForm(TCaadastroFamilia, CaadastroFamilia);
   Application.Run;
 end.

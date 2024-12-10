@@ -1,0 +1,40 @@
+unit ConsultaProducao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TTelaConsultaProducao = class(TForm)
+    pnlMaster: TPanel;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    constructor Create(AOwner: TComponent); override;
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaProducao: TTelaConsultaProducao;
+
+implementation
+
+{$R *.dfm}
+{ TTelaConsultaProducao }
+
+constructor TTelaConsultaProducao.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner); // Chama o construtor base
+  FormStyle := fsMDIChild; // Define o formulário como MDI Child
+end;
+
+procedure TTelaConsultaProducao.FormCreate(Sender: TObject);
+begin
+  ShowMessage('Form Created'); // Mensagem de criação do formulário
+end;
+
+end.

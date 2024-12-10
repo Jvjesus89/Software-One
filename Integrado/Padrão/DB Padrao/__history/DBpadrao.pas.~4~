@@ -1,0 +1,41 @@
+unit DBpadrao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TdbConsultas = class(TDataModule)
+    ConsultaProduto: TFDQuery;
+    ConsultaProdutoidproduto: TFDAutoIncField;
+    ConsultaProdutonmproduto: TWideStringField;
+    ConsultaProdutocdproduto: TWideStringField;
+    ConsultaProdutoidfamiliaproduto: TIntegerField;
+    ConsultaProdutovlproduto: TSingleField;
+    ConsultaProdutonmfamiliaproduto: TWideStringField;
+    ConsultaProdutostproduto: TBooleanField;
+    ConsultaProdutodtcadastro: TDateField;
+    ConsultaProdutoidusuario: TIntegerField;
+    ConsultaProdutovlcusto: TSingleField;
+    ConsultaProdutodtultalter: TDateField;
+    ConsultaProdutoidusuarioultalter: TIntegerField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dbConsultas: TdbConsultas;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

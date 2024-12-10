@@ -5,7 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCGrids, Data.DB, Vcl.ExtCtrls,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
 
 type
   TConsultaProduto = class(TForm)
@@ -14,11 +17,24 @@ type
     Busca: TEdit;
     Label1: TLabel;
     Button1: TButton;
+    DsProduto: TDataSource;
+    Qproduto: TFDQuery;
+    Qprodutoidproduto: TIntegerField;
+    Qprodutonmproduto: TWideStringField;
+    Qprodutocdproduto: TWideStringField;
+    Qprodutoidfamiliaproduto: TIntegerField;
+    Qprodutovlproduto: TSingleField;
+    Qprodutonmfamiliaproduto: TWideStringField;
+    Qprodutostproduto: TBooleanField;
+    Qprodutodtcadastro: TDateField;
     procedure DBGrid1DblClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
+   class function New(Aowner:TComponent): TConsultaProduto;
+   function Embed(Value:Tpanel):TConsultaProduto;
     { Public declarations }
   end;
 
@@ -33,7 +49,7 @@ uses DbMovimento, TelaConsultaEstoque, CadastroMovimentacoes;
 
 procedure TConsultaProduto.Button1Click(Sender: TObject);
 begin
-      with DbMov.QProduto1 do
+      with Qproduto do
     begin
       close;
       sql.Clear;
@@ -45,31 +61,37 @@ end;
 procedure TConsultaProduto.DBGrid1DblClick(Sender: TObject);
 var idproduto : integer;
 begin
-      idproduto := DBGrid1.Fields[3].value  ;
+   ConsultaEstoque1.QConsulta.close;
+   ConsultaEstoque1.QConsulta.sql.clear;
+   ConsultaEstoque1.QConsulta.sql.add('Select * From movimentoestoque mv  left join vendas v on v.idvenda = mv.idorigem left join produto p on p.idproduto = mv.idproduto where mv.idproduto = :Pidproduto');
+   ConsultaEstoque1.QConsulta.ParamByName('Pidproduto').AsInteger := Qproduto.FieldByName('idproduto').AsInteger;
+   ConsultaEstoque1.QConsulta.open;
 
-      //inserir tabela temp
-      DbMov.QCriarTabelaTemp.close;
-      DbMov.QCriarTabelaTemp.sql.Clear;
-      DbMov.QCriarTabelaTemp.sql.Add('Insert into temp."#movimentoestoque" (idproduto) values (:Pidproduto)');
-      DbMov.QCriarTabelaTemp.ParamByName('Pidproduto').AsInteger := idproduto;
-      DbMov.QCriarTabelaTemp.ExecSql;
 
-      // selecionar o produto inserido
-      DbMov.QConsultaTemp.close;
-      DbMov.QConsultaTemp.sql.Clear;
-      DbMov.QConsultaTemp.sql.Add('Select * From temp."#movimentoestoque" T join produto P on P.idproduto = T.idproduto  Where P.idproduto = :Pidproduto');
-      DbMov.QConsultaTemp.ParamByName('Pidproduto').AsInteger := idproduto;
-      DbMov.QConsultaTemp.open;
+   ConsultaEstoque1.QSaldoAtual.close;
+   ConsultaEstoque1.QSaldoAtual.sql.clear;
+   ConsultaEstoque1.QSaldoAtual.sql.add('Select * From estoque where idproduto = :Pidproduto');
+   ConsultaEstoque1.QSaldoAtual.ParamByName('Pidproduto').AsInteger := Qproduto.FieldByName('idproduto').AsInteger;
+   ConsultaEstoque1.QSaldoAtual.open;
+   ConsultaEstoque1.label4.Caption := IntToStr(ConsultaEstoque1.QSaldoAtual.FieldByName('qtdeestoque').AsInteger);
 
-      // consulta movimentação
-      DbMov.QConsulta.close;
-      DbMov.QConsulta.sql.Clear;
-      DbMov.QConsulta.sql.Add('Select * From movimentoestoque  Where idproduto = :Pidproduto');
-      DbMov.QConsulta.ParamByName('Pidproduto').AsInteger := idproduto;
-      DbMov.QConsulta.open;
+   self.Close;
+end;
 
-      ConsultaProduto.close;
+function TConsultaProduto.Embed(Value: Tpanel): TConsultaProduto;
+begin
+    Result:=self;
+    self.Show;
+end;
 
+procedure TConsultaProduto.FormShow(Sender: TObject);
+begin
+ Qproduto.Open;
+end;
+
+class function TConsultaProduto.New(Aowner: TComponent): TConsultaProduto;
+begin
+  Result := Self.Create(AOwner);
 end;
 
 end.

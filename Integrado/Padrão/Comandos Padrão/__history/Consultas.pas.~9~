@@ -1,0 +1,63 @@
+unit Consultas;
+
+interface
+
+uses DBpadrao;
+
+type
+  TConsultaProduto = class
+  private
+  Fcodigo : string;
+  Fdescricao :string;
+  TelaConsulta :string;
+  public
+  property codigo: string  read Fcodigo write Fcodigo;
+  property descricao: string  read Fdescricao write Fdescricao;
+  procedure ConsultaProduto;
+  class function New: TConsultaProduto;
+  end;
+
+  TConsultaUsuario = class
+  codusu : integer;
+  property codusu: integer  read Fcodusu write Fcodusu;
+  end;
+implementation
+
+{ TConsultaProduto }
+
+procedure TConsultaProduto.ConsultaProduto;
+var sql :string;
+begin
+   sql := 'Select * From produto where 1=1';
+
+   if Fcodigo <> '' then
+   begin
+   sql := sql + 'and cdproduto = :PFcodigo';
+   end;
+
+   if Fdescricao <> '' then
+   begin
+   sql := sql + 'and cdproduto = :PFdescricao';
+   end;
+
+
+   dbConsultas.ConsultaProduto.Close;
+   dbConsultas.ConsultaProduto.Sql.Clear;
+   dbConsultas.ConsultaProduto.Sql.Add(sql);
+   if Fcodigo <> '' then
+   begin
+   dbConsultas.ConsultaProduto.ParamByName('PFcodigo').AsString := (Fcodigo)  ;
+   end;
+   if Fdescricao <> '' then
+   begin
+   dbConsultas.ConsultaProduto.ParamByName('PFdescricao').AsString := (Fdescricao)  ;
+   end;
+   dbConsultas.ConsultaProduto.Open;
+end;
+
+class function TConsultaProduto.New: TConsultaProduto;
+begin
+     Result := TConsultaProduto.Create;
+end;
+
+end.

@@ -14,7 +14,8 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, frxSmartMemo, frCoreClasses, frxClass,
-  frxExportBaseDialog, frxExportPDF, frxDCtrl, frxDBSet;
+  frxExportBaseDialog, frxExportPDF, frxDCtrl, frxDBSet, CadastroProdutoVenda,
+  TelaCadastroFinanceiro;
 type
   TCadastroDeVendas = class(TForm)
     Panel1: TPanel;
@@ -103,7 +104,6 @@ type
     procedure SpeedButton2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
-    procedure BuscaVendaPorNumero;
     procedure BuscaVendaFiltros;
   public
     { Public declarations }
@@ -117,7 +117,7 @@ implementation
 {$R *.dfm}
 
 uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas,
-  DbPrincipal,DbEditarVendas;
+  DbPrincipal;
 
 
 
@@ -126,21 +126,27 @@ uses DBvendas, TelaCadastroVenda, TelaExportaçãoXML, DBXml, ImportaXmlVendas,
 procedure TCadastroDeVendas.BotaoEditarClick(Sender: TObject);
 var idvenda : integer;
 begin
-     idVenda := QGridVendas.FieldByName('idvenda').AsInteger;
-     // consulta venda
-     DbEditVenda.QConsultavendas.close;
-     DbEditVenda.QConsultavendas.sql.Clear;
-     DbEditVenda.QConsultavendas.sql.Add('Select * From vendas V  Where v.idvenda= :PIdVenda');
-     DbEditVenda.QConsultavendas.ParamByName('PIdVenda').AsInteger := IdVenda;
-     DbEditVenda.QConsultavendas.open;
-     // consulta item venda
-     DbEditVenda.QConsultaVendaItem.close;
-     DbEditVenda.QConsultaVendaItem.sql.Clear;
-     DbEditVenda.QConsultaVendaItem.sql.Add('Select * From vendasitem Where idvenda= :PIdVenda');
-     DbEditVenda.QConsultaVendaItem.ParamByName('PIdVenda').AsInteger := IdVenda;
-     DbEditVenda.QConsultaVendaItem.open;
+   TelaCadastroVendas.Venda.Close;
+   TelaCadastroVendas.Venda.sql.Clear;
+   TelaCadastroVendas.Venda.sql.Add('select * from vendas v join clientes c on c.idcliente = v.idcliente where idvenda = :Pidvenda');
+   TelaCadastroVendas.Venda.ParamByName('Pidvenda').AsInteger := QGridVendas.FieldByName('idvenda').AsInteger;
+   TelaCadastroVendas.Venda.open;
 
-     TelaCadastroVendas.showmodal;
+   TelaCadastroProdutoVenda.VendasItem.Close;
+   TelaCadastroProdutoVenda.VendasItem.sql.Clear;
+   TelaCadastroProdutoVenda.VendasItem.sql.Add('Select * From vendasitem vi join produto p on p.idproduto = vi.idproduto where idvenda = :Pidvenda');
+   TelaCadastroProdutoVenda.VendasItem.ParamByName('Pidvenda').AsInteger := QGridVendas.FieldByName('idvenda').AsInteger;
+   TelaCadastroProdutoVenda.VendasItem.open;
+
+   CadastroAreceber.Areceber.Close;
+   CadastroAreceber.Areceber.sql.Clear;
+   CadastroAreceber.Areceber.sql.Add('select * from areceber where idorigem = :Pidorigem');
+   CadastroAreceber.Areceber.ParamByName('Pidorigem').AsInteger := QGridVendas.FieldByName('idvenda').AsInteger;
+   CadastroAreceber.Areceber.open;
+
+   TelaCadastroVendas.cadastrarOuEditar := 2;
+
+   TelaCadastroVendas.showmodal;
 end;
 
 procedure TCadastroDeVendas.BotaoExcluirClick(Sender: TObject);
@@ -183,7 +189,7 @@ end;
 
 procedure TCadastroDeVendas.BotaoNovoClick(Sender: TObject);
 begin
-            // criação Trigger numero vendas
+     // criação Trigger numero vendas
      DbVendas1.QCriaTrigger.close;
      DbVendas1.QCriaTrigger.sql.Clear;
      DbVendas1.QCriaTrigger.sql.Add('CREATE OR REPLACE FUNCTION NrVenda() RETURNS TRIGGER AS $$ BEGIN NEW.nrdocumento :=  NEXTVAL(''"Vendas_NumeroVenda_Seq"''); RETURN NEW; END; $$ LANGUAGE plpgsql;');
@@ -191,74 +197,60 @@ begin
      DbVendas1.QCriaTrigger.sql.Add(' THEN EXECUTE ''CREATE TRIGGER NrVenda BEFORE INSERT ON vendas FOR EACH ROW EXECUTE FUNCTION NrVenda()''; END IF; END $$;');
      DbVendas1.QCriaTrigger.ExecSQl;
 
-
+   TelaCadastroVendas.cadastrarOuEditar := 1;
     TelaCadastroVendas.showmodal;
+
+        CadastroDeVendas.QGridVendas.close;
+    CadastroDeVendas.QGridVendas.open;
 
 end;
 
 procedure TCadastroDeVendas.BuscaExit(Sender: TObject);
 begin
-    BuscaVendaPorNumero;
+    BuscaVendaFiltros;
 end;
 
 procedure TCadastroDeVendas.BuscaKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
 case key of
-  VK_RETURN: BuscaVendaPorNumero;
+  VK_RETURN: BuscaVendaFiltros;
 end;
 end;
 
 procedure TCadastroDeVendas.BuscaVendaFiltros;
+var sql :string;
 begin
+    sql := 'Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F join  areceber A on F.idformapagamento = A.idformapagamento Where V.idvenda = A.idorigem limit 1)';
+    sql := sql + 'From vendas V ';
+    sql := sql + 'join clientes C on C.idcliente = V.idcliente Where 1=1';
 
     if (dtInicial.Date <> 0) and (DtFinal.Date <> 0) then
     begin
-      QGridVendas.close ;
-      QGridVendas.sql.Clear;
-      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where  v.dtvenda between (:Pdtinicial) and (:Pdtfinal)');
-      QGridVendas.ParamByName('Pdtinicial').AsDate :=  DtInicial.Date;
-      QGridVendas.ParamByName('Pdtfinal').AsDate :=  DtFinal.Date;
-      QGridVendas.open;
+    sql := sql + 'and  v.dtvenda between (:Pdtinicial) and (:Pdtfinal)';
     end;
 
     if  (Busca.text <> '') then
     begin
-      QGridVendas.close ;
-      QGridVendas.sql.Clear;
-      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where v.nrdocumento = (:Pnrdocumento) and v.dtvenda between (:Pdtinicial) and (:Pdtfinal) ');
+    sql := sql + 'and  v.nrdocumento = (:Pnrdocumento)';
+    end;
+
+    QGridVendas.close ;
+    QGridVendas.sql.Clear;
+    QGridVendas.sql.Add(sql);
+
+    if (dtInicial.Date <> 0) and (DtFinal.Date <> 0) then
+    begin
       QGridVendas.ParamByName('Pdtinicial').AsDate :=  DtInicial.Date;
       QGridVendas.ParamByName('Pdtfinal').AsDate :=  DtFinal.Date;
+    end;
+
+    if  not((Trim(Busca.text).IsEmpty)) then
+    begin
       QGridVendas.ParamByName('Pnrdocumento').AsInteger :=  StrToInt(Busca.text);
-      QGridVendas.open;
     end;
-end;
 
-procedure TCadastroDeVendas.BuscaVendaPorNumero;
-begin
-    if (Trim(Busca.text).IsEmpty) then
-
-    begin
-      QGridVendas.close ;
-      QGridVendas.sql.Clear;
-      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente');
-      QGridVendas.open;
-    end
-    else
-    begin
-      QGridVendas.close ;
-      QGridVendas.sql.Clear;
-      QGridVendas.sql.Add('Select v.*,C.nmcliente, (Select F.nmformapagamento from formapagamento F ');
-      QGridVendas.sql.Add('join  areceber A on V.idvenda = A.idorigem Where F.idformapagamento = A.idformapagamento limit 1) From vendas V  ');
-      QGridVendas.sql.Add('join clientes C on C.idcliente = V.idcliente Where v.nrdocumento = '+(Busca.Text));
-      QGridVendas.open;
-    end;
+   QGridVendas.Open;
 end;
 
 procedure TCadastroDeVendas.Button1Click(Sender: TObject);

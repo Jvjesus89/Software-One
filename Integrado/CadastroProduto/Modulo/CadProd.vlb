@@ -7,15 +7,12 @@ Coordinates=10,10,47,51
 [Panel3]
 Coordinates=266,10,47,51
 
-[DBGrid1]
-Coordinates=76,78,56,33
-Visible=True
-
 [Busca]
 Coordinates=75,10,45,51
 
 []
-Coordinates=327,141,82,33
+Coordinates=76,78,56,33
+Visible=True
 
 [BtExcluir]
 Coordinates=10,78,59,51

@@ -186,15 +186,6 @@
             <Form>CadastroDeVendas</Form>
         </DCCReference>
         <DCCReference Include="..\Vendas\Comandos\conectarINI.pas"/>
-        <DCCReference Include="..\Vendas\Editar\TelaEditaVendas.pas">
-            <Form>Form2</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="..\Vendas\Editar\Db\DbEditarVendas.pas">
-            <Form>DbEditVenda</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="..\Vendas\Banco de dados\DbVendas.pas">
             <Form>DbVendas1</Form>
             <FormType>dfm</FormType>

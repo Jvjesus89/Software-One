@@ -23,8 +23,6 @@ uses
   DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
   CadastroVendas in '..\Vendas\CadastroVendas.pas' {CadastroDeVendas},
   conectarINI in '..\Vendas\Comandos\conectarINI.pas',
-  TelaEditaVendas in '..\Vendas\Editar\TelaEditaVendas.pas' {Form2},
-  DbEditarVendas in '..\Vendas\Editar\Db\DbEditarVendas.pas' {DbEditVenda: TDataModule},
   DbVendas in '..\Vendas\Banco de dados\DbVendas.pas' {DbVendas1: TDataModule},
   Consultas in '..\Vendas\Comandos\Consultas.pas';
 
@@ -37,7 +35,6 @@ begin
   Application.CreateForm(TDbMaster, DbMaster);
   Application.CreateForm(TDbVendas1, DbVendas1);
   Application.CreateForm(TCadastroDeVendas, CadastroDeVendas);
-  Application.CreateForm(TDbEditVenda, DbEditVenda);
   Application.CreateForm(TDbXmlVendas, DbXmlVendas);
   Application.CreateForm(TTelaCadastroVendas, TelaCadastroVendas);
   Application.CreateForm(TTelaConsultaCliente, TelaConsultaCliente);
@@ -49,7 +46,6 @@ begin
   Application.CreateForm(TCadastroAreceber, CadastroAreceber);
   Application.CreateForm(TXML, XML);
   Application.CreateForm(TDbImportacaoXml, DbImportacaoXml);
-  Application.CreateForm(TForm2, Form2);
   Application.Run;
 end.
 

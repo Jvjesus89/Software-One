@@ -311,6 +311,7 @@
       FieldName = 'vlvenda'
       Origin = 'vlvenda'
       Required = True
+      currency = True
     end
     object QGridVendasdtvenda: TDateField
       FieldName = 'dtvenda'

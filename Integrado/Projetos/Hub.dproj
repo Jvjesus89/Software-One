@@ -102,7 +102,6 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <UsePackages>true</UsePackages>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
@@ -136,6 +135,68 @@
             <Form>HubPrin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Produção\Producao.pas">
+            <Form>TelaConsultaProducao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Produção\CadastraProducao.pas">
+            <Form>CadastroProducao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\ConexãoDB\DbPrincipal.pas">
+            <Form>DbMaster</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Modulo\CadProd.pas">
+            <Form>CadProduto</Form>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas">
+            <Form>TelaCadastroProduto</Form>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Comandos\conectarINI.pas"/>
+        <DCCReference Include="..\Padrão\Comandos Padrão\Forms.pas"/>
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaExportacaoProduto.pas">
+            <Form>ExportaProdutos</Form>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaComposicaoProdutos.pas">
+            <Form>ProdutosComp</Form>
+        </DCCReference>
+        <DCCReference Include="..\Padrão\Comandos Padrão\Consultas.pas"/>
+        <DCCReference Include="..\Padrão\DB Padrao\DBpadrao.pas">
+            <Form>dbConsultas</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\Padrão\ConsultaPadrao\ConsultaProduto.pas">
+            <Form>TelaConsultaProduto</Form>
+        </DCCReference>
+        <DCCReference Include="..\CadastroProduto\Modulo\Telas\TelaCadastroDeLotes.pas">
+            <Form>CadastroLote</Form>
+        </DCCReference>
+        <DCCReference Include="..\TelaLogin\EditarConexao.pas">
+            <Form>AlterarDB</Form>
+        </DCCReference>
+        <DCCReference Include="..\TelaLogin\TelaLogin.pas">
+            <Form>TelaLoginU</Form>
+        </DCCReference>
+        <DCCReference Include="..\Produtos.pas">
+            <Form>ConsultaProduto</Form>
+        </DCCReference>
+        <DCCReference Include="..\ProdutoMov.pas">
+            <Form>ProdutoMov1</Form>
+        </DCCReference>
+        <DCCReference Include="..\ConsultaEstoque\Banco de dados\DbMovimento.pas">
+            <Form>DbMov</Form>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\ConsultaEstoque\TelaConsultaEstoque.pas">
+            <Form>ConsultaEstoque1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\ConsultaEstoque\telas\CadastroMovimentacoes.pas">
+            <Form>TelaCadastroMovimentacoes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -157,8 +218,9 @@
                     <Source Name="MainSource">Hub.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\jvjes\AppData\Roaming\IntraWeb XIV\Bin\dclIntraweb_14_D10_4.bpl">IntraWeb 14.0 Design Package for RAD Studio 10.4 Sydney</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
@@ -168,7 +230,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\Hub.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\Hub.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Hub.exe</RemoteName>
                         <Overwrite>true</Overwrite>

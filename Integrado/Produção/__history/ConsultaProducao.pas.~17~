@@ -1,0 +1,38 @@
+unit ConsultaProducao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls;
+
+type
+  TTelaConsultaProducao = class(TForm)
+    pnlMaster: TPanel;
+    Panel1: TPanel;
+    Buscar: TPanel;
+    Consultar: TPanel;
+    Cadastrar: TPanel;
+    btnCadastrar: TButton;
+    btnConsultas: TButton;
+    Shape1: TShape;
+    Shape2: TShape;
+    Shape3: TShape;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TelaConsultaProducao: TTelaConsultaProducao;
+
+implementation
+
+{$R *.dfm}
+{ TTelaConsultaProducao }
+
+
+end.

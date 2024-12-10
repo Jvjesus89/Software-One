@@ -30,12 +30,12 @@
     ParentFont = False
   end
   object Label8: TLabel
-    Left = 148
-    Top = 15
+    Left = 231
+    Top = 8
     Width = 42
     Height = 19
     Caption = 'Cliente'
-    FocusControl = DBEdit8
+    FocusControl = edtrazao
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -45,7 +45,7 @@
   end
   object Label10: TLabel
     Left = 8
-    Top = 15
+    Top = 8
     Width = 91
     Height = 19
     Caption = 'Nr Documento'
@@ -71,10 +71,24 @@
     Font.Style = []
     ParentFont = False
   end
-  object DBEdit8: TDBEdit
+  object Label2: TLabel
     Left = 148
+    Top = 8
+    Width = 77
+    Height = 19
+    Caption = 'Cod. Cliente'
+    FocusControl = edtcdcliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+  end
+  object edtrazao: TDBEdit
+    Left = 231
     Top = 32
-    Width = 533
+    Width = 450
     Height = 27
     DataField = 'nmcliente'
     DataSource = DsVenda
@@ -85,7 +99,7 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 2
-    OnKeyDown = DBEdit8KeyDown
+    OnKeyDown = edtrazaoKeyDown
   end
   object DBEdit10: TDBEdit
     Left = 8
@@ -145,9 +159,8 @@
     Top = 65
     Width = 886
     Height = 173
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 6
-    OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = 'Itens'
       object ToolBar1: TToolBar
@@ -194,7 +207,6 @@
             5C5E5C5C5EA1A1A2FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
           TabOrder = 1
           OnClick = AdicionarClick
-          OnExit = AdicionarExit
         end
         object Excluirproduto: TBitBtn
           Left = 25
@@ -257,20 +269,20 @@
           OptionsView.GroupByBox = False
           RowLayout.CellBorders = False
           object GridVendasItemDBTableView1nmproduto: TcxGridDBColumn
-            Caption = 'Produto'
             DataBinding.FieldName = 'nmproduto'
           end
           object GridVendasItemDBTableView1vlunitario: TcxGridDBColumn
-            Caption = 'Vl. Unitario'
             DataBinding.FieldName = 'vlunitario'
           end
           object GridVendasItemDBTableView1qtvendido: TcxGridDBColumn
-            Caption = 'Qtde'
             DataBinding.FieldName = 'qtvendido'
           end
           object GridVendasItemDBTableView1vlitem: TcxGridDBColumn
-            Caption = 'Vl. Item'
             DataBinding.FieldName = 'vlitem'
+          end
+          object GridVendasItemDBTableView1vlproduto: TcxGridDBColumn
+            DataBinding.FieldName = 'vlproduto'
+            Visible = False
           end
           object GridVendasItemDBTableView1idvenda: TcxGridDBColumn
             DataBinding.FieldName = 'idvenda'
@@ -278,10 +290,6 @@
           end
           object GridVendasItemDBTableView1idproduto: TcxGridDBColumn
             DataBinding.FieldName = 'idproduto'
-            Visible = False
-          end
-          object GridVendasItemDBTableView1vlproduto: TcxGridDBColumn
-            DataBinding.FieldName = 'vlproduto'
             Visible = False
           end
         end
@@ -408,28 +416,24 @@
           OptionsView.GroupByBox = False
           RowLayout.CellBorders = False
           object cxGridDBTableView1nrtitulo: TcxGridDBColumn
-            Caption = 'Nr. Titulo'
             DataBinding.FieldName = 'nrtitulo'
           end
           object cxGridDBTableView1nmformapagamento: TcxGridDBColumn
-            Caption = 'Forma Pagamento'
             DataBinding.FieldName = 'nmformapagamento'
           end
           object cxGridDBTableView1vltitulo: TcxGridDBColumn
-            Caption = 'Vl. Titulo'
             DataBinding.FieldName = 'vltitulo'
           end
           object cxGridDBTableView1dtvencimento: TcxGridDBColumn
-            Caption = 'Dt. Vencimento'
             DataBinding.FieldName = 'dtvencimento'
-            Width = 96
-          end
-          object cxGridDBTableView1idareceber: TcxGridDBColumn
-            DataBinding.FieldName = 'idareceber'
-            Visible = False
+            Width = 114
           end
           object cxGridDBTableView1idcliente: TcxGridDBColumn
             DataBinding.FieldName = 'idcliente'
+            Visible = False
+          end
+          object cxGridDBTableView1dtcadastro: TcxGridDBColumn
+            DataBinding.FieldName = 'dtcadastro'
             Visible = False
           end
           object cxGridDBTableView1nmcliente: TcxGridDBColumn
@@ -438,10 +442,6 @@
           end
           object cxGridDBTableView1idformapagamento: TcxGridDBColumn
             DataBinding.FieldName = 'idformapagamento'
-            Visible = False
-          end
-          object cxGridDBTableView1dtcadastro: TcxGridDBColumn
-            DataBinding.FieldName = 'dtcadastro'
             Visible = False
           end
           object cxGridDBTableView1idorigem: TcxGridDBColumn
@@ -468,7 +468,8 @@
     Top = 240
     Width = 134
     Height = 27
-    DataField = 'valorvenda'
+    DataField = 'vlvenda'
+    DataSource = DsVenda
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -476,6 +477,22 @@
     Font.Style = []
     ParentFont = False
     TabOrder = 7
+  end
+  object edtcdcliente: TDBEdit
+    Left = 148
+    Top = 32
+    Width = 77
+    Height = 27
+    DataField = 'cdcliente'
+    DataSource = DsVenda
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
+    OnKeyDown = edtcdclienteKeyDown
   end
   object Venda: TFDQuery
     Connection = DbMaster.ConexãoDb
@@ -518,13 +535,17 @@
       ReadOnly = True
       Size = 100
     end
+    object Vendacdcliente: TWideStringField
+      FieldName = 'cdcliente'
+      ReadOnly = True
+      Size = 6
+    end
   end
   object PVenda: TDataSetProvider
     DataSet = Venda
     Left = 384
   end
   object MVenda: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -557,6 +578,12 @@
         Attributes = [faReadonly]
         DataType = ftWideString
         Size = 100
+      end
+      item
+        Name = 'cdcliente'
+        Attributes = [faReadonly]
+        DataType = ftWideString
+        Size = 6
       end>
     IndexDefs = <>
     Params = <>
@@ -570,6 +597,7 @@
     object MVendavlvenda: TSingleField
       FieldName = 'vlvenda'
       Origin = 'vlvenda'
+      currency = True
     end
     object MVendadtcadastro: TDateField
       FieldName = 'dtcadastro'
@@ -588,6 +616,10 @@
     object MVendanrdocumento: TIntegerField
       FieldName = 'nrdocumento'
       Origin = 'nrdocumento'
+    end
+    object MVendacdcliente: TWideStringField
+      FieldName = 'cdcliente'
+      Size = 6
     end
   end
   object DsVenda: TDataSource

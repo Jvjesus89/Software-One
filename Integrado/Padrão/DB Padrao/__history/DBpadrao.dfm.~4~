@@ -1,0 +1,118 @@
+﻿object dbConsultas: TdbConsultas
+  OldCreateOrder = False
+  Height = 170
+  Width = 241
+  object ConsultaProduto: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 25
+    Top = 8
+    object ConsultaProdutoidprodutocomp: TFDAutoIncField
+      FieldName = 'idprodutocomp'
+      Origin = 'idprodutocomp'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object ConsultaProdutoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      Required = True
+    end
+    object ConsultaProdutoidprodutomp: TIntegerField
+      FieldName = 'idprodutomp'
+      Origin = 'idprodutomp'
+    end
+    object ConsultaProdutoqtdemp: TSingleField
+      FieldName = 'qtdemp'
+      Origin = 'qtdemp'
+    end
+    object ConsultaProdutoidproduto_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idproduto_1'
+      Origin = 'idproduto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutonmproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object ConsultaProdutocdproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 10
+    end
+    object ConsultaProdutoidfamiliaproduto: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutovlproduto: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutonmfamiliaproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object ConsultaProdutostproduto: TBooleanField
+      AutoGenerateValue = arDefault
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutodtcadastro: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutoidusuario: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idusuario'
+      Origin = 'idusuario'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutovlcusto: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'vlcusto'
+      Origin = 'vlcusto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutodtultalter: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtultalter'
+      Origin = 'dtultalter'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutoidusuarioultalter: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idusuarioultalter'
+      Origin = 'idusuarioultalter'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+end

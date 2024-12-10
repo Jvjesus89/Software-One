@@ -1,12 +1,9 @@
-object CadProduto: TCadProduto
+﻿object CadProduto: TCadProduto
   Left = 494
   Top = 0
-  Caption = 
-    '                                                                ' +
-    '                                                 Cadastro Produt' +
-    'o'
-  ClientHeight = 568
-  ClientWidth = 1540
+  Caption = ' Cadastro Produto'
+  ClientHeight = 517
+  ClientWidth = 1045
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,17 +11,16 @@ object CadProduto: TCadProduto
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1540
+    Width = 1045
     Height = 81
     Align = alTop
     TabOrder = 0
@@ -36,6 +32,7 @@ object CadProduto: TCadProduto
       Align = alLeft
       Caption = 'Excluir'
       TabOrder = 0
+      Visible = False
       OnClick = BtExcluirClick
     end
     object BtNovo: TBitBtn
@@ -59,7 +56,7 @@ object CadProduto: TCadProduto
       OnClick = BtEditarClick
     end
     object ExportarDados: TButton
-      Left = 1456
+      Left = 961
       Top = 1
       Width = 83
       Height = 79
@@ -69,7 +66,7 @@ object CadProduto: TCadProduto
       OnClick = ExportarDadosClick
     end
     object btnImprimirProdutos: TBitBtn
-      Left = 1363
+      Left = 868
       Top = 1
       Width = 93
       Height = 79
@@ -82,15 +79,24 @@ object CadProduto: TCadProduto
   object Panel2: TPanel
     Left = 0
     Top = 81
-    Width = 1540
+    Width = 1045
     Height = 48
     Align = alTop
+    Padding.Top = 12
+    Padding.Right = 10
+    Padding.Bottom = 12
     TabOrder = 1
     object BuscaProduto: TLabel
-      Left = 1184
-      Top = 12
+      AlignWithMargins = True
+      Left = 680
+      Top = 13
       Width = 97
-      Height = 19
+      Height = 22
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 5
+      Margins.Bottom = 0
+      Align = alRight
       Caption = 'Busca Produto'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -98,128 +104,105 @@ object CadProduto: TCadProduto
       Font.Name = 'Times New Roman'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 19
     end
     object Busca: TEdit
-      Left = 1287
-      Top = 12
-      Width = 209
-      Height = 21
+      Left = 879
+      Top = 13
+      Width = 120
+      Height = 22
+      Align = alRight
       TabOrder = 0
+      OnExit = BuscaExit
+      ExplicitHeight = 21
     end
     object BuscaBotao: TButton
-      Left = 1502
-      Top = 11
+      Left = 999
+      Top = 13
       Width = 35
-      Height = 25
+      Height = 22
+      Align = alRight
       Caption = 'Busca'
       TabOrder = 1
       OnClick = BuscaBotaoClick
+    end
+    object SomenteAtivo: TCheckBox
+      Left = 782
+      Top = 13
+      Width = 97
+      Height = 22
+      Align = alRight
+      Caption = 'Somente Ativo?'
+      TabOrder = 2
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 129
-    Width = 1540
-    Height = 439
+    Width = 1045
+    Height = 388
     Align = alClient
     TabOrder = 2
-    object DBGrid1: TDBGrid
+    object cxGrid1: TcxGrid
       Left = 1
       Top = 1
-      Width = 1538
-      Height = 437
-      Margins.Left = 10
-      Margins.Top = 10
-      Margins.Right = 10
+      Width = 1043
+      Height = 386
       Align = alClient
-      DataSource = Dbprod.DsQproduto
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-      ReadOnly = True
       TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDblClick = DBGrid1DblClick
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'cdproduto'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Width = 70
-          Visible = True
+      object cxGrid1DBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        Navigator.Buttons.First.Visible = True
+        Navigator.Buttons.PriorPage.Visible = True
+        Navigator.Buttons.Prior.Visible = True
+        Navigator.Buttons.Next.Visible = True
+        Navigator.Buttons.NextPage.Visible = True
+        Navigator.Buttons.Last.Visible = True
+        Navigator.Buttons.Insert.Visible = True
+        Navigator.Buttons.Append.Visible = False
+        Navigator.Buttons.Delete.Visible = True
+        Navigator.Buttons.Edit.Visible = True
+        Navigator.Buttons.Post.Visible = True
+        Navigator.Buttons.Cancel.Visible = True
+        Navigator.Buttons.Refresh.Visible = True
+        Navigator.Buttons.SaveBookmark.Visible = True
+        Navigator.Buttons.GotoBookmark.Visible = True
+        Navigator.Buttons.Filter.Visible = True
+        ScrollbarAnnotations.CustomAnnotations = <>
+        OnCellDblClick = cxGrid1DBTableView1CellDblClick
+        DataController.DataSource = DsQproduto
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.Footer = True
+        object cxGrid1DBTableView1cdproduto: TcxGridDBColumn
+          DataBinding.FieldName = 'cdproduto'
         end
-        item
-          Expanded = False
-          FieldName = 'nmproduto'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Width = 538
-          Visible = True
+        object cxGrid1DBTableView1nmproduto: TcxGridDBColumn
+          DataBinding.FieldName = 'nmproduto'
+          Width = 536
         end
-        item
-          Expanded = False
-          FieldName = 'nmfamiliaproduto'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Width = 660
-          Visible = True
+        object cxGrid1DBTableView1nmfamiliaproduto: TcxGridDBColumn
+          Caption = 'Familia Produto'
+          DataBinding.FieldName = 'nmfamiliaproduto'
         end
-        item
-          Expanded = False
-          FieldName = 'vlproduto'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Title.Caption = 'valor unitario'
-          Width = 72
-          Visible = True
+        object cxGrid1DBTableView1vlproduto: TcxGridDBColumn
+          Caption = 'Vl. Produto'
+          DataBinding.FieldName = 'vlproduto'
         end
-        item
-          Expanded = False
-          FieldName = 'stproduto'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Width = 53
-          Visible = True
+        object cxGrid1DBTableView1Column1: TcxGridDBColumn
+          Caption = 'Vl. Custo'
+          DataBinding.FieldName = 'vlcusto'
         end
-        item
-          Expanded = False
-          FieldName = 'dtcadastro'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'idproduto'
-          Visible = False
-        end>
+      end
+      object cxGrid1Level1: TcxGridLevel
+        GridView = cxGrid1DBTableView1
+      end
     end
   end
   object frxRelatorio: TfrxReport
@@ -617,7 +600,7 @@ object CadProduto: TCadProduto
   object frxDBClientes: TfrxDBDataset
     UserName = 'frxDBClientes'
     CloseDataSource = False
-    DataSource = Dbprod.DsQproduto
+    DataSource = DsQproduto
     BCDToCurrency = False
     DataSetOptions = []
     Left = 1400
@@ -658,5 +641,77 @@ object CadProduto: TCadProduto
   object frxDialogControls1: TfrxDialogControls
     Left = 1336
     Top = 409
+  end
+  object DsQproduto: TDataSource
+    DataSet = Qproduto
+    Left = 584
+    Top = 288
+  end
+  object Qproduto: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From produto p'
+      'join estoque e on e.idproduto = p.idproduto'
+      
+        'left join produtosfamilia f on f.idprodutosfamilia = p.idfamilia' +
+        'produto')
+    Left = 584
+    Top = 232
+    object IntegerField1: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object WideStringField1: TWideStringField
+      DisplayLabel = 'Produto'
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Size = 100
+    end
+    object WideStringField2: TWideStringField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Size = 10
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object BooleanField1: TBooleanField
+      DisplayLabel = 'Ativo'
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object DateField1: TDateField
+      DisplayLabel = 'Data Cadastro'
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object Qprodutovlproduto: TSingleField
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+      currency = True
+    end
+    object Qprodutovlcusto: TSingleField
+      FieldName = 'vlcusto'
+      Origin = 'vlcusto'
+      currency = True
+    end
+    object Qprodutonmfamiliaproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object Qprodutoidprodutosfamilia: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idprodutosfamilia'
+      Origin = 'idprodutosfamilia'
+      ProviderFlags = []
+      ReadOnly = True
+    end
   end
 end

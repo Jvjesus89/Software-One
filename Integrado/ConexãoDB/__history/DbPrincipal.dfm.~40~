@@ -1,0 +1,23 @@
+﻿object DbMaster: TDbMaster
+  OldCreateOrder = False
+  Height = 136
+  Width = 225
+  object ConexãoDb: TFDConnection
+    Params.Strings = (
+      'Database=qdtjhdql'
+      'User_Name=qdtjhdql'
+      'Password=hoj-6NcVy920GJ4rbSAc4R5tDKWuhtgw'
+      'Server=kesavan.db.elephantsql.com'
+      'ExtendedMetadata=True'
+      'OidAsBlob=Yes'
+      'DriverID=PG')
+    Connected = True
+    Left = 64
+    Top = 40
+  end
+  object Dll32bit: TFDPhysPgDriverLink
+    VendorLib = 'E:\Sistema\Software-One\DLL\32 bit\libpq.dll'
+    Left = 136
+    Top = 40
+  end
+end

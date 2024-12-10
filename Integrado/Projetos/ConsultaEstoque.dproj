@@ -89,7 +89,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <UsePackages>true</UsePackages>
+        <UsePackages>false</UsePackages>
         <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
         <DCC_DcuOutput>E:\Sistema\Software-One\lib\</DCC_DcuOutput>
         <DCC_ExeOutput>E:\Sistema\Software-One\bin\</DCC_ExeOutput>
@@ -132,8 +132,6 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="..\ConsultaEstoque\Comandos\conectarINI.pas"/>
-        <DCCReference Include="..\ConsultaEstoque\Comandos\DropTable.pas"/>
-        <DCCReference Include="..\ConsultaEstoque\Comandos\CreatTable.pas"/>
         <DCCReference Include="..\ConsultaEstoque\Banco de dados\DbMovimento.pas">
             <Form>DbMov</Form>
             <FormType>dfm</FormType>
@@ -160,12 +158,12 @@
                     <Source Name="MainSource">ConsultaEstoque.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\ConsultaEstoque.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\bin\ConsultaEstoque.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>ConsultaEstoque.exe</RemoteName>
                         <Overwrite>true</Overwrite>

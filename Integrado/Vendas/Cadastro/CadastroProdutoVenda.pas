@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, Datasnap.Provider, Datasnap.DBClient,DbPrincipal,
-  Data.FMTBcd, Data.SqlExpr,Consultas;
+  Data.FMTBcd, Data.SqlExpr,Consultas, TelaCadastroVenda;
 
 type
   TTelaCadastroProdutoVenda = class(TForm)
@@ -54,6 +54,9 @@ type
     QQtdeDisponivelidestoque: TFDAutoIncField;
     QQtdeDisponivelidproduto: TIntegerField;
     QQtdeDisponivelqtdeestoque: TIntegerField;
+    MVendasItemcdproduto: TWideStringField;
+    lblCodigo: TLabel;
+    cdproduto: TDBEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -64,6 +67,9 @@ type
     procedure nmprodutoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure nmprodutoExit(Sender: TObject);
+    procedure MVendasItemAfterPost(DataSet: TDataSet);
+    procedure cdprodutoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
 
   private
   QtDisponivel : real;
@@ -142,6 +148,16 @@ end;
 
 
 
+procedure TTelaCadastroProdutoVenda.cdprodutoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  case key of
+   VK_return : begin
+   ConsultaProdutoGrid;
+   end;
+  end;
+end;
+
 procedure TTelaCadastroProdutoVenda.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
@@ -149,6 +165,11 @@ begin
    QQtdeDisponivel.Close;
 end;
 
+
+procedure TTelaCadastroProdutoVenda.MVendasItemAfterPost(DataSet: TDataSet);
+begin
+TelaCadastroVendas.TotalVenda;
+end;
 
 procedure TTelaCadastroProdutoVenda.nmprodutoExit(Sender: TObject);
 begin
@@ -212,23 +233,16 @@ begin
 end;
 
 procedure TTelaCadastroProdutoVenda.ConsultaProdutoGrid;
+var ConsultaProd : TConsultaProduto;
 begin
-    if trim(nmproduto.Text).IsEmpty then
-   begin
-   TelaConsultaProduto.QProduto.Close;
-   TelaConsultaProduto.QProduto.Sql.Clear;
-   TelaConsultaProduto.QProduto.Sql.Add('Select * From produto');
-   TelaConsultaProduto.QProduto.Open;
-   end
-   else
-   begin
-   TelaConsultaProduto.QProduto.Close;
-   TelaConsultaProduto.QProduto.Sql.Clear;
-   TelaConsultaProduto.QProduto.Sql.Add('Select * From produto where nmproduto like :PNmproduto');
-   TelaConsultaProduto.QProduto.ParamByName('PNmproduto').AsString := '%' + UpperCase(nmproduto.text)  + '%';
-   TelaConsultaProduto.QProduto.Open;
-   TelaConsultaProduto.ShowModal;
-   end;
+    ConsultaProd  := TConsultaProduto.New;
+  try
+    ConsultaProd.codigo := (cdproduto.Text);
+    ConsultaProd.descricao := nmproduto.Text;
+    ConsultaProd.ConsultaProduto;
+  finally
+    ConsultaProd.Free;
+  end;
 end;
 
 

@@ -47,7 +47,6 @@ object ProdutoMov1: TProdutoMov1
       Height = 21
       Caption = 'Busca'
       TabOrder = 1
-      OnClick = Button1Click
     end
   end
   object DBGrid1: TDBGrid

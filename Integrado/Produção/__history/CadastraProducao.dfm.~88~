@@ -1,0 +1,1295 @@
+﻿object CadastroProducao: TCadastroProducao
+  Left = 0
+  Top = 62
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Cadastro Producao'
+  ClientHeight = 495
+  ClientWidth = 702
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlMaster: TPanel
+    Left = 0
+    Top = 0
+    Width = 702
+    Height = 495
+    Align = alClient
+    BevelOuter = bvNone
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    object Panel1: TPanel
+      Left = 0
+      Top = 0
+      Width = 702
+      Height = 49
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      object pnlProducao: TPanel
+        AlignWithMargins = True
+        Left = 5
+        Top = 5
+        Width = 132
+        Height = 44
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alLeft
+        BevelOuter = bvNone
+        Caption = 'Produ'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        VerticalAlignment = taAlignTop
+        object edtProducao: TDBEdit
+          Left = 0
+          Top = 20
+          Width = 132
+          Height = 24
+          Align = alBottom
+          TabOrder = 0
+        end
+      end
+      object pnlData: TPanel
+        AlignWithMargins = True
+        Left = 142
+        Top = 5
+        Width = 107
+        Height = 44
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alLeft
+        BevelOuter = bvNone
+        Caption = 'Data'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        VerticalAlignment = taAlignTop
+        object dtcadastro: TDateTimePicker
+          Left = 0
+          Top = 20
+          Width = 107
+          Height = 24
+          Align = alBottom
+          Date = 45514.000000000000000000
+          Time = 0.813977476849686400
+          DoubleBuffered = False
+          ParentDoubleBuffered = False
+          TabOrder = 0
+        end
+      end
+      object pnlPrevisao: TPanel
+        AlignWithMargins = True
+        Left = 254
+        Top = 5
+        Width = 107
+        Height = 44
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alLeft
+        BevelOuter = bvNone
+        Caption = 'Previs'#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        VerticalAlignment = taAlignTop
+        object dtprevisao: TDateTimePicker
+          Left = 0
+          Top = 20
+          Width = 107
+          Height = 24
+          Align = alBottom
+          Date = 45514.000000000000000000
+          Time = 0.813977476849686400
+          TabOrder = 0
+        end
+      end
+      object pnlCliente: TPanel
+        AlignWithMargins = True
+        Left = 366
+        Top = 5
+        Width = 208
+        Height = 44
+        Margins.Left = 5
+        Margins.Top = 5
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alLeft
+        Alignment = taLeftJustify
+        BevelOuter = bvNone
+        Caption = 'Cliente'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        VerticalAlignment = taAlignTop
+        object edtCliente: TDBEdit
+          Left = 0
+          Top = 20
+          Width = 208
+          Height = 24
+          Align = alBottom
+          TabOrder = 0
+          ExplicitWidth = 291
+        end
+      end
+    end
+    object pnlPA: TPanel
+      Left = 0
+      Top = 49
+      Width = 702
+      Height = 220
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 1
+      object ProdutoAcabado: TPageControl
+        Left = 0
+        Top = 0
+        Width = 702
+        Height = 220
+        ActivePage = ProdutoPA
+        Align = alClient
+        TabOrder = 0
+        ExplicitTop = -6
+        object ProdutoPA: TTabSheet
+          Caption = 'Produto Acabado'
+          object Panel2: TPanel
+            Left = 0
+            Top = 0
+            Width = 694
+            Height = 49
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object pnlcodigo: TPanel
+              AlignWithMargins = True
+              Left = 5
+              Top = 5
+              Width = 132
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              Alignment = taLeftJustify
+              BevelOuter = bvNone
+              Caption = 'C'#243'digo'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              VerticalAlignment = taAlignTop
+              object edtCodigo: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 132
+                Height = 24
+                Align = alBottom
+                DataField = 'cdproduto'
+                DataSource = DsMProducoesitensCampo
+                TabOrder = 0
+                OnKeyDown = edtCodigoKeyDown
+              end
+            end
+            object pnlProduto: TPanel
+              AlignWithMargins = True
+              Left = 142
+              Top = 5
+              Width = 291
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              Alignment = taLeftJustify
+              BevelOuter = bvNone
+              Caption = 'Produto'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              VerticalAlignment = taAlignTop
+              object edtProduto: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 291
+                Height = 24
+                Align = alBottom
+                DataField = 'nmproduto'
+                DataSource = DsMProducoesitensCampo
+                TabOrder = 0
+                OnKeyDown = edtProdutoKeyDown
+              end
+            end
+            object pnlqtde: TPanel
+              AlignWithMargins = True
+              Left = 438
+              Top = 5
+              Width = 132
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              BevelOuter = bvNone
+              Caption = 'Quantidade'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              VerticalAlignment = taAlignTop
+              object edtQtde: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 132
+                Height = 24
+                Align = alBottom
+                DataField = 'qtdeproducao'
+                DataSource = DsMProducoesitensCampo
+                TabOrder = 0
+              end
+            end
+            object pnlbotoesPA: TPanel
+              Left = 570
+              Top = 0
+              Width = 94
+              Height = 49
+              Align = alLeft
+              BevelOuter = bvNone
+              Padding.Left = 15
+              Padding.Top = 22
+              Padding.Right = 15
+              TabOrder = 3
+              object btnIIncluirPaClick: TBitBtn
+                Left = 15
+                Top = 22
+                Width = 25
+                Height = 27
+                Align = alLeft
+                Glyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000FFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8F8F8FFD7D8DAFFD7D8DAFFF8F8
+                  F8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF53555DFF161924FF161924FF5355
+                  5DFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF2E303AFF191B26FF191B26FF2E30
+                  3AFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF31333BFF1D1F29FF1D1F29FF3133
+                  3BFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF35373FFF21232CFF21232CFF3537
+                  3FFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFEFEFEFFFEFEFEFFFEFEFEFFFDFDFDFF393A42FF25272FFF25272FFF393A
+                  42FFFDFDFDFFFEFEFEFFFEFEFEFFFEFEFEFFFFFFFFFFFFFFFFFFF0F0F1FF9090
+                  95FF848589FF848589FF848489FF828388FF30323AFF292B33FF292B33FF3032
+                  3AFF828388FF848489FF848589FF848589FF909095FFF0F0F1FF99999DFF2E30
+                  37FF2D2F36FF2D2F36FF2D2F36FF2D2F36FF2D2F36FF2D2F36FF2D2F36FF2D2F
+                  36FF2D2F36FF2D2F36FF2D2F36FF2D2F36FF2E3037FF99999DFF97989BFF3133
+                  39FF303138FF303138FF303138FF303138FF303138FF303138FF303138FF3031
+                  38FF303138FF303138FF303138FF303138FF313339FF97989BFFABABAEFF3536
+                  3DFF35363DFF35363DFF35363DFF34353CFF34363CFF35363CFF35363CFF3436
+                  3CFF34353CFF35363DFF35363DFF35363DFF35363DFFABABAEFFFDFDFDFFD2D2
+                  D4FFCDCDCFFFCDCDCFFFCDCDCFFFCCCDCEFF44454BFF393A40FF393A40FF4445
+                  4BFFCDCDCEFFCDCDCFFFCDCDCFFFCDCDCFFFD2D2D4FFFDFDFDFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFDFF4D4E53FF3D3E43FF3D3E43FF4D4E
+                  53FFFDFDFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF515256FF414246FF414246FF5152
+                  56FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF555659FF454649FF454649FF5556
+                  59FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFF58595CFF49494CFF49494CFF5859
+                  5CFFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFFA1A1A2FF5C5C5EFF5C5C5EFFA1A1
+                  A2FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+                TabOrder = 0
+                OnClick = btnIIncluirPaClickClick
+              end
+              object btnexcluirpa: TBitBtn
+                Left = 40
+                Top = 22
+                Width = 25
+                Height = 27
+                Align = alLeft
+                Glyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000FFFFFFFFFEFE
+                  FEFFC4C5C8FF808187FFD8D8DAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFAFAFAFF999A9FFF8F9095FFF5F5F6FFFFFFFFFFFFFFFFFFB7B8
+                  BBFF1D202AFF181B25FF282B34FFD2D2D4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFAFAFAFF60626AFF181B25FF181B25FF52555DFFF5F5F6FFDFDFE1FF2225
+                  2EFF1B1E27FF1B1E27FF1B1E27FF2C2F38FFD2D3D5FFFFFFFFFFFFFFFFFFFAFA
+                  FAFF63656CFF1C1F29FF1B1E27FF1B1E27FF1C1F29FF828489FFDBDBDCFF2023
+                  2CFF1F212BFF1E212AFF1F222BFF1F222BFF30323BFFD3D4D5FFF9F9F9FF6668
+                  6EFF20232CFF1F222BFF1E212AFF1F222BFF20222BFF797B80FFFEFEFEFF9A9A
+                  9FFF24262FFF23252EFF22252DFF23262EFF24262EFF33353EFF5F6167FF2426
+                  2EFF23262EFF22252DFF23262EFF23252EFF45464DFFEAEAEBFFFFFFFFFFFEFE
+                  FEFF9B9B9FFF282A32FF272931FF272931FF282A32FF282A32FF282A32FF282A
+                  32FF272931FF282A32FF272931FF484A50FFE8E8E9FFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFEFEFEFF9D9EA1FF2C2E35FF2C2D35FF2B2D34FF2B2D34FF2B2D34FF2B2D
+                  34FF2C2E35FF2B2D35FF4B4D53FFE8E8E9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFEFEFEFF9D9EA1FF303138FF2F3137FF2F3137FF2F3137FF2F31
+                  37FF303238FF4D4E54FFE9E9EAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFAFAFAFF747479FF34353CFF33353BFF33353BFF33353BFF3335
+                  3BFF34363CFF424349FFD7D7D8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFAFAFAFF77787BFF393B40FF383A3FFF38393EFF38393EFF38393EFF3839
+                  3EFF393A3FFF383A3FFF47494DFFD8D8D9FFFFFFFFFFFFFFFFFFFFFFFFFFFAFA
+                  FBFF7B7B7EFF3E3F43FF3D3E43FF3C3D42FF3D3E43FF3C3D42FF3C3D42FF3C3D
+                  42FF3C3D42FF3D3E43FF3D3E43FF4B4C51FFD9D9DAFFFFFFFFFFFEFEFEFF7F7F
+                  82FF414246FF414246FF404145FF414146FF404145FF5C5D61FF9B9C9EFF4141
+                  45FF414146FF404145FF414246FF414246FF4F5054FFDCDCDDFFD7D7D8FF4545
+                  49FF454649FF444548FF454649FF454549FF69696DFFEDEDEDFFFEFEFEFFA8A8
+                  AAFF454549FF454549FF444548FF454649FF454649FF898A8BFFF0F0F1FF5656
+                  59FF49494CFF49494CFF49494CFF6D6D6FFFF2F2F2FFFFFFFFFFFFFFFFFFFEFE
+                  FEFFAAAAABFF49494CFF49494CFF49494CFF49494CFFADADAFFFFFFFFFFFDCDC
+                  DCFF5A5A5CFF4D4D4FFF707071FFF2F2F2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFEFEFEFFACACADFF4D4D4FFF4D4D4FFF9E9E9FFFFEFEFEFFFFFFFFFFFFFF
+                  FFFFE9E9E9FFC4C4C5FFF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                  FFFFFFFFFFFFFEFEFEFFD5D5D5FFCECECFFFFEFEFEFFFFFFFFFF}
+                TabOrder = 1
+                OnClick = btnexcluirpaClick
+                ExplicitLeft = 23
+              end
+            end
+          end
+          object cxGrid1: TcxGrid
+            Left = 0
+            Top = 49
+            Width = 694
+            Height = 143
+            Align = alClient
+            TabOrder = 1
+            object cxGrid1DBTableView1: TcxGridDBTableView
+              Navigator.Buttons.CustomButtons = <>
+              Navigator.Buttons.First.Visible = True
+              Navigator.Buttons.PriorPage.Visible = True
+              Navigator.Buttons.Prior.Visible = True
+              Navigator.Buttons.Next.Visible = True
+              Navigator.Buttons.NextPage.Visible = True
+              Navigator.Buttons.Last.Visible = True
+              Navigator.Buttons.Insert.Visible = True
+              Navigator.Buttons.Append.Visible = False
+              Navigator.Buttons.Delete.Visible = True
+              Navigator.Buttons.Edit.Visible = True
+              Navigator.Buttons.Post.Visible = True
+              Navigator.Buttons.Cancel.Visible = True
+              Navigator.Buttons.Refresh.Visible = True
+              Navigator.Buttons.SaveBookmark.Visible = True
+              Navigator.Buttons.GotoBookmark.Visible = True
+              Navigator.Buttons.Filter.Visible = True
+              ScrollbarAnnotations.CustomAnnotations = <>
+              DataController.DataSource = DsProducoesitens
+              DataController.Summary.DefaultGroupSummaryItems = <>
+              DataController.Summary.FooterSummaryItems = <>
+              DataController.Summary.SummaryGroups = <>
+              OptionsView.Footer = True
+              OptionsView.GroupByBox = False
+              object cxGrid1DBTableView1cdproduto: TcxGridDBColumn
+                Caption = 'C'#243'digo'
+                DataBinding.FieldName = 'cdproduto'
+              end
+              object cxGrid1DBTableView1nmproduto: TcxGridDBColumn
+                Caption = 'Produto'
+                DataBinding.FieldName = 'nmproduto'
+                Width = 300
+              end
+              object cxGrid1DBTableView1qtdeproducao: TcxGridDBColumn
+                Caption = 'Qtde'
+                DataBinding.FieldName = 'qtdeproducao'
+              end
+              object cxGrid1DBTableView1datafinalizacao: TcxGridDBColumn
+                Caption = 'Data Finalizacao'
+                DataBinding.FieldName = 'datafinalizacao'
+              end
+            end
+            object cxGrid1Level1: TcxGridLevel
+              GridView = cxGrid1DBTableView1
+            end
+          end
+        end
+      end
+    end
+    object Panel3: TPanel
+      Left = 0
+      Top = 269
+      Width = 702
+      Height = 226
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 2
+      object Materiaprima: TPageControl
+        Left = 0
+        Top = 0
+        Width = 702
+        Height = 226
+        ActivePage = TabSheet1
+        Align = alClient
+        TabOrder = 0
+        object TabSheet1: TTabSheet
+          Caption = 'Materia Prima'
+          object Panel4: TPanel
+            Left = 0
+            Top = 0
+            Width = 694
+            Height = 49
+            Align = alTop
+            BevelOuter = bvNone
+            TabOrder = 0
+            object Panel5: TPanel
+              AlignWithMargins = True
+              Left = 5
+              Top = 5
+              Width = 132
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              Alignment = taLeftJustify
+              BevelOuter = bvNone
+              Caption = 'C'#243'digo'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              VerticalAlignment = taAlignTop
+              object edtCodigoMP: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 132
+                Height = 24
+                Align = alBottom
+                TabOrder = 0
+              end
+            end
+            object Panel6: TPanel
+              AlignWithMargins = True
+              Left = 142
+              Top = 5
+              Width = 291
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              Alignment = taLeftJustify
+              BevelOuter = bvNone
+              Caption = 'Produto'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 1
+              VerticalAlignment = taAlignTop
+              object edtProdutoMP: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 291
+                Height = 24
+                Align = alBottom
+                TabOrder = 0
+              end
+            end
+            object Panel7: TPanel
+              AlignWithMargins = True
+              Left = 438
+              Top = 5
+              Width = 132
+              Height = 44
+              Margins.Left = 5
+              Margins.Top = 5
+              Margins.Right = 0
+              Margins.Bottom = 0
+              Align = alLeft
+              BevelOuter = bvNone
+              Caption = 'Quantidade'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              VerticalAlignment = taAlignTop
+              object edtQtdeMP: TDBEdit
+                Left = 0
+                Top = 20
+                Width = 132
+                Height = 24
+                Align = alBottom
+                TabOrder = 0
+              end
+            end
+            object Panel8: TPanel
+              Left = 570
+              Top = 0
+              Width = 94
+              Height = 49
+              Align = alLeft
+              BevelOuter = bvNone
+              Padding.Left = 15
+              Padding.Top = 22
+              Padding.Right = 15
+              TabOrder = 3
+              object SpeedButton1: TSpeedButton
+                Left = 15
+                Top = 22
+                Width = 33
+                Height = 27
+                Align = alLeft
+                Glyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000000000000000
+                  00000000000000000002000000070000000C0000001000000012000000110000
+                  000E000000080000000200000000000000000000000000000000000000000000
+                  000100000004000101120D2A1D79184E36C6216B4BFF216B4BFF216C4BFF1A53
+                  3AD20F2F21840001011500000005000000010000000000000000000000000000
+                  0005050F0A351C5B40DC24805CFF29AC7EFF2CC592FF2DC894FF2DC693FF2AAE
+                  80FF258560FF1A563DD405110C3D00000007000000010000000000000003040E
+                  0A31206548ED299D74FF2FC896FF2EC996FF56D4ACFF68DAB5FF3BCD9DFF30C9
+                  96FF32CA99FF2BA479FF227050F805110C3D00000005000000000000000A1A57
+                  3DD02EA57CFF33CA99FF2EC896FF4CD2A8FF20835CFF00673BFF45BE96FF31CB
+                  99FF31CB98FF34CC9CFF31AD83FF1B5C41D300010113000000020B23185E2E8A
+                  66FF3BCD9EFF30CA97FF4BD3A9FF349571FF87AF9DFFB1CFC1FF238A60FF45D3
+                  A8FF36CF9FFF33CD9BFF3ED0A3FF319470FF0F32237F00000007184D37B63DB3
+                  8CFF39CD9FFF4BD5A9FF43A382FF699782FFF8F1EEFFF9F3EEFF357F5DFF56C4
+                  A1FF43D5A8FF3ED3A4FF3CD1A4FF41BC95FF1B5C43CD0000000B1C6446DF4BCA
+                  A4FF44D2A8FF4FB392FF4E826AFFF0E9E6FFC0C3B5FFEFE3DDFFCEDDD4FF1B75
+                  4FFF60DCB8FF48D8ACFF47D6AAFF51D4ACFF247A58F80000000E217050F266D9
+                  B8FF46D3A8FF0B6741FFD2D2CBFF6A8F77FF116B43FF73967EFFF1E8E3FF72A2
+                  8BFF46A685FF5EDFBAFF4CD9AFFF6BE2C2FF278460FF020604191E684ADC78D9
+                  BEFF52DAB1FF3DBA92FF096941FF2F9C76FF57DEB8FF2D9973FF73967EFFF0EA
+                  E7FF4F886CFF5ABB9AFF5BDEB9FF7FE2C7FF27835FF80000000C19523BAB77C8
+                  B0FF62E0BCFF56DDB7FF59DFBAFF5CE1BDFF5EE2BEFF5FE4C1FF288C67FF698E
+                  76FFE6E1DCFF176B47FF5FD8B4FF83D5BDFF1E674CC60000000909201747439C
+                  7BFF95ECD6FF5ADFBAFF5EE2BDFF61E4BFFF64E6C1FF67E6C5FF67E8C7FF39A1
+                  7EFF1F6D4AFF288B64FF98EFD9FF4DAC8CFF1036286D00000004000000041C5F
+                  46B578C6ADFF9AEED9FF65E5C0FF64E7C3FF69E7C6FF6BE8C8FF6CE9C9FF6BEA
+                  C9FF5ED6B6FF97EDD7FF86D3BBFF237759D20102010C0000000100000001030A
+                  0718247B5BDA70C1A8FFB5F2E3FF98F0DAFF85EDD4FF75EBCEFF88EFD6FF9CF2
+                  DDFFBAF4E7FF78CDB3FF2A906DEA0615102E0000000200000000000000000000
+                  0001030A07171E694FB844AB87FF85D2BBFFA8E6D6FFC5F4EBFFABE9D8FF89D8
+                  C1FF4BB692FF237F60CB05130E27000000030000000000000000000000000000
+                  000000000001000000030A241B411B60489D258464CF2C9D77EE258867CF1F71
+                  56B00E3226560000000600000002000000000000000000000000}
+                ExplicitLeft = 10
+                ExplicitTop = 8
+                ExplicitHeight = 35
+              end
+              object SpeedButton2: TSpeedButton
+                Left = 46
+                Top = 22
+                Width = 33
+                Height = 27
+                Align = alRight
+                Glyph.Data = {
+                  36040000424D3604000000000000360000002800000010000000100000000100
+                  2000000000000004000000000000000000000000000000000000000000000000
+                  0000000000020000000C05031A46110852AB190C76E31D0E89FF1C0E89FF190C
+                  76E4120852AD06031B4D0000000E000000030000000000000000000000000000
+                  000301010519130A55A9211593FF2225AEFF2430C2FF2535CBFF2535CCFF2430
+                  C3FF2225AFFF211594FF140B58B20101051E0000000400000000000000020101
+                  03151C1270CD2522A6FF2D3DCCFF394BD3FF3445D1FF2939CDFF2839CDFF3344
+                  D0FF394AD4FF2D3CCDFF2523A8FF1C1270D20101051D00000003000000091912
+                  5BA72A27AAFF2F41D0FF3541C7FF2726ABFF3137BCFF384AD3FF384BD3FF3137
+                  BCFF2726ABFF3540C7FF2E40D0FF2927ACFF1A115EB10000000D08061C3D3129
+                  A2FD2C3CCCFF3842C6FF5F5DBDFFEDEDF8FF8B89CEFF3337B9FF3437B9FF8B89
+                  CEFFEDEDF8FF5F5DBDFF3741C6FF2B3ACDFF3028A4FF0907204A1E185F9F373B
+                  BCFF3042D0FF2621A5FFECE7ECFFF5EBE4FFF8F2EEFF9491D1FF9491D1FFF8F1
+                  EDFFF3E9E2FFECE6EBFF2621A5FF2E3FCFFF343ABEFF201A66B0312A92E03542
+                  CBFF3446D1FF2C2FB5FF8070ADFFEBDBD3FFF4EAE4FFF7F2EDFFF8F1EDFFF4E9
+                  E2FFEADAD1FF7F6FACFF2B2EB5FF3144D0FF3040CBFF312A95E53E37AEFA3648
+                  D0FF374AD3FF3A4ED5FF3234B4FF8A7FB9FFF6ECE7FFF5ECE6FFF4EBE5FFF6EB
+                  E5FF897DB8FF3233B4FF384BD3FF3547D2FF3446D1FF3E37AEFA453FB4FA4557
+                  D7FF3B50D5FF4C5FDAFF4343B7FF9189C7FFF7EFE9FFF6EEE9FFF6EFE8FFF7ED
+                  E8FF9087C5FF4242B7FF495DD8FF394CD4FF3F52D4FF443FB3FA403DA1DC5967
+                  DAFF5B6EDDFF4F4DBAFF8F89CAFFFBF6F4FFF7F1ECFFEDE1D9FFEDE0D9FFF7F0
+                  EAFFFAF5F2FF8F89CAFF4E4DB9FF576ADCFF5765D9FF403EA4E12E2D70987C85
+                  DDFF8798E8FF291D9BFFE5DADEFFF6EEEBFFEDDFDAFF816EA9FF816EA9FFEDDF
+                  D8FFF4ECE7FFE5D9DCFF291D9BFF8494E7FF7A81DDFF33317BAC111125356768
+                  D0FC9EACEDFF686FCEFF5646A1FFCCB6BCFF7A68A8FF4C4AB6FF4D4BB7FF7A68
+                  A8FFCBB5BCFF5646A1FF666DCCFF9BAAEEFF696CD0FD1212273F000000043B3B
+                  79977D84DFFFA5B6F1FF6D74D0FF2D219BFF5151B9FF8EA2ECFF8EA1ECFF5252
+                  BBFF2D219BFF6B72D0FFA2B3F0FF8086E0FF404183A700000008000000010303
+                  050C4E509DBC8087E2FFAEBDF3FFA3B6F1FF9DAFF0FF95A9EEFF95A8EEFF9BAD
+                  EFFFA2B3F0FFACBCF3FF838AE3FF4F52A0C10303051100000002000000000000
+                  000100000005323464797378D9F8929CEAFFA1AEEFFFB0BFF3FFB0BFF4FFA2AE
+                  EFFF939DE9FF7479DAF83234647D000000080000000200000000000000000000
+                  000000000000000000031213232D40437D935D61B5D07378DFFC7378DFFC5D61
+                  B5D040437D951212223000000004000000010000000000000000}
+                OnClick = SpeedButton2Click
+                ExplicitLeft = 55
+                ExplicitTop = 18
+                ExplicitHeight = 25
+              end
+            end
+          end
+          object cxGrid2: TcxGrid
+            Left = 0
+            Top = 49
+            Width = 694
+            Height = 149
+            Align = alClient
+            TabOrder = 1
+            object cxGridDBTableView1: TcxGridDBTableView
+              Navigator.Buttons.CustomButtons = <>
+              Navigator.Buttons.First.Visible = True
+              Navigator.Buttons.PriorPage.Visible = True
+              Navigator.Buttons.Prior.Visible = True
+              Navigator.Buttons.Next.Visible = True
+              Navigator.Buttons.NextPage.Visible = True
+              Navigator.Buttons.Last.Visible = True
+              Navigator.Buttons.Insert.Visible = True
+              Navigator.Buttons.Append.Visible = False
+              Navigator.Buttons.Delete.Visible = True
+              Navigator.Buttons.Edit.Visible = True
+              Navigator.Buttons.Post.Visible = True
+              Navigator.Buttons.Cancel.Visible = True
+              Navigator.Buttons.Refresh.Visible = True
+              Navigator.Buttons.SaveBookmark.Visible = True
+              Navigator.Buttons.GotoBookmark.Visible = True
+              Navigator.Buttons.Filter.Visible = True
+              ScrollbarAnnotations.CustomAnnotations = <>
+              DataController.DataSource = DsProducoesitensmp
+              DataController.Summary.DefaultGroupSummaryItems = <>
+              DataController.Summary.FooterSummaryItems = <
+                item
+                  Kind = skSum
+                  Column = cxGridDBTableView1qtde
+                end>
+              DataController.Summary.SummaryGroups = <>
+              OptionsView.Footer = True
+              OptionsView.GroupByBox = False
+              object cxGridDBTableView1cdproduto: TcxGridDBColumn
+                Caption = 'C'#243'digo'
+                DataBinding.FieldName = 'cdproduto'
+              end
+              object cxGridDBTableView1nmproduto: TcxGridDBColumn
+                Caption = 'Produto'
+                DataBinding.FieldName = 'nmproduto'
+                Width = 300
+              end
+              object cxGridDBTableView1qtde: TcxGridDBColumn
+                Caption = 'Qtde'
+                DataBinding.FieldName = 'qtde'
+              end
+            end
+            object cxGridLevel1: TcxGridLevel
+              GridView = cxGridDBTableView1
+            end
+          end
+        end
+      end
+    end
+  end
+  object Producao: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'select * from producoes where 1=2')
+    Left = 344
+    object ProducaoDTVENDA: TDateField
+      FieldName = 'DTVENDA'
+      Origin = 'DTVENDA'
+    end
+    object ProducaoCODCLI: TIntegerField
+      FieldName = 'CODCLI'
+      Origin = 'CODCLI'
+    end
+    object ProducaoCODCLI_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'CODCLI_1'
+      Origin = 'CODCLI'
+      ProviderFlags = []
+    end
+    object ProducaoCODIGO: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = []
+    end
+    object ProducaoRAZAO: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'RAZAO'
+      Origin = 'RAZAO'
+      ProviderFlags = []
+      Size = 100
+    end
+    object ProducaoFISICA_JURIDICA: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FISICA_JURIDICA'
+      Origin = 'FISICA_JURIDICA'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 1
+    end
+    object ProducaoCPF_CNPJ: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'CPF_CNPJ'
+      Origin = 'CPF_CNPJ'
+      ProviderFlags = []
+      Size = 14
+    end
+    object ProducaoCODEND: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'CODEND'
+      Origin = 'CODEND'
+      ProviderFlags = []
+    end
+    object ProducaoTELEFONE: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      ProviderFlags = []
+      Size = 15
+    end
+    object ProducaoTOTALVENDA: TFMTBCDField
+      FieldName = 'TOTALVENDA'
+      Origin = 'TOTALVENDA'
+      Precision = 18
+      Size = 2
+    end
+    object ProducaoNUMVENDA: TIntegerField
+      FieldName = 'NUMVENDA'
+      Origin = 'NUMVENDA'
+    end
+    object ProducaoCODVENDA: TIntegerField
+      FieldName = 'CODVENDA'
+      Origin = 'CODVENDA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+  end
+  object PProducoes: TDataSetProvider
+    DataSet = Producao
+    Left = 400
+  end
+  object Mproducoes: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'DTVENDA'
+        DataType = ftDate
+      end
+      item
+        Name = 'CODCLI'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODCLI_1'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODIGO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'RAZAO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'FISICA_JURIDICA'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'CPF_CNPJ'
+        DataType = ftString
+        Size = 14
+      end
+      item
+        Name = 'CODEND'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TELEFONE'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'TOTALVENDA'
+        DataType = ftFMTBcd
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'NUMVENDA'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODVENDA'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'PVenda'
+    StoreDefs = True
+    Left = 464
+    object MproducoesDTVENDA: TDateField
+      FieldName = 'DTVENDA'
+      Origin = 'DTVENDA'
+    end
+    object MproducoesCODCLI: TIntegerField
+      FieldName = 'CODCLI'
+      Origin = 'CODCLI'
+    end
+    object MproducoesCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = 'CODIGO'
+      ProviderFlags = []
+    end
+    object MproducoesRAZAO: TStringField
+      FieldName = 'RAZAO'
+      Origin = 'RAZAO'
+      ProviderFlags = []
+      Size = 100
+    end
+    object MproducoesFISICA_JURIDICA: TStringField
+      FieldName = 'FISICA_JURIDICA'
+      Origin = 'FISICA_JURIDICA'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 1
+    end
+    object MproducoesCPF_CNPJ: TStringField
+      FieldName = 'CPF_CNPJ'
+      Origin = 'CPF_CNPJ'
+      ProviderFlags = []
+      Size = 14
+    end
+    object MproducoesCODEND: TIntegerField
+      FieldName = 'CODEND'
+      Origin = 'CODEND'
+      ProviderFlags = []
+    end
+    object MproducoesTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      ProviderFlags = []
+      Size = 15
+    end
+    object MproducoesTOTALVENDA: TFMTBCDField
+      FieldName = 'TOTALVENDA'
+      Origin = 'TOTALVENDA'
+      Precision = 18
+      Size = 2
+    end
+    object MproducoesNUMVENDA: TIntegerField
+      FieldName = 'NUMVENDA'
+      Origin = 'NUMVENDA'
+    end
+  end
+  object DsProducoes: TDataSource
+    DataSet = Mproducoes
+    Left = 520
+  end
+  object Producoesitens: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'select * from Producoesitens pi'
+      'join produto p on pi.idproduto = p.idproduto  where 1=2')
+    Left = 440
+    Top = 160
+    object Producoesitensidproducoesitens: TFDAutoIncField
+      FieldName = 'idproducoesitens'
+      Origin = 'idproducoesitens'
+    end
+    object Producoesitensidproducao: TIntegerField
+      FieldName = 'idproducao'
+      Origin = 'idproducao'
+    end
+    object Producoesitensidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object Producoesitensqtdeproducao: TIntegerField
+      FieldName = 'qtdeproducao'
+      Origin = 'qtdeproducao'
+    end
+    object Producoesitensdatafinalizacao: TDateField
+      FieldName = 'datafinalizacao'
+      Origin = 'datafinalizacao'
+    end
+    object Producoesitensnmproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      ProviderFlags = []
+      Size = 100
+    end
+    object Producoesitenscdproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      ProviderFlags = []
+      Size = 10
+    end
+  end
+  object PProducoesitens: TDataSetProvider
+    DataSet = Producoesitens
+    Left = 496
+    Top = 160
+  end
+  object MProducoesitens: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'idproducoesitens'
+        Attributes = [faReadonly]
+        DataType = ftAutoInc
+      end
+      item
+        Name = 'idproducao'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'idproduto'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'qtdeproducao'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'datafinalizacao'
+        DataType = ftDate
+      end
+      item
+        Name = 'nmproduto'
+        Attributes = [faReadonly]
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'cdproduto'
+        Attributes = [faReadonly]
+        DataType = ftWideString
+        Size = 10
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'PProducoesitens'
+    StoreDefs = True
+    Left = 560
+    Top = 160
+    object MProducoesitensidproducao: TIntegerField
+      FieldName = 'idproducao'
+    end
+    object MProducoesitensidproduto: TIntegerField
+      FieldName = 'idproduto'
+    end
+    object MProducoesitensqtdeproducao: TIntegerField
+      FieldName = 'qtdeproducao'
+    end
+    object MProducoesitensdatafinalizacao: TDateField
+      FieldName = 'datafinalizacao'
+    end
+    object MProducoesitensnmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Size = 100
+    end
+    object MProducoesitenscdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Size = 10
+    end
+  end
+  object DsProducoesitens: TDataSource
+    DataSet = MProducoesitens
+    Left = 616
+    Top = 160
+  end
+  object producoesitensmp: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'select * from Producoesitensmp pimp'
+      'join produto p on pimp.idproduto = p.idproduto  where 1=2')
+    Left = 440
+    Top = 352
+    object producoesitensmpidproducoesitensmp: TFDAutoIncField
+      FieldName = 'idproducoesitensmp'
+      Origin = 'idproducoesitensmp'
+    end
+    object producoesitensmpidproducao: TIntegerField
+      FieldName = 'idproducao'
+      Origin = 'idproducao'
+      ProviderFlags = [pfInWhere]
+    end
+    object producoesitensmpidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInWhere]
+    end
+    object producoesitensmpqtde: TIntegerField
+      FieldName = 'qtde'
+      Origin = 'qtde'
+      ProviderFlags = [pfInWhere]
+    end
+    object producoesitensmpnmproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      ProviderFlags = [pfInWhere]
+      Size = 100
+    end
+    object producoesitensmpcdproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      ProviderFlags = [pfInWhere]
+      Size = 10
+    end
+  end
+  object Pproducoesitensmp: TDataSetProvider
+    DataSet = producoesitensmp
+    Left = 496
+    Top = 352
+  end
+  object Mproducoesitensmp: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'idproducoesitensmp'
+        Attributes = [faReadonly]
+        DataType = ftAutoInc
+      end
+      item
+        Name = 'idproducao'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'idproduto'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'qtde'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'nmproduto'
+        Attributes = [faReadonly]
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'cdproduto'
+        Attributes = [faReadonly]
+        DataType = ftWideString
+        Size = 10
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'Pproducoesitensmp'
+    StoreDefs = True
+    Left = 560
+    Top = 352
+    object Mproducoesitensmpidproducao: TIntegerField
+      FieldName = 'idproducao'
+    end
+    object Mproducoesitensmpidproduto: TIntegerField
+      FieldName = 'idproduto'
+    end
+    object Mproducoesitensmpqtde: TIntegerField
+      FieldName = 'qtde'
+    end
+    object Mproducoesitensmpnmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Size = 100
+    end
+    object Mproducoesitensmpcdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Size = 10
+    end
+  end
+  object DsProducoesitensmp: TDataSource
+    DataSet = Mproducoesitensmp
+    Left = 616
+    Top = 352
+  end
+  object DsMProducoesitensCampo: TDataSource
+    DataSet = MProducoesitensCampo
+    Left = 344
+    Top = 80
+  end
+  object MProducoesitensCampo: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'idproducoesitens'
+        Attributes = [faReadonly]
+        DataType = ftAutoInc
+      end
+      item
+        Name = 'idproducao'
+        DataType = ftInteger
+      end
+      item
+        Name = 'idproduto'
+        DataType = ftInteger
+      end
+      item
+        Name = 'qtdeproducao'
+        DataType = ftInteger
+      end
+      item
+        Name = 'datafinalizacao'
+        DataType = ftDate
+      end
+      item
+        Name = 'nmproduto'
+        DataType = ftWideString
+        Size = 100
+      end
+      item
+        Name = 'cdproduto'
+        DataType = ftWideString
+        Size = 10
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'PProducoesitens'
+    StoreDefs = True
+    Left = 280
+    Top = 80
+    object MProducoesitensCampoidproducao: TIntegerField
+      FieldName = 'idproducao'
+      Origin = 'idproducao'
+    end
+    object MProducoesitensCampoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+    end
+    object MProducoesitensCampoqtdeproducao: TIntegerField
+      FieldName = 'qtdeproducao'
+      Origin = 'qtdeproducao'
+    end
+    object MProducoesitensCampodatafinalizacao: TDateField
+      FieldName = 'datafinalizacao'
+      Origin = 'datafinalizacao'
+    end
+    object MProducoesitensCamponmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      ProviderFlags = []
+      Size = 100
+    end
+    object MProducoesitensCampocdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      ProviderFlags = []
+      Size = 10
+    end
+  end
+  object ProdutoComposicao: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'select * from produtoscomp pc '
+      'join produto p on p.idproduto = pc.idproduto'
+      '')
+    Left = 80
+    Top = 368
+    object ProdutoComposicaoidprodutocomp: TFDAutoIncField
+      FieldName = 'idprodutocomp'
+      Origin = 'idprodutocomp'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object ProdutoComposicaoidproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      Required = True
+    end
+    object ProdutoComposicaoidprodutomp: TIntegerField
+      FieldName = 'idprodutomp'
+      Origin = 'idprodutomp'
+    end
+    object ProdutoComposicaoqtdemp: TSingleField
+      FieldName = 'qtdemp'
+      Origin = 'qtdemp'
+    end
+    object ProdutoComposicaoidusuario: TIntegerField
+      FieldName = 'idusuario'
+      Origin = 'idusuario'
+    end
+    object ProdutoComposicaodtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+    end
+    object ProdutoComposicaonmproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object ProdutoComposicaocdproduto: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 10
+    end
+  end
+end

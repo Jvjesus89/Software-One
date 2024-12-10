@@ -14,13 +14,13 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client,Consultas, CadastroVendas;
+  FireDAC.Comp.Client,Consultas;
 
 type
   TTelaCadastroVendas = class(TForm)
     Label6: TLabel;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
+    edtrazao: TDBEdit;
     Label10: TLabel;
     DBEdit10: TDBEdit;
     ToolBar1: TToolBar;
@@ -45,13 +45,6 @@ type
     cxGrid1: TcxGrid;
     cxGridDBTableView1: TcxGridDBTableView;
     cxGridLevel1: TcxGridLevel;
-    GridVendasItemDBTableView1idvenda: TcxGridDBColumn;
-    GridVendasItemDBTableView1idproduto: TcxGridDBColumn;
-    GridVendasItemDBTableView1vlunitario: TcxGridDBColumn;
-    GridVendasItemDBTableView1qtvendido: TcxGridDBColumn;
-    GridVendasItemDBTableView1vlitem: TcxGridDBColumn;
-    GridVendasItemDBTableView1nmproduto: TcxGridDBColumn;
-    GridVendasItemDBTableView1vlproduto: TcxGridDBColumn;
     Venda: TFDQuery;
     PVenda: TDataSetProvider;
     MVenda: TClientDataSet;
@@ -69,7 +62,6 @@ type
     MVendadtvenda: TDateField;
     MVendanmcliente: TWideStringField;
     MVendanrdocumento: TIntegerField;
-    cxGridDBTableView1idareceber: TcxGridDBColumn;
     cxGridDBTableView1idcliente: TcxGridDBColumn;
     cxGridDBTableView1nmcliente: TcxGridDBColumn;
     cxGridDBTableView1idformapagamento: TcxGridDBColumn;
@@ -81,6 +73,17 @@ type
     cxGridDBTableView1idorigem: TcxGridDBColumn;
     cxGridDBTableView1dtbaixa: TcxGridDBColumn;
     cxGridDBTableView1idcontabancaria: TcxGridDBColumn;
+    GridVendasItemDBTableView1idvenda: TcxGridDBColumn;
+    GridVendasItemDBTableView1idproduto: TcxGridDBColumn;
+    GridVendasItemDBTableView1vlunitario: TcxGridDBColumn;
+    GridVendasItemDBTableView1qtvendido: TcxGridDBColumn;
+    GridVendasItemDBTableView1vlitem: TcxGridDBColumn;
+    GridVendasItemDBTableView1nmproduto: TcxGridDBColumn;
+    GridVendasItemDBTableView1vlproduto: TcxGridDBColumn;
+    edtcdcliente: TDBEdit;
+    Label2: TLabel;
+    Vendacdcliente: TWideStringField;
+    MVendacdcliente: TWideStringField;
     procedure BuscaClienteClick(Sender: TObject);
     procedure AdicionarClick(Sender: TObject);
     procedure ExcluirprodutoClick(Sender: TObject);
@@ -90,17 +93,19 @@ type
     procedure AdicionarTitutloClick(Sender: TObject);
     procedure ExxcluirAreceberClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure AdicionarExit(Sender: TObject);
-    procedure PageControl1Change(Sender: TObject);
-    procedure DBEdit8KeyDown(Sender: TObject; var Key: Word;
+    procedure edtrazaoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtcdclienteKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
   private
     TotalVendido: real;
     nrdocuemnto : integer;
-    procedure TotalVenda;
+
     procedure ConsultaCliente;
     { Private declarations }
   public
+  cadastrarOuEditar : integer;
+  procedure TotalVenda;
     { Public declarations }
   end;
 
@@ -153,19 +158,15 @@ begin
     MVenda.FieldByName('vlvenda').AsFloat := TotalVendido;
 
    // atualiza a venda
-   MVenda.ApplyUpdates(-1);
+   MVenda.ApplyUpdates(0);
    // atualiza vendas Item
-   TelaCadastroProdutoVenda.MVendasItem.ApplyUpdates(-1);
+   TelaCadastroProdutoVenda.MVendasItem.ApplyUpdates(0);
    // atualiza financeiro
-   CadastroAreceber.MAreceber.ApplyUpdates(-1);
+   CadastroAreceber.MAreceber.ApplyUpdates(0);
 
 
     ShowMessage('Venda '+ IntToStr(nrdocuemnto) +' realizada com sucesso');
     TelaCadastroVendas.Close;
-
-
-    CadastroDeVendas.QGridVendas.close;
-    CadastroDeVendas.QGridVendas.open;
 end;
 
 procedure TTelaCadastroVendas.Button2Click(Sender: TObject);
@@ -175,26 +176,29 @@ begin
 end;
 
 procedure TTelaCadastroVendas.ConsultaCliente;
+var ConsultaCli : TConsultaCliente;
 begin
-   if trim(DBEdit8.Text).IsEmpty then
-   begin
-   TelaConsultaCliente.Qcliente.close;
-   TelaConsultaCliente.Qcliente.Sql.Clear;
-   TelaConsultaCliente.Qcliente.Sql.Add('Select * From Clientes');
-   TelaConsultaCliente.Qcliente.Open;
-   end
-   else
-   begin
-   TelaConsultaCliente.Qcliente.Close;
-   TelaConsultaCliente.Qcliente.Sql.Clear;
-   TelaConsultaCliente.Qcliente.Sql.Add('Select * From Clientes where nmcliente like :PClientes');
-   TelaConsultaCliente.Qcliente.ParamByName('PClientes').AsString := '%' + UpperCase(DBEdit8.text)  + '%';
-   TelaConsultaCliente.Qcliente.Open;
-   TelaConsultaCliente.ShowModal;
-   end;
+    ConsultaCli  := TConsultaCliente.New;
+  try
+    ConsultaCli.codigo := (edtcdcliente.Text);
+    ConsultaCli.razao := edtrazao.Text;
+    ConsultaCli.ConsultaCliente;
+  finally
+    ConsultaCli.Free;
+  end;
 end;
 
-procedure TTelaCadastroVendas.DBEdit8KeyDown(Sender: TObject; var Key: Word;
+procedure TTelaCadastroVendas.edtcdclienteKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case key of
+   VK_return : begin
+   ConsultaCliente;
+   end;
+  end;
+end;
+
+procedure TTelaCadastroVendas.edtrazaoKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   case key of
@@ -234,6 +238,9 @@ procedure TTelaCadastroVendas.FormShow(Sender: TObject);
 var
    consultaNrVenda :   TConsultaNrVenda;
 begin
+if cadastrarOuEditar = 1 then
+begin
+  MVenda.Open;
   dtvenda.date := now;
   TelaCadastroProdutoVenda.MVendasItem.Open;
   CadastroAreceber.MAreceber.Open;
@@ -250,17 +257,26 @@ begin
       consultaNrVenda.Free;
   end;
    DBEdit10.text := IntToStr (nrdocuemnto);
+end;
+
+if cadastrarOuEditar = 2 then
+begin
+  MVenda.Open;
+  TelaCadastroProdutoVenda.MVendasItem.open;
+  CadastroAreceber.MAreceber.open;
+
+  MVenda.Edit;
+  TelaCadastroProdutoVenda.MVendasItem.Edit;
+  CadastroAreceber.MAreceber.Edit;
+  Dtvenda.date :=  venda.FieldByName('dtvenda').AsDatetime;
+
+end;
 
       // Restaura a customização da grid de um arquivo INI
   if FileExists(GetcurrentDir + '\ConfigGrid\LayoutGridVendasItem.ini') then
     GridVendasItemDBTableView1.RestoreFromIniFile(GetcurrentDir + '\ConfigGrid\LayoutGridVendasItem.ini');
 end;
 
-
-procedure TTelaCadastroVendas.PageControl1Change(Sender: TObject);
-begin
-  //TotalVenda
-end;
 
 procedure TTelaCadastroVendas.TotalVenda;
 var
@@ -276,11 +292,6 @@ begin
   TotalVendido :=   Total;
   Valor.text := FloatToStr(TotalVendido);
 
-end;
-
-procedure TTelaCadastroVendas.AdicionarExit(Sender: TObject);
-begin
-  TotalVenda;
 end;
 
 procedure TTelaCadastroVendas.AdicionarTitutloClick(Sender: TObject);

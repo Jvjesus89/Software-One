@@ -4,15 +4,37 @@ uses
   Vcl.Forms,
   TelaPrincipal in '..\TelaPrincipal.pas' {HubPrin},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  Producao in '..\Produção\Producao.pas' {TelaConsultaProducao},
+  CadastraProducao in '..\Produção\CadastraProducao.pas' {CadastroProducao},
+  DbPrincipal in '..\ConexãoDB\DbPrincipal.pas' {DbMaster: TDataModule},
+  CadProd in '..\CadastroProduto\Modulo\CadProd.pas' {CadProduto},
+  TelaCadastroDeProdutos in '..\CadastroProduto\Modulo\Telas\TelaCadastroDeProdutos.pas' {TelaCadastroProduto},
+  conectarINI in '..\CadastroProduto\Comandos\conectarINI.pas',
+  Forms in '..\Padrão\Comandos Padrão\Forms.pas',
+  TelaExportacaoProduto in '..\CadastroProduto\Modulo\Telas\TelaExportacaoProduto.pas' {ExportaProdutos},
+  TelaComposicaoProdutos in '..\CadastroProduto\Modulo\Telas\TelaComposicaoProdutos.pas' {ProdutosComp},
+  Consultas in '..\Padrão\Comandos Padrão\Consultas.pas',
+  DBpadrao in '..\Padrão\DB Padrao\DBpadrao.pas' {dbConsultas: TDataModule},
+  ConsultaProduto in '..\Padrão\ConsultaPadrao\ConsultaProduto.pas' {TelaConsultaProduto},
+  TelaCadastroDeLotes in '..\CadastroProduto\Modulo\Telas\TelaCadastroDeLotes.pas' {CadastroLote},
+  EditarConexao in '..\TelaLogin\EditarConexao.pas' {AlterarDB},
+  TelaLogin in '..\TelaLogin\TelaLogin.pas' {TelaLoginU},
+  Produtos in '..\Produtos.pas' {ConsultaProduto},
+  ProdutoMov in '..\ProdutoMov.pas' {ProdutoMov1},
+  DbMovimento in '..\ConsultaEstoque\Banco de dados\DbMovimento.pas' {DbMov: TDataModule},
+  TelaConsultaEstoque in '..\ConsultaEstoque\TelaConsultaEstoque.pas' {ConsultaEstoque1},
+  CadastroMovimentacoes in '..\ConsultaEstoque\telas\CadastroMovimentacoes.pas' {TelaCadastroMovimentacoes};
 
 {$R *.res}
-
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
+  Application.CreateForm(TDbMaster, DbMaster);
+  Application.CreateForm(TdbConsultas, dbConsultas);
   Application.CreateForm(THubPrin, HubPrin);
+  Application.CreateForm(TTelaLoginU, TelaLoginU);
   Application.Run;
 end.
 

@@ -1,0 +1,102 @@
+unit TelaConsultaEstoque;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client,conectarINI, Forms, ConsultaProduto;
+
+type
+  TConsultaEstoque1 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Entrada: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    NomeProduto: TDBEdit;
+    Label6: TLabel;
+    FamiliaProduto: TDBEdit;
+    CodigoProduto: TDBEdit;
+    Panel3: TPanel;
+    Localizaproduto: TButton;
+    pnlConteiner: TPanel;
+    QConsulta: TFDQuery;
+    QConsultaqtmovimentada: TIntegerField;
+    QConsultaqtdisponivel: TIntegerField;
+    QConsultadtmovimento: TDateField;
+    QConsultatpmovimento: TWideStringField;
+    QConsultadtcadastro: TDateField;
+    QConsultaidmovimento: TIntegerField;
+    QConsultaidproduto: TIntegerField;
+    DsConsultaQ: TDataSource;
+    QConsultaidorigem: TIntegerField;
+    QConsultanrdocumento: TIntegerField;
+    Panel4: TPanel;
+    Shape1: TShape;
+    Label4: TLabel;
+    QSaldoAtual: TFDQuery;
+    QSaldoAtualidestoque: TFDAutoIncField;
+    QSaldoAtualidproduto: TIntegerField;
+    QSaldoAtualqtdeestoque: TIntegerField;
+    QConsultanmproduto: TWideStringField;
+    QConsultacdproduto: TWideStringField;
+    QConsultanmfamiliaproduto: TWideStringField;
+    procedure LocalizaprodutoClick(Sender: TObject);
+    procedure EntradaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaEstoque1: TConsultaEstoque1;
+
+implementation
+
+{$R *.dfm}
+
+uses DbMovimento, CadastroMovimentacoes;
+
+procedure TConsultaEstoque1.EntradaClick(Sender: TObject);
+
+begin
+     TelaCadastroMovimentacoes.ShowModal;
+end;
+
+
+procedure TConsultaEstoque1.FormClose(Sender: TObject; var Action: TCloseAction);
+var fechar :TFormAbreFecha;
+begin
+   fechar := TFormAbreFecha.Create(self);
+   try
+   fechar.fecharForm;
+   finally
+   fechar.Free;
+  end;
+end;
+
+procedure TConsultaEstoque1.LocalizaprodutoClick(Sender: TObject);
+var consultaProduto : TTelaConsultaProduto;
+begin
+   consultaProduto := TTelaConsultaProduto.Create(Application);
+  try
+    consultaProduto.FormStyle := fsMDIChild;
+    consultaProduto.Position := poMainFormCenter;
+    consultaProduto.WindowState := wsNormal;
+    //consultaestoque.idusuario := idusuario  ;
+    consultaProduto.Show;
+  finally
+    consultaProduto.Free;
+  end;
+
+end;
+
+end.

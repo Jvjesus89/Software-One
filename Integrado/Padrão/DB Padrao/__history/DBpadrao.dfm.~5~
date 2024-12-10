@@ -1,0 +1,74 @@
+﻿object dbConsultas: TdbConsultas
+  OldCreateOrder = False
+  Height = 170
+  Width = 241
+  object ConsultaProduto: TFDQuery
+    Connection = DbMaster.ConexãoDb
+    SQL.Strings = (
+      'Select * From produto')
+    Left = 25
+    Top = 8
+    object ConsultaProdutoidproduto: TFDAutoIncField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object ConsultaProdutonmproduto: TWideStringField
+      FieldName = 'nmproduto'
+      Origin = 'nmproduto'
+      Required = True
+      Size = 100
+    end
+    object ConsultaProdutocdproduto: TWideStringField
+      FieldName = 'cdproduto'
+      Origin = 'cdproduto'
+      Required = True
+      Size = 10
+    end
+    object ConsultaProdutoidfamiliaproduto: TIntegerField
+      FieldName = 'idfamiliaproduto'
+      Origin = 'idfamiliaproduto'
+    end
+    object ConsultaProdutovlproduto: TSingleField
+      FieldName = 'vlproduto'
+      Origin = 'vlproduto'
+    end
+    object ConsultaProdutonmfamiliaproduto: TWideStringField
+      FieldName = 'nmfamiliaproduto'
+      Origin = 'nmfamiliaproduto'
+      Size = 50
+    end
+    object ConsultaProdutostproduto: TBooleanField
+      AutoGenerateValue = arDefault
+      FieldName = 'stproduto'
+      Origin = 'stproduto'
+    end
+    object ConsultaProdutodtcadastro: TDateField
+      FieldName = 'dtcadastro'
+      Origin = 'dtcadastro'
+      Required = True
+    end
+    object ConsultaProdutoidusuario: TIntegerField
+      FieldName = 'idusuario'
+      Origin = 'idusuario'
+    end
+    object ConsultaProdutovlcusto: TSingleField
+      FieldName = 'vlcusto'
+      Origin = 'vlcusto'
+    end
+    object ConsultaProdutodtultalter: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'dtultalter'
+      Origin = 'dtultalter'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object ConsultaProdutoidusuarioultalter: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idusuarioultalter'
+      Origin = 'idusuarioultalter'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+end

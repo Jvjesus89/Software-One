@@ -1,0 +1,27 @@
+unit Forms;
+
+interface
+
+type
+  TFormAbreFecha = class
+  procedure fecharForm;
+  procedure AbrirForm;
+  end;
+implementation
+
+{ TFecharForm }
+
+uses TelaPrincipal;
+
+procedure TFormAbreFecha.AbrirForm;
+begin
+  HubPrin.SplitViewHub.Opened := False;
+end;
+
+procedure TFormAbreFecha.fecharForm;
+begin
+  TProducao.Free;
+  HubPrin.SplitViewHub.Opened := true;
+end;
+
+end.

@@ -231,6 +231,7 @@
       Origin = 'idcliente'
     end
     object MArecebernmcliente: TWideStringField
+      DisplayLabel = 'Cliente'
       FieldName = 'nmcliente'
       Origin = 'nmcliente'
       Size = 100
@@ -240,11 +241,13 @@
       Origin = 'idformapagamento'
     end
     object MArecebernmformapagamento: TWideStringField
+      DisplayLabel = 'Forma Pagamento'
       FieldName = 'nmformapagamento'
       Origin = 'nmformapagamento'
       Size = 50
     end
     object MArecebervltitulo: TSingleField
+      DisplayLabel = 'Vl. Titulo'
       FieldName = 'vltitulo'
       Origin = 'vltitulo'
     end
@@ -257,6 +260,7 @@
       Origin = 'dtcadastro'
     end
     object MAreceberdtvencimento: TDateField
+      DisplayLabel = 'Dt. Vencimento'
       FieldName = 'dtvencimento'
       Origin = 'dtvencimento'
     end

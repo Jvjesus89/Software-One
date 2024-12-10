@@ -81,6 +81,7 @@ procedure TTelaConsultaCliente.SelecionaCliente;
 begin
   try
     TelaCadastroVendas.MVenda.FieldByName('idcliente').AsInteger := Qcliente.FieldByName('idcliente').AsInteger ;
+    TelaCadastroVendas.MVenda.FieldByName('cdcliente').AsString := Qcliente.FieldByName('cdcliente').AsString ;
     TelaCadastroVendas.MVenda.FieldByName('nmcliente').AsString := Qcliente.FieldByName('nmcliente').AsString ;
     self.Close;
   except

@@ -14,7 +14,6 @@ type
     Busca: TEdit;
     Button1: TButton;
     DBGrid1: TDBGrid;
-    procedure Button1Click(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
@@ -31,18 +30,7 @@ implementation
 uses DbMovimento, TelaConsultaEstoque, CadastroMovimentacoes;
 
 
-procedure TProdutoMov1.Button1Click(Sender: TObject);
-begin
-     begin
-      with DbMov.QProduto1 do
-    begin
-      close;
-      sql.Clear;
-      sql.Add('Select * From produto Where nmproduto like '+#39+'%'+(Busca.Text)+'%'+#39);
-      open;
-    end;
-end;
-end;
+
    procedure TProdutoMov1.DBGrid1DblClick(Sender: TObject);
 begin
       ProdutoMov1.close;
